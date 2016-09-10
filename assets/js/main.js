@@ -22,26 +22,27 @@
   }
 
   //highlight
-  var keywords = document.getElementsByClassName('keywords')[0].value;
-  if (keywords.length > 0) {
-    var checkHighlight = document.getElementsByClassName('check-highlight');
-    var regex = keywords.split(' ').filter(filterFunc).join('|');
-    regex = regex.replace(/[-[\]{}()*+?.,\\^$]/g, "\\$&");
-    var matcher = new RegExp(regex, 'gi');
+  if ( document.getElementsByClassName('keywords').length > 0 ) {
+    var keywords = document.getElementsByClassName('keywords')[0].value;
+    if (keywords.length > 0) {
+      var checkHighlight = document.getElementsByClassName('check-highlight');
+      var regex = keywords.split(' ').filter(filterFunc).join('|');
+      regex = regex.replace(/[-[\]{}()*+?.,\\^$]/g, "\\$&");
+      var matcher = new RegExp(regex, 'gi');
 
-    var options = {
-      startTag :"<b class='highlight'>", // could be a hyperlink
-      endTag   :"</b>" // or you could use <i> instead of <b> ... want it? ask!
+      var options = {
+        startTag :"<b class='highlight'>", // could be a hyperlink
+        endTag   :"</b>" // or you could use <i> instead of <b> ... want it? ask!
+      }
+
+      function wrapper (match) {
+        return options.startTag + match + options.endTag;
+      }
+
+      for(var i = 0; i < checkHighlight.length; i++) {
+        checkHighlight[i].innerHTML = checkHighlight[i].textContent.replace(matcher, wrapper);
+      }
     }
-
-    function wrapper (match) {
-      return options.startTag + match + options.endTag;
-    }
-
-    for(var i = 0; i < checkHighlight.length; i++) {
-      checkHighlight[i].innerHTML = checkHighlight[i].textContent.replace(matcher, wrapper);
-    }
-
   }
 
   //convert our selector object into array using slice.call
@@ -72,14 +73,26 @@
     pie.appendChild(svg);
   });
 
-   //select all checkboxes
+  //select all checkboxes
   var selectAll = document.getElementById('select-all');
+    if (selectAll) {
+    selectAll.addEventListener('click', function () {
+      var checkboxes = document.getElementsByName('email');
+      for (var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].checked = this.checked;
+      }
+    }, false);
+  }
 
-  selectAll.addEventListener('click', function () {
-    var checkboxes = document.getElementsByName('email');
-    for (var i = 0; i < checkboxes.length; i++) {
-      checkboxes[i].checked = this.checked;
-    }
-  }, false);
+
+  // handling dropdown - should be gone soon
+  var loadUserDashboardForm = document.getElementById('load-user-dashboard-form');
+  if (loadUserDashboardForm) {
+    loadUserDashboardForm.addEventListener('submit', function (event) {
+      //use select as dropdown menu - untl the UI freamwork chosen
+      window.location = "/dashboard/" + document.getElementById('load-user-dashboard-select').value;
+      event.preventDefault();
+    });
+  }
 
 }());

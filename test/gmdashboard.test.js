@@ -48,25 +48,50 @@ describe('/dashboard', function () {
   });
 });
 
-describe('Access /dashboard/user with authorization', function () {
+describe('Access /dashboard/12 (someone else\'s dashboard) with admin credentials', function () {
 
   it('return dashboard for the user', function (done) {
 
-    var token =  JWT.sign({ id: 12, "name": "Simon", valid: true}, process.env.JWT_SECRET);
+    var token =  JWT.sign({ id: 12, "name": "Simon", valid: true }, process.env.JWT_SECRET);
+
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
 
       var options = {
-        method: "POST",
-        url: "/dashboard/user",
+        method: "GET",
+        url: "/dashboard/12",
         headers: { cookie: "token=" + token },
-        credentials: { id: "12", "name": "Simon", valid: true, scope: "admin"},
-        payload: {user: '12'}
+        credentials: { id: "12", "name": "Simon", valid: true }
       };
 
       server.inject(options, function (res) {
         expect(res.statusCode).to.equal(200);
+        server.stop(done);
+      });
+    });
+  });
+});
+
+describe('Access /dashboard/12 (someone else\'s dashboard) with no admin credentials', function () {
+
+  it('return dashboard for the user', function (done) {
+
+    var token =  JWT.sign({ id: 2016, "name": "NoAdmin", valid: true }, process.env.JWT_SECRET);
+
+    Server.init(0, function (err, server) {
+
+      expect(err).to.not.exist();
+
+      var options = {
+        method: "GET",
+        url: "/dashboard/123",
+        headers: { cookie: "token=" + token },
+        credentials: { id: "2016", "name": "NoAdmin", valid: true }
+      };
+
+      server.inject(options, function (res) {
+        expect(res.statusCode).to.equal(302);
         server.stop(done);
       });
     });
@@ -87,8 +112,8 @@ describe('Access /dashboard/client/4', function () {
         method: "POST",
         url: "/dashboard/client/4",
         headers: { cookie: "token=" + token },
-        credentials: { id: "12", "name": "Simon", valid: true, scope: "admin"},
-        payload: {idUser: '12'}
+        credentials: { id: "12", "name": "Simon", valid: true, scope: "user"},
+        payload: { idUser: '12'}
       };
 
       server.inject(options, function (res) {
