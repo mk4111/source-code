@@ -6,28 +6,7 @@
         {{#if favourite}}
           <i class="fa fa-star"></i>
         {{/if}}
-        {{#if keywords}}
-        <a href="/candidate/{{id}}/{{encodeKeywordsHelper keywords}}"><img src="{{picture}}" alt="" /></a>
-        <a href="/candidate/{{id}}/{{encodeKeywordsHelper keywords}}"><h1 class='check-highlight'>{{fullname}}</h1></a>
 
-        {{#each connectedTo}}
-          <ul>
-            {{#if this}}
-              <li><a href="/connected/{{encodeKeywordsHelper this}}"><span class='initials'>{{initials_of_connected_users this}}</span></a></li>
-            {{/if}}
-          </ul>
-        {{/each}}
-
-        {{#if clientProfile}}
-          <p><span class='status-client'>Client Employee</span></p>
-        {{/if}}
-
-
-        {{#each statusCurrent}}
-            <p><span class='status'>{{generateStatus this ../clients ../stages}}</span></p>
-        {{/each}}
-
-        {{else}}
         <a href="/candidate/{{id}}"><img src="{{picture}}" alt="" /></a>
         <a href="/candidate/{{id}}"><h1 class='check-highlight'>{{fullname}}</h1></a>
 
@@ -46,9 +25,6 @@
 
         {{#if clientProfile}}
           <p><span class='status-client'>Client Employee</span></p>
-        {{/if}}
-
-
         {{/if}}
 
         <p class='check-highlight'>{{headline}}</p>
