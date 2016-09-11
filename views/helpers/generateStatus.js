@@ -7,7 +7,9 @@ module.exports = function (statusCurrent, clients, stages) {
     if (statusCurrent.idClient.toString() === obj.id.toString()) { result += obj.name + " "; }
   });
 
-  if (statusCurrent.idStage in stages) { result += stages[statusCurrent.idStage].name; }
+  if (statusCurrent.idStage in stages) {
+    result += stages[statusCurrent.idStage].name; 
+  }
 
   return new Handlebars.SafeString(result);
 };
