@@ -1,0 +1,19 @@
+<div class="stages-bar">
+
+<!-- TODO: can we get this values from somehwere? does it have to be hardcoded? -->
+<!-- yep, already found it, there is an helper - list stages -->
+    <form action="" id="stages-bar-filter-form">
+      <input type="radio" name="stage-selected" value="0" checked> See All
+      <input type="radio" name="stage-selected" value="1"> Submitted ({{ countStages jobs 1 }})
+      <input type="radio" name="stage-selected" value="2"> Phone Screen ({{ countStages jobs 2 }})
+      <input type="radio" name="stage-selected" value="3"> Interview Stage 1 ({{ countStages jobs 3 }})
+      <input type="radio" name="stage-selected" value="4"> Interview Stage 2 ({{ countStages jobs 4 }})
+      <input type="radio" name="stage-selected" value="5"> Interview Stage 3 ({{ countStages jobs 5 }})
+      <input type="radio" name="stage-selected" value="6"> Technical Test ({{ countStages jobs 6 }})
+      <input type="radio" name="stage-selected" value="7"> Face to Face ({{ countStages jobs 7 }})
+      <input type="radio" name="stage-selected" value="8"> References Requested ({{ countStages jobs 8 }})
+      <input type="radio" name="stage-selected" value="9"> Offer ({{ countStages jobs 9 }})
+      <input type="radio" name="stage-selected" value="10"> Placement ({{ countStages jobs 10 }})
+    </form>
+
+</div>

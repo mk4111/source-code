@@ -8,7 +8,7 @@
   <div class="job-parent">
     {{#each stages as |candidates idStage|}}
       <div class="stage-child">
-      <div class="candidate stage-title">{{lookup (lookup ../../stagesDetail idStage) 'name'}}</div>
+      <div class="candidate stage-title">{{lookup (lookup ../../stages idStage) 'name'}}</div>
       {{#each candidates}}
         <div class="candidate">
           <form class="delete-status-dash" action="/status/delete" method="POST">

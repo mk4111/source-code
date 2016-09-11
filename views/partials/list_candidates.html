@@ -1,0 +1,7 @@
+{{#each jobs as |stages idJob|}}
+    {{#each stages as |candidates idStage|}}
+        {{#each candidates}}
+            {{>candidate clients=../../../clients stages=../../../stages}}
+        {{/each}}
+    {{/each}}
+{{/each}}
