@@ -5,13 +5,14 @@
 
   {{#if admin}}
   <div class="dropdown-users">
-    <form action="/dashboard/user" method="post">
+    <form action="/dashboard/user" method="post" id="load-user-dashboard-form">
 
-      <select class="users" name="user">
+      <select class="users" name="user" id="load-user-dashboard-select">
         {{#each users}}
           {{createOptionUser this ../userIdGoogle}}
         {{/each}}
       </select>
+
       <button type="submit">Load dashboard</button>
     </form>
   </div>

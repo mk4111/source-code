@@ -8,7 +8,6 @@
     "test": "node test/fixtures/initialize.js && node test/fixtures/copy-data.js && node test/fixtures/copy-status.js && sleep 5 && ./node_modules/lab/bin/lab ./test/*.test.js ./test/*/*.test.js -m 0 -c -a code -r lcov -o lcov.info -r console -o stdout",
     "coverage": "./node_modules/lab/bin/lab -r html -o ./test/coverage.html",
     "start": "node --max_old_space_size=400 lib/start.js --production",
-    "dev": "./node_modules/.bin/nodemon lib/start.js",
     "codeclimate": "CODECLIMATE_REPO_TOKEN=2a233c5d8243d7c785eedd5a366eb834c7ebe4bbfc2de5e951585cb839fbad9a ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./lcov.info"
   },
   "repository": {
@@ -42,18 +41,29 @@
     "linkedin-canonical-url": "^1.0.5",
     "mime-types": "^2.1.11",
     "redis-connection": "^4.0.3",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.2.2",
     "vision": "^4.1.0"
   },
   "devDependencies": {
+    "bower": "^1.7.9",
     "cheerio": "^0.20.0",
     "code": "^3.0.1",
     "codeclimate-test-reporter": "^0.3.2",
     "form-data": "^0.2.0",
-    "stream-to-promise": "^1.1.1",
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-coffee": "^2.3.2",
+    "gulp-debug": "^2.1.2",
+    "gulp-lab": "^1.0.6",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-util": "^3.0.7",
     "istanbul": "^0.4.3",
     "lab": "^10.7.1",
     "nock": "^8.0.0",
     "nodemon": "^1.9.2",
+    "stream-to-promise": "^1.1.1",
     "tape": "^4.5.1"
   }
 }
