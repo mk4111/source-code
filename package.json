@@ -24,6 +24,7 @@
   "dependencies": {
     "aguid": "^1.0.4",
     "bcrypt": "^0.8.6",
+    "bower": "^1.7.9",
     "btoa": "^1.1.2",
     "csvtojson": "^1.0.0",
     "elasticsearch": "^11.0.1",
