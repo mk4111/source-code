@@ -1,3 +1,5 @@
+// @TODO @speedingdeer: legacy, stop using pure js on client side like here (cs + jquery is much better and more readable)
+
 (function () {
   //favourite
   var favouriteForm = document.getElementsByClassName('favourite-form')[0];

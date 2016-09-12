@@ -22,3 +22,5 @@ lcov.info
 .vagrant
 test/fixtures/sample-auth-token-anita.json
 toad-bulk
+#bower
+bower_components
