@@ -8,7 +8,7 @@ Gulp.task('bower', function() {
 Gulp.task('bower-files', function() {
     /** copy over semantic-ui build **/
     Gulp.src([
-        './bower_components/recruitment-form-samantic-ui-build/semantic/dist/**/*',
+        './bower_components/semantic/dist/**/*',
     ])
     .pipe(Gulp.dest('./assets/vendor/semantic-ui'));
 
