@@ -11,7 +11,7 @@ describe('Count stages in given jobs array', function () {
 
   it('return number of days', function (done) {
 
-    let obj = { '1':1, '2':2 };
+    var obj = { '1':1, '2':2 };
     expect(typeof "string").to.equal(typeof json(obj));
     done();
 
