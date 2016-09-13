@@ -1,5 +1,20 @@
 {{>navigation-dashboard}}
 
+<div class="dashboard">
+
+<section class="navigation">
+  <div class="ui container">
+    {{>stages_bar jobs=myJobs stages=stages}}
+  </div>
+</section>
+
+<section class="candidates-list">
+  <div class="ui container">
+    {{>list_candidates jobs=myJobs}}
+  </div>
+</section>
+
+</div>
 
 <div class="new-dash-wrapper">
 
@@ -17,9 +32,6 @@
     </form>
   </div>
   {{/if}}
-
-  {{>stages_bar}}
-  {{>list_candidates jobs=myJobs}}
 
   <p class="pre-section">My Clients</p>
 

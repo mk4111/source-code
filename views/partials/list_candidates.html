@@ -1,7 +1,9 @@
 {{#each jobs as |stages idJob|}}
     {{#each stages as |candidates idStage|}}
         {{#each candidates}}
+            <div class="candidate-box-wrap stage-{{idStage}}">
             {{>candidate clients=../../../clients stages=../../../stages}}
+            </div>
         {{/each}}
     {{/each}}
 {{/each}}

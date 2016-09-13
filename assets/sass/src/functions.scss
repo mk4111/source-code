@@ -1,0 +1,4 @@
+@mixin transition($t) {
+    -webkit-transition: $t; /* For Safari 3.1 to 6.0 */
+    transition: $t;
+}

@@ -17,11 +17,11 @@ describe('Count stages in given jobs array', function () {
         {'2': "somejob"},
     ];
 
-    var numberOfStages = countStages(jobs, 2);
+    var numberOfStages = countStages(jobs, {id: 2});
     expect(numberOfStages).to.equal(2);
-    var numberOfStages = countStages(jobs, 4);
+    var numberOfStages = countStages(jobs, {id: 4});
     expect(numberOfStages).to.equal(1);
-    var numberOfStages = countStages(jobs, 1);
+    var numberOfStages = countStages(jobs, {id: 1});
     expect(numberOfStages).to.equal(0);
     done();
 

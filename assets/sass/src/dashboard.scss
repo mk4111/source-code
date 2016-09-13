@@ -1,0 +1,9 @@
+div.dashboard {
+    section.navigation {
+        div.stages-bar {
+            width: 100%;
+            text-align: center;
+            .button.inactive { opacity: .5; }
+        }
+    }
+}
