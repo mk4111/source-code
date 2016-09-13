@@ -1,13 +1,11 @@
 <div class="stages-bar">
 
-<!-- TODO: can we get this values from somehwere? does it have to be hardcoded? -->
-<!-- yep, already found it, there is an helper - list stages -->
-<div class="ui buttons">
-<button href="" class="ui button pink all-stages" value="stage-*">See All ({{countStages jobs "*"}})</button>
-<div class="or"></div>
-{{#each stages as |s|}}
-  <button href="" class="ui button {{stageToColor s}} inverted single-stage" value="stage-{{s.id}}">{{name}} ({{countStages ../jobs s}})</button>
-{{/each}}
-</div>
+  <div class="ui buttons">
+  <button href="" class="ui button pink all-stages" value="stage-*">See All ({{countStages jobs "*"}})</button>
+  <div class="or"></div>
+  {{#each stages as |s|}}
+    <button href="" class="ui button {{stageToColor s}} inverted single-stage" value="stage-{{s.id}}">{{name}} ({{countStages ../jobs s}})</button>
+  {{/each}}
+  </div>
 
 </div>
