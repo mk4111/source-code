@@ -5,9 +5,9 @@
 <section class="navigation">
   <div class="ui container">
     {{>stages_bar jobs=myJobs stages=stages}}
+    {{>dashboard_menu}}
   </div>
 </section>
-
 <section class="candidates-list">
   <div class="ui container">
     {{>list_candidates jobs=myJobs}}
@@ -32,9 +32,6 @@
     </form>
   </div>
   {{/if}}
-
-  {{>stages_bar}}
-  {{>list_candidates jobs=myJobs}}
 
   <p class="pre-section">My Clients</p>
 

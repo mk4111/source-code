@@ -29,3 +29,5 @@ $ ->
           else
             $(".candidate-box-wrap." + $(this).val()).each ->
               $(this).css 'display','block';
+
+  $('.ui.dropdown').dropdown();
