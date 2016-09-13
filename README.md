@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/FAC-GM/source-code.svg?branch=master)](https://travis-ci.org/FAC-GM/source-code)
 [![Code Climate](https://codeclimate.com/github/FAC-GM/app/badges/gpa.svg)](https://codeclimate.com/github/FAC-GM/app)
 [![Dependency Status](https://david-dm.org/FAC-GM/app.svg)](https://david-dm.org/FAC-GM/app)
-[![codecov.io](https://codecov.io/github/FAC-GM/source-code/coverage.svg?branch=master)](https://codecov.io/github/FAC-GM/app?branch=master)
+[![codecov.io](https://codecov.io/github/FAC-GM/source-code/coverage.svg?branch=master)](https://codecov.io/github/FAC-GM/source-code?branch=master)
 
 ## What?
 
