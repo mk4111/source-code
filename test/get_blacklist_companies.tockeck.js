@@ -1,3 +1,7 @@
+/**
+* This test is for some reason exclude from test group - figure out why
+*/
+
 var Code = require('code');
 var Lab = require('lab');
 var getBlacklistCompanies = require('../lib/helpers/get_blacklist_companies');
