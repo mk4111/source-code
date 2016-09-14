@@ -6,12 +6,20 @@ module.exports = function (jobs, stage) {
 
   if(!jobs) { return 0; }
 
-  if(stage == "*") { return Object.keys(jobs).length; }
+  var size = 0;
 
-  let result = 0;
-  let jobsStage = []
-  for(let jobKey in jobs) {
-    for (let l in jobs[jobKey]) { if (l == stage.id) { result++; } }
+  if(stage == "*") { 
+      for (var key in jobs) {
+        for (var s in jobs[key]) {
+            size += jobs[key][s].length;
+        }
+      }
+  } else {
+    for (var key in jobs) {
+        if (String(stage.id) in jobs[key]) {
+            size += jobs[key][stage.id].length;
+        }
+    }
   }
-  return result;
+  return size;
 }

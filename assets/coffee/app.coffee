@@ -1,9 +1,12 @@
 $ ->
   # stages bar
-  $(".stages-bar").find(".button").each ->
 
-    # remember the initial display mode
-    candidate_box_display_mode = $(".candidate-box-wrap").first().css("display");
+  if $(".stages-bar").length == 0 then return; # nothing to do here
+
+  # remember the initial display mode
+  candidate_box_display_mode = $(".candidate-box-wrap").first().css("display");
+
+  $(".stages-bar").find(".button").each ->
 
     $(this).click ->
       $(this).blur();
