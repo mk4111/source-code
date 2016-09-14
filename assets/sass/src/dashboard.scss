@@ -5,5 +5,10 @@ div.dashboard {
             text-align: center;
             .button.inactive { opacity: .5; }
         }
+        div.dashboard_menu {
+            margin-top: 40px;
+            .menu { text-align: center; }
+            margin-bottom: 40px;
+        }
     }
 }

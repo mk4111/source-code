@@ -1,9 +1,43 @@
+<div class="list_candidats">
+<div class="ui grid">
 {{#each jobs as |stages idJob|}}
     {{#each stages as |candidates idStage|}}
         {{#each candidates}}
-            <div class="candidate-box-wrap stage-{{idStage}}">
-            {{>candidate clients=../../../clients stages=../../../stages}}
+            <div class="row stage-{{idStage}} candidate-box-wrap">
+                <div class="two wide column picture">
+                    <a href="/candidate/{{id}}">
+                        <img class="ui small circular image" src="{{picture}}" alt=""/>
+                    </a>
+                </div>
+                <div class="four wide column name">
+                    <p><b>{{fullname}}</b></p>
+                    <p>{{headline}}</p>
+                    <p><b>{{current}}</b></p>
+                    <p>{{location}}</p>
+                </div>
+                <div class="four wide column details">
+                    {{#if cvDocumentLink}}
+                      <p><a href="{{cvDocumentLink}}" target="_blank">CV</a></p>
+                    {{/if}}
+                    <p>{{contacts.email}}</p>
+                    <p>{{contacts.phone}}</p>
+                </div>
+                <div class="two wide column client">
+                    <a href="/dashboard/client/{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
+                        <img class="ui small image" src="{{lookup (lookup ../../../clientsMap (lookup (lookup ../../../jobsMap idJob) "client") ) "logoUrl" }}" alt=""/>
+                    </a>
+                </div>
+                <div class="four wide column role">
+                    <p><b>{{lookup (lookup ../../../clientsMap (lookup (lookup ../../../jobsMap idJob) "client") ) "name" }}</b></p>
+                    <a href="/jobs/{{idJob}}"><p>{{lookup (lookup ../../../jobsMap idJob) "title" }}</p></a>
+                    <p>{{lookup (lookup ../../../jobsMap idJob) "salary" }}</p>
+                    <p>{{lookup (lookup (lookup ../../../jobsMap idJob) "address") "city" }}, 
+                        {{ lookup (lookup ../../../countries (lookup (lookup (lookup ../../../jobsMap idJob) "address") "countryID" )) "label" }}</p>
+                </div>
             </div>
+
         {{/each}}
     {{/each}}
 {{/each}}
+</div>
+</div>

@@ -1,43 +1,42 @@
-<div class="ui menu">
-
-  <div class="left menu">
-    <div class="ui dropdown item">
-      Candidate <i class="dropdown icon"></i>
+<div class="dashboard_menu">
+  <div class="ui grid">
+    <div class="two wide column picture">
       <div class="menu">
-        {{#each candidates as |fullname id|}}
-          <a class="item"  href="/candidate/{{id}}">{{fullname}}</a>
-        {{/each}}
+        <div class="ui dropdown item">
+          Candidate <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each candidates as |fullname id|}}
+              <a class="item"  href="/candidate/{{id}}">{{fullname}}</a>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="four wide column name"></div>
+    <div class="four wide column details"></div>
+    <div class="two wide column client">
+      <div class="menu">
+        <div class="ui dropdown item">
+          Client <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each clients}}
+              <a class="item"  href="/dashboard/client/{{id}}">{{name}}</a>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="four wide column role">
+      <div class="menu">
+        <div class="ui dropdown item">
+          Role <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each myRoles}}
+              <a class="item" href="/jobs/{{id}}">{{title}}</a>
+            {{/each}}
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="right menu">
-    <div class="ui dropdown item">
-      Client <i class="dropdown icon"></i>
-      <div class="menu">
-        My Clients
-        {{#each clients}}
-          <a class="item"  href="/dashboard/client/{{id}}">{{name}}</a>
-        {{/each}}
-        Other Clients (@TODO)
-      </div>
-    </div>
-  </div>
-
-  <div class="right menu">
-    <div class="ui dropdown item">
-      Role <i class="dropdown icon"></i>
-      <div class="menu">
-         My Roles
-        {{#each myRoles}}
-          <a class="item" href="/jobs/{{id}}">{{title}}</a>
-        {{/each}}
-        Other Roles
-        {{#each otherRoles}}
-          <a class="item" href="/jobs/{{id}}">{{title}}</a>
-        {{/each}}
-      </div>
-    </div>
-  </div>
-
 </div>

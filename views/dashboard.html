@@ -4,12 +4,8 @@
 
 <section class="navigation">
   <div class="ui container">
-    {{>stages_bar jobs=myJobs stages=stages}}
+    {{>stages_bar jobs=myJobs}}
     {{>dashboard_menu}}
-  </div>
-</section>
-<section class="candidates-list">
-  <div class="ui container">
     {{>list_candidates jobs=myJobs}}
   </div>
 </section>
@@ -32,26 +28,6 @@
     </form>
   </div>
   {{/if}}
-
-  <p class="pre-section">My Clients</p>
-
-  <div class="client-parent">
-    {{#each clients}}
-      <div class="client-child">
-        <form action="/dashboard/client/{{id}}" method="post">
-          <input type="hidden" name="idUser" value="{{../userIdGoogle}}">
-          <button type="submit"><img src="{{logoUrl}}" /></button>
-        </form>
-      </div>
-    {{/each}}
-  </div>
-
-<p class="pre-section">My Jobs</p>
-  {{>displayStatus jobs=myJobs}}
-
-
-<p class="pre-section">Other People's Jobs</p>
-  {{>displayStatus jobs=otherJobs}}
 
 
 </div>
