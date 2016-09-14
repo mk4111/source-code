@@ -3,7 +3,7 @@ $ ->
   $(".stages-bar").find(".button").each ->
 
     # remember the initial display mode
-    candidate_box_display_mode = $(".candidate-box-wrap.").first().css("display");
+    candidate_box_display_mode = $(".candidate-box-wrap").first().css("display");
 
     $(this).click ->
       $(this).blur();
