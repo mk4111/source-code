@@ -17,7 +17,7 @@ $ ->
         $(".stages-bar .single-stage").each ->
           $(this).addClass "inverted"
         $(".candidate-box-wrap").each ->
-          $(this).css 'display','block';
+          $(this).css 'display', candidate_box_display_mode;
 
       else
         clicked = $(this);
