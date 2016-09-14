@@ -1,6 +1,10 @@
 $ ->
   # stages bar
   $(".stages-bar").find(".button").each ->
+
+    # remember the initial display mode
+    candidate_box_display_mode = $(".candidate-box-wrap.").first().css("display");
+
     $(this).click ->
       $(this).blur();
       $(this).removeClass("active");
@@ -28,6 +32,6 @@ $ ->
               $(this).css 'display','none';
           else
             $(".candidate-box-wrap." + $(this).val()).each ->
-              $(this).css 'display','block';
+              $(this).css 'display', candidate_box_display_mode;
 
   $('.ui.dropdown').dropdown();
