@@ -18,7 +18,19 @@ div.dashboard {
                 .candidate-picture-wrap-inner {
                     display: table-cell;
                     vertical-align: middle;
-                    padding: 5px;
+                    img { 
+                        border: solid 5px; 
+                        max-width: 100px;
+                    }
+                }
+            }
+            .client-picture-wrap {
+                width: 100%;
+                height: 100%;
+                display: table;
+                .client-picture-wrap-inner {
+                    display: table-cell;
+                    vertical-align: middle;
                 }
             }
         }

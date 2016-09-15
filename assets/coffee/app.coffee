@@ -1,6 +1,12 @@
 $ ->
   # stages bar
 
+  $('img').each ->
+    $(this).on "error", ->
+      console.log("e")
+      $(this).attr('src', '/assets/img/client-logo.png')
+
+
   if $(".stages-bar").length == 0 then return; # nothing to do here
 
   # remember the initial display mode
