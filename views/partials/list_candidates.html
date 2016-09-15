@@ -5,9 +5,13 @@
         {{#each candidates}}
             <div class="row stage-{{idStage}} candidate-box-wrap">
                 <div class="two wide column picture">
-                    <a href="/candidate/{{id}}">
-                        <img class="ui small circular image" src="{{picture}}" alt=""/>
-                    </a>
+                    <div class="candidate-picture-wrap bckg-color {{stageToCss idStage 1}}">
+                        <div class="candidate-picture-wrap-inner">
+                            <a href="/candidate/{{id}}">
+                                <img class="ui small circular image" src="{{picture}}" alt=""/>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="four wide column name">
                     <p><b>{{fullname}}</b></p>

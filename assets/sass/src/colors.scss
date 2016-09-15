@@ -1,0 +1,17 @@
+$BLUE: #2185D0;
+$ORANGE: #F2711C;
+$GREEN: #21BA45;
+$YELLOW: #FBBD08;
+$PURPLE: #A333C8;
+$PINK: #E03997; 
+$RED: #d01919;
+
+.bckg-color {
+    &.blue { background: $BLUE; }
+    &.orange { background: $ORANGE; }
+    &.green { background: $GREEN; }
+    &.yellow { background: $YELLOW; }
+    &.purple { background: $PURPLE; }
+    &.pink { background: $PINK; }
+    &.red { background: $RED; }
+}

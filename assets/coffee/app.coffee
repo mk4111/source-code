@@ -15,7 +15,7 @@ $ ->
       
       if $(this).val() == "stage-*"
         $(".stages-bar .single-stage").each ->
-          $(this).addClass "inverted"
+          $(this).removeClass "inverted"
         $(".candidate-box-wrap").each ->
           $(this).css 'display', candidate_box_display_mode;
 
