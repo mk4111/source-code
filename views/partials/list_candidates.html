@@ -3,12 +3,12 @@
 {{#each jobs as |stages idJob|}}
     {{#each stages as |candidates idStage|}}
         {{#each candidates}}
-            <div class="row stage-{{idStage}} candidate-box-wrap">
+            <div class="row stage-{{idStage}} candidate-box-wrap candidate-id-{{id}} role-id-{{idJob}} client-id-{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
                 <div class="two wide column picture">
                     <div class="candidate-picture-wrap bckg-color">
                         <div class="candidate-picture-wrap-inner">
                             <a href="/candidate/{{id}}">
-                                <img class="ui small circular image color {{stageToCss idStage 1}}" src="{{picture}}" alt="" />
+                                <img class="ui small circular image color {{stageToCss idStage}}" src="{{picture}}" alt="" />
                             </a>
                         </div>
                     </div>
