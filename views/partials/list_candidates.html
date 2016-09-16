@@ -4,33 +4,40 @@
     {{#each stages as |candidates idStage|}}
         {{#each candidates}}
             <div class="row stage-{{idStage}} candidate-box-wrap candidate-id-{{id}} role-id-{{idJob}} client-id-{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
-                <div class="two wide column picture">
-                    <div class="candidate-picture-wrap bckg-color">
+                <div class="two wide column picture {{stageToCss idStage}}">
+                    <div class="candidate-picture-wrap">
                         <div class="candidate-picture-wrap-inner">
                             <a href="/candidate/{{id}}">
-                                <img class="ui small circular image color {{stageToCss idStage}}" src="{{picture}}" alt="" />
+                                <img class="ui small circular image color {{stageToCss idStage}}" src="{{picture}}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="four wide column name">
+                <div class="four wide column candidate-name {{stageToCss idStage}}">
                     <p><b>{{fullname}}</b></p>
                     <p>{{headline}}</p>
                     <p><b>{{current}}</b></p>
                     <p>{{location}}</p>
                 </div>
-                <div class="four wide column details">
+                <div class="four wide column candidate-details {{stageToCss idStage}}">
                     {{#if cvDocumentLink}}
-                      <p><a href="{{cvDocumentLink}}" target="_blank">CV</a></p>
+                      <p><b>CV:</b> <a href="{{cvDocumentLink}}" target="_blank">view</a></p>
                     {{/if}}
-                    <p>{{contacts.email}}</p>
-                    <p>{{contacts.phone}}</p>
+                    {{#if contacts.email }}
+                    <p><b>Email:</b> {{contacts.email}}</p>
+                    {{/if}}
+                    {{#if contacts.phone }}
+                    <p><b>Phone:</b> {{contacts.phone}}</p>
+                    {{/if}}
+                    {{#if salary }}
+                    <p><b>Salary:</b> {{salary}}</p>
+                    {{/if}}
                 </div>
                 <div class="two wide column client">
-                    <div class="client-picture-wrap bckg-color">
+                    <div class="client-picture-wrap ">
                         <div class="client-picture-wrap-inner">
                             <a href="/clients/{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
-                                <img class="ui small image" src="{{lookup (lookup ../../../clientsMap (lookup (lookup ../../../jobsMap idJob) "client") ) "logoUrl" }}" alt=""/>
+                                <img class="ui small image" src="{{lookup (lookup ../../../clientsMap (lookup (lookup ../../../jobsMap idJob) "client") ) "logoUrl" }}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
                             </a>
                         </div>
                     </div>
