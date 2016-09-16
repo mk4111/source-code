@@ -1,6 +1,6 @@
 <div class="stages-bar">
   <div class="ui buttons">
-  <button href="" class="ui button pink all-stages" value="stage-*">See All (<span class="stage-counter">{{countStages jobs "*"}}</span>)</button>
+  <button href="" class="ui button pink all-stages" value="stage-*">{{see_all}} (<span class="stage-counter">{{countStages jobs "*"}}</span>)</button>
   <div class="or"></div>
   {{#each stages as |s|}}
     <button href="" class="ui button {{stageToCss s}} single-stage stage-{{s.id}}" value="stage-{{s.id}}">{{name}} (<span class="stage-counter">{{countStages ../jobs s}}</span>)</button>

@@ -15,7 +15,7 @@
           <div class="fourteen wide ui column">
             <div class="stages-bar-wrap">
               <div class="stages-bar-wrap-inner">
-              {{>stages_bar jobs=u.jobs stages=../stages}}
+              {{>stages_bar jobs=u.jobs stages=../stages see_all="All"}}
               </div>
             </div>
           </div>
@@ -31,7 +31,7 @@
 
   <section class="navigation">
     <div class="ui container">
-      {{>stages_bar jobs=allJobs}}
+      {{>stages_bar jobs=allJobs see_all="See All"}}
       {{>dashboard_menu}}
       {{>list_candidates jobs=allJobs}}
     </div>

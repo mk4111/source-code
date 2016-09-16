@@ -61,9 +61,6 @@ $ ->
       $(".stages-bar .single-stage." + stageClass + " span.stage-counter").html String counter
 
 
-
-
-
   $(".dashboard .stages-bar").find(".button").each ->
     $(this).click ->
       # color ui and trigger filtering
