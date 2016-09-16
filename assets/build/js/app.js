@@ -81,7 +81,7 @@ $(function() {
       return $(".stages-bar .single-stage." + stageClass + " span.stage-counter").html(String(counter));
     });
   };
-  $(".dashboard.stages-bar").find(".button").each(function() {
+  $(".dashboard .stages-bar").find(".button").each(function() {
     return $(this).click(function() {
       var clicked;
       $(this).blur();
