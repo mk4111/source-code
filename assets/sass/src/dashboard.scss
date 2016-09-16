@@ -9,31 +9,39 @@ div.dashboard {
         }
         div.dashboard_menu {
             margin-top: 40px;
-            .menu { text-align: center; }
-            margin-bottom: 40px;
-        }
-        .column p {
             margin-bottom: 5px;
-        }
-        .column.picture {
-            border-bottom-left-radius: $border_radius;
-            border-top-left-radius: $border_radius;
-
-        }
-        .column.candidate-name {
-            padding-left: 0px;
-        }
-        .column.candidate-details {
-            border-bottom-right-radius: $border_radius;
-            border-top-right-radius: $border_radius;
-            padding-left: 0px;
-        }
-        .column.client img {
-            border-radius: $border_radius / 2;
+            .menu { text-align: center; }
         }
         div.list_candidats {
-            .candidate-box-wrap {
-                margin-bottom: 15px;
+            .candidate-box-wrap.row {
+
+                /** This are some Semantic-UI modification - should be rather cusomised in a buil */
+                padding-top: 0px;
+                .column {
+                    padding-top: 0.6rem;
+                    padding-bottom: 0.6rem;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                }
+                /***********************************************************************************/
+
+                .column p { margin-bottom: 5px; }
+                .column.picture {
+                    border-bottom-left-radius: $border_radius;
+                    border-top-left-radius: $border_radius;
+
+                }
+                .column.candidate-name {
+                    padding-left: 0px;
+                }
+                .column.candidate-details {
+                    border-bottom-right-radius: $border_radius;
+                    border-top-right-radius: $border_radius;
+                    padding-left: 0px;
+                }
+                .column.client img {
+                    border-radius: $border_radius / 2;
+                }
             }
             .candidate-details  a { color: $WHITE; }
             .candidate-picture-wrap {
