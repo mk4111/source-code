@@ -81,6 +81,11 @@ $ ->
           filters.stages = [clicked.val()];
       filter_results();
 
+  # little hack for allowing the cross page navigation
+  if window.location.hash && history.replaceState
+    $(".stages-bar .single-stage." + window.location.hash.replace('#','')).click();
+    history.replaceState null, null, ' '
+
   $('.ui.dropdown.candidates').dropdown {
     onChange: (f) -> 
       if f.length
@@ -107,3 +112,5 @@ $ ->
         filters.roles = [];
       filter_results();
   };
+
+

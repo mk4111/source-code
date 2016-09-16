@@ -8,14 +8,14 @@
         {{#each usersJobs as |u|}}
           <div class="ui row">
           <div class="two wide ui column">
-            <a href="/dashboard/{{u.user}}">
-              <img class="ui small circular image" src="/assets/img/team/{{u.user}}.jpg" onerror="this.src='/assets/img/client-logo.png'"/>
+            <a href="/dashboard/{{u.user.idGoogle}}">
+              <img class="ui small circular image" src="/assets/img/team/{{u.user.idGoogle}}.jpg" onerror="this.src='/assets/img/client-logo.png'"/>
             </a>
           </div>
           <div class="fourteen wide ui column">
             <div class="stages-bar-wrap">
               <div class="stages-bar-wrap-inner">
-              {{>stages_bar jobs=u.jobs stages=../stages see_all="All"}}
+              {{>stages_bar jobs=u.jobs stages=../stages user=u.user see_all="All" button_elem="a"}}
               </div>
             </div>
           </div>
@@ -31,7 +31,7 @@
 
   <section class="navigation">
     <div class="ui container">
-      {{>stages_bar jobs=allJobs see_all="See All"}}
+      {{>stages_bar jobs=allJobs user=me see_all="See All" button_elem="button"}}
       {{>dashboard_menu}}
       {{>list_candidates jobs=allJobs}}
     </div>
