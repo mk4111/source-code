@@ -8,7 +8,7 @@
         {{#each usersJobs as |u|}}
           <div class="ui row">
           <div class="two wide ui column">
-            <a href="/dashboard/{{id}}">
+            <a href="/dashboard/{{u.user}}">
               <img class="ui small circular image" src="/assets/img/team/{{u.user}}.jpg" onerror="this.src='/assets/img/client-logo.png'"/>
             </a>
           </div>
