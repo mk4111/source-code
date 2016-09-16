@@ -106,6 +106,10 @@ $(function() {
       return filter_results();
     });
   });
+  if (window.location.hash && history.replaceState) {
+    $(".stages-bar .single-stage." + window.location.hash.replace('#', '')).click();
+    history.replaceState(null, null, ' ');
+  }
   $('.ui.dropdown.candidates').dropdown({
     onChange: function(f) {
       if (f.length) {
