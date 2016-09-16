@@ -9,7 +9,7 @@
         <div class="menu">
           <div class="ui icon search input">
             <i class="search icon"></i>
-            <input type="text" placeholder="Search tags...">
+            <input type="text" placeholder="Candidate">
           </div>
           <div class="scrolling menu">
             {{#each candidates as |fullname id|}}
@@ -31,8 +31,9 @@
         <div class="menu">
           <div class="ui icon search input">
             <i class="search icon"></i>
-            <input type="text" placeholder="Search tags...">
+            <input type="text" placeholder="Client">
           </div>
+
           <div class="scrolling menu">
             {{#each clients}}
               <div class="item" data-value="client-id-{{id}}">
@@ -41,6 +42,7 @@
               </div>
             {{/each}}
           </div>
+
         </div>
       </div>
     </div>
@@ -51,9 +53,15 @@
         <i class="filter icon"></i>
         <span class="text">Roles</span>
         <div class="menu">
+          
           <div class="ui icon search input">
             <i class="search icon"></i>
-            <input type="text" placeholder="Search tags...">
+            <input type="text" placeholder="Role">
+          </div>
+
+          <div class="divider"></div>
+          <div class="header">
+            My Roles
           </div>
           <div class="scrolling menu">
             {{#each myRoles}}
@@ -63,6 +71,21 @@
               </div>
             {{/each}}
           </div>
+
+          <div class="divider"></div>
+          <div class="header">
+            Other Roles
+          </div>
+          <div class="scrolling menu">
+            {{#each otherRoles}}
+              <div class="item" data-value="role-id-{{id}}">
+                <!-- <div class="ui red empty circular label"></div> -->
+                {{title}}
+              </div>
+            {{/each}}
+          </div>
+
+
         </div>
       </div>
     </div>
