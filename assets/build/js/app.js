@@ -11,17 +11,19 @@ $(function() {
     roles: []
   };
   filter_results = function() {
+    var candidates, i;
     $(".candidate-box-wrap").each(function() {
-      var _, candidate, f, filtered, i, len, results, selected;
+      var _, candidate, f, filtered, j, len, results, selected;
       candidate = $(this);
       candidate.css('display', candidate_box_display_mode);
+      filtered = false;
       results = [];
       for (_ in filters) {
         selected = filters[_];
         if (selected.length > 0) {
           filtered = true;
-          for (i = 0, len = selected.length; i < len; i++) {
-            f = selected[i];
+          for (j = 0, len = selected.length; j < len; j++) {
+            f = selected[j];
             if (candidate.hasClass(f)) {
               filtered = false;
               break;
@@ -39,7 +41,45 @@ $(function() {
       }
       return results;
     });
-    return "if $(this).val() == \"stage-*\"\n  $(\".stages-bar .single-stage\").each ->\n    $(this).removeClass \"inverted\"\n  $(\".candidate-box-wrap\").each ->\n    $(this).css 'display', candidate_box_display_mode;\n\nelse\n  clicked = $(this);\n  $(\".stages-bar .single-stage\").each ->\n    if clicked.val() != $(this).val() then $(this).addClass(\"inverted\");\n\n  if $(\".stages-bar .single-stage:not(.iverted)\").length == 0\n    $(\".stages-bar .all-stages\").removeClass \"inverted\"\n  else\n    $(\".stages-bar .all-stages\").addClass \"inverted\"\n\n  $(\".stages-bar .single-stage\").each ->\n    if $(this).hasClass \"inverted\"\n      $(\".candidate-box-wrap.\" + $(this).val()).each ->\n        $(this).css 'display','none';\n    else\n      $(\".candidate-box-wrap.\" + $(this).val()).each ->\n        $(this).css 'display', candidate_box_display_mode;";
+    candidates = [];
+    $(".candidate-box-wrap").each(function() {
+      var candidate, f, filtered, j, k, len, selected;
+      candidate = $(this);
+      filtered = false;
+      for (k in filters) {
+        selected = filters[k];
+        if (selected.length > 0 && k !== 'stages') {
+          filtered = true;
+          for (j = 0, len = selected.length; j < len; j++) {
+            f = selected[j];
+            if (candidate.hasClass(f)) {
+              filtered = false;
+              break;
+            }
+          }
+          if (filtered) {
+            break;
+          }
+        }
+      }
+      if (!filtered) {
+        return candidates.push(candidate);
+      }
+    });
+    $(".stages-bar .all-stages span.stage-counter").html(String(candidates.length));
+    i = 1;
+    return $(".stages-bar .single-stage").each(function() {
+      var c, counter, j, len, stageClass;
+      counter = 0;
+      stageClass = "stage-" + String(i++);
+      for (j = 0, len = candidates.length; j < len; j++) {
+        c = candidates[j];
+        if (c.hasClass(stageClass)) {
+          counter++;
+        }
+      }
+      return $(".stages-bar .single-stage." + stageClass + " span.stage-counter").html(String(counter));
+    });
   };
   $(".stages-bar").find(".button").each(function() {
     return $(this).click(function() {
