@@ -20,6 +20,7 @@ $ ->
       candidate = $(this);
       # by default it's enabled
       candidate.css 'display', candidate_box_display_mode
+      filtered = false
       for _, selected of filters
         if selected.length > 0
           # need to check if contains a class from category - possibly disabled
@@ -32,32 +33,35 @@ $ ->
             candidate.css 'display', 'none';
             break;
 
+    # calculate stages bar values
+    candidates = []
+    $(".candidate-box-wrap").each ->
+      candidate = $(this);
+      # by default it's enabled
+      filtered = false
+      for k, selected of filters
+        if selected.length > 0 && k != 'stages'
+          # need to check if contains a class from category - possibly disabled
+          filtered = true;
+          for f in selected
+            if candidate.hasClass(f)
+              filtered = false;
+              break;
+          if filtered
+            break;
+      if !filtered then candidates.push candidate
 
-    """
-    if $(this).val() == "stage-*"
-      $(".stages-bar .single-stage").each ->
-        $(this).removeClass "inverted"
-      $(".candidate-box-wrap").each ->
-        $(this).css 'display', candidate_box_display_mode;
+    $(".stages-bar .all-stages span.stage-counter").html String candidates.length
+    i = 1;
+    $(".stages-bar .single-stage").each ->
+      counter = 0
+      stageClass = "stage-" + String i++;
+      for c in candidates
+        if c.hasClass stageClass then counter++;
+      $(".stages-bar .single-stage." + stageClass + " span.stage-counter").html String counter
 
-    else
-      clicked = $(this);
-      $(".stages-bar .single-stage").each ->
-        if clicked.val() != $(this).val() then $(this).addClass("inverted");
 
-      if $(".stages-bar .single-stage:not(.iverted)").length == 0
-        $(".stages-bar .all-stages").removeClass "inverted"
-      else
-        $(".stages-bar .all-stages").addClass "inverted"
 
-      $(".stages-bar .single-stage").each ->
-        if $(this).hasClass "inverted"
-          $(".candidate-box-wrap." + $(this).val()).each ->
-            $(this).css 'display','none';
-        else
-          $(".candidate-box-wrap." + $(this).val()).each ->
-            $(this).css 'display', candidate_box_display_mode;
-      """
 
 
   $(".stages-bar").find(".button").each ->
