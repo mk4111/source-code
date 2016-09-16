@@ -64,7 +64,7 @@ $ ->
 
 
 
-  $(".stages-bar").find(".button").each ->
+  $(".dashboard.stages-bar").find(".button").each ->
     $(this).click ->
       # color ui and trigger filtering
       $(this).blur();
