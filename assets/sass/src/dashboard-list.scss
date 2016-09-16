@@ -1,0 +1,12 @@
+.dashboards-list {
+    margin-top: 60px;
+    .stages-bar-wrap {
+        width: 100%;
+        height: 100%;
+        display: table;
+        .stages-bar-wrap-inner {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}

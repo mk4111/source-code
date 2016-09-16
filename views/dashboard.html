@@ -1,33 +1,42 @@
 {{>navigation-dashboard}}
 
-<div class="dashboard">
-
-<section class="navigation">
-  <div class="ui container">
-    {{>stages_bar jobs=allJobs}}
-    {{>dashboard_menu}}
-    {{>list_candidates jobs=allJobs}}
-  </div>
-</section>
-
-</div>
-
-<div class="new-dash-wrapper" style="display:none;">
-
-  {{#if admin}}
-  <div class="dropdown-users">
-    <form action="/dashboard/user" method="post" id="load-user-dashboard-form">
-
-      <select class="users" name="user" id="load-user-dashboard-select">
-        {{#each users}}
-          {{createOptionUser this ../userIdGoogle}}
+{{#if list}}
+  
+  <div class="dashboards-list">
+    <div class="ui container">
+      <div class="ui grid">
+        {{#each usersJobs as |u|}}
+          <div class="ui row">
+          <div class="two wide ui column">
+            <a href="/dashboard/{{id}}">
+              <img class="ui small circular image" src="/assets/img/team/{{u.user}}.jpg" onerror="this.src='/assets/img/client-logo.png'"/>
+            </a>
+          </div>
+          <div class="fourteen wide ui column">
+            <div class="stages-bar-wrap">
+              <div class="stages-bar-wrap-inner">
+              {{>stages_bar jobs=u.jobs stages=../stages}}
+              </div>
+            </div>
+          </div>
+          </div>
         {{/each}}
-      </select>
-
-      <button type="submit">Load dashboard</button>
-    </form>
+      </div>
+    </div>
   </div>
-  {{/if}}
 
+{{else}}
 
-</div>
+  <div class="dashboard">
+
+  <section class="navigation">
+    <div class="ui container">
+      {{>stages_bar jobs=allJobs}}
+      {{>dashboard_menu}}
+      {{>list_candidates jobs=allJobs}}
+    </div>
+  </section>
+
+  </div>
+
+{{/if}}
