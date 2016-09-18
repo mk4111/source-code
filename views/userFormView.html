@@ -31,6 +31,14 @@
      <label for="Admin user"></label>
      {{adminCheckbox user.admin}}
     </p>
+    <p class="active-inactive">
+     <label for="recruiter user"></label>
+        {{#if user.recruiter}}
+            <input type="checkbox" name="recruiter" checked="{{user.recruiter}}"> Recruiter <br/>
+       {{else}}
+            <input type="checkbox" name="recruiter" > Recruiter <br/>
+       {{/if}}
+    </p>
 
     <button type="submit">Save</button>
   </form>
