@@ -13,6 +13,8 @@ Gulp.task('nodemon', function() {
     ignore: [
       'assets/cofee',
       'assets/sass',
+      'assets/build',
+      'assets/vendor',
       'node_modules/',
       '.build/',
       'test/'
