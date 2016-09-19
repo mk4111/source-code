@@ -14,7 +14,7 @@ describe('Pass the last email object with undefined timestamp', function () {
     var sentEmailObj = {sentAt: '14-02-2016', timestamp: undefined};
     var result = emailIndicator(sentEmailObj, false);
 
-    expect(result.string).to.equal("<i class='fa fa-paper-plane last-email-regular'></i>");
+    expect(result.string).to.contain("last-email-regular");
     done();
   });
 });
@@ -26,7 +26,7 @@ describe('Pass the last email object with timestamp which is less than 1 month '
     var sentEmailObj = {sentAt: '14-02-2016', timestamp: new Date().getTime()};
     var result = emailIndicator(sentEmailObj, false);
 
-    expect(result.string).to.equal("<i class='fa fa-paper-plane last-email-30'></i>");
+    expect(result.string).to.contain("last-email-30");
     done();
   });
 });
@@ -38,7 +38,7 @@ describe('Pass the last email object with timestamp which is less than 3 months 
     var sentEmailObj = {sentAt: '14-02-2016', timestamp: new Date().getTime() - (60 *24 *60 *60 *1000)};
     var result = emailIndicator(sentEmailObj, false);
 
-    expect(result.string).to.equal("<i class='fa fa-paper-plane last-email-90'></i>");
+    expect(result.string).to.contain("last-email-90");
     done();
   });
 });
@@ -50,7 +50,7 @@ describe('Pass the last email object with timestamp which is more than 3 months 
     var sentEmailObj = {sentAt: '14-02-2016', timestamp: new Date().getTime() - (100 *24 *60 *60 *1000)};
     var result = emailIndicator(sentEmailObj, false);
 
-    expect(result.string).to.equal("<i class='fa fa-paper-plane last-email-regular'></i>");
+    expect(result.string).to.contain("last-email-regular");
     done();
   });
 });
@@ -62,7 +62,8 @@ describe('Pass the last email object with undefined timestamp and text', functio
     var sentEmailObj = {sentAt: '14-02-2016', timestamp: undefined};
     var result = emailIndicator(sentEmailObj, true);
 
-    expect(result.string).to.equal("<i class='fa fa-paper-plane last-email-regular'><span class='last-email-regular'> Emailed over 3 months ago</span></i>");
+    expect(result.string).to.contain("last-email-regular");
+    expect(result.string).to.contain("Emailed over 3 months ago");
     done();
   });
 });
@@ -74,7 +75,8 @@ describe('Pass the last email object with timestamp which is less than 1 month',
     var sentEmailObj = {sentAt: '14-02-2016', timestamp: new Date().getTime()};
     var result = emailIndicator(sentEmailObj, true);
 
-    expect(result.string).to.equal("<i class='fa fa-paper-plane last-email-30'><span class='last-email-30'> Emailed within a month</span></i>");
+    expect(result.string).to.contain("last-email-30");
+    expect(result.string).to.contain("Emailed within a month");
     done();
   });
 });
@@ -87,7 +89,8 @@ describe('Pass the last email object with timestamp which is less than 3 months 
     var sentEmailObj = {sentAt: '14-02-2016', timestamp: new Date().getTime() - (60 *24 *60 *60 *1000)};
     var result = emailIndicator(sentEmailObj, true);
 
-    expect(result.string).to.equal("<i class='fa fa-paper-plane last-email-90'><span class='last-email-90'> Emailed within 3 months</span></i>");
+    expect(result.string).to.contain("last-email-90");
+    expect(result.string).to.contain("Emailed within 3 months");
     done();
   });
 });
@@ -99,7 +102,9 @@ describe('Pass the last email object with timestamp which is more than 3 months 
     var sentEmailObj = {sentAt: '14-02-2016', timestamp: new Date().getTime() - (100 *24 *60 *60 *1000)};
     var result = emailIndicator(sentEmailObj, true);
 
-    expect(result.string).to.equal("<i class='fa fa-paper-plane last-email-regular'><span class='last-email-regular'> Emailed over 3 months ago</span></i>");
+    expect(result.string).to.contain("last-email-regular");
+    expect(result.string).to.contain("Emailed over 3 months ago");
+
     done();
   });
 });

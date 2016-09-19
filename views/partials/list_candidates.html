@@ -4,9 +4,9 @@
     {{#each stages as |candidates idStage|}}
         {{#each candidates}}
             <div class="row stage-{{idStage}} candidate-box-wrap candidate-id-{{id}} role-id-{{idJob}} client-id-{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
-                <div class="two wide column picture {{stageToCss idStage}}">
-                    <div class="candidate-picture-wrap">
-                        <div class="candidate-picture-wrap-inner">
+                <div class="two wide column candidate-picture {{stageToCss idStage}}">
+                    <div class="center-vertical-wrap">
+                        <div class="center-vertical">
                             <a href="/candidate/{{id}}">
                                 <img class="ui small circular image color {{stageToCss idStage}}" src="{{picture}}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
                             </a>
@@ -34,8 +34,8 @@
                     {{/if}}
                 </div>
                 <div class="two wide column client">
-                    <div class="client-picture-wrap ">
-                        <div class="client-picture-wrap-inner">
+                    <div class="center-vertical-wrap">
+                        <div class="center-vertical">
                             <a href="/clients/{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
                                 <img class="ui small image" src="{{lookup (lookup ../../../clientsMap (lookup (lookup ../../../jobsMap idJob) "client") ) "logoUrl" }}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
                             </a>

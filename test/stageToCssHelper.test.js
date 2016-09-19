@@ -7,9 +7,9 @@ var expect = Code.expect;
 var it = lab.test;
 
 
-describe('Count stages in given jobs array', function () {
+describe('Gives the tight color based on the application stage', function () {
 
-  it('return number of days', function (done) {
+  it('return the right color', function (done) {
 
     var color = stageToCss({id: 2});
     expect(color).to.equal("orange");
