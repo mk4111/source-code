@@ -1,5 +1,8 @@
 div.home {
     div.candidates-list {
+        div.row.filters {
+            div.column.send-email { text-align: right; }
+        }
         div.row.candidate {
             div.column.candidate-status {
                 p.client-employee {

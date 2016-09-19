@@ -369,7 +369,7 @@ ul.nav li:last-child {
   z-index:1;
 }
 
-
+/*
 #send-email {
   position: fixed;
   bottom: 10px;
@@ -381,6 +381,7 @@ ul.nav li:last-child {
   padding: 8px 15px;
   z-index: 2;
 }
+*/
 
 #send-email:hover, .send-email-form > button:hover, .delete-profile-confirmation button:hover,
 .delete-profile:hover {

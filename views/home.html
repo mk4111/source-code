@@ -8,14 +8,25 @@
   <form action="/email" method="POST">
   <div class="ui container">
     <div class="ui grid candidates-list">
-      <div class="ui row">
-        <div class="column wide one">
-          <div class="ui checkbox">
-            <input type="checkbox" name="example"  id="select-all">
-            <label>Select All</label>
+      <div class="ui row filters">
+
+          <div class="twelve wide column">
+            <div class="ui checkbox">
+              <input type="checkbox" name="example"  id="select-all">
+              <label>Select All</label>
+            </div>
           </div>
+
+          <div class="four wide column send-email">
+            <button id="send-email" type="submit" class="ui animated button">
+              <div class="visible content">Send Email</div>
+              <div class="hidden content">
+                <i class="send icon"></i>
+              </div>
+            </button>
+          </div>
+
         </div>
-      </div>
 
         {{#each candidates}}
           <div class="ui row candidate">
@@ -28,7 +39,6 @@
 
   <!-- @speedingdeer: I'm not sure what this hidden guy is here for but I'm not brave enough to remove it yet -->
   <input type="hidden" class="pathUrl" name="pathUrl" value="{{pathUrl}}">
-  <button id="send-email" type="submit">SEND EMAIL</button>
   </form>
 </div>
 
