@@ -12,7 +12,7 @@ describe('Gives the tight color based on the application stage', function () {
   it('return the right color', function (done) {
 
     var val = uuid();
-    expect(val).to.not.be.null;
+    expect(val).to.not.be(null);
     done();
 
   });
