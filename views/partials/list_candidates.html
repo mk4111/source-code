@@ -20,18 +20,40 @@
                     <p>{{location}}</p>
                 </div>
                 <div class="four wide column candidate-details {{stageToCss idStage}}">
-                    {{#if cvDocumentLink}}
-                      <p><b>CV:</b> <a href="{{cvDocumentLink}}" target="_blank">view</a></p>
+                    
+                    
+                    <p><b>CV:</b>
+                        {{#if cvDocumentLink}}
+                            <a href="{{cvDocumentLink}}" target="_blank">view</a>
+                        {{else}}
+                            N/A
                     {{/if}}
-                    {{#if contacts.email }}
-                    <p><b>Email:</b> {{contacts.email}}</p>
+                    </p>
+                    
+                    <p><b>Email:</b>
+                    {{#if contacts.email}}
+                        {{contacts.email}}
+                    {{else}}
+                        N/A
                     {{/if}}
-                    {{#if contacts.phone }}
-                    <p><b>Phone:</b> {{contacts.phone}}</p>
+                    </p>
+                    
+                    <p><b>Phone:</b>
+                    {{#if contacts.phone}}
+                        {{contacts.phone}}
+                    {{else}}
+                        N/A
                     {{/if}}
-                    {{#if salary }}
-                    <p><b>Salary:</b> {{salary}}</p>
+                    </p>
+
+                    <p><b>Salary:</b>
+                    {{#if info.sexpected}}
+                        {{info.sexpected}}
+                    {{else}}
+                        N/A
                     {{/if}}
+                    </p>
+                    
                 </div>
                 <div class="two wide column client">
                     <div class="center-vertical-wrap">
