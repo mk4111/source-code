@@ -118,24 +118,6 @@
             {{/if}}
 
         </p>
-        {{#if lastEmail.sentAt}}
-            <div class="ui modal email {{lastEmail.uuid}}">
-                <i class="close icon"></i>
-                <div class="header">
-                {{lastEmail.subject}}
-                </div>
-                <div class="content">
-                <p class="message">
-                {{lastEmail.message}}
-                </p>
-                <p class="sender">{{lastEmail.senderName}}</p>
-                <p class="sent-at">{{lastEmail.sentAt}}</p>
-                </div>
-                <div class="actions">
-                    <!-- if any actions put them here -->
-                </div>
-            </div>
-        {{/if}}
 
     <!--
     {{#each listSkills}}
@@ -164,5 +146,24 @@
     -->
 
 </div>
+
+        {{#if lastEmail.sentAt}}
+            <div class="ui modal email {{lastEmail.uuid}}">
+                <i class="close icon"></i>
+                <div class="header">
+                {{lastEmail.subject}}
+                </div>
+                <div class="content">
+                <p class="message">
+                {{lastEmail.message}}
+                </p>
+                <p class="sender">{{lastEmail.senderName}}</p>
+                <p class="sent-at">{{lastEmail.sentAt}}</p>
+                </div>
+                <div class="actions">
+                    <!-- if any actions put them here -->
+                </div>
+            </div>
+        {{/if}}
 
 
