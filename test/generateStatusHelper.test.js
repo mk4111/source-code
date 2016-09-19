@@ -15,7 +15,7 @@ describe('Create status indicator', function () {
     var status = { idClient: '2', idStage: '1' }
     var result = generateStatus(status, client, stage);
 
-    expect(result.string).to.equal('clientName stage1');
+    expect(result.string).to.equal('clientName [stage1]');
     done();
   });
 });
