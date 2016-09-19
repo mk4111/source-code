@@ -8,7 +8,7 @@ module.exports = function (statusCurrent, clients, stages) {
   });
 
   if (String(statusCurrent.idStage) in stages) {
-    result += stages[String(statusCurrent.idStage)].name; 
+    result += "[" + stages[String(statusCurrent.idStage)].name + "]";
   }
 
   return new Handlebars.SafeString(result);

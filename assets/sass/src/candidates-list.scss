@@ -1,0 +1,17 @@
+div.candidates-list {
+    div.row.filters {
+        div.column.send-email { text-align: right; }
+    }
+    div.row.candidate {
+        div.column p { margin-bottom: 5px; }
+        div.column.candidate-status {
+            span.client-employee { color: $RED; }
+            span.email-subject, span.email-message, span.email-sender-name {
+                display: none;
+            }
+        }
+        p.stages {
+            span.comma:last-child { display: none;}
+        }
+    }
+}

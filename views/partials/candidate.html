@@ -75,34 +75,67 @@
 </div>
 
 <div class="five wide column candidate-status">
-    {{# if connectedTo.length }}
+    
     <p>
     Connected To:
+    {{# if connectedTo.length }}
     {{#each connectedTo}}
             {{#if this}}
                 <a href="/connected/{{encodeKeywordsHelper this}}"><b>{{initials_of_connected_users this}}</b></a>
             {{/if}}
     {{/each}}
+
+    {{/if}}
     </p>
-    {{/if}}
 
-    {{#if statusCurrent.length}}
         <p class="stages">Status:
-        {{#each statusCurrent}}
-            {{generateStatus this ../clients ../stages}}<span class="comma">,</span>
-        {{/each}}
+        {{#if statusCurrent.length}}
+            {{#each statusCurrent}}
+                {{generateStatus this ../clients ../stages}}<span class="comma">,</span>
+            {{/each}}
+        {{/if}}
+        {{#if clientProfile}}
+            <span class="client-employee">Client Employee</span>
+        {{/if}}
+        {{#unless clientProfile}}
+            {{#unless statusCurrent.length}}
+                N/A
+            {{/unless}}
+        {{/unless}}
         </p>
-    {{/if}}
 
-    {{#if clientProfile}}
-        <p class="client-employee">Status: <span>Client Employee</span></p>
-    {{/if}}
+    
 
 
-    {{#if emails}}
     <!-- @TODO get some more details here -->
-        {{emailIndicatorHelper lastEmail false}}
-    {{/if}}
+        <p class="email-preview">Last Contacted:
+            {{#if lastEmail.sentAt}}
+
+            <a href="" id="{{lastEmail.uuid}}"> {{lastEmail.sentAt}}</a>
+
+            {{else}}
+                N/A
+            {{/if}}
+
+        </p>
+        {{#if lastEmail.sentAt}}
+            <div class="ui modal email {{lastEmail.uuid}}">
+                <i class="close icon"></i>
+                <div class="header">
+                {{lastEmail.subject}}
+                </div>
+                <div class="content">
+                <p class="message">
+                {{lastEmail.message}}
+                </p>
+                <p class="sender">{{lastEmail.senderName}}</p>
+                <p class="sent-at">{{lastEmail.sentAt}}</p>
+                </div>
+                <div class="actions">
+                    <!-- if any actions put them here -->
+                </div>
+            </div>
+        {{/if}}
 
     <!--
     {{#each listSkills}}
