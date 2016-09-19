@@ -474,7 +474,7 @@ describe('Access /csv-list/js dev to see all candidates from the list "js dev"',
         server.inject(options, function (res) {
           expect(res.statusCode).to.equal(200);
           var $ = cheerio.load(res.payload);
-          var numberCandidates = $('.candidate-box').children().length;
+          var numberCandidates = $('.row.candidate').children().length;
           expect(numberCandidates).to.be.above(1);
           server.stop(done);
         });
@@ -531,7 +531,7 @@ describe('Attemp to access negative number page /csv-list/js dev/-10', function 
 
         expect(res.statusCode).to.equal(200);
         var $ = cheerio.load(res.payload);
-        var numberCandidates = $('.candidate-box').children().length;
+        var numberCandidates = $('.row.candidate').children().length;
         expect(numberCandidates).to.be.above(1);
         server.stop(done);
       });
@@ -563,7 +563,7 @@ describe('Search by skills on js dev list', function () {
 
         expect(res.statusCode).to.equal(200);
         var $ = cheerio.load(res.payload);
-        var numberCandidates = $('.candidate-box').children().length;
+        var numberCandidates = $('.row.candidate').length;
         expect(numberCandidates).to.equal(1);
         server.stop(done);
       });
@@ -592,7 +592,7 @@ describe('Search by skills on haskell list', function () {
 
         expect(res.statusCode).to.equal(200);
         var $ = cheerio.load(res.payload);
-        var numberCandidates = $('.candidate-box').children().length;
+        var numberCandidates = $('.row.candidate').length;
         expect(numberCandidates).to.equal(1);
         server.stop(done);
       });

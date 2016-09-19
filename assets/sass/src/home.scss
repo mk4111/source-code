@@ -1,0 +1,11 @@
+div.home {
+    div.candidates-list {
+        div.row.candidate {
+            div.column.candidate-status {
+                p.client-employee {
+                    > span { color: $RED; }
+                }
+            }
+        }
+    }
+}

@@ -43,8 +43,8 @@ describe('delete a user', function () {
          server.inject(options, function(res) {
          expect(res.statusCode).to.equal(200);
          var $ = cheerio.load(res.payload);
-         var duplicates = $('.list-wrapper');
-         idProfile = $('.headline')[0].children[1].attribs.href.split('/')[2];
+         var duplicates = $('.candidate.row');
+         idProfile = $('.candidate.row a')[0].attribs.href.split('/')[2];
          expect(parseInt(duplicates.length)).to.be.equal(2);
          server.stop(done);
        });
@@ -82,7 +82,7 @@ describe('delete a user', function () {
            server.inject(options, function(res) {
            expect(res.statusCode).to.equal(200);
            var $ = cheerio.load(res.payload);
-           var duplicates = $('.list-wrapper');
+           var duplicates = $('.candidate.row');
            expect(parseInt(duplicates.length)).to.be.equal(1);
            server.stop(done);
          });

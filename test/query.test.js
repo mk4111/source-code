@@ -16,13 +16,9 @@ describe('/query', function () {
   it('attempt to access search page without being authenticated', function (done) {
 
     Server.init(0, function (err, server) {
-
       expect(err).to.not.exist();
-
       server.inject('/query', function (res) {
-
         expect(res.statusCode).to.equal(302);
-
         server.stop(done);
       });
     });
@@ -39,7 +35,7 @@ describe('return a search results, when user is authenticated: Search for Nick a
         expect(res.statusCode).to.equal(200);
         //we should only have one result
         var $ = cheerio.load(res.payload);
-        expect($('.list-wrapper').length).to.equal(1);
+        expect($('.candidates-list').length).to.equal(1);
         expect($('.pathUrl')['0'].attribs.value).to.equal("/query/1?job=&fullname=Nick&location=&current=&skills=");
         server.stop(done);
       });
@@ -57,7 +53,7 @@ describe('return a search results, when user is authenticated: Search for Nick w
         expect(res.statusCode).to.equal(200);
         //we should only have one result
         var $ = cheerio.load(res.payload);
-        expect($('.list-wrapper').length).to.equal(1);
+        expect($('.candidates-list').length).to.equal(1);
         server.stop(done);
       });
     });
@@ -74,7 +70,7 @@ describe('return a search results, when user is authenticated: Search for Nick w
         expect(res.statusCode).to.equal(200);
         //we should only have one result
         var $ = cheerio.load(res.payload);
-        expect($('.list-wrapper').length).to.equal(0);
+        expect($('.candidates-list .row.candidate').length).to.equal(0);
         server.stop(done);
       });
     });
@@ -91,7 +87,7 @@ describe('Silly search: return 0 results', function () {
         expect(res.statusCode).to.equal(200);
         //we should only have one result
         var $ = cheerio.load(res.payload);
-        expect($('.list-wrapper').length).to.equal(0);
+        expect($('.candidates-list .row.candidate').length).to.equal(0);
         server.stop(done);
       });
     });

@@ -1,39 +1,38 @@
 {{#if listSearchBar}}
-
   {{>search_bar_list}}
-
 {{else}}
-
   {{>search_bar}}
-
 {{/if}}
-<section class="container">
-  <div class="title-wrapper">
-    <article class="main"></article>
-    <aside class="aside aside-1">
-      <input type="checkbox" id="select-all">Select All
-    </aside>
-    <aside class="aside aside-2">
-      <img class="squirrel-logo" src="https://cloud.githubusercontent.com/assets/15364186/16412922/ad2e31a2-3d26-11e6-88df-3ef4b9ad4685.png" alt="githubusercontent.com">
-    </aside>
+
+<div class="home">
+  <form action="/email" method="POST">
+  <div class="ui container">
+    <div class="ui grid candidates-list">
+      <div class="ui row">
+        <div class="column wide one">
+          <div class="ui checkbox">
+            <input type="checkbox" name="example"  id="select-all">
+            <label>Select All</label>
+          </div>
+        </div>
+      </div>
+
+        {{#each candidates}}
+          <div class="ui row candidate">
+            {{>candidate clients=../clients stages=../stages}}
+          </div>
+        {{/each}}
+
+    </div>
   </div>
 
-  <form action="/email" method="POST">
-	{{#each candidates}}
-	  {{>candidate clients=../clients stages=../stages}}
-	{{/each}}
+  <!-- @speedingdeer: I'm not sure what this hidden guy is here for but I'm not brave enough to remove it yet -->
   <input type="hidden" class="pathUrl" name="pathUrl" value="{{pathUrl}}">
   <button id="send-email" type="submit">SEND EMAIL</button>
   </form>
-  <input type="hidden" class="keywords" value="{{keywords}}">
-  <div class="anchorBottom">
-    <a name='anchorTop' href="#down"><i class="fa fa-angle-down fa-lg"></i></a>
-  </div>
-  <div class='anchorTop'>
-    <a name='anchorBottom' href="#top"><i class="fa fa-angle-up fa-lg"></i></a>
-  </div>
-  {{>pagination}}
-</section>
-<div>
-  <a name="down"></a>
 </div>
+
+
+<input type="hidden" class="keywords" value="{{keywords}}">
+
+{{>pagination}}

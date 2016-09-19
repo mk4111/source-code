@@ -1,0 +1,17 @@
+.last-email-30, span.last-email-30 {
+  color: $RED;
+}
+
+.last-email-90, span.last-email-90 {
+  color: $YELLOW;
+}
+
+.last-email-regular, span.last-email-regular {
+  color: $GREEN;
+}
+
+i.send > span {
+  float: right !important;
+  padding-left: 5px;
+  font-size: 0.8em;
+}
