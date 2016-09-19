@@ -86,9 +86,13 @@
     </p>
     {{/if}}
 
-    {{#each statusCurrent}}
-        <p>Status: {{generateStatus this ../clients ../stages}}</p>
-    {{/each}}
+    {{#if statusCurrent.length}}
+        <p class="stages">Status:
+        {{#each statusCurrent}}
+            {{generateStatus this ../clients ../stages}}<span class="comma">,</span>
+        {{/each}}
+        </p>
+    {{/if}}
 
     {{#if clientProfile}}
         <p class="client-employee">Status: <span>Client Employee</span></p>

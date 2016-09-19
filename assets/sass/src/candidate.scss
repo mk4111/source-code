@@ -1,12 +1,14 @@
-.last-email-30, span.last-email-30 {
+// some values copied over from the main css file to parameterized the whole thing and keep colors consistent 
+
+.last-email-30 {
   color: $RED;
 }
 
-.last-email-90, span.last-email-90 {
+.last-email-90 {
   color: $YELLOW;
 }
 
-.last-email-regular, span.last-email-regular {
+.last-email-regular {
   color: $GREEN;
 }
 
