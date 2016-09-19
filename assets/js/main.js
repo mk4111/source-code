@@ -87,14 +87,4 @@
   }
 
 
-  // handling dropdown - should be gone soon
-  var loadUserDashboardForm = document.getElementById('load-user-dashboard-form');
-  if (loadUserDashboardForm) {
-    loadUserDashboardForm.addEventListener('submit', function (event) {
-      //use select as dropdown menu - untl the UI freamwork chosen
-      window.location = "/dashboard/" + document.getElementById('load-user-dashboard-select').value;
-      event.preventDefault();
-    });
-  }
-
 }());
