@@ -111,7 +111,7 @@
         <p class="email-preview">Last Contacted:
             {{#if lastEmail.sentAt}}
 
-            <a class="ui" href="" id="{{lastEmail.uuid}}" data-content="{{lastEmail.subject}}, {{lastEmail.senderName}}"> {{lastEmail.sentAt}}</a>
+            <a class="ui" href="" id="email-id-{{id}}" data-content="{{lastEmail.subject}}, {{lastEmail.senderName}}"> {{lastEmail.sentAt}}</a>
 
             {{else}}
                 N/A
@@ -120,23 +120,56 @@
         </p>
 
         {{#if lastEmail.sentAt}}
-            <div class="ui modal email {{lastEmail.uuid}}">
+            <div class="ui modal email email-id-{{id}}">
                 <i class="close icon"></i>
                 <div class="header">
-                {{lastEmail.subject}}
+                    {{lastEmail.subject}}
                 </div>
                 <div class="content">
-                <p class="message">
-                {{lastEmail.message}}
-                </p>
-                <p class="sender">{{lastEmail.senderName}}</p>
-                <p class="sent-at">{{lastEmail.sentAt}}</p>
+                    <p class="message">{{lastEmail.message}}</p>
+                    <p class="sender">{{lastEmail.senderName}}</p>
+                    <p class="sent-at">{{lastEmail.sentAt}}</p>
                 </div>
                 <div class="actions">
                     <!-- if any actions put them here -->
                 </div>
             </div>
         {{/if}}
+
+    <p class="last-viewed-by">
+    Last Viewed By: 
+    {{#if viewedBy.length}}
+        {{#each (lastViewedBy viewedBy) }}
+
+            <a class="ui" href="" data-content="{{user.fullname}} ({{timestamp_formatted_long}})" id="viewed-by-{{../id}}">
+            {{#unless @index}}
+                {{user.initials}} ({{timestamp_formatted_short}})
+            {{/unless}}
+            </a>
+
+        {{/each}}
+
+    {{else}}
+        N/A
+    {{/if}}
+    </p>
+
+    {{#if viewedBy.length}}
+        <div class="ui modal email viewed-by-{{id}}">
+            <i class="close icon"></i>
+            <div class="header">
+                Viewed By
+            </div>
+            <div class="content">
+                {{#each (lastViewedBy viewedBy) }}
+                    <p>{{user.fullname}} ({{timestamp_formatted_long}})</p>
+                {{/each}}
+            </div>
+            <div class="actions">
+                <!-- if any actions put them here -->
+            </div>
+        </div>
+    {{/if}}
 
     <!--
     {{#each listSkills}}
@@ -148,12 +181,6 @@
             {{/if}}
         </ul>
     {{/each}}
-    -->
-    <!--
-    @TODO: Get username and some details here
-    {{#if viewedBy.length}}
-        <p class="">{{viewedBy.length}}</p>
-    {{/if}}
     -->
     <!-- hide it for now, I don't think it's a valuable information to display anyway -->
     <!--

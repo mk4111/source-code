@@ -2,7 +2,7 @@ $ ->
   # emails
   if $(".candidates-list").length == 0 then return; # nothing to do here
   
-  $(".candidates-list .email-preview a").each ->
+  $(".candidates-list .email-preview a, .candidates-list .last-viewed-by a").each ->
     $(this).popup({ 
       hoverable  : true,
       inline     : true
