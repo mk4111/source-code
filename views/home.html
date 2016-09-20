@@ -29,10 +29,7 @@
         </div>
 
         {{#each candidates}}
-          <div class="ui row candidate">
-            {{>candidate clients=../clients stages=../stages}}
-          </div>
-          <div class="ui section divider"></div>
+          {{>candidate clients=../clients stages=../stages}}
         {{/each}}
         
         <div class="ui row pagination">

@@ -1,4 +1,6 @@
 
+<div class="ui row candidate">
+
 <div class="one wide column">
     {{#if email}}
         {{#unless emailLast30}}
@@ -89,53 +91,34 @@
     {{/if}}
     </p>
 
-        <p class="stages">Status:
-        {{#if statusCurrent.length}}
-            {{#each statusCurrent}}
-                {{generateStatus this ../clients ../stages}}<span class="comma">,</span>
-            {{/each}}
-        {{/if}}
-        {{#if clientProfile}}
-            <span class="client-employee">Client Employee</span>
-        {{/if}}
-        {{#unless clientProfile}}
-            {{#unless statusCurrent.length}}
-                N/A
-            {{/unless}}
+    <p class="stages">Status:
+    {{#if statusCurrent.length}}
+        {{#each statusCurrent}}
+            {{generateStatus this ../clients ../stages}}<span class="comma">,</span>
+        {{/each}}
+    {{/if}}
+    {{#if clientProfile}}
+        <span class="client-employee">Client Employee</span>
+    {{/if}}
+    {{#unless clientProfile}}
+        {{#unless statusCurrent.length}}
+            N/A
         {{/unless}}
-        </p>
-
-    
+    {{/unless}}
+    </p>
 
 
     <!-- @TODO get some more details here -->
-        <p class="email-preview">Last Contacted:
-            {{#if lastEmail.sentAt}}
-
-            <a class="ui" href="" id="email-id-{{id}}" data-content="{{lastEmail.subject}}, {{lastEmail.senderName}}"> {{lastEmail.sentAt}}</a>
-
-            {{else}}
-                N/A
-            {{/if}}
-
-        </p>
-
+    <p class="email-preview">Last Contacted:
         {{#if lastEmail.sentAt}}
-            <div class="ui modal email email-id-{{id}}">
-                <i class="close icon"></i>
-                <div class="header">
-                    {{lastEmail.subject}}
-                </div>
-                <div class="content">
-                    <p class="message">{{lastEmail.message}}</p>
-                    <p class="sender">{{lastEmail.senderName}}</p>
-                    <p class="sent-at">{{lastEmail.sentAt}}</p>
-                </div>
-                <div class="actions">
-                    <!-- if any actions put them here -->
-                </div>
-            </div>
+
+        <a class="ui" href="" id="email-id-{{id}}" data-content="{{lastEmail.subject}}, {{lastEmail.senderName}}"> {{lastEmail.sentAt}}</a>
+
+        {{else}}
+            N/A
         {{/if}}
+
+    </p>
 
     <p class="last-viewed-by">
     Last Viewed By: 
@@ -155,34 +138,68 @@
     {{/if}}
     </p>
 
-    {{#if viewedBy.length}}
-        <div class="ui modal email viewed-by-{{id}}">
-            <i class="close icon"></i>
-            <div class="header">
-                Viewed By
+</div>
+
+<!-- modals -->
+
+{{#if viewedBy.length}}
+    <div class="ui modal email viewed-by-{{id}}">
+        <i class="close icon"></i>
+        <div class="header">
+            Viewed By
+        </div>
+        <div class="content">
+            {{#each (lastViewedBy viewedBy) }}
+                <p>{{user.fullname}} ({{timestamp_formatted_long}})</p>
+            {{/each}}
+        </div>
+        <div class="actions"> <!-- if any actions put them here --> </div>
+    </div>
+{{/if}}
+
+{{#if lastEmail.sentAt}}
+    <div class="ui modal email email-id-{{id}}">
+        <i class="close icon"></i>
+        <div class="header">
+            {{lastEmail.subject}}
+        </div>
+        <div class="content">
+            <p class="message">{{lastEmail.message}}</p>
+            <p class="sender">{{lastEmail.senderName}}</p>
+            <p class="sent-at">{{lastEmail.sentAt}}</p>
+        </div>
+        <div class="actions"> <!-- if any actions put them here --> </div>
+    </div>
+{{/if}}
+
+</div>
+
+<div class="six column row skills black">
+
+    {{#if listSkills.length}}
+        {{#each listSkills}}
+            <div class="column
+            {{#if matched}}
+            matched
+            {{/if}}
+            ">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        <p> {{skill}} </p>
+                    </div>
+                </div>
             </div>
-            <div class="content">
-                {{#each (lastViewedBy viewedBy) }}
-                    <p>{{user.fullname}} ({{timestamp_formatted_long}})</p>
-                {{/each}}
-            </div>
-            <div class="actions">
-                <!-- if any actions put them here -->
-            </div>
+        {{/each}}
+    {{else}}
+        <!-- to keep the bar always the same size -->
+        <div class="column">
+            <p style="opacity:0">nth</p>
         </div>
     {{/if}}
 
-    <!--
-    {{#each listSkills}}
-        <ul class="skills-inline">
-            {{#if this.level}}
-                <li class="searched-skills"><span class="skill-level">{{this.level}} </span> {{this.skill}}</li>
-            {{else}}
-                <li>{{this.skill}}</li>
-            {{/if}}
-        </ul>
-    {{/each}}
-    -->
+</div>
+
+
     <!-- hide it for now, I don't think it's a valuable information to display anyway -->
     <!--
     <aside class="aside aside-2">
@@ -191,7 +208,5 @@
         {{/if}}
     </aside>
     -->
-
-</div>
 
 
