@@ -22,6 +22,7 @@ div.candidates-list {
         margin-bottom: 30px;
         div.column {
             padding: 8px;
+            text-transform: capitalize;
             &.matched {
                 color: $GREEN;
             }
