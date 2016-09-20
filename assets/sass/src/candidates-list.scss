@@ -11,7 +11,10 @@ div.candidates-list {
             }
         }
         p.stages {
-            span.comma:last-child { display: none;}
+            span.comma:last-child { display: none; }
         }
     }
 }
+
+// @TODO: this one should come from a body / general layout
+div.home { padding-bottom: 20px; }
