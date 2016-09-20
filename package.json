@@ -41,6 +41,7 @@
     "linkedin-canonical-url": "^1.0.5",
     "mime-types": "^2.1.11",
     "moment": "^2.15.0",
+    "querystring": "^0.2.0",
     "redis-connection": "^4.0.3",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2",

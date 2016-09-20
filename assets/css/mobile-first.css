@@ -634,6 +634,7 @@ hr {
 aside {
   display: none;
 }
+/*
 .pagination {
   width:100%;
   position: absolute;
@@ -659,6 +660,7 @@ aside {
 .page-number {
   color: black;
 }
+*/
 /*==============================
  Login page
 ================================*/
