@@ -1,8 +1,8 @@
 'use strict';
 
-const Underscore = require('Underscore');
-const Moment = require('moment');
-const Handlebars = require('handlebars');
+var Underscore = require('underscore');
+var Moment = require('moment');
+var Handlebars = require('handlebars');
 
 module.exports = function (viewedBy) {
     var views = [];
