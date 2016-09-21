@@ -56,10 +56,10 @@
                     {{/if}}
                     </p>
                     -->
-                    <p>
                         <!-- action buttons -->
                         <div class="stage-actions-wrap">
                         <div class="ui icon buttons stage-actions">
+
                         <button class="ui button icon small regress
                         {{#unless (stagePrev idStage ../../../stages)}}
                             disabled
@@ -80,13 +80,12 @@
                         " data-content="advance" value="advance"><i class="icon custom logo-right"></i></button>
                         <button class="ui button icon small delete" data-content="delete" value="delete"><i class="trash icon"></i></button>
                         <button class="ui button icon small disabled contact" data-content="contact" value="contact"><i class="bug icon"></i></button>
-                        </div>
-                        </div>
+                    
 
                         <form class="delete" action="/status/delete" method="POST">
                             <input type="hidden" name="idCandidate" value="{{id}}">
                             <input type="hidden" name="timestamp" value="{{statusTimestamp}}">
-                            <input type="hidden" name="redirect_to" value="{{request.url.path}}">
+                            <input type="hidden" name="redirect_url" value="{{../../../request.url.path}}">
                         </form>
 
                         <form class="regress" action="/status/edit" method="POST">
@@ -95,15 +94,15 @@
                             <input type="hidden" name="idClient" value="{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
                             <input type="hidden" name="idJob" value="{{idJob}}">
                             <input type="hidden" name="idStage" value="{{stagePrev idStage ../../../stages}}">
-                            <input type="hidden" name="redirect_to" value="{{request.url.path}}">
+                            <input type="hidden" name="redirect_url" value="{{../../../request.url.path}}">
                         </form>
                         <form class="reject" action="/status/edit" method="POST">
                             <input type="hidden" name="idCandidate" value="{{id}}">
                             <input type="hidden" name="timestamp" value="{{statusTimestamp}}">
                             <input type="hidden" name="idClient" value="{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
                             <input type="hidden" name="idJob" value="{{idJob}}">
-                            <input type="hidden" name="idStage" value="5">
-                            <input type="hidden" name="redirect_to" value="{{request.url.path}}">
+                            <input type="hidden" name="idStage" value="6">
+                            <input type="hidden" name="redirect_url" value="{{../../../request.url.path}}">
                         </form>
 
                         <form class="advance" action="/status/edit" method="POST">
@@ -112,10 +111,12 @@
                             <input type="hidden" name="idClient" value="{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
                             <input type="hidden" name="idJob" value="{{idJob}}">
                             <input type="hidden" name="idStage" value="{{stageNext idStage ../../../stages}}">
-                            <input type="hidden" name="redirect_to" value="{{request.url.path}}">
+                            <input type="hidden" name="redirect_url" value="{{../../../request.url.path}}">
                         </form>
 
-                    </p>
+                        </div>
+                        </div>
+
                 </div>
                 <div class="two wide column client">
                     <div class="center-vertical-wrap">
