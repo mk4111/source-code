@@ -10,3 +10,9 @@ $TABLET_BREAK: 768px; // Semantic-UI
     font-family: 'blenderpro';
     src: url('/assets/fonts/blenderpro.ttf');
 }
+
+i.icon.custom {
+    background-position: center !important;
+    background-repeat: no-repeat !important;;
+    background-size: contain !important;;
+}
