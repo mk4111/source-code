@@ -1,72 +1,70 @@
 $border_radius: 15px;
 
 div.dashboard {
-    section.navigation {
-        div.stages-bar {
-            width: 100%;
-            text-align: center;
-            .button.inactive { opacity: .5; }
-        }
-        div.dashboard_menu {
-            margin-top: 40px;
-            margin-bottom: 10px;
-            .menu { text-align: center; }
-        }
-        div.list_candidats {
-            .candidate-box-wrap.row {
+    div.stages-bar {
+        width: 100%;
+        text-align: center;
+        .button.inactive { opacity: .5; }
+    }
+    div.dashboard_menu {
+        margin-top: 40px;
+        margin-bottom: 10px;
+        .menu { text-align: center; }
+    }
+    div.list_candidats {
+        .candidate-box-wrap.row {
 
-                /** This are some Semantic-UI modification - should be rather cusomised in the build */
-                padding-top: 0px;
-                .column {
-                    padding-top: 0.6rem;
-                    padding-bottom: 0.6rem;
-                    margin-top: 0px;
-                    margin-bottom: 0px;
-                }
-                /***********************************************************************************/
+            /** This are some Semantic-UI modification - should be rather cusomised in the build */
+            padding-top: 0px;
+            .column {
+                padding-top: 0.6rem;
+                padding-bottom: 0.6rem;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+            /***********************************************************************************/
 
-                .column p { margin-bottom: 5px; }
-                .column.candidate-picture {
-                    border-bottom-left-radius: $border_radius;
-                    border-top-left-radius: $border_radius;
-                    img {
-                        display: inline-block;
-                        max-width: 100px;
-                    }
+            .column p { margin-bottom: 5px; }
+            .column.candidate-picture {
+                border-bottom-left-radius: $border_radius;
+                border-top-left-radius: $border_radius;
+                img {
+                    display: inline-block;
+                    max-width: 100px;
                 }
-                .column.candidate-name {
-                    padding-left: 0px;
-                }
-                .column.candidate-details {
-                    border-bottom-right-radius: $border_radius;
-                    border-top-right-radius: $border_radius;
-                    padding-left: 0px;
-                }
-                .column.client img {
-                    border-radius: $border_radius / 2;
-                }
-                .stage-actions-wrap {
-                    width: 100%;
-                    text-align: right;
-                    .stage-actions.buttons {
-                        margin-top: 6px;
-                        button { 
-                            background: transparent;
-                            color: $WHITE;
-                            padding: 7px;
-                            @include transition(background 0.5);
-                            i { font-size: 1.25em; }
-                            &:hover {
-                                background: rgba($BLACK, 0.3);
-                            }
-                            i.logo-left { background: url('/assets/img/icons/logo-left-white.png'); }
-                            i.logo-center { background: url('/assets/img/icons/logo-center-white.png'); }
-                            i.logo-right { background: url('/assets/img/icons/logo-right-white.png'); }
+            }
+            .column.candidate-name {
+                padding-left: 0px;
+            }
+            .column.candidate-details {
+                border-bottom-right-radius: $border_radius;
+                border-top-right-radius: $border_radius;
+                padding-left: 0px;
+            }
+            .column.client img {
+                border-radius: $border_radius / 2;
+            }
+            .stage-actions-wrap {
+                width: 100%;
+                text-align: right;
+                .stage-actions.buttons {
+                    margin-top: 6px;
+                    button { 
+                        background: transparent;
+                        color: $WHITE;
+                        padding: 7px;
+                        @include transition(background 0.5);
+                        i { font-size: 1.25em; }
+                        &:hover {
+                            background: rgba($BLACK, 0.3);
                         }
+                        i.logo-left { background: url('/assets/img/icons/logo-left-white.png'); }
+                        i.logo-center { background: url('/assets/img/icons/logo-center-white.png'); }
+                        i.logo-right { background: url('/assets/img/icons/logo-right-white.png'); }
                     }
                 }
             }
-            .candidate-details  a { color: $WHITE; }
         }
+        .candidate-details  a { color: $WHITE; }
     }
 }
