@@ -1,7 +1,7 @@
 {{>navigation-dashboard}}
 
 {{#if list}}
-  
+
   <div class="dashboards-list">
     <div class="ui container">
       <div class="ui grid">
@@ -28,15 +28,13 @@
 {{else}}
 
   <div class="dashboard">
-
-  <section class="navigation">
-    <div class="ui container">
-      {{>stages_bar jobs=allJobs user=me see_all="See All" button_elem="button"}}
-      {{>dashboard_menu}}
-      {{>list_candidates jobs=allJobs}}
-    </div>
-  </section>
-
+    <section class="navigation">
+      <div class="ui container">
+        {{>stages_bar jobs=allJobs user=me see_all="See All" button_elem="button"}}
+        {{>dashboard_menu}}
+        {{>list_candidates jobs=allJobs}}
+      </div>
+    </section>
   </div>
 
 {{/if}}

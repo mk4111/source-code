@@ -57,18 +57,61 @@
                         <!-- action buttons -->
                         <div class="stage-actions-wrap">
                         <div class="ui icon buttons stage-actions">
-                        <button class="ui button icon small"><i class="icon custom logo-left"></i></button>
-                        <button class="ui button icon small"><i class="icon custom logo-center"></i></button>
-                        <button class="ui button icon small"><i class="icon custom logo-right"></i></button>
-                        <button class="ui button icon small"><i class="trash icon"></i></button>
-                        <button class="ui button icon small disabled"><i class="bug icon"></i></button>
+                        <button class="ui button icon small regress
+                        {{#unless (stagePrev idStage ../../../stages)}}
+                            disabled
+                        {{/unless}}
+                        {{#if (equal idStage 6)}}
+                        disabled
+                        {{/if}}
+                        " data-content="regress" value="regress"><i class="icon custom logo-left"></i></button>
+                        <button class="ui button icon small reject
+                        {{#if (equal idStage 6)}}
+                        disabled
+                        {{/if}}
+                        " data-content="reject" value="reject"><i class="icon custom logo-center"></i></button>
+                        <button class="ui button icon small advance
+                        {{#unless (stageNext idStage ../../../stages)}}
+                            disabled
+                        {{/unless}}
+                        " data-content="advance" value="advance"><i class="icon custom logo-right"></i></button>
+                        <button class="ui button icon small delete" data-content="delete" value="delete"><i class="trash icon"></i></button>
+                        <button class="ui button icon small disabled contact" data-content="contact" value="contact"><i class="bug icon"></i></button>
                         </div>
                         </div>
 
-                        <form class="delete-status-form" action="/status/delete" method="POST">
+                        <form class="delete" action="/status/delete" method="POST">
                             <input type="hidden" name="idCandidate" value="{{id}}">
                             <input type="hidden" name="timestamp" value="{{statusTimestamp}}">
+                            <input type="hidden" name="redirect_to" value="{{request.url.path}}">
                         </form>
+
+                        <form class="regress" action="/status/edit" method="POST">
+                            <input type="hidden" name="idCandidate" value="{{id}}">
+                            <input type="hidden" name="timestamp" value="{{statusTimestamp}}">
+                            <input type="hidden" name="idClient" value="{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
+                            <input type="hidden" name="idJob" value="{{idJob}}">
+                            <input type="hidden" name="idStage" value="{{stagePrev idStage ../../../stages}}">
+                            <input type="hidden" name="redirect_to" value="{{request.url.path}}">
+                        </form>
+                        <form class="reject" action="/status/edit" method="POST">
+                            <input type="hidden" name="idCandidate" value="{{id}}">
+                            <input type="hidden" name="timestamp" value="{{statusTimestamp}}">
+                            <input type="hidden" name="idClient" value="{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
+                            <input type="hidden" name="idJob" value="{{idJob}}">
+                            <input type="hidden" name="idStage" value="5">
+                            <input type="hidden" name="redirect_to" value="{{request.url.path}}">
+                        </form>
+
+                        <form class="advance" action="/status/edit" method="POST">
+                            <input type="hidden" name="idCandidate" value="{{id}}">
+                            <input type="hidden" name="timestamp" value="{{statusTimestamp}}">
+                            <input type="hidden" name="idClient" value="{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
+                            <input type="hidden" name="idJob" value="{{idJob}}">
+                            <input type="hidden" name="idStage" value="{{stageNext idStage ../../../stages}}">
+                            <input type="hidden" name="redirect_to" value="{{request.url.path}}">
+                        </form>
+
                     </p>
                 </div>
                 <div class="two wide column client">

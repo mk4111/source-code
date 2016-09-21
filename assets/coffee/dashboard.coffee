@@ -113,4 +113,13 @@ $ ->
       filter_results();
   };
 
+  # tooltip
+  $(".dashboard .list_candidats .candidate-box-wrap .buttons.stage-actions button").each ->
+    $(this).popup({ 
+      hoverable  : true,
+      inline     : true
+    });
+
+  # stage actions
+  
 
