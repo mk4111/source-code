@@ -53,7 +53,23 @@
                         N/A
                     {{/if}}
                     </p>
-                    
+                    <p>
+                        <!-- action buttons -->
+                        <div class="stage-actions-wrap">
+                        <div class="ui icon buttons stage-actions">
+                        <button class="ui button icon small"><i class="icon custom logo-left"></i></button>
+                        <button class="ui button icon small"><i class="icon custom logo-center"></i></button>
+                        <button class="ui button icon small"><i class="icon custom logo-right"></i></button>
+                        <button class="ui button icon small"><i class="trash icon"></i></button>
+                        <button class="ui button icon small disabled"><i class="bug icon"></i></button>
+                        </div>
+                        </div>
+
+                        <form class="delete-status-form" action="/status/delete" method="POST">
+                            <input type="hidden" name="idCandidate" value="{{id}}">
+                            <input type="hidden" name="timestamp" value="{{statusTimestamp}}">
+                        </form>
+                    </p>
                 </div>
                 <div class="two wide column client">
                     <div class="center-vertical-wrap">
