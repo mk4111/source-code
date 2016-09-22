@@ -123,6 +123,13 @@ $ ->
   # stage actions
   $(".dashboard .list_candidats .candidate-box-wrap .buttons.stage-actions button").each ->
     button = $(this);
+    modal = button.parent().find(".modal." + button.val());
+    form = button.parent().find("form." + button.val());
+    modal.find(".button.cancel").click ->
+      modal.modal('close');
+    modal.find(".button.action").click ->
+      form.submit();
     button.click ->
-      button.parent().find("form." + button.val()).submit(); 
+      modal.modal('show');
+
 
