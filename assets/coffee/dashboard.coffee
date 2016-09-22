@@ -129,7 +129,12 @@ $ ->
       modal.modal('close');
     modal.find(".button.action").click ->
       form.submit();
+    
     button.click ->
-      modal.modal('show');
+      if button.hasClass("reject") || button.hasClass("delete")
+        return modal.modal('show');
+      form.submit();
+
+
 
 
