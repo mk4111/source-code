@@ -13,7 +13,9 @@ div.dashboard {
     }
     div.list_candidats {
         .candidate-box-wrap.row {
-
+            &.incomplete {
+                opacity: 0.5;
+            }
             /** This are some Semantic-UI modification - should be rather cusomised in the build */
             padding-top: 0px;
             .column {
