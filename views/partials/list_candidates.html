@@ -1,118 +1,101 @@
 <div class="list_candidats">
 <div class="ui grid">
-{{#each jobs as |stages idJob|}}
-    {{#each stages as |candidates idStage|}}
-        {{#each candidates}}
-            <div class="row stage-{{idStage}} candidate-box-wrap candidate-id-{{id}} role-id-{{idJob}} client-id-{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
-                <div class="two wide column candidate-picture {{stageToCss idStage}}">
-                    <div class="center-vertical-wrap">
-                        <div class="center-vertical">
-                            <a href="/candidate/{{id}}">
-                                <img class="ui small circular image color {{stageToCss idStage}}" src="{{picture}}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
-                            </a>
-                        </div>
+    {{#each userStages}}
+
+        <div class="row stage-{{stageId}} candidate-box-wrap candidate-id-{{candidateId}} role-id-{{jobId}} client-id-{{lookup (lookup ../../../jobsMap jobId) 'client'}}">
+            <div class="two wide column candidate-picture {{stageToCss stageId}}">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        <a href="/candidate/{{candidateId}}">
+                            <img class="ui small circular image color {{stageToCss stageId}}" src="{{ lookup (lookup ../candidatesMap candidateId) 'picture'}}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
+                        </a>
                     </div>
                 </div>
-                <div class="four wide column candidate-name {{stageToCss idStage}}">
-                    <p><b>{{fullname}}</b></p>
-                    <p>{{headline}}</p>
-                    <!--
-                    <p><b>{{current}}</b></p>
-                    -->
-                    <p>{{location}}</p>
-                </div>
-                <div class="four wide column candidate-details {{stageToCss idStage}}">
-                    
-                    
-                    <p><b>CV:</b>
-                        {{#if cvDocumentLink}}
-                            <a href="{{cvDocumentLink}}" target="_blank">view</a>
-                        {{else}}
-                            N/A
-                    {{/if}}
-                    </p>
-                    
-                    <p><b>Email:</b>
-                    {{#if contacts.email}}
-                        {{contacts.email}}
+            </div>
+            <div class="four wide column candidate-name {{stageToCss stageId}}">
+                <p><b>{{lookup (lookup ../candidatesMap candidateId) 'fullname'}}</b></p>
+                <p>{{lookup (lookup ../candidatesMap candidateId) 'headline'}}</p>
+                <!-- <p><b>{{current}}</b></p> -->
+                <p>{{lookup (lookup ../candidatesMap candidateId) 'location'}}</p>
+            </div>
+            <div class="four wide column candidate-details {{stageToCss stageId}}">
+                <p><b>CV:</b>
+                    {{#if (lookup (lookup ../candidatesMap candidateId) 'cvDocumentLink') }}
+                        <a href="{{cvDocumentLink}}" target="_blank">view</a>
+                    {{else}}
+                        N/A
+                {{/if}}
+                </p>
+                <p><b>Email:</b>
+                    {{#if (lookup (lookup (lookup ../candidatesMap candidateId) 'contacts') 'email') }}
+                        {{lookup (lookup (lookup ../candidatesMap candidateId) 'contacts') 'email'}}
                     {{else}}
                         N/A
                     {{/if}}
-                    </p>
-                    
-                    <p><b>Phone:</b>
-                    {{#if contacts.phone}}
-                        {{contacts.phone}}
+                </p>
+                <p><b>Phone:</b>
+                    {{#if (lookup (lookup (lookup ../candidatesMap candidateId) 'contacts') 'phone') }}
+                        {{lookup (lookup (lookup ../candidatesMap candidateId) 'contacts') 'phone'}}
                     {{else}}
                         N/A
                     {{/if}}
-                    </p>
-                    <!--
-                    <p><b>Salary:</b>
-                    {{#if info.sexpected}}
-                        {{info.sexpected}}
-                    {{else}}
-                        N/A
-                    {{/if}}
-                    </p>
-                    -->
-                        <!-- action buttons -->
-                        <div class="stage-actions-wrap">
-                        <div class="ui icon buttons stage-actions">
+                </p>
+                <!--
+                <p><b>Salary:</b>
+                {{#if info.sexpected}}
+                    {{info.sexpected}}
+                {{else}}
+                    N/A
+                {{/if}}
+                </p>
+                -->
+                <!-- action buttons -->
+                <div class="stage-actions-wrap">
+                    <div class="ui icon buttons stage-actions">
 
                         <button class="ui button icon small regress
-                        {{#unless (stagePrev idStage ../../../stages)}}
+                        {{#unless (stagePrev stageId ../stages)}}
                             disabled
                         {{/unless}}
-                        {{#if (equal idStage 6)}}
+                        {{#if (equal stageId 6)}}
                         disabled
                         {{/if}}
                         " data-content="Regress" value="regress"><i class="icon custom logo-left"></i></button>
                         <button class="ui button icon small reject
-                        {{#if (equal idStage 6)}}
+                        {{#if (equal stageId 6)}}
                         disabled
                         {{/if}}
                         " data-content="Reject" value="reject"><i class="icon custom logo-center"></i></button>
                         <button class="ui button icon small advance
-                        {{#unless (stageNext idStage ../../../stages)}}
+                        {{#unless (stageNext stageId ../stages)}}
                             disabled
                         {{/unless}}
                         " data-content="Advance" value="advance"><i class="icon custom logo-right"></i></button>
                         <button class="ui button icon small delete" data-content="Delete" value="delete"><i class="trash icon"></i></button>
-                        <button class="ui button icon small disabled contact" data-content="contact" value="contact"><i class="bug icon"></i></button>
-                        <button class="ui button icon small disabled note" data-content="contact" value="contact"><i class="sticky note icon"></i></button>
+                        <button class="ui button icon small disabled contact" data-content="Contact" value="contact"><i class="bug icon"></i></button>
+                        <button class="ui button icon small disabled note" data-content="Note" value="note"><i class="sticky note icon"></i></button>
                         <!-- action forms -->
 
                         <form class="delete" action="/status/delete" method="POST">
-                            <input type="hidden" name="idCandidate" value="{{id}}">
-                            <input type="hidden" name="timestamp" value="{{statusTimestamp}}">
-                            <input type="hidden" name="redirect_url" value="{{../../../request.url.path}}">
+                            <input type="hidden" name="id" value="{{_id}}">
+                            <input type="hidden" name="redirect_url" value="{{../request.url.path}}">
                         </form>
 
                         <form class="regress" action="/status/edit" method="POST">
-                            <input type="hidden" name="idCandidate" value="{{id}}">
-                            <input type="hidden" name="timestamp" value="{{statusTimestamp}}">
-                            <input type="hidden" name="idClient" value="{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
-                            <input type="hidden" name="idJob" value="{{idJob}}">
-                            <input type="hidden" name="idStage" value="{{stagePrev idStage ../../../stages}}">
-                            <input type="hidden" name="redirect_url" value="{{../../../request.url.path}}">
+                            <input type="hidden" name="id" value="{{_id}}">
+                            <input type="hidden" name="stageId" value="{{stagePrev stageId ../stages}}">
+                            <input type="hidden" name="redirect_url" value="{{../request.url.path}}">
                         </form>
                         <form class="reject" action="/status/edit" method="POST">
-                            <input type="hidden" name="idCandidate" value="{{id}}">
-                            <input type="hidden" name="timestamp" value="{{statusTimestamp}}">
-                            <input type="hidden" name="idClient" value="{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
-                            <input type="hidden" name="idJob" value="{{idJob}}">
-                            <input type="hidden" name="idStage" value="6">
-                            <input type="hidden" name="redirect_url" value="{{../../../request.url.path}}">
+                            <input type="hidden" name="id" value="{{_id}}">
+                            <input type="hidden" name="stageId" value="6">
+                            <input type="hidden" name="redirect_url" value="{{../request.url.path}}">
                         </form>
 
                         <form class="advance" action="/status/edit" method="POST">
-                            <input type="hidden" name="idCandidate" value="{{id}}">
-                            <input type="hidden" name="timestamp" value="{{statusTimestamp}}">
-                            <input type="hidden" name="idClient" value="{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
-                            <input type="hidden" name="idJob" value="{{idJob}}">
-                            <input type="hidden" name="idStage" value="{{stageNext idStage ../../../stages}}">
-                            <input type="hidden" name="redirect_url" value="{{../../../request.url.path}}">
+                            <input type="hidden" name="id" value="{{_id}}">
+                            <input type="hidden" name="stageId" value="{{stageNext stageId ../stages}}">
+                            <input type="hidden" name="redirect_url" value="{{../request.url.path}}">
                         </form>
 
                         <!-- action modals -->
@@ -184,30 +167,29 @@
                         </div>
 
 
-                        </div>
-                        </div>
-
-                </div>
-                <div class="two wide column client">
-                    <div class="center-vertical-wrap">
-                        <div class="center-vertical">
-                            <a href="/clients/{{lookup (lookup ../../../jobsMap idJob) 'client'}}">
-                                <img class="ui small image" src="{{lookup (lookup ../../../clientsMap (lookup (lookup ../../../jobsMap idJob) "client") ) "logoUrl" }}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
-                            </a>
-                        </div>
                     </div>
                 </div>
-                <div class="four wide column role">
-                    <p><b>{{lookup (lookup ../../../clientsMap (lookup (lookup ../../../jobsMap idJob) "client") ) "name" }}</b></p>
-                    <a href="/jobs/{{idJob}}"><p>{{lookup (lookup ../../../jobsMap idJob) "title" }}</p></a>
-                    <p>{{lookup (lookup ../../../jobsMap idJob) "salary" }}</p>
-                    <p>{{lookup (lookup (lookup ../../../jobsMap idJob) "address") "city" }}, 
-                        {{ lookup (lookup ../../../countries (lookup (lookup (lookup ../../../jobsMap idJob) "address") "countryID" )) "label" }}</p>
-                </div>
+
             </div>
 
-        {{/each}}
+            <div class="two wide column client">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        <a href="/clients/{{lookup (lookup ../jobsMap jobId) 'client'}}">
+                            <img class="ui small image" src="{{lookup (lookup ../clientsMap (lookup (lookup ../jobsMap jobId) "client") ) "logoUrl" }}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="four wide column role">
+                <p><b>{{lookup (lookup ../clientsMap (lookup (lookup ../jobsMap jobId) "client") ) "name" }}</b></p>
+                <a href="/jobs/{{jobId}}"><p>{{lookup (lookup ../jobsMap jobId) "title" }}</p></a>
+                <p>{{lookup (lookup ../jobsMap jobId) "salary" }}</p>
+                <p>{{lookup (lookup (lookup ../jobsMap jobId) "address") "city" }}, 
+                        {{ lookup (lookup ../countries (lookup (lookup (lookup ../jobsMap jobIf) "address") "countryID" )) "label" }}</p>
+            </div>
+        </div>
+
     {{/each}}
-{{/each}}
-</div>
+    </div>
 </div>
