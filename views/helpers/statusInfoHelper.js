@@ -5,7 +5,7 @@ module.exports = function (statusCurrent, clients, jobs) {
 
   clients.forEach(function (client) {
 
-    if (statusCurrent.idClient === client.id) {
+    if (statusCurrent.clientId == client.id) {
 
       result += "<span>" + client.name + " </span>";
 
@@ -16,7 +16,7 @@ module.exports = function (statusCurrent, clients, jobs) {
 
   jobs.forEach(function (job) {
 
-    if (statusCurrent.idJob === job.id) {
+    if (statusCurrent.jobId == job.id) {
 
       result += "<span>" + job.title + " </span>";
 

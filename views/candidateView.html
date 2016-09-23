@@ -51,7 +51,7 @@
       </div>
 
 
-      {{#if candidate.statusCurrent}}
+      {{#if false}}
           {{#each candidate.statusCurrent}}
 
             <h4 class="status-candidate">{{statusInfoHelper this ../clients ../jobs}} <span class="stage-span">{{statusStageHelper idStage ../stages}}</span><span class="stage-initials-span"> {{statusInitialsHelper idUser ../users}}</span></h4>
@@ -100,6 +100,53 @@
           {{/each}}
 
       {{/if}}
+
+
+      {{#each candidateStages}}
+
+            <h4 class="status-candidate">{{statusInfoHelper this ../clients ../jobs}} <span class="stage-span">{{statusStageHelper stageId ../stages}}</span><span class="stage-initials-span"> {{statusInitialsHelper userId ../users}}</span></h4>
+            <div class="status-wrapper">
+              <form class="delete-status-form" action="/status/delete" method="POST">
+                <input type="hidden" name="id" value="{{_id}}">
+                <input type="hidden" name="candidateId" value="{{candidateId}}">
+                <button type="submit">Delete</button>
+              </form>
+
+              <button id="{{_id}}" class="edit-status">Edit</button>
+            </div>
+              <form class="edit-status-form" action="/status/edit" method="POST">
+                <input type="hidden" name="candidateId" value="{{candidateId}}">
+                <input type="hidden" name="id" value="{{_id}}">
+                <div class="dropdown-clients-edit id-{{_id}}">
+                  <select name="clientId" data-tmp="{{_id}}" class="dropbtn clients-edit">
+                    <option selected disabled>Clients</option>
+                    {{#each ../clients}}
+                      {{statusEditClient this ../clientId}}
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="dropdown-jobs-edit id-{{_id}}">
+                  <select name="jobId" class="dropbtn id-{{_id}}">
+                    <option selected disabled>Jobs</option>
+                    {{#each ../jobs}}
+                        {{statusEditJob this ../jobId}}
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="dropdown-stages-edit id-{{_id}}">
+                  <select name="stageId" class="dropbtn">
+                    <option selected disabled>Stages</option>
+                    {{#each ../stages}}
+                      {{statusEditStages this ../stageId}}
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="dropdown-save-edit id-{{_id}}">
+                  <button type="submit" class="dropbtn">Save</button>
+                </div>
+              </form>
+
+      {{/each}}
 
       {{>status}}
 

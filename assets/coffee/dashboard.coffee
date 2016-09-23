@@ -121,7 +121,7 @@ $ ->
     });
 
   # stage actions
-  $(".dashboard .list_candidats .candidate-box-wrap .buttons.stage-actions button").each ->
+  $(".dashboard .list_candidats .candidate-box-wrap .buttons.stage-actions > button").each ->
     button = $(this);
     modal = button.parent().find(".modal." + button.val());
     form = button.parent().find("form." + button.val());

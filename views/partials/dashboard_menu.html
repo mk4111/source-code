@@ -12,10 +12,10 @@
             <input type="text" placeholder="Candidate">
           </div>
           <div class="scrolling menu">
-            {{#each candidates as |fullname id|}}
+            {{#each candidatesMap as |c id|}}
               <div class="item" data-value="candidate-id-{{id}}">
                 <!-- <div class="ui red empty circular label"></div> -->
-                {{fullname}}
+                {{c.fullname}}
               </div>
             {{/each}}
           </div>
@@ -39,10 +39,10 @@
             My Clients
           </div>
           <div class="scrolling menu">
-            {{#each myClients}}
+            {{#each myClientsMap as |c id|}}
               <div class="item" data-value="client-id-{{id}}">
                 <!-- <div class="ui red empty circular label"></div> -->
-                {{name}}
+                {{c.name}}
               </div>
             {{/each}}
           </div>
@@ -52,10 +52,10 @@
             Other Clients
           </div>
           <div class="scrolling menu">
-            {{#each otherClients}}
+            {{#each otherClientsMap as |c id|}}
               <div class="item" data-value="client-id-{{id}}">
                 <!-- <div class="ui red empty circular label"></div> -->
-                {{name}}
+                {{c.name}}
               </div>
             {{/each}}
           </div>
@@ -81,10 +81,10 @@
             My Roles
           </div>
           <div class="scrolling menu">
-            {{#each myRoles}}
+            {{#each myJobsMap as |j id|}}
               <div class="item" data-value="role-id-{{id}}">
                 <!-- <div class="ui red empty circular label"></div> -->
-                {{title}}
+                {{j.title}}
               </div>
             {{/each}}
           </div>
@@ -94,10 +94,10 @@
             Other Roles
           </div>
           <div class="scrolling menu">
-            {{#each otherRoles}}
+            {{#each otherJobsMap as |j id|}}
               <div class="item" data-value="role-id-{{id}}">
                 <!-- <div class="ui red empty circular label"></div> -->
-                {{title}}
+                {{j.title}}
               </div>
             {{/each}}
           </div>

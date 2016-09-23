@@ -5,7 +5,7 @@
   <div class="dashboards-list">
     <div class="ui container">
       <div class="ui grid">
-        {{#each usersJobs as |u|}}
+        {{#each userStages as |u|}}
           <div class="ui row">
           <div class="two wide ui column">
             <a href="/dashboard/{{u.user.idGoogle}}">
@@ -15,7 +15,7 @@
           <div class="fourteen wide ui column">
             <div class="stages-bar-wrap">
               <div class="stages-bar-wrap-inner">
-              {{>stages_bar jobs=u.jobs stages=../stages user=u.user see_all="All" button_elem="a"}}
+              {{>stages_bar applications=u.stages stages=../stages user=u.user see_all="All" button_elem="a"}}
               </div>
             </div>
           </div>
@@ -30,7 +30,7 @@
   <div class="dashboard">
     <section class="navigation">
       <div class="ui container">
-        {{>stages_bar jobs=allJobs user=me see_all="See All" button_elem="button"}}
+        {{>stages_bar applications=userStages user=me see_all="See All" button_elem="button"}}
         {{>dashboard_menu}}
         {{>list_candidates jobs=allJobs}}
       </div>

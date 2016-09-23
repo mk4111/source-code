@@ -1,9 +1,9 @@
 <div class="stages-bar">
   <div class="ui buttons">
-  <{{button_elem}} href="/dashboard/{{user.idGoogle}}" class="ui button pink all-stages" value="stage-*">{{see_all}} (<span class="stage-counter">{{countStages jobs "*"}}</span>)</{{button_elem}}>
+  <{{button_elem}} href="/dashboard/{{user.idGoogle}}" class="ui button pink all-stages" value="stage-*">{{see_all}} (<span class="stage-counter">{{applications.length}}</span>)</{{button_elem}}>
   <div class="or"></div>
   {{#each stages as |s|}}
-    <{{../button_elem}} href="/dashboard/{{../user.idGoogle}}#stage-{{s.id}}" class="ui button {{stageToCss s}} single-stage stage-{{s.id}}" value="stage-{{s.id}}">{{name}} (<span class="stage-counter">{{countStages ../jobs s}}</span>)</{{../button_elem}}>
+    <{{../button_elem}} href="/dashboard/{{../user.idGoogle}}#stage-{{s.id}}" class="ui button {{stageToCss s}} single-stage stage-{{s.id}}" value="stage-{{s.id}}">{{name}} (<span class="stage-counter">{{countStages ../applications s}}</span>)</{{../button_elem}}>
   {{/each}}
   </div>
 

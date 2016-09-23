@@ -2,24 +2,12 @@
 
 const Handlebars = require('handlebars');
 
-module.exports = function (jobs, stage) {
+module.exports = function (applications, stage) {
 
-  if(!jobs) { return 0; }
+  if(!applications) { return 0; }
 
-  var size = 0;
+  var result = 0;
+  applications.forEach(a => { if (a.stageId == stage.id) { result++; } })
+  return result;
 
-  if(stage == "*") { 
-      for (var key in jobs) {
-        for (var s in jobs[key]) {
-            size += jobs[key][s].length;
-        }
-      }
-  } else {
-    for (var key in jobs) {
-        if (String(stage.id) in jobs[key]) {
-            size += jobs[key][stage.id].length;
-        }
-    }
-  }
-  return size;
 }
