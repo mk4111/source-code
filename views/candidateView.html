@@ -2,22 +2,6 @@
 <div class="candidate_view">
   <div class="thumbnail">
     <div class="headline">
-    <!-- Add favorite icon -->
-      {{#if candidate.favourite}}
-      <!-- form for unfavourite -->
-        <form class="favourite-form" method="POST" action="">
-        <input type="hidden" id="profileId" name="id" value="{{candidate.id}}"/>
-        <input type="hidden" name="javascriptDisabled" value='true'/>
-          <button type="submit"><i id="star-state" class="fa fa-star"></i></button>
-        </form>
-      {{else}}
-        <form class="favourite-form" method="POST" action="/favourite">
-        <input type="hidden" id="profileId" name="id" value="{{candidate.id}}"/>
-        <input type="hidden" name="javascriptDisabled" value='true'/>
-          <button type="submit"><i id="star-state" class="fa fa-star unchecked"></i></button>
-        </form>
-
-      {{/if}}
 
       <img src="{{candidate.picture}}" alt="" />
       <br/>
