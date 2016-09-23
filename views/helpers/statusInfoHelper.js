@@ -6,9 +6,8 @@ module.exports = function (statusCurrent, clients, jobs) {
   clients.forEach(function (client) {
 
     if (statusCurrent.clientId == client.id) {
-
       result += "<span>" + client.name + " </span>";
-
+      return false; // break
     }
 
   });
@@ -17,9 +16,8 @@ module.exports = function (statusCurrent, clients, jobs) {
   jobs.forEach(function (job) {
 
     if (statusCurrent.jobId == job.id) {
-
       result += "<span>" + job.title + " </span>";
-
+      return false; // breaks
     }
 
   });
