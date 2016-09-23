@@ -185,8 +185,8 @@
                 <p><b>{{lookup (lookup ../clientsMap (lookup (lookup ../jobsMap jobId) "client") ) "name" }}</b></p>
                 <a href="/jobs/{{jobId}}"><p>{{lookup (lookup ../jobsMap jobId) "title" }}</p></a>
                 <p>{{lookup (lookup ../jobsMap jobId) "salary" }}</p>
-                <p>{{lookup (lookup (lookup ../jobsMap jobId) "address") "city" }}, 
-                        {{ lookup (lookup ../countries (lookup (lookup (lookup ../jobsMap jobIf) "address") "countryID" )) "label" }}</p>
+                <p>{{lookup (lookup (lookup ../jobsMap jobId) "address") "city" }},
+                        {{ lookup (lookup ../countries (lookup (lookup (lookup ../jobsMap jobId) "address") "countryID" )) "label" }}</p>
             </div>
         </div>
 
