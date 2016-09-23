@@ -3,7 +3,7 @@ node_js:
   - 4.4.5
 sudo: false
 services:
-  - mongo
+  - mongodb
   - elasticsearch
   - redis-server
 before_install:
