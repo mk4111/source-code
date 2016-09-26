@@ -25,4 +25,5 @@ toad-bulk
 # bower
 bower_components
 # build
-build
+assets/build
+assets/vendor
