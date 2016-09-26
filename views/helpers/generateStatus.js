@@ -1,8 +1,11 @@
 var Handlebars = require('handlebars');
 module.exports = function (statusCurrent, clients, stages) {
 
+
   var result = "";
   
+  if (!statusCurrent || !clients || !stages) { return ""; }
+
   clients.forEach(function (obj) {
     if (statusCurrent.idClient.toString() === obj.id.toString()) { result += obj.name + " "; }
   });

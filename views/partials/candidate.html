@@ -1,15 +1,16 @@
-
 <div class="ui row candidate">
 
+
+{{#unless extended}}
 <div class="one wide column">
-    {{#if contacts.email}}
-        {{#unless emailLast30}}
-            {{#unless statusCurrent}}
-                {{#unless clientProfile}}
+    {{#if candidate.contacts.email}}
+        {{#unless candidate.emailLast30}}
+            {{#unless candidate.statusCurrent}}
+                {{#unless candidate.clientProfile}}
                     <div class="center-vertical-wrap">
                         <div class="center-vertical">
                             <div class="ui checkbox">
-                                <input type="checkbox" name="email" value='{"email": "{{this.email}}", "id":"{{this.id}}", "fn":"{{this.firstName}}"}'>
+                                <input type="checkbox" name="email" value='{"email": "{{candidate.email}}", "id":"{{candidate.id}}", "fn":"{{candidate.firstName}}"}'>
                                 <label></label>
                             </div>
                         </div>
@@ -19,58 +20,66 @@
         {{/unless}}
     {{/if}}
 </div>
+{{/unless}}
 
 <div class="column two wide picture">
     <div class="center-vertical-wrap">
         <div class="center-vertical">
-            <a href="/candidate/{{id}}">
-                <img class="ui small circular image color {{stageToCss idStage}}" src="{{picture}}" onerror="this.src='/assets/img/client-logo.png'"/>
+            <a href="/candidate/{{candidate.id}}">
+                <img class="ui small circular image color" src="{{candidate.picture}}" onerror="this.src='/assets/img/client-logo.png'"/>
             </a>
         </div>
     </div>
 </div>
 
+{{#if extended}}
+<div class="one wide column">
+    <p><button class="circular ui icon button small"><i class="icon stack overflow"></i></button></p>
+    <p><button class="circular ui icon button small"><i class="icon github"></i></button></p>
+    <p><button class="circular ui icon button small"><i class="icon linkedin"></i></button></p>
+</div>
+{{/if}}
 
 <div class="four wide column">
-    <p><b>{{fullname}}</b></p>
-    <p>{{headline}}</p>
-    <p><b>{{current}}</b></p>
-    <p>{{location}}</p>
+    <p><b>{{candidate.fullname}}</b></p>
+    <p>{{candidate.headline}}</p>
+    <p><b>{{candidate.current}}</b></p>
+    <p>{{candidate.location}}</p>
 </div>
 
-<div class="two wide column candidate-details {{stageToCss idStage}}">
-    <p class="{{presenceToCss cvDocumentLink}}">CV</p>
-    <p class="{{presenceToCss contacts.email}}">Email</p>
-    <p class="{{presenceToCss contacts.phone}}">Phone</p>
+<div class="two wide column candidate-details">
+    <p class="{{presenceToCss candidate.cvDocumentLink}}">CV</p>
+    <p class="{{presenceToCss candidate.contacts.email}}">Email</p>
+    <p class="{{presenceToCss candidate.contacts.phone}}">Phone</p>
     <!--
     <p class="{{presenceToCss salary}}">Salary</p>
     -->
 </div>
 
-<div class="two wide column candidate-details {{stageToCss idStage}}">
-    <p class="{{presenceToCss cvDocumentLink}}">
-        {{#if cvDocumentLink}}
+<div class="two wide column candidate-details">
+    <p class="{{presenceToCss candidate.cvDocumentLink}}">
+        {{#if candidate.cvDocumentLink}}
             <i class="checkmark icon"></i>
         {{else}}
             <i class="remove icon"></i>
         {{/if}}
     </p>
-    <p class="{{presenceToCss contacts.email}}">
-        {{#if contacts.email}}
+    <p class="{{presenceToCss candidate.contacts.email}}">
+        {{#if candidate.contacts.email}}
             <i class="checkmark icon"></i>
         {{else}}
             <i class="remove icon"></i>
         {{/if}}
     </p>
-    <p class="{{presenceToCss contacts.phone}}">
-        {{#if contacts.phone}}
+    <p class="{{presenceToCss candidate.contacts.phone}}">
+        {{#if candidate.contacts.phone}}
             <i class="checkmark icon"></i>
         {{else}}
             <i class="remove icon"></i>
         {{/if}}
     </p>
-    <p class="{{presenceToCss salary}}">
-        {{#if info.sexpected}}
+    <p class="{{presenceToCss candidate.salary}}">
+        {{#if candidate.info.sexpected}}
             <i class="checkmark icon"></i>
         {{else}}
             <i class="remove icon"></i>
@@ -82,8 +91,8 @@
     
     <p>
     Connected To:
-    {{# if connectedTo.length }}
-    {{#each connectedTo}}
+    {{# if candidate.connectedTo.length }}
+    {{#each candidate.connectedTo}}
             {{#if this}}
                 <a href="/connected/{{encodeKeywordsHelper this}}"><b>{{initials_of_connected_users this}}</b></a>
             {{/if}}
@@ -94,16 +103,16 @@
     </p>
 
     <p class="stages">Status:
-    {{#if statusCurrent.length}}
-        {{#each statusCurrent}}
+    {{#if candidate.statusCurrent.length}}
+        {{#each candidate.statusCurrent}}
             {{generateStatus this ../clients ../stages}}<span class="comma">,</span>
         {{/each}}
     {{/if}}
-    {{#if clientProfile}}
+    {{#if candidate.clientProfile}}
         <span class="client-employee">Client Employee</span>
     {{/if}}
-    {{#unless clientProfile}}
-        {{#unless statusCurrent.length}}
+    {{#unless candidate.clientProfile}}
+        {{#unless candidate.statusCurrent.length}}
             N/A
         {{/unless}}
     {{/unless}}
@@ -112,9 +121,9 @@
 
     <!-- @TODO get some more details here -->
     <p class="email-preview">Last Contacted:
-        {{#if lastEmail.sentAt}}
+        {{#if candidate.lastEmail.sentAt}}
 
-        <a class="ui" href="" id="email-id-{{id}}" data-content="{{lastEmail.subject}}, {{lastEmail.senderName}}"> {{lastEmail.sentAt}}</a>
+        <a class="ui" href="" id="email-id-{{candidate.id}}" data-content="{{candidate.lastEmail.subject}}, {{candidate.lastEmail.senderName}}"> {{candidate.lastEmail.sentAt}}</a>
 
         {{else}}
             N/A
@@ -124,8 +133,8 @@
 
     <p class="last-viewed-by">
     Last Viewed By: 
-    {{#if viewedBy.length}}
-        {{#each (lastViewedBy viewedBy) }}
+    {{#if candidate.viewedBy.length}}
+        {{#each (lastViewedBy candidate.viewedBy) }}
 
             <a class="ui" href="" data-content="{{user.fullname}} ({{timestamp_formatted_long}})" id="viewed-by-{{../id}}">
             {{#unless @index}}
@@ -144,14 +153,14 @@
 
 <!-- modals -->
 
-{{#if viewedBy.length}}
-    <div class="ui modal email viewed-by-{{id}}">
+{{#if candidate.viewedBy.length}}
+    <div class="ui modal email viewed-by-{{candidate.id}}">
         <i class="close icon"></i>
         <div class="header">
             Viewed By
         </div>
         <div class="content">
-            {{#each (lastViewedBy viewedBy) }}
+            {{#each (lastViewedBy candidate.viewedBy) }}
                 <p>{{user.fullname}} ({{timestamp_formatted_long}})</p>
             {{/each}}
         </div>
@@ -159,16 +168,16 @@
     </div>
 {{/if}}
 
-{{#if lastEmail.sentAt}}
+{{#if candidate.lastEmail.sentAt}}
     <div class="ui modal email email-id-{{id}}">
         <i class="close icon"></i>
         <div class="header">
-            {{lastEmail.subject}}
+            {{candidate.lastEmail.subject}}
         </div>
         <div class="content">
-            <p class="message">{{lastEmail.message}}</p>
-            <p class="sender">{{lastEmail.senderName}}</p>
-            <p class="sent-at">{{lastEmail.sentAt}}</p>
+            <p class="message">{{candidate.lastEmail.message}}</p>
+            <p class="sender">{{candidate.lastEmail.senderName}}</p>
+            <p class="sent-at">{{candidate.lastEmail.sentAt}}</p>
         </div>
         <div class="actions"> <!-- if any actions put them here --> </div>
     </div>
@@ -178,8 +187,8 @@
 
 <div class="six column row skills black">
 
-    {{#if listSkills.length}}
-        {{#each listSkills}}
+    {{#if candidate.listSkills.length}}
+        {{#each candidate.listSkills}}
             <div class="column
             {{#if matched}}
             matched
