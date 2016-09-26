@@ -4,7 +4,7 @@
 <div class="one wide column">
     {{#if candidate.contacts.email}}
         {{#unless candidate.emailLast30}}
-            {{#unless candidate.statusCurrent}}
+            {{#unless candidate.stages}}
                 {{#unless candidate.clientProfile}}
                     <div class="center-vertical-wrap">
                         <div class="center-vertical">
@@ -102,8 +102,8 @@
     </p>
 
     <p class="stages">Status:
-    {{#if candidate.statusCurrent.length}}
-        {{#each candidate.statusCurrent}}
+    {{#if candidate.stages.length}}
+        {{#each candidate.stages}}
             {{generateStatus this ../clients ../stages}}<span class="comma">,</span>
         {{/each}}
     {{/if}}
@@ -111,7 +111,7 @@
         <span class="client-employee">Client Employee</span>
     {{/if}}
     {{#unless candidate.clientProfile}}
-        {{#unless candidate.statusCurrent.length}}
+        {{#unless candidate.stages.length}}
             N/A
         {{/unless}}
     {{/unless}}
