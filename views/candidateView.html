@@ -1,11 +1,30 @@
 {{>search_bar}}
 
-<div class="ui container">
+<div class="ui container candidate">
     <div class="ui grid candidates-list">
         {{>candidate clients=../clients stages=../stages extended=true}}
-
-        <div class="row">
+    </div>
+    <div class="row action-buttons">
+        <div class="ui labeled button" tabindex="0">
+            <button class="ui button"> Add Submission </button>
+            <a class="ui basic label">
+              {{#if candidate.stages.length}}
+                {{candidate.stages.length}}
+              {{else}}
+                0
+              {{/if}}
+            </a>
         </div>
+
+        <button class="ui button disabled"> Log Call </button>
+        <button class="ui button
+        {{#unless candidate.contacts.email}}
+            disabled
+        {{/unless}}
+        "> Send Email </button>
+        <button class="ui button disabled"> Add to List </button>
+        <button class="ui button negative disabled"> Blacklist Profile </button>
+        <button class="ui button negative"> Delete Profile </button>
     </div>
 </div>
 
@@ -96,7 +115,7 @@
       {{/if}}
 
 
-      {{#each candidateStages}}
+      {{#each candidate.stages}}
 
             <h4 class="status-candidate">{{statusInfoHelper this ../clients ../jobs}} <span class="stage-span">{{statusStageHelper stageId ../stages}}</span><span class="stage-initials-span"> {{statusInitialsHelper userId ../users}}</span></h4>
             <div class="status-wrapper">

@@ -17,3 +17,12 @@ i.send > span {
   padding-left: 5px;
   font-size: 0.8em;
 }
+
+div.container.candidate {
+    div.row.candidate {
+        padding-bottom: 10px;
+    }
+    div.row.action-buttons {
+        margin-top: 10px;
+    }
+}
