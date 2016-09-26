@@ -12,7 +12,7 @@ describe('Create status indicator', function () {
 
     var stage = { '1': {id: '1', name: 'stage1' }, '2': { id: '2', name: 'stage2' } };
     var client = [{ id: '2', name: 'clientName' }, { id: '3', name: 'clientName3' }];
-    var status = { idClient: '2', idStage: '1' }
+    var status = { clientId: '2', stageId: '1' }
     var result = generateStatus(status, client, stage);
 
     expect(result.string).to.equal('clientName [stage1]');
