@@ -1,0 +1,111 @@
+.bckg-color.blue {
+  background: #2185D0; }
+
+.bckg-color.orange {
+  background: #F2711C; }
+
+.bckg-color.green {
+  background: #21BA45; }
+
+.bckg-color.yellow {
+  background: #FBBD08; }
+
+.bckg-color.purple {
+  background: #A333C8; }
+
+.bckg-color.pink {
+  background: #E03997; }
+
+.bckg-color.red {
+  background: #d01919; }
+
+.color.blue {
+  color: #2185D0; }
+
+.color.orange {
+  color: #F2711C; }
+
+.color.green {
+  color: #21BA45; }
+
+.color.yellow {
+  color: #FBBD08; }
+
+.color.purple {
+  color: #A333C8; }
+
+.color.pink {
+  color: #E03997; }
+
+.color.red {
+  color: #d01919; }
+
+/**
+* We are not sharing variables between Semantic-UI framework and the app itslef. Semantic-UI supports LESS only.
+*/
+div.dashboard section.navigation div.stages-bar {
+  width: 100%;
+  text-align: center; }
+  div.dashboard section.navigation div.stages-bar .button.inactive {
+    opacity: .5; }
+
+div.dashboard section.navigation div.dashboard_menu {
+  margin-top: 40px;
+  margin-bottom: 10px; }
+  div.dashboard section.navigation div.dashboard_menu .menu {
+    text-align: center; }
+
+div.dashboard section.navigation div.list_candidats .candidate-box-wrap.row {
+  /** This are some Semantic-UI modification - should be rather cusomised in a buil */
+  padding-top: 0px;
+  /***********************************************************************************/ }
+  div.dashboard section.navigation div.list_candidats .candidate-box-wrap.row .column {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    margin-top: 0px;
+    margin-bottom: 0px; }
+  div.dashboard section.navigation div.list_candidats .candidate-box-wrap.row .column p {
+    margin-bottom: 5px; }
+  div.dashboard section.navigation div.list_candidats .candidate-box-wrap.row .column.picture {
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px; }
+  div.dashboard section.navigation div.list_candidats .candidate-box-wrap.row .column.candidate-name {
+    padding-left: 0px; }
+  div.dashboard section.navigation div.list_candidats .candidate-box-wrap.row .column.candidate-details {
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    padding-left: 0px; }
+  div.dashboard section.navigation div.list_candidats .candidate-box-wrap.row .column.client img {
+    border-radius: 7.5px; }
+
+div.dashboard section.navigation div.list_candidats .candidate-details a {
+  color: white; }
+
+div.dashboard section.navigation div.list_candidats .candidate-picture-wrap {
+  width: 100%;
+  height: 100%;
+  display: table; }
+  div.dashboard section.navigation div.list_candidats .candidate-picture-wrap .candidate-picture-wrap-inner {
+    display: table-cell;
+    vertical-align: middle; }
+    div.dashboard section.navigation div.list_candidats .candidate-picture-wrap .candidate-picture-wrap-inner img {
+      display: inline-block;
+      max-width: 100px; }
+
+div.dashboard section.navigation div.list_candidats .client-picture-wrap {
+  width: 100%;
+  height: 100%;
+  display: table; }
+  div.dashboard section.navigation div.list_candidats .client-picture-wrap .client-picture-wrap-inner {
+    display: table-cell;
+    vertical-align: middle; }
+
+.dashboards-list {
+  margin-top: 60px; }
+  .dashboards-list .stages-bar-wrap {
+    width: 100%;
+    height: 100%;
+    display: table; }
+    .dashboards-list .stages-bar-wrap .stages-bar-wrap-inner {
+      display: table-cell;
+      vertical-align: middle; }
