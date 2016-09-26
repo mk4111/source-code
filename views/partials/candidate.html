@@ -4,11 +4,11 @@
 <div class="one wide column">
     {{#if candidate.contacts.email}}
         {{#unless candidate.emailLast30}}
-            {{#unless candidate.stages}}
+            {{#unless (countStages candidate.stages "1,2,3,4,5" )}}
                 {{#unless candidate.clientProfile}}
                     <div class="center-vertical-wrap">
                         <div class="center-vertical">
-                            <div class="ui checkbox">
+                            <div class="ui checkbox disabled">
                                 <input type="checkbox" name="email" value='{"email": "{{candidate.email}}", "id":"{{candidate.id}}", "fn":"{{candidate.firstName}}"}'>
                                 <label></label>
                             </div>
@@ -33,9 +33,9 @@
 
 {{#if extended}}
 <div class="one wide column">
-    <p><button class="circular ui icon button small"><i class="icon stack overflow"></i></button></p>
-    <p><button class="circular ui icon button small"><i class="icon github"></i></button></p>
-    <p><button class="circular ui icon button small"><i class="icon linkedin"></i></button></p>
+    <p><a href="{{candidate.url}}" target="_blank" class="circular ui icon button small"><i class="icon stack overflow"></i></a></p>
+    <p><a href="{{candidate.url}}" target="_blank" class="circular ui icon button small"><i class="icon github"></i></a></p>
+    <p><a href="{{candidate.url}}" target="_blank" class="circular ui icon button small"><i class="icon linkedin"></i></a></p>
 </div>
 {{/if}}
 
@@ -46,22 +46,22 @@
     <p>{{candidate.location}}</p>
 </div>
 
+{{#unless extended}}
+
 <div class="two wide column candidate-details">
     <p class="{{presenceToCss candidate.cvDocumentLink}}">CV</p>
     <p class="{{presenceToCss candidate.contacts.email}}">Email</p>
     <p class="{{presenceToCss candidate.contacts.phone}}">Phone</p>
-    <!--
     <p class="{{presenceToCss salary}}">Salary</p>
-    -->
 </div>
 
 <div class="two wide column candidate-details">
     <p class="{{presenceToCss candidate.cvDocumentLink}}">
-        {{#if candidate.cvDocumentLink}}
-            <i class="checkmark icon"></i>
-        {{else}}
-            <i class="remove icon"></i>
-        {{/if}}
+    {{#if candidate.cvDocumentLink}}
+        <i class="checkmark icon"></i>
+    {{else}}
+        <i class="remove icon"></i>
+    {{/if}}
     </p>
     <p class="{{presenceToCss candidate.contacts.email}}">
         {{#if candidate.contacts.email}}
@@ -77,17 +77,50 @@
             <i class="remove icon"></i>
         {{/if}}
     </p>
-    <p class="{{presenceToCss candidate.salary}}">
-        {{#if candidate.info.sexpected}}
-            <i class="checkmark icon"></i>
-        {{else}}
-            <i class="remove icon"></i>
-        {{/if}}
-    </p>
 </div>
 
+{{/unless}}
+
+{{#if extended}}
+    <div class="four wide column candidate-details">
+
+        <p class="{{presenceToCss candidate.cvDocumentLink}}">
+            CV:
+            {{#if candidate.cvDocumentLink}}
+                <a href="{{candidate.cvDocumentLink}}" target="_blank">view</a>
+            {{else}}
+                N/A
+            {{/if}}
+        </p>
+        <p class="{{presenceToCss candidate.contacts.email}}">
+        Email:
+            {{#if candidate.contacts.email}}
+                {{candidate.contacts.email}}
+            {{else}}
+                N/A
+            {{/if}}
+        </p>
+        <p class="{{presenceToCss candidate.contacts.phone}}">
+            Phone:
+            {{#if candidate.contacts.phone}}
+                {{candidate.contacts.phone}}
+            {{else}}
+                N/A
+            {{/if}}
+        </p>
+        <p class="{{presenceToCss candidate.salary}}">
+            Salary:
+            {{#if candidate.info.sexpected}}
+                {{candidate.info.sexpected}}
+            {{else}}
+                N/A
+            {{/if}}
+        </p>
+    </div>
+{{/if}}
+
+
 <div class="five wide column candidate-status">
-    
     <p>
     Connected To:
     {{# if candidate.connectedTo.length }}
