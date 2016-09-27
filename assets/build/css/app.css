@@ -60,6 +60,9 @@ i.icon.custom {
   background-repeat: no-repeat !important;
   background-size: contain !important; }
 
+body {
+  background-color: #f1f1f1; }
+
 div.row.pagination .ui.pagination.menu {
   margin: auto; }
 
@@ -182,3 +185,15 @@ i.send > span {
   float: right !important;
   padding-left: 5px;
   font-size: 0.8em; }
+
+div.container.candidate div.row.candidate {
+  padding-bottom: 10px; }
+
+div.container.candidate div.row.action-buttons {
+  margin-top: 10px; }
+
+.email-form form.sendmail div.subject {
+  width: 100%; }
+
+.email-form form.sendmail div.button-wrap {
+  text-align: right; }
