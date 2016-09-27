@@ -26,7 +26,9 @@ div.container.candidate {
     div.row.action-buttons {
         margin-top: 10px;
     }
-
+    .menu .item {
+      cursor: pointer;
+    }
 }
 
 .modal.send-email {
