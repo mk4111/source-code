@@ -13,7 +13,7 @@ $(function() {
       });
     }
   });
-  return $(".modal.send-email").each(function() {
+  $(".modal.send-email").each(function() {
     var initial_message, modal;
     modal = $(this);
     initial_message = modal.find("textarea[name='message']").val();
@@ -23,4 +23,5 @@ $(function() {
       return modal.find("form.sendmail input[name='message']").val(initial_message);
     });
   });
+  return $('.container.candidate .menu .item').tab();
 });

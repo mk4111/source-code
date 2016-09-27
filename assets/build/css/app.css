@@ -192,6 +192,9 @@ div.container.candidate div.row.candidate {
 div.container.candidate div.row.action-buttons {
   margin-top: 10px; }
 
+div.container.candidate .menu .item {
+  cursor: pointer; }
+
 .modal.send-email form.sendmail .email-form button {
   display: none; }
 
