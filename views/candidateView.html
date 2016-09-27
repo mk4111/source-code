@@ -21,10 +21,23 @@
         {{#unless candidate.contacts.email}}
             disabled
         {{/unless}}
-        "> Send Email </button>
+        " value="email"> Send Email </button>
         <button class="ui button disabled"> Add to List </button>
         <button class="ui button negative disabled"> Blacklist Profile </button>
         <button class="ui button negative"> Delete Profile </button>
+
+        <!-- button actions -->
+        <div class="ui modal email viewed-by-{{candidate.id}}">
+          <i class="close icon"></i>
+            <div class="header">
+              Send Email
+            </div>
+            <div class="content">
+              {{>email_form pathUrl=request.url.path}}
+            </div>
+          <div class="actions"> <!-- if any actions put them here --> </div>
+        </div>
+
     </div>
 </div>
 
