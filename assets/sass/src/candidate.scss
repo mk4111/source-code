@@ -19,10 +19,17 @@ i.send > span {
 }
 
 div.container.candidate {
+
     div.row.candidate {
         padding-bottom: 10px;
     }
     div.row.action-buttons {
         margin-top: 10px;
     }
+
+}
+
+.modal.send-email {
+  form.sendmail { .email-form { button { display: none; } } }
+  .actions { text-align: right; }
 }
