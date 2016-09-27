@@ -192,8 +192,14 @@ div.container.candidate div.row.candidate {
 div.container.candidate div.row.action-buttons {
   margin-top: 10px; }
 
-.email-form form.sendmail div.subject {
+.modal.send-email form.sendmail .email-form button {
+  display: none; }
+
+.modal.send-email .actions {
+  text-align: right; }
+
+form.sendmail .email-form div.subject {
   width: 100%; }
 
-.email-form form.sendmail div.button-wrap {
+form.sendmail .email-form div.button-wrap {
   text-align: right; }
