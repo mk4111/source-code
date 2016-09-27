@@ -17,3 +17,5 @@ $ ->
       modal.find("form.sendmail").submit()
       modal.find("form.sendmail input[name='subject']").val("");
       modal.find("form.sendmail input[name='message']").val(initial_message);
+
+  $('.container.candidate .menu .item').tab();

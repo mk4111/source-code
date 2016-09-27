@@ -2,7 +2,7 @@
 
 <div class="ui container candidate">
     <div class="ui grid candidates-list">
-        {{>candidate clients=../clients stages=../stages extended=true}}
+        {{>candidate clients=clients stages=stages extended=true}}
     </div>
     <div class="row action-buttons">
 
@@ -58,9 +58,33 @@
               </form>
             </div>
         </div>
-
-
     </div>
+
+    <div class="ui divider"></div>
+
+    <div class="ui top attached tabular menu">
+      <div class="active item" data-tab="salary">Salary</div>
+      <div class="item" data-tab="notice">Notice</div>
+      <div class="item" data-tab="locations">Locations</div>
+      <div class="item" data-tab="availability">Availability</div>
+      <div class="item" data-tab="skills">Key Skills</div>
+      <div class="item" data-tab="notes">Additional Notes</div>
+      <div class="item" data-tab="raiting">Raiting</div>
+      <div class="item" data-tab="emails">Emails</div>
+      <div class="item" data-tab="calls">Calls</div>
+      <div class="item" data-tab="lists">Lists</div>
+    </div>
+
+    <div class="ui bottom attached active tab segment" data-tab="salary">1</div>
+    <div class="ui bottom attached tab segment" data-tab="notice">2</div>
+    <div class="ui bottom attached tab segment" data-tab="locations">3</div>
+    <div class="ui bottom attached tab segment" data-tab="availability">4</div>
+    <div class="ui bottom attached tab segment" data-tab="skills">5</div>
+    <div class="ui bottom attached tab segment" data-tab="notes">6</div>
+    <div class="ui bottom attached tab segment" data-tab="raiting">7</div>
+    <div class="ui bottom attached tab segment" data-tab="emails">8</div>
+    <div class="ui bottom attached tab segment" data-tab="calls">9</div>
+    <div class="ui bottom attached tab segment" data-tab="lists">10</div>
 
 </div>
 
