@@ -1,0 +1,35 @@
+<div class="email-wrapper">
+
+  <article class="email-main">
+    <div>
+      <img src="{{user.image}}" alt="{{user.names.firstname}}" />
+      <p>{{user.names.firstname}}</p>
+    </div>
+    <form action="/sendemail" method="POST">
+      <div>
+        <ul>
+          {{emailsHelper emails}}
+        </ul>
+        <input type="text" name="subject" placeholder="Subject"/><br/>
+        <textarea name="message" placeholder="Message" cols="10" rows="10">Hi {name},</textarea>
+        <input hidden name="fn" value="{{user.names.fullname}}">
+        <input hidden name="firstname" value="{{user.names.firstname}}">
+        <input hidden name="role" value="{{user.role}}">
+        <input hidden name="office" value="{{user.phones.office}}">
+        <input hidden name="mobile" value="{{user.phones.mobile}}">
+        <input hidden name="linkedin" value="{{user.linkedin}}">
+        <input hidden name="signature" value='{{> email_signature}}'>
+        <div class="signature">
+          {{> email_signature}}
+        </div>
+        <input type="hidden" name="pathUrl" value="{{pathUrl}}">
+        <button type="submit">Send</button>
+      </div>
+    </form>
+
+  </article>
+
+  <aside class="email-aside email-aside-1"></aside>
+  <aside class="email-aside email-aside-2"></aside>
+
+</div>
