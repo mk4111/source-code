@@ -213,10 +213,10 @@ div.container.candidate .candidates-stages-list .row .column.client {
 div.container.candidate .candidates-stages-list .row .column {
   text-align: center; }
 
-.modal.send-email form.sendmail .email-form button {
+.modal.sendemail form.sendmail .email-form button {
   display: none; }
 
-.modal.send-email .actions {
+.modal.sendemail .actions {
   text-align: right; }
 
 form.sendmail .email-form div.subject {
