@@ -24,10 +24,17 @@ div.container.candidate {
         padding-bottom: 10px;
     }
     div.row.action-buttons {
-        margin-top: 10px;
+        margin-top: 30px;
+        span.label { cursor: default; }
     }
     .menu .item {
       cursor: pointer;
+
+    }
+    .row.skills { margin-bottom: 0px; }
+    .candidates-stages-list .row {
+      .column.client { text-align: center; img { max-width: 50px; } }
+      .column { text-align: center; }
     }
 }
 

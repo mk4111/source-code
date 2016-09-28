@@ -1,3 +1,5 @@
+var Underscore = require('underscore');
+
 var Handlebars = require('handlebars');
 module.exports = function (statusCurrent, clients, stages) {
 
@@ -7,7 +9,8 @@ module.exports = function (statusCurrent, clients, stages) {
 
   if (!statusCurrent || !clients || !stages) { return ""; }
 
-  clients.forEach(function (obj) {
+  Underscore.each(clients, function (obj) {
+    
     if (statusCurrent.clientId.toString() === obj.id.toString()) { result += obj.name + " "; }
   });
 

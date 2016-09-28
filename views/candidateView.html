@@ -4,19 +4,78 @@
     <div class="ui grid candidates-list">
         {{>candidate clients=clients stages=stages extended=true}}
     </div>
+
+    <div class="ui grid candidates-stages-list">
+    {{#each candidate.stages}}
+        <div class="row {{stageToCss stageId}}">
+
+            <div class="one wide column client">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        <a href="/clients/{{lookup ../clients clientId}}">
+                            <img class="ui small image" src="{{lookup (lookup ../clients clientId) "logoUrl"}}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="four wide column title">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical"> <p> {{lookup (lookup ../jobs jobId) "title"}} </p> </div>
+                </div>
+            </div>
+            <div class="one wide column stage">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        <p> {{lookup (lookup ../stages stageId) "name"}} </p>
+                    </div>
+                </div>
+            </div>
+            <div class="two wide column employment-type">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        <p> {{lookup (lookup ../jobs jobId) "employmentType"}} </p>
+                    </div>
+                </div>
+            </div>
+            <div class="one wide column salary">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        <p> {{lookup (lookup ../jobs jobId) "salary"}} </p>
+                    </div>
+                </div>
+            </div>
+            <div class="two wide column city">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        <p> {{lookup (lookup (lookup ../jobs jobId) "address") "city"}} </p>
+                    </div>
+                </div>
+            </div>
+            <div class="five wide column city">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        {{> stage_action_bar stages =../stages stage=this redirectUrl=../request.url.path}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    {{/each}}
+    </div>
+
     <div class="row action-buttons">
 
         <div class="ui labeled button" tabindex="0">
             <button class="ui button"> Add Submission </button>
-            <a class="ui basic label">
+            <span class="ui basic label">
               {{#if candidate.stages.length}}
                 {{candidate.stages.length}}
               {{else}}
                 0
               {{/if}}
-            </a>
+            </span>
         </div>
-
+        
         <button class="ui button disabled"> Log Call </button>
         <button class="ui button
         {{#unless candidate.contacts.email}}
@@ -116,12 +175,15 @@
         {{emailIndicatorHelper candidate.lastEmail true}}
       {{/if}}
 
+      {{#if false}}
       <!-- Rejectd status tag -->
+      <!-- No idea what it stands for -->
       <div class="rejected">
         {{#each rejectedStatus as |status timestamp| }}
           <span><a href="/jobs/{{status.idJob}}">{{status.nameClient}} - {{status.nameJob}} - Rejected</a></span>
         {{/each}}
       </div>
+      {{/if}}
 
 
       {{#if false}}
