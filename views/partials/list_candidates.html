@@ -2,7 +2,7 @@
 <div class="ui grid">
     {{#each userStages}}
 
-        <div class="row stage-{{stageId}} candidate-box-wrap candidate-id-{{candidateId}} role-id-{{jobId}} client-id-{{lookup (lookup ../../../jobsMap jobId) 'client'}}
+        <div class="row stage-{{stageId}} candidate-box-wrap candidate-id-{{candidateId}} role-id-{{jobId}} client-id-{{lookup (lookup ../jobsMap jobId) 'client'}}
         {{#if (empty (lookup ../jobsMap jobId))}}
             incomplete
         {{/if}}
