@@ -66,7 +66,7 @@
     <div class="row action-buttons">
 
         <div class="ui labeled button" tabindex="0">
-            <button class="ui button"> Add Submission </button>
+            <button class="ui button" value="addsubmission"> Add Submission </button>
             <span class="ui basic label">
               {{#if candidate.stages.length}}
                 {{candidate.stages.length}}
@@ -74,6 +74,62 @@
                 0
               {{/if}}
             </span>
+
+            <div class="ui modal addsubmission">
+                <i class="close icon"></i>
+                <div class="header"> Add Submission </div>
+                
+                <div class="content">
+                    <form class="ui form" action="/status/save" method="POST">
+                        <div class="ui error message"></div>
+                        <input type="hidden" name="candidateId" value="{{candidate.id}}">
+                        <div class="field">
+                        <label>Client</label>
+                        <div class="ui fluid search selection dropdown client">
+                            <input type="hidden" name="clientId">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Client</div>
+                            <div class="menu">
+                                {{#each clientsWithJobs as |c id|}}
+                                    <div class="item" data-value="{{id}}">{{c.name}}</div>
+                                {{/each}}
+                            </div>
+                        </div>
+                        </div>
+                        <div class="field">
+                        <label>Status</label>
+                        <div class="ui fluid search selection dropdown stage">
+                            <input type="hidden" name="stageId">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Stage</div>
+                            <div class="menu">
+                                {{#each stages as |s id|}}
+                                    <div class="item" data-value="{{id}}">{{s.name}}</div>
+                                {{/each}}
+                            </div>
+                        </div>
+                        </div>
+                        <div class="field">
+                        <label>Client</label>
+                        <div class="ui fluid search selection dropdown job">
+                            <input type="hidden" name="jobId">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Job</div>
+                            <div class="menu">
+                                {{#each activeJobs as |j id|}}
+                                    <div class="item client-id-{{j.client}}" data-value="{{id}}">{{j.title}}</div>
+                                {{/each}}
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="actions">
+                    <button type="submit" class="ui button">Submit</button>
+                </div>
+                
+            </div>
+
         </div>
         
         <button class="ui button disabled"> Log Call </button>
@@ -81,13 +137,13 @@
         {{#unless candidate.contacts.email}}
             disabled
         {{/unless}}
-        " value="send-email"> Send Email </button>
+        " value="sendemail"> Send Email </button>
         <button class="ui button disabled"> Add to List </button>
         <button class="ui button negative disabled"> Blacklist Profile </button>
         <button class="ui button negative" value="deleteprofile"> Delete Profile </button>
 
         <!-- button actions -->
-        <div class="ui modal send-email">
+        <div class="ui modal sendemail">
           <i class="close icon"></i>
             <div class="header">
               Send Email
@@ -117,6 +173,7 @@
               </form>
             </div>
         </div>
+
     </div>
 
     <div class="ui divider"></div>
@@ -238,7 +295,7 @@
 
 
       {{#each candidate.stages}}
-
+            {{#if false}}
             <h4 class="status-candidate">{{statusInfoHelper this ../clients ../jobs}} <span class="stage-span">{{statusStageHelper stageId ../stages}}</span><span class="stage-initials-span"> {{statusInitialsHelper userId ../users}}</span></h4>
             <div class="status-wrapper">
               <form class="delete-status-form" action="/status/delete" method="POST">
@@ -249,6 +306,7 @@
 
               <button id="{{_id}}" class="edit-status">Edit</button>
             </div>
+            {{/if}}
               <form class="edit-status-form" action="/status/edit" method="POST">
                 <input type="hidden" name="candidateId" value="{{candidateId}}">
                 <input type="hidden" name="id" value="{{_id}}">
