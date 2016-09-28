@@ -52,6 +52,7 @@
     <p class="{{presenceToCss candidate.cvDocumentLink}}">CV</p>
     <p class="{{presenceToCss candidate.contacts.email}}">Email</p>
     <p class="{{presenceToCss candidate.contacts.phone}}">Phone</p>
+    <p class="{{presenceToCss candidate.contacts.phone}}">Salary</p>
 </div>
 
 <div class="two wide column candidate-details">
@@ -71,6 +72,13 @@
     </p>
     <p class="{{presenceToCss candidate.contacts.phone}}">
         {{#if candidate.contacts.phone}}
+            <i class="checkmark icon"></i>
+        {{else}}
+            <i class="remove icon"></i>
+        {{/if}}
+    </p>
+    <p class="{{presenceToCss candidate.info.sexpected}}">
+        {{#if candidate.info.sexpected}}
             <i class="checkmark icon"></i>
         {{else}}
             <i class="remove icon"></i>
