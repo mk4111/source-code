@@ -63,6 +63,26 @@ i.icon.custom {
 body {
   background-color: #f1f1f1; }
 
+.stage-actions.buttons {
+  margin-top: 6px; }
+  .stage-actions.buttons button {
+    background: transparent;
+    color: white;
+    padding: 7px;
+    -webkit-transition: background 0.5;
+    /* For Safari 3.1 to 6.0 */
+    transition: background 0.5; }
+    .stage-actions.buttons button i {
+      font-size: 1.25em; }
+    .stage-actions.buttons button:hover {
+      background: rgba(0, 0, 0, 0.3); }
+    .stage-actions.buttons button i.logo-left {
+      background: url("/assets/img/icons/logo-left-white.png"); }
+    .stage-actions.buttons button i.logo-center {
+      background: url("/assets/img/icons/logo-center-white.png"); }
+    .stage-actions.buttons button i.logo-right {
+      background: url("/assets/img/icons/logo-right-white.png"); }
+
 div.row.pagination .ui.pagination.menu {
   margin: auto; }
 
@@ -111,22 +131,7 @@ div.dashboard div.list_candidats .candidate-box-wrap.row {
     div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap .stage-actions.buttons {
       margin-top: 6px; }
       div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap .stage-actions.buttons button {
-        background: transparent;
-        color: white;
-        padding: 7px;
-        -webkit-transition: background 0.5;
-        /* For Safari 3.1 to 6.0 */
-        transition: background 0.5; }
-        div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap .stage-actions.buttons button i {
-          font-size: 1.25em; }
-        div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap .stage-actions.buttons button:hover {
-          background: rgba(0, 0, 0, 0.3); }
-        div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap .stage-actions.buttons button i.logo-left {
-          background: url("/assets/img/icons/logo-left-white.png"); }
-        div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap .stage-actions.buttons button i.logo-center {
-          background: url("/assets/img/icons/logo-center-white.png"); }
-        div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap .stage-actions.buttons button i.logo-right {
-          background: url("/assets/img/icons/logo-right-white.png"); }
+        padding: 7px; }
 
 div.dashboard div.list_candidats .candidate-details a {
   color: white; }
@@ -190,10 +195,23 @@ div.container.candidate div.row.candidate {
   padding-bottom: 10px; }
 
 div.container.candidate div.row.action-buttons {
-  margin-top: 10px; }
+  margin-top: 30px; }
+  div.container.candidate div.row.action-buttons span.label {
+    cursor: default; }
 
 div.container.candidate .menu .item {
   cursor: pointer; }
+
+div.container.candidate .row.skills {
+  margin-bottom: 0px; }
+
+div.container.candidate .candidates-stages-list .row .column.client {
+  text-align: center; }
+  div.container.candidate .candidates-stages-list .row .column.client img {
+    max-width: 50px; }
+
+div.container.candidate .candidates-stages-list .row .column {
+  text-align: center; }
 
 .modal.send-email form.sendmail .email-form button {
   display: none; }
