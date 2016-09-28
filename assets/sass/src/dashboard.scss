@@ -52,17 +52,7 @@ div.dashboard {
                 .stage-actions.buttons {
                     margin-top: 6px;
                     button { 
-                        background: transparent;
-                        color: $WHITE;
                         padding: 7px;
-                        @include transition(background 0.5);
-                        i { font-size: 1.25em; }
-                        &:hover {
-                            background: rgba($BLACK, 0.3);
-                        }
-                        i.logo-left { background: url('/assets/img/icons/logo-left-white.png'); }
-                        i.logo-center { background: url('/assets/img/icons/logo-center-white.png'); }
-                        i.logo-right { background: url('/assets/img/icons/logo-right-white.png'); }
                     }
                 }
             }

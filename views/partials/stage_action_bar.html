@@ -1,0 +1,119 @@
+                <div class="stage-actions-wrap">
+                    <div class="ui icon buttons stage-actions">
+
+                        <button class="ui button icon small regress
+                        {{#unless (stagePrev stage.stageId stages)}}
+                            disabled
+                        {{/unless}}
+                        {{#if (equal stage.stageId 6)}}
+                        disabled
+                        {{/if}}
+                        " data-content="Regress" value="regress"><i class="icon custom logo-left"></i></button>
+                        <button class="ui button icon small reject
+                        {{#if (equal stage.stageId 6)}}
+                        disabled
+                        {{/if}}
+                        " data-content="Reject" value="reject"><i class="icon custom logo-center"></i></button>
+                        <button class="ui button icon small advance
+                        {{#unless (stageNext stage.stageId stages)}}
+                            disabled
+                        {{/unless}}
+                        " data-content="Advance" value="advance"><i class="icon custom logo-right"></i></button>
+                        <button class="ui button icon small delete" data-content="Delete" value="delete"><i class="trash icon"></i></button>
+                        <button class="ui button icon small disabled contact" data-content="Contact" value="contact"><i class="bug icon"></i></button>
+                        <button class="ui button icon small disabled note" data-content="Note" value="note"><i class="sticky note icon"></i></button>
+                        <!-- action forms -->
+
+                        <form class="delete" action="/status/delete" method="POST">
+                            <input type="hidden" name="id" value="{{stage._id}}">
+                            <input type="hidden" name="redirect_url" value="{{redirectUrl}}">
+                        </form>
+
+                        <form class="regress" action="/status/edit" method="POST">
+                            <input type="hidden" name="id" value="{{stage._id}}">
+                            <input type="hidden" name="stageId" value="{{stagePrev stage.stageId stages}}">
+                            <input type="hidden" name="redirect_url" value="{{redirectUrl}}">
+                        </form>
+                        <form class="reject" action="/status/edit" method="POST">
+                            <input type="hidden" name="id" value="{{stage._id}}">
+                            <input type="hidden" name="stageId" value="6">
+                            <input type="hidden" name="redirect_url" value="{{redirectUrl}}">
+                        </form>
+
+                        <form class="advance" action="/status/edit" method="POST">
+                            <input type="hidden" name="id" value="{{stage._id}}">
+                            <input type="hidden" name="stageId" value="{{stageNext stage.stageId stages}}">
+                            <input type="hidden" name="redirect_url" value="{{redirectUrl}}">
+                        </form>
+
+                        <!-- action modals -->
+
+                        <div class="ui modal delete">
+                            <i class="close icon"></i>
+                            <div class="header">
+                                Delete Application
+                            </div>
+                            <div class="content">
+                                <p>Are you sure you want to delete {{fullname}}'s application? </p>
+                            </div>
+                            <div class="actions">
+                                <div class="ui buttons">
+                                    <button class="ui button cancel">Cancel</button>
+                                    <div class="or"></div>
+                                    <button class="ui negative button action">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui modal regress">
+                            <i class="close icon"></i>
+                            <div class="header">
+                                Regress Application
+                            </div>
+                            <div class="content">
+                                <!-- @TODO: calculate maybe what the previous stage is -->
+                                <p> Are you sure you want to put this applicaiton into the previous stage?</p>
+                            </div>
+                            <div class="actions">
+                                <div class="ui buttons">
+                                    <button class="ui button cancel">Cancel</button>
+                                    <div class="or"></div>
+                                    <button class="ui negative button action">Regress</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui modal reject">
+                            <i class="close icon"></i>
+                            <div class="header">
+                                Reject Application
+                            </div>
+                            <div class="content">
+                                <p>Are you sure you want to reject {{fullname}}'s application? </p>
+                            </div>
+                            <div class="actions">
+                                <div class="ui buttons">
+                                    <button class="ui button cancel">Cancel</button>
+                                    <div class="or"></div>
+                                    <button class="ui button negative action">Reject</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui modal advance">
+                            <i class="close icon"></i>
+                            <div class="header">
+                                Advance Application
+                            </div>
+                            <div class="content">
+                                <p>Are you sure you want to advance this application?</p>
+                            </div>
+                            <div class="actions">
+                                <div class="ui buttons">
+                                    <button class="ui button cancel">Cancel</button>
+                                    <div class="or"></div>
+                                    <button class="ui positive button action">Advance</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
