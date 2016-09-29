@@ -63,84 +63,92 @@
     {{/each}}
     </div>
 
-    <div class="row action-buttons">
+    <div class="six column ui grid action-buttons">
+        <div class="column add-submission">
+            <div class="ui labeled button" tabindex="0">
+                <button class="ui button" value="addsubmission"> Add Submission </button>
+                <span class="ui basic label">
+                  {{#if candidate.stages.length}}
+                    {{candidate.stages.length}}
+                  {{else}}
+                    0
+                  {{/if}}
+                </span>
 
-        <div class="ui labeled button" tabindex="0">
-            <button class="ui button" value="addsubmission"> Add Submission </button>
-            <span class="ui basic label">
-              {{#if candidate.stages.length}}
-                {{candidate.stages.length}}
-              {{else}}
-                0
-              {{/if}}
-            </span>
+                <div class="ui modal addsubmission">
+                    <i class="close icon"></i>
+                    <div class="header"> Add Submission </div>
+                    
+                    <div class="content">
+                        <form class="ui form" action="/status/save" method="POST">
+                            <div class="ui error message"></div>
+                            <input type="hidden" name="candidateId" value="{{candidate.id}}">
+                            <div class="field">
+                            <label>Client</label>
+                            <div class="ui fluid search selection dropdown client">
+                                <input type="hidden" name="clientId">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Client</div>
+                                <div class="menu">
+                                    {{#each clientsWithJobs as |c id|}}
+                                        <div class="item" data-value="{{id}}">{{c.name}}</div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                            </div>
+                            <div class="field">
+                            <label>Job</label>
+                            <div class="ui fluid search selection dropdown job">
+                                <input type="hidden" name="jobId">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Job</div>
+                                <div class="menu">
+                                    {{#each activeJobs as |j id|}}
+                                        <div class="item client-id-{{j.client}}" data-value="{{id}}">{{j.title}}</div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                            </div>
+                            <div class="field">
+                            <label>Status</label>
+                            <div class="ui fluid search selection dropdown stage">
+                                <input type="hidden" name="stageId">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Stage</div>
+                                <div class="menu">
+                                    {{#each stages as |s id|}}
+                                        <div class="item" data-value="{{id}}">{{s.name}}</div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="actions">
+                        <button type="submit" class="ui button">Submit</button>
+                    </div>
+                    
+                </div>
 
-            <div class="ui modal addsubmission">
-                <i class="close icon"></i>
-                <div class="header"> Add Submission </div>
-                
-                <div class="content">
-                    <form class="ui form" action="/status/save" method="POST">
-                        <div class="ui error message"></div>
-                        <input type="hidden" name="candidateId" value="{{candidate.id}}">
-                        <div class="field">
-                        <label>Client</label>
-                        <div class="ui fluid search selection dropdown client">
-                            <input type="hidden" name="clientId">
-                            <i class="dropdown icon"></i>
-                            <div class="default text">Client</div>
-                            <div class="menu">
-                                {{#each clientsWithJobs as |c id|}}
-                                    <div class="item" data-value="{{id}}">{{c.name}}</div>
-                                {{/each}}
-                            </div>
-                        </div>
-                        </div>
-                        <div class="field">
-                        <label>Job</label>
-                        <div class="ui fluid search selection dropdown job">
-                            <input type="hidden" name="jobId">
-                            <i class="dropdown icon"></i>
-                            <div class="default text">Job</div>
-                            <div class="menu">
-                                {{#each activeJobs as |j id|}}
-                                    <div class="item client-id-{{j.client}}" data-value="{{id}}">{{j.title}}</div>
-                                {{/each}}
-                            </div>
-                        </div>
-                        </div>
-                        <div class="field">
-                        <label>Status</label>
-                        <div class="ui fluid search selection dropdown stage">
-                            <input type="hidden" name="stageId">
-                            <i class="dropdown icon"></i>
-                            <div class="default text">Stage</div>
-                            <div class="menu">
-                                {{#each stages as |s id|}}
-                                    <div class="item" data-value="{{id}}">{{s.name}}</div>
-                                {{/each}}
-                            </div>
-                        </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="actions">
-                    <button type="submit" class="ui button">Submit</button>
-                </div>
-                
             </div>
-
         </div>
         
-        <button class="ui button disabled"> Log Call </button>
-        <button class="ui button
-        {{#unless candidate.contacts.email}}
-            disabled
-        {{/unless}}
-        " value="sendemail"> Send Email </button>
-        <button class="ui button disabled"> Add to List </button>
-        <button class="ui button negative disabled"> Blacklist Profile </button>
-        <button class="ui button negative" value="deleteprofile"> Delete Profile </button>
+        <div class="column">
+            <button class="ui button disabled"> Log Call </button>
+        </div>
+        <div class="column">
+            <button class="ui button
+            {{#unless candidate.contacts.email}}
+                disabled
+            {{/unless}}
+            " value="sendemail"> Send Email </button>
+        </div>
+        <div class="column">
+            <button class="ui button disabled"> Add to List </button>
+        </div>
+        <div class="column">
+            <button class="ui button negative disabled"> Blacklist Profile </button>
+        </div>
 
         <!-- button actions -->
         <div class="ui modal sendemail">
@@ -172,6 +180,10 @@
                 </div>
               </form>
             </div>
+        </div>
+
+        <div class="column salary">
+            <button class="ui button negative" value="deleteprofile"> Delete Profile </button>
         </div>
 
     </div>

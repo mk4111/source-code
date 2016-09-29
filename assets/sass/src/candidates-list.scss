@@ -23,7 +23,7 @@ div.candidates-list {
         font-family: 'blenderpro';
         div.column {
             padding: 8px;
-            text-transform: capitalize;
+            text-transform: uppercase;
             &.matched {
                 color: $GREEN;
             }
