@@ -4,6 +4,7 @@ div.candidates-list {
     }
     div.row.candidate {
         div.column p { margin-bottom: 5px; }
+        div.media-links { text-align: center; }
         div.column.candidate-status {
             span.client-employee { color: $RED; }
             span.email-subject, span.email-message, span.email-sender-name {

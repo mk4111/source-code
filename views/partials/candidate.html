@@ -32,30 +32,44 @@
 </div>
 
 {{#if extended}}
-<div class="one wide column">
+<div class="two wide column media-links">
+    <div class="center-vertical-wrap">
+    <div class="center-vertical">
     <p><a href="{{candidate.url}}" target="_blank" class="circular ui icon button small"><i class="icon stack overflow"></i></a></p>
     <p><a href="{{candidate.url}}" target="_blank" class="circular ui icon button small"><i class="icon github"></i></a></p>
     <p><a href="{{candidate.url}}" target="_blank" class="circular ui icon button small"><i class="icon linkedin"></i></a></p>
+    </div>
+    </div>
 </div>
 {{/if}}
 
 <div class="four wide column">
+    <div class="center-vertical-wrap">
+    <div class="center-vertical">
     <p><b>{{candidate.fullname}}</b></p>
     <p>{{candidate.headline}}</p>
     <p><b>{{candidate.current}}</b></p>
     <p>{{candidate.location}}</p>
+    </div>
+    </div>
 </div>
 
 {{#unless extended}}
 
 <div class="two wide column candidate-details">
+    <div class="center-vertical-wrap">
+    <div class="center-vertical">
     <p class="{{presenceToCss candidate.cvDocumentLink}}">CV</p>
     <p class="{{presenceToCss candidate.contacts.email}}">Email</p>
     <p class="{{presenceToCss candidate.contacts.phone}}">Phone</p>
     <p class="{{presenceToCss candidate.contacts.phone}}">Salary</p>
+    </div>
+    </div>
 </div>
 
 <div class="two wide column candidate-details">
+    <div class="center-vertical-wrap">
+    <div class="center-vertical">
     <p class="{{presenceToCss candidate.cvDocumentLink}}">
     {{#if candidate.cvDocumentLink}}
         <i class="checkmark icon"></i>
@@ -84,13 +98,16 @@
             <i class="remove icon"></i>
         {{/if}}
     </p>
+    </div>
+    </div>
 </div>
 
 {{/unless}}
 
 {{#if extended}}
     <div class="four wide column candidate-details">
-
+        <div class="center-vertical-wrap">
+        <div class="center-vertical">
         <p class="{{presenceToCss candidate.cvDocumentLink}}">
             CV:
             {{#if candidate.cvDocumentLink}}
@@ -123,11 +140,18 @@
                 N/A
             {{/if}}
         </p>
+        </div>
+        </div>
     </div>
 {{/if}}
 
-
+{{#if extended}}
+<div class="four wide column candidate-status">
+{{else}}
 <div class="five wide column candidate-status">
+{{/if}}
+    <div class="center-vertical-wrap">
+    <div class="center-vertical">
     <p>
     Connected To:
     {{# if candidate.connectedTo.length }}
@@ -187,6 +211,8 @@
         N/A
     {{/if}}
     </p>
+    </div>
+    </div>
 </div>
 
 <!-- modals -->
