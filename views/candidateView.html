@@ -178,6 +178,8 @@
 
     <div class="ui divider"></div>
 
+    <div class="top-row-tabs">
+
     <div class="ui top attached tabular menu">
       <div class="active item" data-tab="salary">Salary</div>
       <div class="item" data-tab="locations">Locations</div>
@@ -200,7 +202,32 @@
     <div class="ui bottom attached tab segment" data-tab="lists">{{>tab_lists candidate=candidate}}</div>
     <div class="ui bottom attached tab segment contact_details" data-tab="contact_details">{{>tab_contact_details candidate=candidate}}</div>
 
+    </div>
+
+    <div class="ui divider"></div>
+
+    <div class="bottom-row-tabs">
+
+    <div class="ui top attached tabular menu">
+      <div class="active item" data-tab="summary">Summary</div>
+      <div class="item" data-tab="current_experience">Current Experience</div>
+      <div class="item" data-tab="past_experience">Past Experience</div>
+      <div class="item" data-tab="languages">Languages</div>
+      <div class="item" data-tab="job_applications">Job Applications</div>
+    </div>
+
+    <div class="ui bottom attached active tab segment" data-tab="summary">{{>tab_summary candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment" data-tab="current_experience">{{>tab_current_experience candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment" data-tab="past_experience">{{>tab_past_experience candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment languages" data-tab="languages">{{>tab_languages candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment job_applications" data-tab="job_applications">{{>tab_job_applications candidate=candidate}}</div>
+
+    </div>
+
 </div>
+
+
+{{#if false}}
 
 <div class="candidate_view">
   <div class="thumbnail">
@@ -514,3 +541,5 @@
 </div>
 
 <script src="/assets/js/candidate_view.js"></script>
+
+{{/if}}
