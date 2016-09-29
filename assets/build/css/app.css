@@ -218,15 +218,15 @@ div.container.candidate .row.skills {
   margin-bottom: 0px; }
 
 div.container.candidate .candidates-stages-list .row {
-  padding: 5px; }
+  padding: 5px;
+  text-transform: uppercase; }
   div.container.candidate .candidates-stages-list .row .column.client {
     text-align: center; }
     div.container.candidate .candidates-stages-list .row .column.client img {
-      max-width: 50px; }
+      max-width: 50px;
+      border-radius: 10%; }
   div.container.candidate .candidates-stages-list .row .column {
     text-align: center; }
-  div.container.candidate .candidates-stages-list .row .stage-actions-wrap button {
-    padding: 8px; }
 
 div.container.candidate .tab.skills .label {
   margin-bottom: 10px; }
