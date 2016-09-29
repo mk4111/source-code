@@ -6,9 +6,6 @@ div.candidates-list {
         div.column p { margin-bottom: 5px; }
         div.media-links { 
             text-align: center; 
-            .stack.overflow { color: $YELLOW; }
-            .github { color: $BLACK; }
-            .linkedin { color: $BLUE; }
         }
         div.column.candidate-status {
             span.client-employee { color: $RED; }
