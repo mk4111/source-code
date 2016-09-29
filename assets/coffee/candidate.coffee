@@ -18,7 +18,8 @@ $ ->
       modal.find("form.sendmail input[name='subject']").val("");
       modal.find("form.sendmail input[name='message']").val(initial_message);
 
-  $('.container.candidate .menu .item').tab();
+  $('.container.candidate .top-row-tabs .menu .item').tab();
+  $('.container.candidate .bottom-row-tabs .menu .item').tab();
 
   # add submission dropdown
   $('.modal.addsubmission .dropdown.stage').dropdown();

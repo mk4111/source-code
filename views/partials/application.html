@@ -1,14 +1,16 @@
-<hr/>
-<ul class= 'job-application'>
-  <li>Date: {{date}}</li>
-  <li>Comments: {{comments}}</li>
-
-  {{#if skillset}}
-   <li>Skill Set: {{skillset}}</li>
-  {{/if}}
-
-  {{#if job.title}}
-    <li>Job: <a href="/jobs/{{job.id}}">{{job.title}}</a></li>
-  {{/if}}
-</ul>
-
+<div class="ui card">
+    <div class="content">
+    <div class="header"><a href="/jobs/{{job.id}}">{{job.title}}</a></div>
+    <div class="meta">{{date}}</div>
+    <div class="description">
+        {{#if comments}}
+            <p> <b> Comments: </b> </p>
+            <p>{{comments}}</p>
+        {{/if}}
+        {{#if skillset}}
+            <p> <b> Skill Set: </b> </p>
+            <p>{{skillset}}</p>
+        {{/if}}
+    </div>
+    </div>
+</div>
