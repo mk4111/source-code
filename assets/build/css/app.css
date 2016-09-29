@@ -152,6 +152,9 @@ div.candidates-list div.row.filters div.column.send-email {
 div.candidates-list div.row.candidate div.column p {
   margin-bottom: 5px; }
 
+div.candidates-list div.row.candidate div.media-links {
+  text-align: center; }
+
 div.candidates-list div.row.candidate div.column.candidate-status span.client-employee {
   color: #d01919; }
 
@@ -193,7 +196,7 @@ i.send > span {
 
 div.container.candidate div.row.candidate {
   padding-bottom: 10px;
-  margin-top: 1rem; }
+  margin-top: 2.5rem; }
 
 div.container.candidate div.grid.action-buttons {
   margin-top: 20px;
