@@ -162,7 +162,7 @@
     <p class="email-preview">Last Contacted:
         {{#if candidate.lastEmail.sentAt}}
 
-        <a class="ui" href="" id="email-id-{{candidate.id}}" data-content="{{candidate.lastEmail.subject}}, {{candidate.lastEmail.senderName}}"> {{candidate.lastEmail.sentAt}}</a>
+        <a class="ui" href="" id="emailid{{candidate.id}}" data-content="{{candidate.lastEmail.subject}}, {{candidate.lastEmail.senderName}}"> {{candidate.lastEmail.sentAt}}</a>
 
         {{else}}
             N/A
@@ -175,7 +175,7 @@
     {{#if candidate.viewedBy.length}}
         {{#each (lastViewedBy candidate.viewedBy) }}
 
-            <a class="ui" href="" data-content="{{user.fullname}} ({{timestamp_formatted_long}})" id="viewed-by-{{../id}}">
+            <a class="ui" href="" data-content="{{user.fullname}} ({{timestamp_formatted_long}})" id="viewedby{{../candidate.id}}">
             {{#unless @index}}
                 {{user.initials}} ({{timestamp_formatted_short}})
             {{/unless}}
@@ -192,7 +192,7 @@
 <!-- modals -->
 
 {{#if candidate.viewedBy.length}}
-    <div class="ui modal email viewed-by-{{candidate.id}}">
+    <div class="ui modal email viewedby{{candidate.id}}">
         <i class="close icon"></i>
         <div class="header">
             Viewed By
@@ -207,7 +207,7 @@
 {{/if}}
 
 {{#if candidate.lastEmail.sentAt}}
-    <div class="ui modal email email-id-{{id}}">
+    <div class="ui modal email emailid{{candidate.id}}">
         <i class="close icon"></i>
         <div class="header">
             {{candidate.lastEmail.subject}}
