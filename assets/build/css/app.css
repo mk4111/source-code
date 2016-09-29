@@ -154,6 +154,12 @@ div.candidates-list div.row.candidate div.column p {
 
 div.candidates-list div.row.candidate div.media-links {
   text-align: center; }
+  div.candidates-list div.row.candidate div.media-links .stack.overflow {
+    color: #FBBD08; }
+  div.candidates-list div.row.candidate div.media-links .github {
+    color: black; }
+  div.candidates-list div.row.candidate div.media-links .linkedin {
+    color: #2185D0; }
 
 div.candidates-list div.row.candidate div.column.candidate-status span.client-employee {
   color: #d01919; }
@@ -195,8 +201,8 @@ i.send > span {
   font-size: 0.8em; }
 
 div.container.candidate div.row.candidate {
-  padding-bottom: 10px;
-  margin-top: 2.5rem; }
+  margin-bottom: 1rem;
+  margin-top: 2rem; }
 
 div.container.candidate div.grid.action-buttons {
   margin-top: 20px;
