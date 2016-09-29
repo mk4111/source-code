@@ -180,27 +180,25 @@
 
     <div class="ui top attached tabular menu">
       <div class="active item" data-tab="salary">Salary</div>
-      <div class="item" data-tab="notice">Notice</div>
       <div class="item" data-tab="locations">Locations</div>
       <div class="item" data-tab="availability">Availability</div>
       <div class="item" data-tab="skills">Key Skills</div>
       <div class="item" data-tab="notes">Additional Notes</div>
-      <div class="item" data-tab="raiting">Raiting</div>
       <div class="item" data-tab="emails">Emails</div>
       <div class="item" data-tab="calls">Calls</div>
       <div class="item" data-tab="lists">Lists</div>
+      <div class="item" data-tab="contact_details">Contact Details</div>
     </div>
 
     <div class="ui bottom attached active tab segment" data-tab="salary">{{>tab_salary candidate=candidate}}</div>
-    <div class="ui bottom attached tab segment" data-tab="notice">{{>tab_notice candidate=candidate}}</div>
     <div class="ui bottom attached tab segment" data-tab="locations">{{>tab_locations candidate=candidate}}</div>
     <div class="ui bottom attached tab segment" data-tab="availability">{{>tab_availability candidate=candidate}}</div>
-    <div class="ui bottom attached tab segment" data-tab="skills">{{>tab_skills candidate=candidate}}</div>
-    <div class="ui bottom attached tab segment" data-tab="notes">{{>tab_notes candidate=candidate}}</div>
-    <div class="ui bottom attached tab segment" data-tab="raiting"{{>tab_raiting candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment skills" data-tab="skills">{{>tab_skills candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment notes" data-tab="notes">{{>tab_notes candidate=candidate users=usersByGoogle}}</div>
     <div class="ui bottom attached tab segment" data-tab="emails">{{>tab_emails candidate=candidate}}</div>
     <div class="ui bottom attached tab segment" data-tab="calls">{{>tab_calls candidate=candidate}}</div>
     <div class="ui bottom attached tab segment" data-tab="lists">{{>tab_lists candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment contact_details" data-tab="contact_details">{{>tab_contact_details candidate=candidate}}</div>
 
 </div>
 
@@ -424,12 +422,14 @@
           </ul>
         </form>
         <br>
+        {{#if false}}
         <div class="notes notes-box">
           {{#each candidate.notesList}}
             <div class="notes-item">{{displayNotes this ../users}}</div>
             <hr>
           {{/each}}
         </div>
+        {{/if}}
         <br>
         </div>
         <h1><i class="fa fa-comments"></i> EMAILS</h1>

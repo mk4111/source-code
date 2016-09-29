@@ -40,7 +40,19 @@ $(function() {
       jobId: 'empty'
     }
   });
-  return $('.modal.addsubmission button[type="submit"]').click(function() {
+  $('.modal.addsubmission button[type="submit"]').click(function() {
     return $('.modal.addsubmission form').submit();
+  });
+  return $(".container.candidate .tab.contact_details form.cv-upload #input-profile-resume").change(function() {
+    var pathSegments;
+    if ($(this).val()) {
+      $(".container.candidate .tab.contact_details form.cv-upload button[type='submit']").removeClass("disabled");
+      pathSegments = $(this).val().split("\\");
+      console.log(pathSegments);
+      return $(".container.candidate .tab.contact_details form.cv-upload button[type='submit'] span.value").html("(" + pathSegments[pathSegments.length - 1] + ")");
+    } else {
+      $(".container.candidate .tab.contact_details form.cv-upload button[type='submit']").addClass("disabled");
+      return $(".container.candidate .tab.contact_details form.cv-upload button[type='submit'] span.value").html("");
+    }
   });
 });

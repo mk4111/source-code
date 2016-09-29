@@ -213,6 +213,24 @@ div.container.candidate .candidates-stages-list .row .column.client {
 div.container.candidate .candidates-stages-list .row .column {
   text-align: center; }
 
+div.container.candidate .tab.skills .label {
+  margin-bottom: 10px; }
+
+div.container.candidate form.cv-upload .file-upload-label {
+  width: 180px; }
+
+div.container.candidate form.cv-upload input[type="file"] {
+  visibility: hidden;
+  height: 0px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  width: 0px;
+  float: left; }
+
+div.container.candidate form.li-save-form .labeled .label i {
+  margin: 0; }
+
 .modal.sendemail form.sendmail .email-form button {
   display: none; }
 
