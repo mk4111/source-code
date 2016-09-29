@@ -217,13 +217,16 @@ div.container.candidate .menu .item {
 div.container.candidate .row.skills {
   margin-bottom: 0px; }
 
-div.container.candidate .candidates-stages-list .row .column.client {
-  text-align: center; }
-  div.container.candidate .candidates-stages-list .row .column.client img {
-    max-width: 50px; }
-
-div.container.candidate .candidates-stages-list .row .column {
-  text-align: center; }
+div.container.candidate .candidates-stages-list .row {
+  padding: 5px; }
+  div.container.candidate .candidates-stages-list .row .column.client {
+    text-align: center; }
+    div.container.candidate .candidates-stages-list .row .column.client img {
+      max-width: 50px; }
+  div.container.candidate .candidates-stages-list .row .column {
+    text-align: center; }
+  div.container.candidate .candidates-stages-list .row .stage-actions-wrap button {
+    padding: 8px; }
 
 div.container.candidate .tab.skills .label {
   margin-bottom: 10px; }
