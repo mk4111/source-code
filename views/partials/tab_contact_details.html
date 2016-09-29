@@ -1,0 +1,41 @@
+<form class="ui form cv-upload" action="/cv/upload" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="idCandidate" value="{{candidate.id}}">
+
+    {{#if candidate.cvDocumentLink}}
+         <a class="ui button" target="_blank" href="{{candidate.cvDocumentLink}}">
+            <i class="eye icon"></i>
+            View Resume
+        </a>
+    {{/if}}
+
+    <label for="input-profile-resume" class="ui icon button file-upload-label"> <i class="file text icon"></i> 
+    {{#if candidate.cvDocumentLink}}
+        <span class="change-resume">Change Resume</span>
+    {{else}}
+        <span class="add-resume">Add Resume</span>
+    {{/if}}
+    </label>
+
+    <input type="file" id="input-profile-resume" name="selectedCv" accept=".pdf,.txt,.yml,.md">
+    <button class="ui button disabled" type="submit">
+        Upload
+        <span class="value"></span>
+    </button>
+
+</form>
+
+
+
+
+<div class="ui divider"></div>
+
+<form action="/li/save" class="ui form li-save-form" method="POST">
+    <input type="hidden" name="redirect_url" value="/candidate/{{candidate.id}}">
+    <input type="hidden" name="id" value="{{candidate.id}}">
+
+        <div class="ui action input labeled">
+            <div class="ui label"> <i class="icon linkedin"></i> </div>
+            <input type="text" name="li" value="{{candidate.url}}">
+            <button type="submit" class="ui button">Save</button>
+        </div>
+</form>
