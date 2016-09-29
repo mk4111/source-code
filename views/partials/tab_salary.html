@@ -1,12 +1,13 @@
-  <form>
-    <label>Salary (current):</label>
-    <input type="hidden" class="id-candidate" value="{{candidate.id}}">
-    <input type="text" class="scurrent-input" value="{{candidate.info.scurrent}}">
-    <label>Salary (expected):</label>
-    <input type="text" class="sexpected-input" value="{{candidate.info.sexpected}}">
-    <label>Notice period:</label>
-    <input type="text" class="notice-input" value="{{candidate.info.notice}}">
-    <label>Interested in locations:</label>
-    <input type="text" class="locations-input" value="{{candidate.info.locations}}">
-    <button id="save-info">Save</button>
-  </form>
+<form class="ui form" method="POST" action="/info/save">
+    <input type="hidden" name="id" value="{{candidate.id}}">
+    <input type="hidden" name="redirect_path" value="/candidate/{{candidate.id}}">
+    <div class="field">
+        <label>Salary (current):</label>
+        <input type="text" name="scurrent" placeholder="Salary (current)" value="{{candidate.info.scurrent}}">
+    </div>
+    <div class="field">
+        <label>Salary (expected):</label>
+        <input type="text" name="sexpected" placeholder="Salary (expected)" value="{{candidate.info.sexpected}}">
+    </div>
+    <button class="ui button" type="submit">Save</button>
+</form>
