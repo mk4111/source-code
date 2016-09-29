@@ -154,12 +154,6 @@ div.candidates-list div.row.candidate div.column p {
 
 div.candidates-list div.row.candidate div.media-links {
   text-align: center; }
-  div.candidates-list div.row.candidate div.media-links .stack.overflow {
-    color: #FBBD08; }
-  div.candidates-list div.row.candidate div.media-links .github {
-    color: black; }
-  div.candidates-list div.row.candidate div.media-links .linkedin {
-    color: #2185D0; }
 
 div.candidates-list div.row.candidate div.column.candidate-status span.client-employee {
   color: #d01919; }
