@@ -1,1 +1,9 @@
-AVAILABILITY
+<form class="ui form" method="POST" action="/info/save">
+    <input type="hidden" name="id" value="{{candidate.id}}">
+    <input type="hidden" name="redirect_path" value="/candidate/{{candidate.id}}">
+    <div class="field">
+        <label>Availability:</label>
+        <input type="text" name="availability" placeholder="Availability" value="{{candidate.info.availability}}">
+    </div>
+    <button class="ui button" type="submit">Save</button>
+</form>
