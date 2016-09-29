@@ -7,7 +7,7 @@
 
     <div class="ui grid candidates-stages-list">
     {{#each candidate.stages}}
-        <div class="row {{stageToCss stageId}}">
+        <div class="row {{stageToCss stageId}} stage-row">
 
             <div class="one wide column client">
                 <div class="center-vertical-wrap">
@@ -23,7 +23,7 @@
                     <div class="center-vertical"> <p> {{lookup (lookup ../jobs jobId) "title"}} </p> </div>
                 </div>
             </div>
-            <div class="one wide column stage">
+            <div class="two wide column stage">
                 <div class="center-vertical-wrap">
                     <div class="center-vertical">
                         <p> {{lookup (lookup ../stages stageId) "name"}} </p>
@@ -40,7 +40,11 @@
             <div class="one wide column salary">
                 <div class="center-vertical-wrap">
                     <div class="center-vertical">
+                        {{#if (lookup (lookup ../jobs jobId) "salary")}}
                         <p> {{lookup (lookup ../jobs jobId) "salary"}} </p>
+                        {{else}}
+                        <p>N/A</p>
+                        {{/if}}
                     </div>
                 </div>
             </div>
@@ -51,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            <div class="five wide column city">
+            <div class="four wide column city">
                 <div class="center-vertical-wrap">
                     <div class="center-vertical">
                         {{> stage_action_bar stages =../stages stage=this redirectUrl=../request.url.path}}

@@ -45,8 +45,12 @@ div.container.candidate {
     }
     .row.skills { margin-bottom: 0px; }
     .candidates-stages-list .row {
+      padding: 5px;
       .column.client { text-align: center; img { max-width: 50px; } }
       .column { text-align: center; }
+      .stage-actions-wrap {
+        button { padding: 8px; }
+      }
     }
 
     .tab.skills .label { margin-bottom: 10px; }
