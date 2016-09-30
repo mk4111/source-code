@@ -12,7 +12,7 @@
             <div class="one wide column client">
                 <div class="center-vertical-wrap">
                     <div class="center-vertical">
-                        <a href="/clients/{{lookup ../clients clientId}}">
+                        <a href="/clients/{{clientId}}">
                             <img class="ui small image" src="{{lookup (lookup ../clients clientId) "logoUrl"}}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
                         </a>
                     </div>
@@ -20,7 +20,11 @@
             </div>
             <div class="three wide column title">
                 <div class="center-vertical-wrap">
-                    <div class="center-vertical"> <p> {{lookup (lookup ../jobs jobId) "title"}} </p> </div>
+                    <div class="center-vertical"> 
+                        <a href="/jobs/{{jobId}}">
+                            <p> {{lookup (lookup ../jobs jobId) "title"}} </p>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="two wide column stage">

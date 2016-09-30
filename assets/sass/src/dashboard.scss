@@ -1,4 +1,4 @@
-$border_radius: 15px;
+$border_radius: 10px;
 
 div.dashboard {
     div.stages-bar {
@@ -10,15 +10,23 @@ div.dashboard {
         margin-top: 40px;
         margin-bottom: 10px;
         .menu { text-align: center; }
+        div.column.action-title {
+            padding-left: 0px;
+            margin-left: 0px;
+        }
     }
     div.list_candidats {
         .candidate-box-wrap.row {
+            border-radius: 10px;
+            margin-bottom: 8px;
             &.incomplete {
                 opacity: 0.5;
             }
             /** This are some Semantic-UI modification - should be rather cusomised in the build */
             padding-top: 0px;
+            padding-bottom: 0px;
             .column {
+                border-radius: 10px;
                 padding-top: 0.6rem;
                 padding-bottom: 0.6rem;
                 margin-top: 0px;
@@ -28,31 +36,21 @@ div.dashboard {
 
             .column p { margin-bottom: 5px; }
             .column.candidate-picture {
-                border-bottom-left-radius: $border_radius;
-                border-top-left-radius: $border_radius;
                 img {
                     display: inline-block;
                     max-width: 100px;
+                    border-radius: $border_radius;
                 }
             }
-            .column.candidate-name {
-                padding-left: 0px;
-            }
-            .column.candidate-details {
-                border-bottom-right-radius: $border_radius;
-                border-top-right-radius: $border_radius;
-                padding-left: 0px;
-            }
-            .column.client img {
-                border-radius: $border_radius / 2;
-            }
+            .column.candidate-name { padding-left: 0px; }
+            .column.candidate-details { }
+            .column.client img { border-radius: $border_radius; }
             .stage-actions-wrap {
                 width: 100%;
-                text-align: right;
                 .stage-actions.buttons {
                     margin-top: 6px;
                     button { 
-                        padding: 7px;
+                        padding: 3px;
                     }
                 }
             }
