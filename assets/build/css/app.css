@@ -170,9 +170,10 @@ div.candidates-list div.row.skills {
   padding-top: 0px;
   margin-top: 5px;
   margin-bottom: 30px;
-  font-family: 'blenderpro'; }
+  font-family: 'blenderpro';
+  border-radius: 10px; }
   div.candidates-list div.row.skills div.column {
-    padding: 8px;
+    padding: 6px;
     text-transform: uppercase; }
     div.candidates-list div.row.skills div.column.matched {
       color: #21BA45; }
@@ -222,7 +223,8 @@ div.container.candidate .row.skills {
 
 div.container.candidate .candidates-stages-list .row {
   padding: 5px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  border-radius: 10px; }
   div.container.candidate .candidates-stages-list .row .column.client {
     text-align: center; }
     div.container.candidate .candidates-stages-list .row .column.client img {
