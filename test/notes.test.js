@@ -74,7 +74,7 @@ describe('Test the notes feature | ', function () {
 
         expect(res.statusCode).to.equal(200);
         var $ = cheerio.load(res.payload);
-        var notes = $('.notes-item');
+        var notes = $('.notes.segment .card');
         expect(notes.length).to.equal(1);
 
         server.stop(done);

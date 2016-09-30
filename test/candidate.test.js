@@ -72,7 +72,7 @@ describe('Return the first candidate: /candidate/1', function () {
           expect(err).to.not.exist();
           expect(res.statusCode).to.equal(200);
           var $ = cheerio.load(res.payload);
-          var jobApplications = $('.job-application');
+          var jobApplications = $('.segment.job_applications .card');
           expect(jobApplications.length).to.equal(2);
           server.stop(done);
         });
@@ -131,7 +131,7 @@ describe('Return the second candidate: /candidate/2 ' , function () {
           expect(err).to.not.exist();
           expect(res.statusCode).to.equal(200);
           var $ = cheerio.load(res.payload);
-          var liUrl = $('#sidebar a')[0];
+          var liUrl = $('.row.candidate .media-links a.linkedin')[0];
           expect(liUrl.attribs.href).to.equal("https://www.linkedin.com/in/fakeprofile3");
           server.stop(done);
         });

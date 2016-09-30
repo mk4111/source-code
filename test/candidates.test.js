@@ -57,50 +57,6 @@ describe('/candidates/create candidate', function () {
 });
 
 
-describe('/candidates/create candidate', function () {
-
-  it('Create a candidate', function (done) {
-
-    Server.init(0, function (err, server) {
-
-      expect(err).to.not.exist();
-      var options = {
-        method: "POST",
-        url: "/candidates/create",
-        payload: {
-          firstName: "Filip",
-          lastName: "Wiśniewski",
-          email: "filip@example.com",
-          phone: "1111111111",
-          jobID: 1,
-          linkedInURL: "https://uk.linkedin.com/in/fifik",
-          comments: "Testing",
-          skillset: "Marketing",
-          name: "Filip Wiśniewski",
-          source: "Company Website"
-      }
-    };
-
-      server.inject(options, function (res) {
-        expect(res.statusCode).to.equal(200);
-        
-        setTimeout(function () {
-          es.get({
-            index: process.env.ES_INDEX,
-            type: process.env.ES_TYPE,
-            id: res.payload
-          }, function (err, response) {
-            //expect(res.statusCode).to.equal(200);
-            //expect(response._source.fullname).to.equal('Borislav Shekerov');
-            server.stop(done);
-          }); 
-          }, 2000);
-               
-      });
-    });
-  });
-});
-
 describe('Update /candidates/create candidate', function () {
 
   it('Update a candidate with existing url in db', function (done) {
@@ -161,12 +117,10 @@ describe('Return just created candidate', function () {
 
     Server.init(0, function (err, server) {
 
-
-     
       server.inject(options, function(res) {
         expect(err).to.not.exist();
         expect(res.statusCode).to.equal(200);
-        expect(res.payload.indexOf('<li>Comments: Something else</li>')).to.be.above(-1);
+        expect(res.payload.indexOf('Something else')).to.be.above(-1);
         server.stop(done);
       });
     
