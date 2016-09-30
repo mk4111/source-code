@@ -88,7 +88,6 @@ describe('api /profile', function () {
           var $ = cheerio.load(res.payload);
 
           expect($('.fullname').text()).to.equal("David Dupont");
-          expect($('#star-state').attr('class')).to.equal('fa fa-star unchecked');
           server.stop(done);
 
           }), 3000);
@@ -133,8 +132,6 @@ describe('api /profile', function () {
             var $ = cheerio.load(res.payload);
 
             expect($('.fullname').text()).to.equal("David Dupont");
-            //the yellow star should be display
-            expect($('#star-state').attr('class')).to.equal('fa fa-star');
             server.stop(done);
 
             }), 3000);

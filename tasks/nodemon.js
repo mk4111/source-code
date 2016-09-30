@@ -9,12 +9,12 @@ Gulp.task('nodemon', function() {
   }
   Nodemon({
     script: 'lib/start.js',
-    ext: 'hbs js',
+    ext: 'html js',
     ignore: [
-      'assets/cofee',
-      'assets/sass',
+      'assets/',
+      'bower_components/',
       'node_modules/',
-      '.build/',
+      'tasks/',
       'test/'
     ],
     nodeArgs: nodeArgs

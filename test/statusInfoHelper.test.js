@@ -11,7 +11,7 @@ describe('Pass the current status, clients, jobs', function () {
 
   it('return the span with the name of the client, title job', function (done) {
 
-    var currentStatus = {idClient: '1', idCandidate: '2', idJob: '2'};
+    var currentStatus = {clientId: '1', candidateId: '2', jobId: '2'};
     var clients = [{id: '1', name: 'DWYL'},{id: '2', name: 'FAC'}];
     var jobs = [{id: '1', client: '1', title: 'some job'},{id: '2', client: '2', title: 'other job'}];
     var result = statusInfoHelper(currentStatus, clients, jobs);

@@ -1,0 +1,79 @@
+// some values copied over from the main css file to parameterized the whole thing and keep colors consistent 
+
+.last-email-30 {
+  color: $RED;
+}
+
+.last-email-90 {
+  color: $YELLOW;
+}
+
+.last-email-regular {
+  color: $GREEN;
+}
+
+i.send > span {
+  float: right !important;
+  padding-left: 5px;
+  font-size: 0.8em;
+}
+
+div.container.candidate {
+
+    div.grid.action-buttons {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        span.label { cursor: default; }
+        .column {
+          .button { 
+            width: 100%;
+            padding: 15px;
+          }
+          padding-left: 5px;
+          padding-right: 5px;
+          &:first-child { padding-left: 0px; }
+          &:last-child { padding-right: 0px; }
+        }
+    }
+    .menu .item {
+      cursor: pointer;
+
+    }
+    .row.skills { margin-bottom: 0px; }
+    .candidates-stages-list .row {
+      padding: 5px;
+      text-transform: uppercase;
+      border-radius: $border_radius;
+      .column.client { text-align: center; img { max-width: 50px; border-radius: 10%; } }
+      .column { 
+        text-align: center; 
+        a { color: $WHITE; }
+      }
+      .stage-actions-wrap {
+        // button { padding: 8px; }
+      }
+    }
+
+    .tab.skills .label { margin-bottom: 10px; }
+    form.cv-upload {
+      .file-upload-label { width: 180px; }
+      input[type="file"] {
+        visibility: hidden;
+        height: 0px;
+        padding: 0px;
+        margin: 0px;
+        display: block;
+        width: 0px;
+        float: left;
+      }
+    }
+    form.li-save-form {
+      .labeled .label i { margin: 0; }
+    }
+}
+
+
+.modal.sendemail {
+  form.sendmail { .email-form { button { display: none; } } }
+  .actions { text-align: right; }
+}

@@ -56,6 +56,7 @@ describe('/candidates/create candidate', function () {
   });
 });
 
+
 describe('Update /candidates/create candidate', function () {
 
   it('Update a candidate with existing url in db', function (done) {
@@ -116,12 +117,10 @@ describe('Return just created candidate', function () {
 
     Server.init(0, function (err, server) {
 
-
-     
       server.inject(options, function(res) {
         expect(err).to.not.exist();
         expect(res.statusCode).to.equal(200);
-        expect(res.payload.indexOf('<li>Comments: Something else</li>')).to.be.above(-1);
+        expect(res.payload.indexOf('Something else')).to.be.above(-1);
         server.stop(done);
       });
     

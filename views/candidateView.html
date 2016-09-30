@@ -1,23 +1,249 @@
 {{>search_bar}}
+
+<div class="ui container candidate">
+    <div class="ui grid candidates-list">
+        {{>candidate clients=clients stages=stages extended=true}}
+    </div>
+
+    <div class="ui grid candidates-stages-list">
+    {{#each candidate.stages}}
+        <div class="row {{stageToCss stageId}} stage-row">
+
+            <div class="one wide column client">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        <a href="/clients/{{clientId}}">
+                            <img class="ui small image" src="{{lookup (lookup ../clients clientId) "logoUrl"}}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column title">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical"> 
+                        <a href="/jobs/{{jobId}}">
+                            <p> {{lookup (lookup ../jobs jobId) "title"}} </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="two wide column stage">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        <p> {{lookup (lookup ../stages stageId) "name"}} </p>
+                    </div>
+                </div>
+            </div>
+            <div class="two wide column employment-type">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        <p> {{lookup (lookup ../jobs jobId) "employmentType"}} </p>
+                    </div>
+                </div>
+            </div>
+            <div class="one wide column salary">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        {{#if (lookup (lookup ../jobs jobId) "salary")}}
+                        <p> {{lookup (lookup ../jobs jobId) "salary"}} </p>
+                        {{else}}
+                        <p>N/A</p>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+            <div class="two wide column city">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        <p> {{lookup (lookup (lookup ../jobs jobId) "address") "city"}} </p>
+                    </div>
+                </div>
+            </div>
+            <div class="five wide column city">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        {{> stage_action_bar stages =../stages stage=this redirectUrl=../request.url.path}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    {{/each}}
+    </div>
+
+    <div class="six column ui grid action-buttons">
+        <div class="column add-submission">
+            <div class="ui labeled button" tabindex="0">
+                <button class="ui button" value="addsubmission"> Add Submission </button>
+                <span class="ui basic label">
+                  {{#if candidate.stages.length}}
+                    {{candidate.stages.length}}
+                  {{else}}
+                    0
+                  {{/if}}
+                </span>
+
+                <div class="ui modal addsubmission">
+                    <i class="close icon"></i>
+                    <div class="header"> Add Submission </div>
+                    
+                    <div class="content">
+                        <form class="ui form" action="/status/save" method="POST">
+                            <div class="ui error message"></div>
+                            <input type="hidden" name="candidateId" value="{{candidate.id}}">
+                            <div class="field">
+                            <label>Client</label>
+                            <div class="ui fluid search selection dropdown client">
+                                <input type="hidden" name="clientId">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Client</div>
+                                <div class="menu">
+                                    {{#each clientsWithJobs as |c id|}}
+                                        <div class="item" data-value="{{id}}">{{c.name}}</div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                            </div>
+                            <div class="field">
+                            <label>Job</label>
+                            <div class="ui fluid search selection dropdown job">
+                                <input type="hidden" name="jobId">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Job</div>
+                                <div class="menu">
+                                    {{#each activeJobs as |j id|}}
+                                        <div class="item client-id-{{j.client}}" data-value="{{id}}">{{j.title}}</div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                            </div>
+                            <div class="field">
+                            <label>Status</label>
+                            <div class="ui fluid search selection dropdown stage">
+                                <input type="hidden" name="stageId">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Stage</div>
+                                <div class="menu">
+                                    {{#each stages as |s id|}}
+                                        <div class="item" data-value="{{id}}">{{s.name}}</div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="actions">
+                        <button type="submit" class="ui button">Submit</button>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="column">
+            <button class="ui button disabled"> Log Call </button>
+        </div>
+        <div class="column">
+            <button class="ui button
+            {{#unless candidate.contacts.email}}
+                disabled
+            {{/unless}}
+            " value="sendemail"> Send Email </button>
+            <div class="ui modal sendemail">
+              <i class="close icon"></i>
+                <div class="header">
+                  Send Email
+                </div>
+                <div class="content">
+                  {{>email_form pathUrl=request.url.path}}
+                </div>
+              <div class="actions"> <button type="button" class="ui button cancel">Send</button> </div>
+            </div>
+            </div>
+            <div class="column">
+                <button class="ui button disabled"> Add to List </button>
+            </div>
+            <div class="column">
+                <button class="ui button negative disabled"> Blacklist Profile </button>
+            </div>
+
+        <div class="column">
+            <button class="ui button negative" value="deleteprofile"> Delete Profile </button>
+            <div class="ui modal deleteprofile">
+                <i class="close icon"></i>
+                <div class="header">Delete Profile</div>
+                <div class="content">Do you really want to delete this profile?</div>
+                <div class="actions">
+                    <form action="/delete" method="post">
+                        <input type="hidden" name="id" value="{{candidate.id}}">
+                        <div class="ui buttons">
+                        <button type="button" class="ui button cancel">Cancel</button>
+                        <div class="or"></div>
+                            <button type="submit" class="ui negative button action">Delete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui divider"></div>
+
+    <div class="top-row-tabs">
+
+    <div class="ui top attached tabular menu">
+      <div class="active item" data-tab="salary">Salary</div>
+      <div class="item" data-tab="locations">Locations</div>
+      <div class="item" data-tab="availability">Availability</div>
+      <div class="item" data-tab="skills">Key Skills</div>
+      <div class="item" data-tab="notes">Additional Notes</div>
+      <div class="item" data-tab="emails">Emails</div>
+      <div class="item" data-tab="calls">Calls</div>
+      <div class="item" data-tab="lists">Lists</div>
+      <div class="item" data-tab="contact_details">Contact Details</div>
+    </div>
+
+    <div class="ui bottom attached active tab segment" data-tab="salary">{{>tab_salary candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment" data-tab="locations">{{>tab_locations candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment" data-tab="availability">{{>tab_availability candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment skills" data-tab="skills">{{>tab_skills candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment notes" data-tab="notes">{{>tab_notes candidate=candidate users=usersByGoogle}}</div>
+    <div class="ui bottom attached tab segment" data-tab="emails">{{>tab_emails candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment" data-tab="calls">{{>tab_calls candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment" data-tab="lists">{{>tab_lists candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment contact_details" data-tab="contact_details">{{>tab_contact_details candidate=candidate}}</div>
+
+    </div>
+
+    <div class="ui divider"></div>
+
+    <div class="bottom-row-tabs">
+
+    <div class="ui top attached tabular menu">
+      <div class="active item" data-tab="summary">Summary</div>
+      <div class="item" data-tab="current_experience">Current Experience</div>
+      <div class="item" data-tab="past_experience">Past Experience</div>
+      <div class="item" data-tab="languages">Languages</div>
+      <div class="item" data-tab="job_applications">Job Applications</div>
+    </div>
+
+    <div class="ui bottom attached active tab segment" data-tab="summary">{{>tab_summary candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment" data-tab="current_experience">{{>tab_current_experience candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment" data-tab="past_experience">{{>tab_past_experience candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment languages" data-tab="languages">{{>tab_languages candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment job_applications" data-tab="job_applications">{{>tab_job_applications candidate=candidate}}</div>
+
+    </div>
+
+</div>
+
+
+{{#if false}}
+
 <div class="candidate_view">
   <div class="thumbnail">
     <div class="headline">
-    <!-- Add favorite icon -->
-      {{#if candidate.favourite}}
-      <!-- form for unfavourite -->
-        <form class="favourite-form" method="POST" action="">
-        <input type="hidden" id="profileId" name="id" value="{{candidate.id}}"/>
-        <input type="hidden" name="javascriptDisabled" value='true'/>
-          <button type="submit"><i id="star-state" class="fa fa-star"></i></button>
-        </form>
-      {{else}}
-        <form class="favourite-form" method="POST" action="/favourite">
-        <input type="hidden" id="profileId" name="id" value="{{candidate.id}}"/>
-        <input type="hidden" name="javascriptDisabled" value='true'/>
-          <button type="submit"><i id="star-state" class="fa fa-star unchecked"></i></button>
-        </form>
-
-      {{/if}}
 
       <img src="{{candidate.picture}}" alt="" />
       <br/>
@@ -43,15 +269,18 @@
         {{emailIndicatorHelper candidate.lastEmail true}}
       {{/if}}
 
+      {{#if false}}
       <!-- Rejectd status tag -->
+      <!-- No idea what it stands for -->
       <div class="rejected">
         {{#each rejectedStatus as |status timestamp| }}
           <span><a href="/jobs/{{status.idJob}}">{{status.nameClient}} - {{status.nameJob}} - Rejected</a></span>
         {{/each}}
       </div>
+      {{/if}}
 
 
-      {{#if candidate.statusCurrent}}
+      {{#if false}}
           {{#each candidate.statusCurrent}}
 
             <h4 class="status-candidate">{{statusInfoHelper this ../clients ../jobs}} <span class="stage-span">{{statusStageHelper idStage ../stages}}</span><span class="stage-initials-span"> {{statusInitialsHelper idUser ../users}}</span></h4>
@@ -100,6 +329,54 @@
           {{/each}}
 
       {{/if}}
+
+
+      {{#each candidate.stages}}
+            {{#if false}}
+            <h4 class="status-candidate">{{statusInfoHelper this ../clients ../jobs}} <span class="stage-span">{{statusStageHelper stageId ../stages}}</span><span class="stage-initials-span"> {{statusInitialsHelper userId ../users}}</span></h4>
+            <div class="status-wrapper">
+              <form class="delete-status-form" action="/status/delete" method="POST">
+                <input type="hidden" name="id" value="{{_id}}">
+                <input type="hidden" name="candidateId" value="{{candidateId}}">
+                <button type="submit">Delete</button>
+              </form>
+
+              <button id="{{_id}}" class="edit-status">Edit</button>
+            </div>
+            {{/if}}
+              <form class="edit-status-form" action="/status/edit" method="POST">
+                <input type="hidden" name="candidateId" value="{{candidateId}}">
+                <input type="hidden" name="id" value="{{_id}}">
+                <div class="dropdown-clients-edit id-{{_id}}">
+                  <select name="clientId" data-tmp="{{_id}}" class="dropbtn clients-edit">
+                    <option selected disabled>Clients</option>
+                    {{#each ../clients}}
+                      {{statusEditClient this ../clientId}}
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="dropdown-jobs-edit id-{{_id}}">
+                  <select name="jobId" class="dropbtn id-{{_id}}">
+                    <option selected disabled>Jobs</option>
+                    {{#each ../jobs}}
+                        {{statusEditJob this ../jobId}}
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="dropdown-stages-edit id-{{_id}}">
+                  <select name="stageId" class="dropbtn">
+                    <option selected disabled>Stages</option>
+                    {{#each ../stages}}
+                      {{statusEditStages this ../stageId}}
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="dropdown-save-edit id-{{_id}}">
+                  <button type="submit" class="dropbtn">Save</button>
+                </div>
+              </form>
+
+      {{/each}}
 
       {{>status}}
 
@@ -184,12 +461,14 @@
           </ul>
         </form>
         <br>
+        {{#if false}}
         <div class="notes notes-box">
           {{#each candidate.notesList}}
             <div class="notes-item">{{displayNotes this ../users}}</div>
             <hr>
           {{/each}}
         </div>
+        {{/if}}
         <br>
         </div>
         <h1><i class="fa fa-comments"></i> EMAILS</h1>
@@ -274,3 +553,5 @@
 </div>
 
 <script src="/assets/js/candidate_view.js"></script>
+
+{{/if}}

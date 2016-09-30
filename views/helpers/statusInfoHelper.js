@@ -1,25 +1,24 @@
+var Underscore = require('underscore');
 var Handlebars = require('handlebars');
 module.exports = function (statusCurrent, clients, jobs) {
 
   var result = "";
 
-  clients.forEach(function (client) {
+  Underscore.each(clients, function (client) {
 
-    if (statusCurrent.idClient === client.id) {
-
+    if (statusCurrent.clientId == client.id) {
       result += "<span>" + client.name + " </span>";
-
+      return false; // break
     }
 
   });
 
 
-  jobs.forEach(function (job) {
+  Underscore.each(jobs, function (job) {
 
-    if (statusCurrent.idJob === job.id) {
-
+    if (statusCurrent.jobId == job.id) {
       result += "<span>" + job.title + " </span>";
-
+      return false; // breaks
     }
 
   });

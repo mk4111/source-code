@@ -1,0 +1,37 @@
+<div class="ui grid">
+
+    <div class="six wide column">
+
+        <form class="ui form" action="/notes/save" method="POST">
+            <input type="hidden" name="idCandidate" value="{{candidate.id}}">
+            <div class="field">
+                <textarea name="notes" class="field-long field-textarea" placeholder="Further notes"></textarea>
+            </div>
+            <button class="ui button" type="submit">Add Note</button>
+        </form>
+
+    </div>
+
+    <div class="ten wide column">
+
+        <div class="ui three column grid">
+
+            {{#each candidate.notesList}}
+
+                <div class="column">
+                <div class="ui fluid card">
+                <div class="content">
+                    <div class="header">{{lookup (lookup (lookup ../users idUser) "names") "fullname"}}</div>
+                    <div class="meta">{{formatTimestamp timestamp}}</div>
+                    <div class="description"><p>{{note}}</p></div>
+                </div>
+                </div>
+                </div>
+
+            {{/each}}
+
+        </div>
+
+    </div>
+
+</div>

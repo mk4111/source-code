@@ -97,13 +97,15 @@ aside {
   padding: 0 20px;
 }
 
+/*
 .pagination a , .page-number{
   font-size: 22px;
 }
+
 #prev, #next {
   padding: 1px 12px 1px;
 }
-
+*/
 .delete-profile-confirmation {
   display: none;
 }

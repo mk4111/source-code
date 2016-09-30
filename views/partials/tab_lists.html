@@ -1,0 +1,18 @@
+<div class="ui middle aligned divided list">
+    {{#each candidate.listNames}}
+      <div class="item">
+        <div class="right floated content">
+            <form method="POST" action="/candidates/delete-list">
+                <input type="hidden" name="listName" value="{{this}}">
+                <input type="hidden" name="idCandidate" value="{{../candidate.id}}">
+                <input type="hidden" name="redirect_url" value="/candidate/{{../candidate.id}}">
+                <button type="submit" class="ui button negative">Delete</button>
+            </form>
+        </div>
+        <div class="content">
+          {{this}}
+        </div>
+      </div>
+    {{/each}}
+</div>
+

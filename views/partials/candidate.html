@@ -1,75 +1,304 @@
-<div class="list-wrapper">
-  <article class="main">
-    <div class="candidate-box">
-      <div class="headline">
+<div class="ui row candidate">
 
-        {{#if favourite}}
-          <i class="fa fa-star"></i>
-        {{/if}}
-
-        <a href="/candidate/{{id}}"><img src="{{picture}}" alt="" /></a>
-        <a href="/candidate/{{id}}"><h1 class='check-highlight'>{{fullname}}</h1></a>
-
-        {{#each connectedTo}}
-          <ul>
-            {{#if this}}
-              <li><a href="/connected/{{encodeKeywordsHelper this}}"><span class='initials'>{{initials_of_connected_users this}}</span></a></li>
-            {{/if}}
-          </ul>
-        {{/each}}
-
-
-        {{#each statusCurrent}}
-          <p><span class='status'>{{generateStatus this ../clients ../stages}}</span></p>
-        {{/each}}
-
-        {{#if clientProfile}}
-          <p><span class='status-client'>Client Employee</span></p>
-        {{/if}}
-
-        <p class='check-highlight'>{{headline}}</p>
-        <p class='check-highlight'>{{current}}</p>
-        <p class='check-highlight'>{{location}}</p>
-
-        {{#if emails}}
-          {{emailIndicatorHelper lastEmail false}}
-        {{/if}}
-
-        {{#each listSkills}}
-        <ul class="skills-inline">
-          {{#if this.level}}
-            <li class="searched-skills"><span class="skill-level">{{this.level}} </span> {{this.skill}}</li>
-          {{else}}
-            <li>{{this.skill}}</li>
-          {{/if}}
-        </ul>
-        {{/each}}
-
-      {{#if viewedBy.length}}
-        <p class="viewedBy">{{viewedBy.length}}</p>
-      {{/if}}
-
-      </div>
-    </div>
-  </article>
-
-  <aside class="aside aside-1">
-  {{#if email}}
-    {{#unless emailLast30}}
-      {{#unless statusCurrent}}
-        {{#unless clientProfile}}
-        <input type="checkbox" name="email" value='{"email": "{{this.email}}", "id":"{{this.id}}", "fn":"{{this.firstName}}"}'>
+{{#unless extended}}
+<div class="one wide column">
+    {{#if candidate.contacts.email}}
+        {{#unless candidate.emailLast30}}
+            {{#unless (countStages candidate.stages "1,2,3,4,5" )}}
+                {{#unless candidate.clientProfile}}
+                    <div class="center-vertical-wrap">
+                        <div class="center-vertical">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="email" value='{"email": "{{candidate.email}}", "id":"{{candidate.id}}", "fn":"{{candidate.firstName}}"}'>
+                                <label></label>
+                            </div>
+                        </div>
+                    </div>
+                {{/unless}}
+            {{/unless}}
         {{/unless}}
-      {{/unless}}
-    {{/unless}}
-  {{/if}}
-  </aside>
-
-  <aside class="aside aside-2">
-     {{#if percentageMatch}}
-    <div class="pie">{{percentageMatch}}%</div>
     {{/if}}
-  </aside>
 </div>
-<hr class="horizontal-profile">
-<br>
+{{/unless}}
+
+<div class="column two wide picture">
+    <div class="center-vertical-wrap">
+        <div class="center-vertical">
+            <a href="/candidate/{{candidate.id}}">
+                <img class="ui small circular image color" src="{{candidate.picture}}" onerror="this.src='/assets/img/client-logo.png'"/>
+            </a>
+        </div>
+    </div>
+</div>
+
+{{#if extended}}
+<div class="two wide column media-links">
+{{else}}
+<div class="one wide column media-links">
+{{/if}}
+    <div class="center-vertical-wrap">
+    <div class="center-vertical">
+    <p><a href="{{candidate.url}}" target="_blank" class="circular ui icon button small
+    {{#unless candidate.stackoverflow_url}}
+    disabled
+    {{/unless}}"><i class="icon orange stack overflow"></i></a></p>
+    <p><a href="{{candidate.url}}" target="_blank" class="circular ui icon button small
+    {{#unless candidate.github_url}}
+    disabled
+    {{/unless}}
+    "><i class="icon black github"></i></a></p>
+    <p class="linkedin"><a href="{{candidate.url}}" target="_blank" class="circular ui icon button small
+    {{#unless candidate.url}}
+    disabled
+    {{/unless}}
+    "><i class="icon blue linkedin"></i></a></p>
+    </div>
+    </div>
+</div>
+
+{{#if extended}}
+<div class="four wide column">
+{{else}}
+<div class="five wide column">
+{{/if}}
+    <div class="center-vertical-wrap">
+    <div class="center-vertical">
+    <p class="fullname"><b>{{candidate.fullname}}</b></p>
+    <p>{{candidate.headline}}</p>
+    <p><b>{{candidate.current}}</b></p>
+    <p>{{candidate.location}}</p>
+    </div>
+    </div>
+</div>
+
+{{#unless extended}}
+
+<div class="one wide column candidate-details">
+    <div class="center-vertical-wrap">
+    <div class="center-vertical">
+    <p class="{{presenceToCss candidate.cvDocumentLink}}">CV</p>
+    <p class="{{presenceToCss candidate.contacts.email}}">Email</p>
+    <p class="{{presenceToCss candidate.contacts.phone}}">Phone</p>
+    <p class="{{presenceToCss candidate.contacts.phone}}">Salary</p>
+    </div>
+    </div>
+</div>
+
+<div class="one wide column candidate-details">
+    <div class="center-vertical-wrap">
+    <div class="center-vertical">
+    <p class="{{presenceToCss candidate.cvDocumentLink}}">
+    {{#if candidate.cvDocumentLink}}
+        <i class="checkmark icon"></i>
+    {{else}}
+        <i class="remove icon"></i>
+    {{/if}}
+    </p>
+    <p class="{{presenceToCss candidate.contacts.email}}">
+        {{#if candidate.contacts.email}}
+            <i class="checkmark icon"></i>
+        {{else}}
+            <i class="remove icon"></i>
+        {{/if}}
+    </p>
+    <p class="{{presenceToCss candidate.contacts.phone}}">
+        {{#if candidate.contacts.phone}}
+            <i class="checkmark icon"></i>
+        {{else}}
+            <i class="remove icon"></i>
+        {{/if}}
+    </p>
+    <p class="{{presenceToCss candidate.info.sexpected}}">
+        {{#if candidate.info.sexpected}}
+            <i class="checkmark icon"></i>
+        {{else}}
+            <i class="remove icon"></i>
+        {{/if}}
+    </p>
+    </div>
+    </div>
+</div>
+
+{{/unless}}
+
+{{#if extended}}
+    <div class="four wide column candidate-details">
+        <div class="center-vertical-wrap">
+        <div class="center-vertical">
+        <p class="{{presenceToCss candidate.cvDocumentLink}}">
+            CV:
+            {{#if candidate.cvDocumentLink}}
+                <a href="{{candidate.cvDocumentLink}}" target="_blank">view</a>
+            {{else}}
+                N/A
+            {{/if}}
+        </p>
+        <p class="{{presenceToCss candidate.contacts.email}}">
+        Email:
+            {{#if candidate.contacts.email}}
+                {{candidate.contacts.email}}
+            {{else}}
+                N/A
+            {{/if}}
+        </p>
+        <p class="{{presenceToCss candidate.contacts.phone}}">
+            Phone:
+            {{#if candidate.contacts.phone}}
+                {{candidate.contacts.phone}}
+            {{else}}
+                N/A
+            {{/if}}
+        </p>
+        <p class="{{presenceToCss candidate.salary}}">
+            Salary:
+            {{#if candidate.info.sexpected}}
+                {{candidate.info.sexpected}}
+            {{else}}
+                N/A
+            {{/if}}
+        </p>
+        </div>
+        </div>
+    </div>
+{{/if}}
+
+{{#if extended}}
+<div class="four wide column candidate-status">
+{{else}}
+<div class="five wide column candidate-status">
+{{/if}}
+    <div class="center-vertical-wrap">
+    <div class="center-vertical">
+    <p>
+    Connected To:
+    {{# if candidate.connectedTo.length }}
+    {{#each candidate.connectedTo}}
+            {{#if this}}
+                <a href="/connected/{{encodeKeywordsHelper this}}"><b>{{initials_of_connected_users this}}</b></a>
+            {{/if}}
+    {{/each}}
+    {{else}}
+        N/A
+    {{/if}}
+    </p>
+
+    <p class="stages">Status:
+    {{#if candidate.stages.length}}
+        {{#each candidate.stages}}
+            {{generateStatus this ../clients ../stages}}<span class="comma">,</span>
+        {{/each}}
+    {{/if}}
+    {{#if candidate.clientProfile}}
+        <span class="client-employee">Client Employee</span>
+    {{/if}}
+    {{#unless candidate.clientProfile}}
+        {{#unless candidate.stages.length}}
+            N/A
+        {{/unless}}
+    {{/unless}}
+    </p>
+
+
+    <!-- @TODO get some more details here -->
+    <p class="email-preview">Last Contacted:
+        {{#if candidate.lastEmail.sentAt}}
+
+        <a class="ui" href="" id="emailid{{candidate.id}}" data-content="{{candidate.lastEmail.subject}}, {{candidate.lastEmail.senderName}}"> {{candidate.lastEmail.sentAt}}</a>
+
+        {{else}}
+            N/A
+        {{/if}}
+
+    </p>
+
+    <p class="last-viewed-by">
+    Last Viewed By: 
+    {{#if candidate.viewedBy.length}}
+        {{#each (lastViewedBy candidate.viewedBy) }}
+
+            <a class="ui" href="" data-content="{{user.fullname}} ({{timestamp_formatted_long}})" id="viewedby{{../candidate.id}}">
+            {{#unless @index}}
+                {{user.initials}} ({{timestamp_formatted_short}})
+            {{/unless}}
+            </a>
+
+        {{/each}}
+
+    {{else}}
+        N/A
+    {{/if}}
+    </p>
+    </div>
+    </div>
+</div>
+
+<!-- modals -->
+
+{{#if candidate.viewedBy.length}}
+    <div class="ui modal email viewedby{{candidate.id}}">
+        <i class="close icon"></i>
+        <div class="header">
+            Viewed By
+        </div>
+        <div class="content">
+            {{#each (lastViewedBy candidate.viewedBy) }}
+                <p>{{user.fullname}} ({{timestamp_formatted_long}})</p>
+            {{/each}}
+        </div>
+        <div class="actions"> <!-- if any actions put them here --> </div>
+    </div>
+{{/if}}
+
+{{#if candidate.lastEmail.sentAt}}
+    <div class="ui modal email emailid{{candidate.id}}">
+        <i class="close icon"></i>
+        <div class="header">
+            {{candidate.lastEmail.subject}}
+        </div>
+        <div class="content">
+            <p class="message">{{candidate.lastEmail.message}}</p>
+            <p class="sender">{{candidate.lastEmail.senderName}}</p>
+            <p class="sent-at">{{candidate.lastEmail.sentAt}}</p>
+        </div>
+        <div class="actions"> <!-- if any actions put them here --> </div>
+    </div>
+{{/if}}
+
+</div>
+
+<div class="six column row skills black">
+
+    {{#if candidate.listSkills.length}}
+        {{#each candidate.listSkills}}
+            <div class="column
+            {{#if matched}}
+            matched
+            {{/if}}
+            ">
+                <div class="center-vertical-wrap">
+                    <div class="center-vertical">
+                        <p> {{skill}} </p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    {{else}}
+        <!-- to keep the bar always the same size -->
+        <div class="column">
+            <p style="opacity:0">nth</p>
+        </div>
+    {{/if}}
+
+</div>
+
+
+    <!-- hide it for now, I don't think it's a valuable information to display anyway -->
+    <!--
+    <aside class="aside aside-2">
+        {{#if percentageMatch}}
+            <div class="pie">{{percentageMatch}}%</div>
+        {{/if}}
+    </aside>
+    -->
+
+

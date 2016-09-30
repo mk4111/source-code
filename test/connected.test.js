@@ -83,7 +83,7 @@ describe('search for Simon Lab connections', function () {
       server.inject({url: '/connected/Simon%20Lab/1', headers: { cookie: "token=" + tokenSimon }}, function (res) {
         expect(res.statusCode).to.equal(200);
         var $ = cheerio.load(res.payload);
-        var idProfile = $('.headline a')[0].attribs.href.split('candidate/')[1];
+        var idProfile = $('.row.candidate .picture a')[0].attribs.href.split('candidate/')[1];
         expect(idProfile.length).to.be.above(0);
         server.stop(done);
       });

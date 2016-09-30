@@ -16,7 +16,7 @@ describe('save or update info section on candidate', function () {
       method: "POST",
       url: "/info/save",
       payload: {
-        idCandidate: '1',
+        id: '1',
         scurrent: '30k',
         sexpected: '50k',
         notice: '1 month',

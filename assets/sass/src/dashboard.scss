@@ -1,71 +1,58 @@
-$border_radius: 15px;
-
 div.dashboard {
-    section.navigation {
-        div.stages-bar {
-            width: 100%;
-            text-align: center;
-            .button.inactive { opacity: .5; }
+    div.stages-bar {
+        width: 100%;
+        text-align: center;
+        .button.inactive { opacity: .5; }
+    }
+    div.dashboard_menu {
+        margin-top: 40px;
+        margin-bottom: 10px;
+        .menu { text-align: center; }
+        div.column.action-title {
+            padding-left: 0px;
+            margin-left: 0px;
         }
-        div.dashboard_menu {
-            margin-top: 40px;
-            margin-bottom: 10px;
-            .menu { text-align: center; }
-        }
-        div.list_candidats {
-            .candidate-box-wrap.row {
+    }
+    div.list_candidats {
+        .candidate-box-wrap.row {
+            border-radius: $border_radius;
+            margin-bottom: 8px;
+            &.incomplete {
+                opacity: 0.5;
+            }
+            /** This are some Semantic-UI modification - should be rather cusomised in the build */
+            padding-top: 0px;
+            padding-bottom: 0px;
+            .column {
+                border-radius: $border_radius;
+                padding-top: 0.6rem;
+                padding-bottom: 0.6rem;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+            /***********************************************************************************/
 
-                /** This are some Semantic-UI modification - should be rather cusomised in a buil */
-                padding-top: 0px;
-                .column {
-                    padding-top: 0.6rem;
-                    padding-bottom: 0.6rem;
-                    margin-top: 0px;
-                    margin-bottom: 0px;
-                }
-                /***********************************************************************************/
-
-                .column p { margin-bottom: 5px; }
-                .column.picture {
-                    border-bottom-left-radius: $border_radius;
-                    border-top-left-radius: $border_radius;
-
-                }
-                .column.candidate-name {
-                    padding-left: 0px;
-                }
-                .column.candidate-details {
-                    border-bottom-right-radius: $border_radius;
-                    border-top-right-radius: $border_radius;
-                    padding-left: 0px;
-                }
-                .column.client img {
-                    border-radius: $border_radius / 2;
+            .column p { margin-bottom: 5px; }
+            .column.candidate-picture {
+                img {
+                    display: inline-block;
+                    max-width: 100px;
+                    border-radius: $border_radius;
                 }
             }
-            .candidate-details  a { color: $WHITE; }
-            .candidate-picture-wrap {
+            .column.candidate-name { padding-left: 0px; }
+            .column.candidate-details { }
+            .column.client img { border-radius: $border_radius; }
+            .stage-actions-wrap {
                 width: 100%;
-                height: 100%;
-                display: table;
-                .candidate-picture-wrap-inner {
-                    display: table-cell;
-                    vertical-align: middle;
-                    img { 
-                        display: inline-block;
-                        max-width: 100px;
+                .stage-actions.buttons {
+                    margin-top: 6px;
+                    button { 
+                        padding: 3px;
                     }
                 }
             }
-            .client-picture-wrap {
-                width: 100%;
-                height: 100%;
-                display: table;
-                .client-picture-wrap-inner {
-                    display: table-cell;
-                    vertical-align: middle;
-                }
-            }
         }
+        .column  a { color: $WHITE; }
     }
 }

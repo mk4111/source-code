@@ -3,3 +3,18 @@
 */
 
 $TABLET_BREAK: 768px; // Semantic-UI
+$border_radius: 10px;
+// fonts
+
+@font-face {
+    font-family: 'blenderpro';
+    src: url('/assets/fonts/blenderpro.ttf');
+}
+
+i.icon.custom {
+    background-position: center !important;
+    background-repeat: no-repeat !important;;
+    background-size: contain !important;;
+}
+
+body { background-color: $LIGHT_GREY; }

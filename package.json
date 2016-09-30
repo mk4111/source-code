@@ -5,7 +5,7 @@
   "main": "lib/start.js",
   "scripts": {
     "resetdb": "node test/fixtures/initialize.js",
-    "test": "node test/fixtures/initialize.js && node test/fixtures/copy-data.js && node test/fixtures/copy-status.js && sleep 5 && ./node_modules/lab/bin/lab ./test/*.test.js ./test/*/*.test.js -m 0 -c -a code -r lcov -o lcov.info -r console -o stdout",
+    "test": "node test/fixtures/initialize.js && node test/fixtures/copy-data.js && node test/fixtures/copy-status.js && sleep 5 && ./node_modules/lab/bin/lab ./test/*.test.js ./test/*/*.test.js -m 10000 -c -a code -r lcov -o lcov.info -r console -o stdout",
     "coverage": "./node_modules/lab/bin/lab -r html -o ./test/coverage.html",
     "start": "node --max_old_space_size=400 lib/start.js --production",
     "codeclimate": "CODECLIMATE_REPO_TOKEN=2a233c5d8243d7c785eedd5a366eb834c7ebe4bbfc2de5e951585cb839fbad9a ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./lcov.info"
@@ -23,6 +23,7 @@
   "dependencies": {
     "aguid": "^1.0.4",
     "bcrypt": "^0.8.6",
+    "bluebird": "^3.4.6",
     "btoa": "^1.1.2",
     "csvtojson": "^1.0.0",
     "elasticsearch": "^11.0.1",
@@ -40,10 +41,15 @@
     "jsonwebtoken": "^7.0.0",
     "linkedin-canonical-url": "^1.0.5",
     "mime-types": "^2.1.11",
+    "moment": "^2.15.0",
+    "mongoose": "^4.6.1",
+    "negotiator": "^0.6.1",
+    "querystring": "^0.2.0",
     "redis-connection": "^4.0.3",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2",
     "underscore": "^1.8.3",
+    "uuid": "^2.0.3",
     "vision": "^4.1.0"
   },
   "devDependencies": {
