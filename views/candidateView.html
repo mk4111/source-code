@@ -150,50 +150,42 @@
                 disabled
             {{/unless}}
             " value="sendemail"> Send Email </button>
-        </div>
-        <div class="column">
-            <button class="ui button disabled"> Add to List </button>
-        </div>
-        <div class="column">
-            <button class="ui button negative disabled"> Blacklist Profile </button>
-        </div>
-
-        <!-- button actions -->
-        <div class="ui modal sendemail">
-          <i class="close icon"></i>
-            <div class="header">
-              Send Email
-            </div>
-            <div class="content">
-              {{>email_form pathUrl=request.url.path}}
-            </div>
-          <div class="actions"> <button type="button" class="ui button cancel">Send</button> </div>
-        </div>
-
-        <div class="ui modal deleteprofile">
-          <i class="close icon"></i>
-            <div class="header">
-              Delete Profile
-            </div>
-            <div class="content">
-              Do you really want to delete this profile?
-            </div>
-            <div class="actions">
-              <form action="/delete" method="post">
-                <input type="hidden" name="id" value="{{candidate.id}}">
-                <div class="ui buttons">
-                <button type="button" class="ui button cancel">Cancel</button>
-                <div class="or"></div>
-                <button type="submit" class="ui negative button action">Delete</button>
+            <div class="ui modal sendemail">
+              <i class="close icon"></i>
+                <div class="header">
+                  Send Email
                 </div>
-              </form>
+                <div class="content">
+                  {{>email_form pathUrl=request.url.path}}
+                </div>
+              <div class="actions"> <button type="button" class="ui button cancel">Send</button> </div>
+            </div>
+            </div>
+            <div class="column">
+                <button class="ui button disabled"> Add to List </button>
+            </div>
+            <div class="column">
+                <button class="ui button negative disabled"> Blacklist Profile </button>
+            </div>
+
+        <div class="column">
+            <button class="ui button negative" value="deleteprofile"> Delete Profile </button>
+            <div class="ui modal deleteprofile">
+                <i class="close icon"></i>
+                <div class="header">Delete Profile</div>
+                <div class="content">Do you really want to delete this profile?</div>
+                <div class="actions">
+                    <form action="/delete" method="post">
+                        <input type="hidden" name="id" value="{{candidate.id}}">
+                        <div class="ui buttons">
+                        <button type="button" class="ui button cancel">Cancel</button>
+                        <div class="or"></div>
+                            <button type="submit" class="ui negative button action">Delete</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-
-        <div class="column salary">
-            <button class="ui button negative" value="deleteprofile"> Delete Profile </button>
-        </div>
-
     </div>
 
     <div class="ui divider"></div>
