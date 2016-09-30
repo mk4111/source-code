@@ -1,8 +1,11 @@
 div.candidates-list {
     div.row.filters {
         div.column.send-email { text-align: right; }
+        margin-bottom: -2rem;
     }
     div.row.candidate {
+        margin-bottom: 1rem;
+        margin-top: 2rem;
         div.column p { margin-bottom: 5px; }
         div.media-links { 
             text-align: center; 
@@ -22,7 +25,6 @@ div.candidates-list {
         padding-bottom: 0px;
         padding-top: 0px;
         margin-top: 5px;
-        margin-bottom: 30px;
         font-family: 'blenderpro';
         border-radius: $border_radius;
         div.column {
