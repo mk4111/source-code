@@ -87,7 +87,9 @@
                 <div class="center-vertical-wrap">
                 <div class="center-vertical">
                     {{#unless (empty (lookup ../jobsMap jobId))}}
+                    {{#if false}}
                     <p><b>{{lookup (lookup ../clientsMap clientId ) "name" }}</b></p>
+                    {{/if}}
                     <a href="/jobs/{{jobId}}"><p>{{lookup (lookup ../jobsMap jobId) "title" }}</p></a>
                     <p>{{lookup (lookup ../jobsMap jobId) "salary" }}</p>
                     <p>{{lookup (lookup (lookup ../jobsMap jobId) "address") "city" }},

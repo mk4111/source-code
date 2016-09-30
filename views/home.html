@@ -7,6 +7,7 @@
 <div class="home">
   <form action="/email" method="POST">
   <div class="ui container">
+
     <div class="ui grid candidates-list">
       <div class="ui row filters">
 
@@ -27,6 +28,8 @@
         </div>
 
       </div>
+    </div>
+    <div class="ui grid candidates-list">
 
       {{#each candidates}}
           {{>candidate candidate=this clients=../clients stages=../stages extended=false}}
