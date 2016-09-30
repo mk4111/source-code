@@ -130,7 +130,7 @@ $(function() {
       return filter_results();
     }
   });
-  return $('.ui.dropdown.roles').dropdown({
+  $('.ui.dropdown.roles').dropdown({
     onChange: function(f) {
       if (f.length) {
         filters.roles = f.split(',');
@@ -139,5 +139,11 @@ $(function() {
       }
       return filter_results();
     }
+  });
+  return $(".candidate-box-wrap .client a").each(function() {
+    return $(this).popup({
+      hoverable: true,
+      inline: true
+    });
   });
 });

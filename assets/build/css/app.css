@@ -133,7 +133,7 @@ div.dashboard div.list_candidats .candidate-box-wrap.row {
       div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap .stage-actions.buttons button {
         padding: 3px; }
 
-div.dashboard div.list_candidats .candidate-details a {
+div.dashboard div.list_candidats .column a {
   color: white; }
 
 .dashboards-list {
@@ -229,6 +229,8 @@ div.container.candidate .candidates-stages-list .row {
       border-radius: 10%; }
   div.container.candidate .candidates-stages-list .row .column {
     text-align: center; }
+    div.container.candidate .candidates-stages-list .row .column a {
+      color: white; }
 
 div.container.candidate .tab.skills .label {
   margin-bottom: 10px; }
