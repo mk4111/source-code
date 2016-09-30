@@ -1,11 +1,14 @@
-<div class="ui cards">
+<div class="ui three column grid">
+
     {{#each candidate.emails}}
-        <div class="ui card">
+        <div class="column">
+        <div class="ui fluid card">
             <div class="content">
                 <div class="header">{{subject}}</div>
                 <div class="meta">{{sentAt}}, {{senderName}}</div>
                 <div class="description"><p>{{message}}</p></div>
             </div>
+        </div>
         </div>
     {{/each}}
 </div>
