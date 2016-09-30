@@ -113,5 +113,10 @@ $ ->
       filter_results();
   };
 
+  $(".candidate-box-wrap .client a").each ->
+    $(this).popup({ 
+      hoverable  : true,
+      inline     : true
+    });
 
 

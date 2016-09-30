@@ -74,7 +74,7 @@
                 <div class="center-vertical-wrap">
                     <div class="center-vertical">
                         {{#unless (empty (lookup ../clientsMap clientId))}}
-                        <a href="/clients/{{lookup ../clientsMap clientId}}">
+                        <a href="/clients/{{lookup ../clientsMap clientId}}" data-content="{{lookup (lookup ../clientsMap clientId ) "name" }}" >
                             <img class="ui small image" src="{{lookup (lookup ../clientsMap clientId) "logoUrl"}}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
                         </a>
                         {{/unless}}
@@ -87,9 +87,7 @@
                 <div class="center-vertical-wrap">
                 <div class="center-vertical">
                     {{#unless (empty (lookup ../jobsMap jobId))}}
-                    {{#if false}}
-                    <p><b>{{lookup (lookup ../clientsMap clientId ) "name" }}</b></p>
-                    {{/if}}
+
                     <a href="/jobs/{{jobId}}"><p>{{lookup (lookup ../jobsMap jobId) "title" }}</p></a>
                     <p>{{lookup (lookup ../jobsMap jobId) "salary" }}</p>
                     <p>{{lookup (lookup (lookup ../jobsMap jobId) "address") "city" }},
