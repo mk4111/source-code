@@ -21,11 +21,7 @@
 </div>
 {{/unless}}
 
-{{#if extended}}
 <div class="column two wide picture">
-{{else}}
-<div class="column one wide picture">
-{{/if}}
     <div class="center-vertical-wrap">
         <div class="center-vertical">
             <a href="/candidate/{{candidate.id}}">
@@ -35,7 +31,11 @@
     </div>
 </div>
 
+{{#if extended}}
 <div class="two wide column media-links">
+{{else}}
+<div class="one wide column media-links">
+{{/if}}
     <div class="center-vertical-wrap">
     <div class="center-vertical">
     <p><a href="{{candidate.url}}" target="_blank" class="circular ui icon button small
@@ -56,7 +56,11 @@
     </div>
 </div>
 
+{{#if extended}}
 <div class="four wide column">
+{{else}}
+<div class="five wide column">
+{{/if}}
     <div class="center-vertical-wrap">
     <div class="center-vertical">
     <p><b>{{candidate.fullname}}</b></p>
@@ -80,7 +84,7 @@
     </div>
 </div>
 
-<div class="two wide column candidate-details">
+<div class="one wide column candidate-details">
     <div class="center-vertical-wrap">
     <div class="center-vertical">
     <p class="{{presenceToCss candidate.cvDocumentLink}}">

@@ -47,6 +47,7 @@ div.container.candidate {
     .candidates-stages-list .row {
       padding: 5px;
       text-transform: uppercase;
+      border-radius: $border_radius;
       .column.client { text-align: center; img { max-width: 50px; border-radius: 10%; } }
       .column { text-align: center; }
       .stage-actions-wrap {

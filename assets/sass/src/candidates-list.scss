@@ -24,8 +24,9 @@ div.candidates-list {
         margin-top: 5px;
         margin-bottom: 30px;
         font-family: 'blenderpro';
+        border-radius: $border_radius;
         div.column {
-            padding: 8px;
+            padding: 6px;
             text-transform: uppercase;
             &.matched {
                 color: $GREEN;
