@@ -146,30 +146,30 @@ div.dashboard div.list_candidats .candidate-details a {
       display: table-cell;
       vertical-align: middle; }
 
-div.candidates-list div.row.filters div.column.send-email {
-  text-align: right; }
+div.candidates-list div.row.filters {
+  margin-bottom: -2rem; }
+  div.candidates-list div.row.filters div.column.send-email {
+    text-align: right; }
 
-div.candidates-list div.row.candidate div.column p {
-  margin-bottom: 5px; }
-
-div.candidates-list div.row.candidate div.media-links {
-  text-align: center; }
-
-div.candidates-list div.row.candidate div.column.candidate-status span.client-employee {
-  color: #d01919; }
-
-div.candidates-list div.row.candidate div.column.candidate-status span.email-subject, div.candidates-list div.row.candidate div.column.candidate-status span.email-message, div.candidates-list div.row.candidate div.column.candidate-status span.email-sender-name {
-  display: none; }
-
-div.candidates-list div.row.candidate p.stages span.comma:last-child {
-  display: none; }
+div.candidates-list div.row.candidate {
+  margin-bottom: 1rem;
+  margin-top: 2rem; }
+  div.candidates-list div.row.candidate div.column p {
+    margin-bottom: 5px; }
+  div.candidates-list div.row.candidate div.media-links {
+    text-align: center; }
+  div.candidates-list div.row.candidate div.column.candidate-status span.client-employee {
+    color: #d01919; }
+  div.candidates-list div.row.candidate div.column.candidate-status span.email-subject, div.candidates-list div.row.candidate div.column.candidate-status span.email-message, div.candidates-list div.row.candidate div.column.candidate-status span.email-sender-name {
+    display: none; }
+  div.candidates-list div.row.candidate p.stages span.comma:last-child {
+    display: none; }
 
 div.candidates-list div.row.skills {
   text-align: center;
   padding-bottom: 0px;
   padding-top: 0px;
   margin-top: 5px;
-  margin-bottom: 30px;
   font-family: 'blenderpro';
   border-radius: 10px; }
   div.candidates-list div.row.skills div.column {
@@ -194,10 +194,6 @@ i.send > span {
   float: right !important;
   padding-left: 5px;
   font-size: 0.8em; }
-
-div.container.candidate div.row.candidate {
-  margin-bottom: 1rem;
-  margin-top: 2rem; }
 
 div.container.candidate div.grid.action-buttons {
   margin-top: 20px;
