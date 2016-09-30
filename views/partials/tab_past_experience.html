@@ -1,11 +1,13 @@
-<div class="ui cards">
+<div class="ui two column grid">
     {{#each candidate.experience.past}}
-        <div class="ui card">
+        <div class="column">
+        <div class="ui fluid card">
             <div class="content">
                 <div class="header">{{title}}, {{org}}</div>
                 <div class="meta">{{date}}, {{location}}</div>
                 <div class="description"><p>{{desc}}</p></div>
             </div>
+        </div>
         </div>
     {{/each}}
 </div>

@@ -14,16 +14,18 @@
 
     <div class="ten wide column">
 
-        <div class="ui cards">
+        <div class="ui three column grid">
 
             {{#each candidate.notesList}}
 
-                <div class="ui card">
-                  <div class="content">
+                <div class="column">
+                <div class="ui fluid card">
+                <div class="content">
                     <div class="header">{{lookup (lookup (lookup ../users idUser) "names") "fullname"}}</div>
                     <div class="meta">{{formatTimestamp timestamp}}</div>
                     <div class="description"><p>{{note}}</p></div>
-                  </div>
+                </div>
+                </div>
                 </div>
 
             {{/each}}
