@@ -50,6 +50,7 @@
     "run-sequence": "^1.2.2",
     "underscore": "^1.8.3",
     "uuid": "^2.0.3",
+    "validator": "^6.0.0",
     "vision": "^4.1.0"
   },
   "devDependencies": {
