@@ -16,7 +16,7 @@ describe('save or update LI url on candidate profile', function () {
       method: "POST",
       url: "/li/save",
       payload: {
-        idCandidate: '1',
+        id: '1',
         li: "https://www.linkedin.com/in/fakeprofile2"
       }
     };
