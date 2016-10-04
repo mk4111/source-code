@@ -141,7 +141,11 @@
         </div>
         
         <div class="column">
-            <button class="ui button disabled"> Log Call </button>
+            <form method="POST" action="/calls">
+                <input type="hidden" name="id" value="{{candidate.id}}">
+                <input type="hidden" name="redirect_url" value="{{request.url.path}}">
+                <button type="submit" class="ui button"> Log Call </button>
+            </form>
         </div>
         <div class="column">
             <button class="ui button
@@ -209,7 +213,7 @@
     <div class="ui bottom attached tab segment skills" data-tab="skills">{{>tab_skills candidate=candidate}}</div>
     <div class="ui bottom attached tab segment notes" data-tab="notes">{{>tab_notes candidate=candidate users=usersByGoogle}}</div>
     <div class="ui bottom attached tab segment" data-tab="emails">{{>tab_emails candidate=candidate}}</div>
-    <div class="ui bottom attached tab segment" data-tab="calls">{{>tab_calls candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment" data-tab="calls">{{>tab_calls candidate=candidate users=usersByGoogle}}</div>
     <div class="ui bottom attached tab segment" data-tab="lists">{{>tab_lists candidate=candidate}}</div>
     <div class="ui bottom attached tab segment contact_details" data-tab="contact_details">{{>tab_contact_details candidate=candidate}}</div>
     </div>

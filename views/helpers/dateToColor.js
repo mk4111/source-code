@@ -10,10 +10,6 @@ module.exports = function (timestamp) {
 
     var date = Moment(timestamp);
 
-    console.log(date.format());
-    console.log(Moment().format())
-    console.log(Moment().month(-1).format())
-
     if (date.isBefore(Moment()) && Moment().add({month: -1}).isBefore(date)) {
 
         // within one month
