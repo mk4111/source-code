@@ -31,11 +31,7 @@
     </div>
 </div>
 
-{{#if extended}}
 <div class="two wide column media-links">
-{{else}}
-<div class="one wide column media-links">
-{{/if}}
     <div class="center-vertical-wrap">
     <div class="center-vertical">
 
@@ -68,16 +64,17 @@
     {{/unless}}
     "><i class="icon blue skype"></i></a>
     
+    <a href="{{candidate.facebook_url}}" target="_blank" class="circular ui icon button tiny
+    {{#unless candidate.skypeId}}
+    disabled
+    {{/unless}}
+    "><i class="icon blue facebook"></i></a>
 
     </div>
     </div>
 </div>
 
-{{#if extended}}
-<div class="four wide column">
-{{else}}
 <div class="five wide column">
-{{/if}}
     <div class="center-vertical-wrap">
     <div class="center-vertical">
     <p class="fullname"><b>{{candidate.fullname}}</b></p>
@@ -139,7 +136,7 @@
 {{/unless}}
 
 {{#if extended}}
-    <div class="four wide column candidate-details">
+    <div class="three wide column candidate-details">
         <div class="center-vertical-wrap">
         <div class="center-vertical">
         <p class="{{presenceToCss candidate.cvDocumentLink}}">
@@ -179,11 +176,7 @@
     </div>
 {{/if}}
 
-{{#if extended}}
 <div class="four wide column candidate-status">
-{{else}}
-<div class="five wide column candidate-status">
-{{/if}}
     <div class="center-vertical-wrap">
     <div class="center-vertical">
     <p>
