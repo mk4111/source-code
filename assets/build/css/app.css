@@ -158,8 +158,6 @@ div.candidates-list div.row.candidate {
     margin-bottom: 5px; }
   div.candidates-list div.row.candidate div.media-links {
     text-align: center; }
-    div.candidates-list div.row.candidate div.media-links div {
-      text-align: left; }
     div.candidates-list div.row.candidate div.media-links a {
       margin-bottom: 5px; }
   div.candidates-list div.row.candidate .remove.icon {
