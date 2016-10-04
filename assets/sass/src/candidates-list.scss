@@ -10,8 +10,12 @@ div.candidates-list {
         margin-top: 2rem;
         div.column p { margin-bottom: 5px; }
         div.media-links { 
-            text-align: center; 
+            text-align: center;
+            div { text-align: left; }
+            a { margin-bottom: 5px; }
         }
+        .remove.icon { color: $RED; }
+        .checkmark.icon { color: $GREEN; }
         div.column.candidate-status {
             span.client-employee { color: $RED; }
             span.email-subject, span.email-message, span.email-sender-name {
