@@ -210,10 +210,10 @@
 
 
     <!-- @TODO get some more details here -->
-    <p class="email-preview">Last Contacted:
+    <p class="email-preview color {{dateToColor candidate.lastEmail.timestamp}}">Last Contacted:
         {{#if candidate.lastEmail.sentAt}}
 
-        <a class="ui" href="" id="emailid{{candidate.id}}" data-content="{{candidate.lastEmail.subject}}, {{candidate.lastEmail.senderName}}"> {{candidate.lastEmail.sentAt}}</a>
+        <a class="ui color {{dateToColor candidate.lastEmail.timestamp}}" href="" id="emailid{{candidate.id}}" data-content="{{candidate.lastEmail.subject}}, {{candidate.lastEmail.senderName}}"> {{candidate.lastEmail.sentAt}}</a>
 
         {{else}}
             N/A
