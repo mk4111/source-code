@@ -158,6 +158,14 @@ div.candidates-list div.row.candidate {
     margin-bottom: 5px; }
   div.candidates-list div.row.candidate div.media-links {
     text-align: center; }
+    div.candidates-list div.row.candidate div.media-links div {
+      text-align: left; }
+    div.candidates-list div.row.candidate div.media-links a {
+      margin-bottom: 5px; }
+  div.candidates-list div.row.candidate .remove.icon {
+    color: #d01919; }
+  div.candidates-list div.row.candidate .checkmark.icon {
+    color: #21BA45; }
   div.candidates-list div.row.candidate div.column.candidate-status span.client-employee {
     color: #d01919; }
   div.candidates-list div.row.candidate div.column.candidate-status span.email-subject, div.candidates-list div.row.candidate div.column.candidate-status span.email-message, div.candidates-list div.row.candidate div.column.candidate-status span.email-sender-name {
