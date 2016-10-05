@@ -2,6 +2,7 @@
 
 {{#unless extended}}
 <div class="one wide column">
+{{#unless candidate.blacklisted}}
     {{#if candidate.contacts.email}}
         {{#unless (dateWithin candidate.lastEmail.timestamp 'month' -1) }}
             {{#unless (countStages candidate.stages "1,2,3,4,5" )}}
@@ -18,6 +19,7 @@
             {{/unless}}
         {{/unless}}
     {{/if}}
+{{/unless}}
 </div>
 {{/unless}}
 
