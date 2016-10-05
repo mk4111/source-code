@@ -3,7 +3,7 @@
 {{#unless extended}}
 <div class="one wide column">
     {{#if candidate.contacts.email}}
-        {{#unless candidate.emailLast30}}
+        {{#unless (dateWithin candidate.lastEmail.timestamp 'month' -1) }}
             {{#unless (countStages candidate.stages "1,2,3,4,5" )}}
                 {{#unless candidate.clientProfile}}
                     <div class="center-vertical-wrap">
