@@ -3,4 +3,6 @@
 var Moment = require('moment');
 var Handlebars = require('handlebars');
 
-module.exports = function (timestamp) { return Moment(timestamp).format('YYYY-MM-DD'); }
+module.exports = function (timestamp, f) {
+    return Moment(timestamp).format(f); 
+}
