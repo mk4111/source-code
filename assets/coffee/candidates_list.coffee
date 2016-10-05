@@ -11,3 +11,12 @@ $ ->
     $(this).click ->
       modal.modal('show');
       return false;
+
+
+  $("a.skype-button-link").each ->
+    $(this).click -> 
+      return false;
+    $(this).popup({ 
+        hoverable  : true,
+        inline     : true
+      });

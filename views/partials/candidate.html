@@ -54,17 +54,21 @@
     {{/unless}}
     "><i class="icon blue linkedin"></i></a>
 
-    <a href="{{candidate.twitter}}" target="_blank" class="circular ui icon button tiny
+    <a href="http://twitter.com/{{candidate.twitter}}" target="_blank" class="circular ui icon button tiny
     {{#unless candidate.twitter}}
     disabled
     {{/unless}}
     "><i class="icon blue twitter"></i></a>
 
-    <a href="{{candidate.skype}}" target="_blank" class="circular ui icon button tiny
+    <a href="" target="_blank" class="circular ui icon button tiny skype-button-link
     {{#unless candidate.skype}}
     disabled
     {{/unless}}
-    "><i class="icon blue skype"></i></a>
+    "
+    {{#if candidate.skype}}
+    data-content="{{candidate.skype}}"
+    {{/if}}
+    ><i class="icon blue skype"></i></a>
     
     <a href="{{candidate.facebook}}" target="_blank" class="circular ui icon button tiny
     {{#unless candidate.facebook}}
