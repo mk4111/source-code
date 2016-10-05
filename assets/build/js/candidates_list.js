@@ -2,7 +2,7 @@ $(function() {
   if ($(".candidates-list").length === 0) {
     return;
   }
-  return $(".candidates-list .email-preview a, .candidates-list .last-viewed-by a").each(function() {
+  $(".candidates-list .email-preview a, .candidates-list .last-viewed-by a").each(function() {
     var modal;
     $(this).popup({
       hoverable: true,
@@ -12,6 +12,15 @@ $(function() {
     return $(this).click(function() {
       modal.modal('show');
       return false;
+    });
+  });
+  return $("a.skype-button-link").each(function() {
+    $(this).click(function() {
+      return false;
+    });
+    return $(this).popup({
+      hoverable: true,
+      inline: true
     });
   });
 });

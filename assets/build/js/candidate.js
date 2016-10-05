@@ -23,8 +23,20 @@ $(function() {
       return modal.find("form.sendmail input[name='message']").val(initial_message);
     });
   });
-  $('.container.candidate .top-row-tabs .menu .item').tab();
-  $('.container.candidate .bottom-row-tabs .menu .item').tab();
+  $('.container.candidate .top-row-tabs .menu .item').tab({
+    history: true,
+    historyType: 'hash',
+    onVisible: function(t) {
+      console.log(t);
+      return $("form").each(function() {
+        return $(this).find('input[name="redirect_url"]').val(window.location.pathname + "#/" + t);
+      });
+    }
+  });
+  $('.container.candidate .bottom-row-tabs .menu .item').tab({
+    history: true,
+    historyType: 'hash'
+  });
   $('.modal.addsubmission .dropdown.stage').dropdown();
   $('.modal.addsubmission .dropdown.job').dropdown();
   $('.modal.addsubmission .dropdown.client').dropdown({
