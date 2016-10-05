@@ -31,36 +31,50 @@
     </div>
 </div>
 
-{{#if extended}}
 <div class="two wide column media-links">
-{{else}}
-<div class="one wide column media-links">
-{{/if}}
     <div class="center-vertical-wrap">
     <div class="center-vertical">
-    <p><a href="{{candidate.url}}" target="_blank" class="circular ui icon button small
+
+    <a href="{{candidate.url}}" target="_blank" class="circular ui icon button tiny
     {{#unless candidate.stackoverflow_url}}
     disabled
-    {{/unless}}"><i class="icon orange stack overflow"></i></a></p>
-    <p><a href="{{candidate.url}}" target="_blank" class="circular ui icon button small
+    {{/unless}}"><i class="icon orange stack overflow"></i></a>
+    
+    <a href="{{candidate.url}}" target="_blank" class="circular ui icon button tiny
     {{#unless candidate.github_url}}
     disabled
     {{/unless}}
-    "><i class="icon black github"></i></a></p>
-    <p class="linkedin"><a href="{{candidate.url}}" target="_blank" class="circular ui icon button small
+    "><i class="icon black github"></i></a>
+    
+    <a href="{{candidate.url}}" target="_blank" class="li circular ui icon button tiny
     {{#unless candidate.url}}
     disabled
     {{/unless}}
-    "><i class="icon blue linkedin"></i></a></p>
+    "><i class="icon blue linkedin"></i></a>
+
+    <a href="{{candidate.twitter_id}}" target="_blank" class="circular ui icon button tiny
+    {{#unless candidate.twitterId}}
+    disabled
+    {{/unless}}
+    "><i class="icon blue twitter"></i></a>
+
+    <a href="{{candidate.skype_id}}" target="_blank" class="circular ui icon button tiny
+    {{#unless candidate.skypeId}}
+    disabled
+    {{/unless}}
+    "><i class="icon blue skype"></i></a>
+    
+    <a href="{{candidate.facebook_url}}" target="_blank" class="circular ui icon button tiny
+    {{#unless candidate.skypeId}}
+    disabled
+    {{/unless}}
+    "><i class="icon blue facebook"></i></a>
+
     </div>
     </div>
 </div>
 
-{{#if extended}}
-<div class="four wide column">
-{{else}}
 <div class="five wide column">
-{{/if}}
     <div class="center-vertical-wrap">
     <div class="center-vertical">
     <p class="fullname"><b>{{candidate.fullname}}</b></p>
@@ -122,7 +136,7 @@
 {{/unless}}
 
 {{#if extended}}
-    <div class="four wide column candidate-details">
+    <div class="three wide column candidate-details">
         <div class="center-vertical-wrap">
         <div class="center-vertical">
         <p class="{{presenceToCss candidate.cvDocumentLink}}">
@@ -162,11 +176,7 @@
     </div>
 {{/if}}
 
-{{#if extended}}
 <div class="four wide column candidate-status">
-{{else}}
-<div class="five wide column candidate-status">
-{{/if}}
     <div class="center-vertical-wrap">
     <div class="center-vertical">
     <p>
@@ -200,10 +210,10 @@
 
 
     <!-- @TODO get some more details here -->
-    <p class="email-preview">Last Contacted:
+    <p class="email-preview color {{dateToColor candidate.lastEmail.timestamp}}">Last Contacted:
         {{#if candidate.lastEmail.sentAt}}
 
-        <a class="ui" href="" id="emailid{{candidate.id}}" data-content="{{candidate.lastEmail.subject}}, {{candidate.lastEmail.senderName}}"> {{candidate.lastEmail.sentAt}}</a>
+        <a class="ui color {{dateToColor candidate.lastEmail.timestamp}}" href="" id="emailid{{candidate.id}}" data-content="{{candidate.lastEmail.subject}}, {{candidate.lastEmail.senderName}}"> {{candidate.lastEmail.sentAt}}</a>
 
         {{else}}
             N/A

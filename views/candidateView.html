@@ -4,7 +4,6 @@
     <div class="ui grid candidates-list">
         {{>candidate clients=clients stages=stages extended=true}}
     </div>
-
     <div class="ui grid candidates-stages-list">
     {{#each candidate.stages}}
         <div class="row {{stageToCss stageId}} stage-row">
@@ -142,7 +141,11 @@
         </div>
         
         <div class="column">
-            <button class="ui button disabled"> Log Call </button>
+            <form method="POST" action="/calls">
+                <input type="hidden" name="id" value="{{candidate.id}}">
+                <input type="hidden" name="redirect_url" value="{{request.url.path}}">
+                <button type="submit" class="ui button"> Log Call </button>
+            </form>
         </div>
         <div class="column">
             <button class="ui button
@@ -210,14 +213,12 @@
     <div class="ui bottom attached tab segment skills" data-tab="skills">{{>tab_skills candidate=candidate}}</div>
     <div class="ui bottom attached tab segment notes" data-tab="notes">{{>tab_notes candidate=candidate users=usersByGoogle}}</div>
     <div class="ui bottom attached tab segment" data-tab="emails">{{>tab_emails candidate=candidate}}</div>
-    <div class="ui bottom attached tab segment" data-tab="calls">{{>tab_calls candidate=candidate}}</div>
+    <div class="ui bottom attached tab segment" data-tab="calls">{{>tab_calls candidate=candidate users=usersByGoogle}}</div>
     <div class="ui bottom attached tab segment" data-tab="lists">{{>tab_lists candidate=candidate}}</div>
     <div class="ui bottom attached tab segment contact_details" data-tab="contact_details">{{>tab_contact_details candidate=candidate}}</div>
-
     </div>
 
     <div class="ui divider"></div>
-
     <div class="bottom-row-tabs">
 
     <div class="ui top attached tabular menu">
@@ -233,325 +234,5 @@
     <div class="ui bottom attached tab segment" data-tab="past_experience">{{>tab_past_experience candidate=candidate}}</div>
     <div class="ui bottom attached tab segment languages" data-tab="languages">{{>tab_languages candidate=candidate}}</div>
     <div class="ui bottom attached tab segment job_applications" data-tab="job_applications">{{>tab_job_applications candidate=candidate}}</div>
-
     </div>
-
 </div>
-
-
-{{#if false}}
-
-<div class="candidate_view">
-  <div class="thumbnail">
-    <div class="headline">
-
-      <img src="{{candidate.picture}}" alt="" />
-      <br/>
-      <h1 class="fullname"><strong class="check-highlight">{{candidate.fullname}}</strong></h1>
-      <h2 class="headline"><strong class="check-highlight">{{candidate.headline}}</strong></h2>
-      <p class="check-highlight">{{candidate.location}}</p>
-
-      {{#if candidate.clientProfile}}
-        <span class='status-client'>Client Employee</span><br/>
-      {{/if}}
-
-      {{#each candidate.connectedTo}}
-      <ul>
-        {{#if this}}
-          <li><a href="/connected/{{this}}"><span class='initials'>{{initials_of_connected_users this}}</span></a></li>
-        {{/if}}
-      </ul>
-      {{/each}}
-      <br/>
-      <br/>
-
-      {{#if candidate.emails}}
-        {{emailIndicatorHelper candidate.lastEmail true}}
-      {{/if}}
-
-      {{#if false}}
-      <!-- Rejectd status tag -->
-      <!-- No idea what it stands for -->
-      <div class="rejected">
-        {{#each rejectedStatus as |status timestamp| }}
-          <span><a href="/jobs/{{status.idJob}}">{{status.nameClient}} - {{status.nameJob}} - Rejected</a></span>
-        {{/each}}
-      </div>
-      {{/if}}
-
-
-      {{#if false}}
-          {{#each candidate.statusCurrent}}
-
-            <h4 class="status-candidate">{{statusInfoHelper this ../clients ../jobs}} <span class="stage-span">{{statusStageHelper idStage ../stages}}</span><span class="stage-initials-span"> {{statusInitialsHelper idUser ../users}}</span></h4>
-            <div class="status-wrapper">
-              <form class="delete-status-form" action="/status/delete" method="POST">
-                <input type="hidden" name="idCandidate" value="{{idCandidate}}">
-                <input type="hidden" name="timestamp" value="{{timestamp}}">
-                <button type="submit">Delete</button>
-              </form>
-
-              <button id="{{timestamp}}" class="edit-status">Edit</button>
-            </div>
-              <form class="edit-status-form" action="/status/edit" method="POST">
-                <input type="hidden" name="timestamp" value="{{timestamp}}">
-                <input type="hidden" name="idCandidate" value="{{idCandidate}}">
-
-                <div class="dropdown-clients-edit id-{{timestamp}}">
-                  <select name="idClient" data-tmp="{{timestamp}}" class="dropbtn clients-edit">
-                    <option selected disabled>Clients</option>
-                    {{#each ../clients}}
-                      {{statusEditClient this ../this.idClient}}
-                    {{/each}}
-                  </select>
-                </div>
-                <div class="dropdown-jobs-edit id-{{timestamp}}">
-                  <select name="idJob" class="dropbtn id-{{timestamp}}">
-                    <option selected disabled>Jobs</option>
-                    {{#each ../jobs}}
-                        {{statusEditJob this ../this.idJob}}
-                    {{/each}}
-                  </select>
-                </div>
-                <div class="dropdown-stages-edit id-{{timestamp}}">
-                  <select name="idStage" class="dropbtn">
-                    <option selected disabled>Stages</option>
-                    {{#each ../stages}}
-                      {{statusEditStages this ../this.idStage}}
-                    {{/each}}
-                  </select>
-                </div>
-                <div class="dropdown-save-edit id-{{timestamp}}">
-                  <button type="submit" class="dropbtn">Save</button>
-                </div>
-              </form>
-
-          {{/each}}
-
-      {{/if}}
-
-
-      {{#each candidate.stages}}
-            {{#if false}}
-            <h4 class="status-candidate">{{statusInfoHelper this ../clients ../jobs}} <span class="stage-span">{{statusStageHelper stageId ../stages}}</span><span class="stage-initials-span"> {{statusInitialsHelper userId ../users}}</span></h4>
-            <div class="status-wrapper">
-              <form class="delete-status-form" action="/status/delete" method="POST">
-                <input type="hidden" name="id" value="{{_id}}">
-                <input type="hidden" name="candidateId" value="{{candidateId}}">
-                <button type="submit">Delete</button>
-              </form>
-
-              <button id="{{_id}}" class="edit-status">Edit</button>
-            </div>
-            {{/if}}
-              <form class="edit-status-form" action="/status/edit" method="POST">
-                <input type="hidden" name="candidateId" value="{{candidateId}}">
-                <input type="hidden" name="id" value="{{_id}}">
-                <div class="dropdown-clients-edit id-{{_id}}">
-                  <select name="clientId" data-tmp="{{_id}}" class="dropbtn clients-edit">
-                    <option selected disabled>Clients</option>
-                    {{#each ../clients}}
-                      {{statusEditClient this ../clientId}}
-                    {{/each}}
-                  </select>
-                </div>
-                <div class="dropdown-jobs-edit id-{{_id}}">
-                  <select name="jobId" class="dropbtn id-{{_id}}">
-                    <option selected disabled>Jobs</option>
-                    {{#each ../jobs}}
-                        {{statusEditJob this ../jobId}}
-                    {{/each}}
-                  </select>
-                </div>
-                <div class="dropdown-stages-edit id-{{_id}}">
-                  <select name="stageId" class="dropbtn">
-                    <option selected disabled>Stages</option>
-                    {{#each ../stages}}
-                      {{statusEditStages this ../stageId}}
-                    {{/each}}
-                  </select>
-                </div>
-                <div class="dropdown-save-edit id-{{_id}}">
-                  <button type="submit" class="dropbtn">Save</button>
-                </div>
-              </form>
-
-      {{/each}}
-
-      {{>status}}
-
-        {{#if candidate.cvDocumentLink}}
-          <p class="mobile"><span>CV: </span><a href="{{candidate.cvDocumentLink}}" target="_blank">Preview/Download the CV</a></p>
-        {{/if}}
-        <p class="mobile"><span>Linkedin: </span><a href="{{candidate.url}}" target="_blank">{{candidate.url}}</a></p>
-        <p class="mobile"><span>Email: </span><span class="check-highlight">{{candidate.contacts.email}}</span></p>
-        <p class="mobile"><span>Phone: </span><span class="check-highlight">{{candidate.contacts.phone}}</span></p>
-          {{#each candidate.contacts.im}}
-            <p class="mobile"><span>IM: </span><span class="check-highlight">{{this}}</span></p>
-          {{/each}}
-        <p class="mobile"><span>Address: </span><span class="check-highlight">{{candidate.contacts.address}}</span></p>
-
-    </div>
-    <hr>
-    <aside>
-      <div id="sidebar">
-        <h1><i class="fa fa-envelope"></i> CONTACT</h1>
-      {{#if candidate.contacts.email}}
-        <form class="send-email-form" action="/email" method="POST">
-          <input type="hidden" name="email" value='{"email": "{{candidate.contacts.email}}", "id":"{{candidate.id}}", "fn":"{{candidate.firstName}}"}'>
-          <button type="submit">SEND EMAIL</button>
-        </form>
-      {{/if}}
-        {{#if candidate.cvDocumentLink}}
-          <p><span>CV: </span><a href="{{candidate.cvDocumentLink}}" target="_blank">Preview/Download the CV</a></p>
-        {{/if}}
-        <form class='upload-cv-form' action="/cv/upload" method="post" enctype="multipart/form-data">
-          <input type="file" name="selectedCv" class="custom-file-input" required>
-          <input type="hidden" name="idCandidate" value="{{candidate.id}}">
-          <button type="submit">Upload</button>
-        </form>
-        <p><span>Linkedin: </span><a id="li" class="check-highlight" href="{{candidate.url}}" target="_blank">{{candidate.url}}</a></p>
-        <p class="error-li-tag">Please try again.</p>
-        <div class="edit-li-container">
-          <button id="edit-li">Edit</button>
-        </div>
-        <div class="li-save-container">
-          <form class="li-save">
-            <input type="hidden" name="id" class="id-candidate" value="{{candidate.id}}">
-            <input type="text" name="li" class="li-input" value="{{candidate.url}}">
-            <button type="submit">Save</button>
-          </form>
-        </div>
-
-        <p><span>Email: </span><span class="check-highlight">{{candidate.contacts.email}}</span></p>
-        <p><span>Phone: </span><span class="check-highlight">{{candidate.contacts.phone}}</span></p>
-          {{#each candidate.contacts.im}}
-            <p><span>IM: </span>{{this}}</p>
-          {{/each}}
-        <p><span>Address: </span><span class="check-highlight">{{candidate.contacts.address}}</span></p>
-
-        <button type="button" name="delete-profile" class="delete-profile">Delete</button>
-        <div class="">
-          <form action="/delete" method="post" class="delete-profile-confirmation">
-            <p>
-              Do you really want to delete this profile?
-            </p>
-            <button type="submit">Yes, delete it!</button>
-            <input type="hidden" name="id" value="{{candidate.id}}">
-            <button type="button" class='cancel-delete-profile'>No, keep it!</button>
-          </form>
-        </div>
-        <br>
-        <br>
-        <h1><i class="fa fa-info-circle"></i> INFO</h1>
-        {{>info-section}}
-      <h1><i class="fa fa-pencil"></i> NOTES</h1>
-      <div class="notes-wrapper">
-
-        <form action="/notes/save" method="POST">
-
-          <ul class="notes">
-            <input type="hidden" name="idCandidate" value="{{candidate.id}}">
-            <li>
-              <textarea name="notes" class="field-long field-textarea" placeholder="Further notes"></textarea>
-            </li>
-            <li>
-              <input type="submit" value="Add note" />
-            </li>
-          </ul>
-        </form>
-        <br>
-        {{#if false}}
-        <div class="notes notes-box">
-          {{#each candidate.notesList}}
-            <div class="notes-item">{{displayNotes this ../users}}</div>
-            <hr>
-          {{/each}}
-        </div>
-        {{/if}}
-        <br>
-        </div>
-        <h1><i class="fa fa-comments"></i> EMAILS</h1>
-        <div class="emails-box">
-          <ul>
-          {{#each candidate.emails}}
-            <li>
-              <p><strong>Date:</strong> {{sentAt}}  <strong>From:</strong> {{senderName}}</p>
-              <p class="display-email"><strong>Subject:</strong> {{subject}}</p>
-              <span class="close"><i class="fa fa-times"></i></span>
-              <p class="hidden-email">{{message}}</p>
-            </li>
-             <hr>
-          {{/each}}
-          </ul>
-        </div>
-    </div>
-    </aside>
-    <div class="details">
-
-    {{#if candidate.viewedBy}}
-      <h1><i class="fa fa-linkedin"></i> VIEWED BY</h1>
-      {{#each candidate.viewedBy}}
-      <ul class="viewedBy-inline">
-        {{viewedByHelper this}}
-      </ul>
-      {{/each}}
-    {{/if}}
-
-    <h1><i class="fa fa-file-text-o"></i> SUMMARY</h1>
-      <p><span class="check-highlight">{{candidate.summary}}</span></p>
-    <h1><i class="fa fa-trophy"></i> SKILLS</h1>
-      <div class="skills-box">
-        <ul>
-        {{#each candidate.skills}}
-          {{skillsHelper this}}
-        {{/each}}
-        </ul>
-      </div>
-    <h1><i class="fa fa-cubes"></i> CURRENT EXPERIENCE</h1>
-      {{#each candidate.experience.current}}
-        {{experienceHelper this}}
-      {{/each}}
-      <hr>
-      <h1><i class="fa fa-cubes"></i> PAST EXPERIENCE</h1>
-      {{#each candidate.experience.past}}
-        {{experienceHelper this}}
-      {{/each}}
-      <hr>
-
-      <h1><i class="fa fa-globe"></i> LANGUAGES</h1>
-      <ul class="lang">
-        {{#each candidate.languages}}
-          {{languageHelper this}}
-        {{/each}}
-      </ul>
-      <hr>
-
-      <h1><i class="fa fa-file"></i> JOB APPLICATIONS</h1>
-      {{#each candidate.jobApplications}}
-        {{>application}}
-      {{/each}}
-      <hr>
-
-      <h1><i class="fa fa-bars"></i> LIST NAMES</h1>
-      {{#each candidate.listNames}}
-        <div class="list-names-wrapper">
-          <p class="error-list-name">Please, try again!</p>
-          <div>
-            <span>{{this}}</span>
-            <button class="delete-list-names">X</button>
-          </div>
-          <input type="hidden" name="listName" value="{{this}}">
-          <input type="hidden" name="idCandidate" value="{{../candidate.id}}">
-        </div>
-      {{/each}}
-      <hr>
-    </div>
-
-    <input type="hidden" class="keywords" value="{{candidate.keywords}}">
-  </div>
-</div>
-
-<script src="/assets/js/candidate_view.js"></script>
-
-{{/if}}
