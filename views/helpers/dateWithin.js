@@ -13,7 +13,7 @@ module.exports = function (timestamp, key, value) {
     var modifier = []
     modifier[key] = value; 
 
-    if (Moment().add(options).isBefore(date)) {
+    if (Moment().add(modifier).isBefore(date)) {
         return true;
     }
     
