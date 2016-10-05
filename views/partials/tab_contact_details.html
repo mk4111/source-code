@@ -32,41 +32,62 @@
 <form action="/li/save" class="ui form li-save-form" method="POST">
     <input type="hidden" name="redirect_url" value="/candidate/{{candidate.id}}">
     <input type="hidden" name="id" value="{{candidate.id}}">
+    
+    <div class="field">
+    <div class="ui input labeled disabled">
+        <div class="ui label"> <i class="icon mail"></i> </div>
+        <input type="text" name="email" value="{{candidate.email}}">
+    </div>
+    </div>
+
+    <div class="field">
+    <div class="ui input labeled disabled">
+        <div class="ui label"> <i class="icon phone"></i> </div>
+        <input type="text" name="phone" value="{{candidate.phone}}">
+    </div>
+    </div>
+
     <div class="field">
     <div class="ui input labeled disabled">
         <div class="ui label"> <i class="icon stack overflow"></i> </div>
         <input type="text" name="stackoverflow_url" value="{{candidate.stackoverflow_url}}">
     </div>
     </div>
+
     <div class="field">
     <div class="ui input labeled disabled">
         <div class="ui label"> <i class="icon github"></i> </div>
         <input type="text" name="github_url" value="{{candidate.github_url}}">
     </div>
     </div>
+
     <div class="field">
     <div class="ui input labeled">
         <div class="ui label"> <i class="icon linkedin"></i> </div>
         <input type="text" name="li" value="{{candidate.url}}">
     </div>
     </div>
-    <div class="field">
-    <div class="ui input labeled disabled">
-        <div class="ui label"> <i class="icon skype"></i> </div>
-        <input type="text" name="li" value="{{candidate.skype_id}}">
-    </div>
-    </div>
+
     <div class="field">
     <div class="ui input labeled disabled">
         <div class="ui label"> <i class="icon twitter"></i> </div>
         <input type="text" name="li" value="{{candidate.twitter_id}}">
     </div>
     </div>
+
+    <div class="field">
+    <div class="ui input labeled disabled">
+        <div class="ui label"> <i class="icon skype"></i> </div>
+        <input type="text" name="li" value="{{candidate.skype_id}}">
+    </div>
+    </div>
+
     <div class="field">
     <div class="ui input labeled disabled">
         <div class="ui label"> <i class="icon facebook"></i> </div>
         <input type="text" name="li" value="{{candidate.facebook_url}}">
     </div>
     </div>
+
     <button type="submit" class="ui button">Save</button>
 </form>
