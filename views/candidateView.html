@@ -168,7 +168,17 @@
                 <button class="ui button disabled"> Add to List </button>
             </div>
             <div class="column">
+                <form action="/blacklist" method="POST">
+                <input type="hidden" name="id" value="{{candidate.id}}">
+                <input type="hidden" name="redirect_url" value="{{request.url.path}}">
+                {{#if candidate.blacklisted}}
+                <input type="hidden" name="blacklisted" value="false">
+                <button class="ui button negative"> Blacklisted </button>
+                {{else}}
+                <input type="hidden" name="blacklisted" value="true">
                 <button class="ui button negative"> Blacklist Profile </button>
+                {{/if}}
+                </form>
             </div>
 
         <div class="column">
