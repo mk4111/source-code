@@ -18,8 +18,18 @@ $ ->
       modal.find("form.sendmail input[name='subject']").val("");
       modal.find("form.sendmail input[name='message']").val(initial_message);
 
-  $('.container.candidate .top-row-tabs .menu .item').tab();
-  $('.container.candidate .bottom-row-tabs .menu .item').tab();
+  $('.container.candidate .top-row-tabs .menu .item').tab(
+    history: true,
+    historyType: 'hash'
+    onVisible: (t) ->
+      console.log t
+      $("form").each ->
+        $(this).find('input[name="redirect_url"]').val window.location.pathname + "#/" + t
+  );
+  $('.container.candidate .bottom-row-tabs .menu .item').tab(
+    history: true,
+    historyType: 'hash'
+  );
 
   # add submission dropdown
   $('.modal.addsubmission .dropdown.stage').dropdown();

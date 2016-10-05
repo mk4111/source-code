@@ -61,7 +61,7 @@
             <div class="five wide column city">
                 <div class="center-vertical-wrap">
                     <div class="center-vertical">
-                        {{> stage_action_bar stages =../stages stage=this redirectUrl=../request.url.path}}
+                        {{> stage_action_bar stages =../stages stage=this redirectUrl=../request.url.path candidate=../candidate}}
                     </div>
                 </div>
             </div>
@@ -186,7 +186,7 @@
             <div class="ui modal deleteprofile">
                 <i class="close icon"></i>
                 <div class="header">Delete Profile</div>
-                <div class="content">Do you really want to delete this profile?</div>
+                <div class="content">Do you really want to delete {{candidate.fullname}}'s profile?</div>
                 <div class="actions">
                     <form action="/delete" method="post">
                         <input type="hidden" name="id" value="{{candidate.id}}">

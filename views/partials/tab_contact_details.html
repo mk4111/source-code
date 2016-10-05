@@ -29,63 +29,71 @@
 
 <div class="ui divider"></div>
 
-<form action="/li/save" class="ui form li-save-form" method="POST">
+<form action="/contact-details" class="ui form li-save-form" method="POST">
     <input type="hidden" name="redirect_url" value="/candidate/{{candidate.id}}">
     <input type="hidden" name="id" value="{{candidate.id}}">
     
     <div class="field">
-    <div class="ui input labeled disabled">
+    <div class="ui input labeled
+    {{#if candidate.contacts.email}}
+        disabled
+    {{/if}}
+    ">
         <div class="ui label"> <i class="icon mail"></i> </div>
         <input type="text" name="email" value="{{candidate.email}}">
     </div>
     </div>
 
     <div class="field">
-    <div class="ui input labeled disabled">
+    <div class="ui input labeled
+    {{#if candidate.contacts.phone}}
+        disabled
+    {{/if}}
+    ">
         <div class="ui label"> <i class="icon phone"></i> </div>
         <input type="text" name="phone" value="{{candidate.phone}}">
     </div>
     </div>
 
     <div class="field">
-    <div class="ui input labeled disabled">
+    <div class="ui input labeled">
         <div class="ui label"> <i class="icon stack overflow"></i> </div>
-        <input type="text" name="stackoverflow_url" value="{{candidate.stackoverflow_url}}">
+        <input type="text" name="stackoverflow" value="{{candidate.stackoverflow}}" placeholder="profile url">
     </div>
     </div>
 
     <div class="field">
-    <div class="ui input labeled disabled">
+    <div class="ui input labeled">
         <div class="ui label"> <i class="icon github"></i> </div>
-        <input type="text" name="github_url" value="{{candidate.github_url}}">
+        <input type="text" name="github" value="{{candidate.github}}" placeholder="username">
     </div>
     </div>
 
     <div class="field">
     <div class="ui input labeled">
         <div class="ui label"> <i class="icon linkedin"></i> </div>
-        <input type="text" name="li" value="{{candidate.url}}">
+        <input type="text" name="url" value="{{candidate.url}}" placeholder="profile url">
     </div>
     </div>
 
     <div class="field">
-    <div class="ui input labeled disabled">
+    <div class="ui input labeled">
         <div class="ui label"> <i class="icon twitter"></i> </div>
-        <input type="text" name="li" value="{{candidate.twitter_id}}">
+        <input type="text" name="twitter" value="{{candidate.twitter}}" placeholder="username">
     </div>
     </div>
 
     <div class="field">
-    <div class="ui input labeled disabled">
+    <div class="ui input labeled">
         <div class="ui label"> <i class="icon skype"></i> </div>
-        <input type="text" name="li" value="{{candidate.skype_id}}">
+        <input type="text" name="skype" value="{{candidate.skype}}" placeholder="username">
     </div>
     </div>
 
     <div class="field">
-    <div class="ui input labeled disabled">
+    <div class="ui input labeled">
         <div class="ui label"> <i class="icon facebook"></i> </div>
-        <input type="text" name="li" value="{{candidate.facebook_url}}">
+        <input type="text" name="facebook" value="{{candidate.facebook}}" placeholder="profile url">
     </div>
     </div>
 

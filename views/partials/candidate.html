@@ -3,7 +3,7 @@
 {{#unless extended}}
 <div class="one wide column">
 {{#unless candidate.blacklisted}}
-    {{#if candidate.contacts.email}}
+    {{#if candidate.email}}
         {{#unless (dateWithin candidate.lastEmail.timestamp 'month' -1) }}
             {{#unless (countStages candidate.stages "1,2,3,4,5" )}}
                 {{#unless candidate.clientProfile}}
@@ -37,13 +37,13 @@
     <div class="center-vertical-wrap">
     <div class="center-vertical">
 
-    <a href="{{candidate.url}}" target="_blank" class="circular ui icon button tiny
-    {{#unless candidate.stackoverflow_url}}
+    <a href="{{candidate.stackoverflow}}" target="_blank" class="circular ui icon button tiny
+    {{#unless candidate.stackoverflow}}
     disabled
     {{/unless}}"><i class="icon orange stack overflow"></i></a>
     
-    <a href="{{candidate.url}}" target="_blank" class="circular ui icon button tiny
-    {{#unless candidate.github_url}}
+    <a href="https://github.com/{{candidate.github}}" target="_blank" class="circular ui icon button tiny
+    {{#unless candidate.github}}
     disabled
     {{/unless}}
     "><i class="icon black github"></i></a>
@@ -54,20 +54,24 @@
     {{/unless}}
     "><i class="icon blue linkedin"></i></a>
 
-    <a href="{{candidate.twitter_id}}" target="_blank" class="circular ui icon button tiny
-    {{#unless candidate.twitterId}}
+    <a href="http://twitter.com/{{candidate.twitter}}" target="_blank" class="circular ui icon button tiny
+    {{#unless candidate.twitter}}
     disabled
     {{/unless}}
     "><i class="icon blue twitter"></i></a>
 
-    <a href="{{candidate.skype_id}}" target="_blank" class="circular ui icon button tiny
-    {{#unless candidate.skypeId}}
+    <a href="" target="_blank" class="circular ui icon button tiny skype-button-link
+    {{#unless candidate.skype}}
     disabled
     {{/unless}}
-    "><i class="icon blue skype"></i></a>
+    "
+    {{#if candidate.skype}}
+    data-content="{{candidate.skype}}"
+    {{/if}}
+    ><i class="icon blue skype"></i></a>
     
-    <a href="{{candidate.facebook_url}}" target="_blank" class="circular ui icon button tiny
-    {{#unless candidate.skypeId}}
+    <a href="{{candidate.facebook}}" target="_blank" class="circular ui icon button tiny
+    {{#unless candidate.facebook}}
     disabled
     {{/unless}}
     "><i class="icon blue facebook"></i></a>
@@ -93,9 +97,9 @@
     <div class="center-vertical-wrap">
     <div class="center-vertical">
     <p class="{{presenceToCss candidate.cvDocumentLink}}">CV</p>
-    <p class="{{presenceToCss candidate.contacts.email}}">Email</p>
-    <p class="{{presenceToCss candidate.contacts.phone}}">Phone</p>
-    <p class="{{presenceToCss candidate.contacts.phone}}">Salary</p>
+    <p class="{{presenceToCss candidate.email}}">Email</p>
+    <p class="{{presenceToCss candidate.phone}}">Phone</p>
+    <p class="{{presenceToCss candidate.info.sexpected}}">Salary</p>
     </div>
     </div>
 </div>
@@ -110,15 +114,15 @@
         <i class="remove icon"></i>
     {{/if}}
     </p>
-    <p class="{{presenceToCss candidate.contacts.email}}">
-        {{#if candidate.contacts.email}}
+    <p class="{{presenceToCss candidate.email}}">
+        {{#if candidate.email}}
             <i class="checkmark icon"></i>
         {{else}}
             <i class="remove icon"></i>
         {{/if}}
     </p>
-    <p class="{{presenceToCss candidate.contacts.phone}}">
-        {{#if candidate.contacts.phone}}
+    <p class="{{presenceToCss candidate.phone}}">
+        {{#if candidate.phone}}
             <i class="checkmark icon"></i>
         {{else}}
             <i class="remove icon"></i>
@@ -149,18 +153,18 @@
                 N/A
             {{/if}}
         </p>
-        <p class="{{presenceToCss candidate.contacts.email}}">
+        <p class="{{presenceToCss candidate.email}}">
         Email:
-            {{#if candidate.contacts.email}}
-                {{candidate.contacts.email}}
+            {{#if candidate.email}}
+                {{candidate.email}}
             {{else}}
                 N/A
             {{/if}}
         </p>
-        <p class="{{presenceToCss candidate.contacts.phone}}">
+        <p class="{{presenceToCss candidate.phone}}">
             Phone:
-            {{#if candidate.contacts.phone}}
-                {{candidate.contacts.phone}}
+            {{#if candidate.phone}}
+                {{candidate.phone}}
             {{else}}
                 N/A
             {{/if}}
