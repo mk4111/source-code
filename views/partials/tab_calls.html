@@ -1,7 +1,7 @@
 <div class="ui bulleted list">
 {{#each candidate.calls}}
   <div class="item">
-  {{formatTimestamp createdAt}}
+  {{formatTimestamp createdAt 'YYYY-MM-DD hh:mm'}}
     - {{lookup (lookup (lookup ../users userId) "names") "fullname"}}
   </div>
 {{/each}}
