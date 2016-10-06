@@ -1,3 +1,8 @@
+/** @speedingdeer: 
+* it's the only version which Semantic-UItabs work with, it doesn't install from bower but I'm going
+* to drop the whole thing anyway since the tabs history doesn't work as I wish to
+*/
+
 (function ($) {
 
     $.address = (function () {
