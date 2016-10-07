@@ -14,20 +14,16 @@ div.dashboard {
         }
     }
     div.list_candidats {
-        .sticker {
-            background-color: $WHITE;
+
+        .stickers {
             position: absolute;
-            padding: 3px 0;
-            width: 24px;
-            height: 24px;
-            border-radius: 5px;
-            bottom: 20px;
+            bottom: 19px;
             right: 31px;
-            text-align: center;
             img {
-                width: 24px;
+                width: 25px;
             }
         }
+
         .candidate-box-wrap.row {
             border-radius: $border_radius;
             margin-bottom: 8px;
@@ -51,12 +47,10 @@ div.dashboard {
                 img {
                     display: inline-block;
                     max-width: 100px;
-                    border-radius: $border_radius;
                 }
             }
             .column.candidate-name { padding-left: 0px; }
             .column.candidate-details { }
-            .column.client img { border-radius: $border_radius; }
             .stage-actions-wrap {
                 width: 100%;
                 .stage-actions.buttons {
