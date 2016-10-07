@@ -28,7 +28,7 @@ module.exports = function (request) {
 
     ];
 
-    if(request.auth.credentials && request.auth.credentials.user.admin) {
+    if(request.auth.credentials && request.auth.credentials.user && request.auth.credentials.user.admin) {
         nav.push( { admin: true } );
     } else {
         nav.push( { user: true } );
