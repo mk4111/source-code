@@ -97,29 +97,3 @@ describe('Access /dashboard/12 (someone else\'s dashboard) with no admin credent
     });
   });
 });
-
-describe('Access /dashboard/client/4', function () {
-
-  it('return dashboard for the user', function (done) {
-
-    var token =  JWT.sign({ id: 12, "name": "Simon", valid: true}, process.env.JWT_SECRET);
-
-    Server.init(0, function (err, server) {
-
-      expect(err).to.not.exist();
-
-      var options = {
-        method: "POST",
-        url: "/dashboard/client/4",
-        headers: { cookie: "token=" + token },
-        credentials: { id: "12", "name": "Simon", valid: true, scope: "user"},
-        payload: { idUser: '12'}
-      };
-
-      server.inject(options, function (res) {
-        expect(res.statusCode).to.equal(200);
-        server.stop(done);
-      });
-    });
-  });
-});
