@@ -5,36 +5,34 @@ var Underscore = require('underscore');
 
 module.exports = function (request) {
 
-        var nav = {
+    var nav = [
 
-        home: {
+        {
             img: '/assets/img/logo.png',
             url: '/',
-        },
-        clients: {
+        }, {
             name: 'Clients',
             url: '/clients/list'
-        },
-        jobs: {
+        }, {
             name: 'Jobs',
             url: '/jobs/list'
-        },
-        source: {
+        }, {
             name: 'Source',
             css: 'source',
-            url: 'csv-list/list'
-        },
-        mail: {
+            url: '/csv-list/list'
+        }, {
             name: 'Mail'
-        },
-        search: {
+        }, {
             search: true // harcoded 'template' name
-        },
-        advance: {
-            advance: true // hardcoded 'template' name
         }
 
-    };
+    ];
+
+    if(request.auth.credentials && request.auth.credentials.user && request.auth.credentials.user.admin) {
+        nav.push( { admin: true } );
+    } else {
+        nav.push( { user: true } );
+    }
 
 
     Underscore.each(nav, (v,k) => {
