@@ -48,8 +48,8 @@
       <div class="menu">
         <a class="item" href="/users/list"></i> Users </a>
         <a class="item" href="/client-users/list"></i> Client Users </a>
-        <a class="item" href="/dashboard"></i> Dashboards </a>
-        <a class="item" href="/dashboard/{{request.user.id}}"></i> Dashboard </a>
+        <a class="item" href="/dashboard"></i> Admin Dashboard </a>
+        <a class="item" href="/dashboard/{{../request.auth.credentials.id}}"></i> Dashboard </a>
         <a class="item disabled"></i> Logout </a>
       </div>
     </div>
@@ -59,7 +59,7 @@
     <div class="ui dropdown item bars">
       <img src="/assets/img/team/{{../request.auth.credentials.id}}.jpg" class="ui image circular tiny" onerror="this.src='/assets/img/client-logo.png'">
       <div class="menu">
-        <a class="item" href="/dashboard/{{request.user.id}}"></i> Dashboard </a>
+        <a class="item" href="/dashboard/"></i> Dashboard </a>
         <a class="item disabled"></i> Logout </a>
       </div>
     </div>

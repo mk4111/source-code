@@ -14,6 +14,20 @@ div.dashboard {
         }
     }
     div.list_candidats {
+        .sticker {
+            background-color: $WHITE;
+            position: absolute;
+            padding: 3px 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 5px;
+            bottom: 20px;
+            right: 31px;
+            text-align: center;
+            img {
+                width: 24px;
+            }
+        }
         .candidate-box-wrap.row {
             border-radius: $border_radius;
             margin-bottom: 8px;
