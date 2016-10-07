@@ -16,7 +16,15 @@
                 <div class="center-vertical-wrap">
                     <div class="center-vertical">
                         <a href="/candidate/{{candidateId}}">
-                            <img class="ui small circular image" src="{{ lookup (lookup ../candidatesMap candidateId) 'picture'}}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
+                            <img class="ui small rounded image" src="{{ lookup (lookup ../candidatesMap candidateId) 'picture'}}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
+                            <div class="stickers">
+                                {{#if (lookup (lookup ../candidatesMap candidateId) "emails") }}
+                                    <img class="ui tiny rounded image" src="/assets/img/icons/sourced.png" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
+                                {{/if}}
+                                {{#if (lookup (lookup ../candidatesMap candidateId) "jobApplications") }}
+                                    <img class="ui tiny rounded image" src="/assets/img/icons/m.png" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
+                                {{/if}}
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -75,7 +83,7 @@
                     <div class="center-vertical">
                         {{#unless (empty (lookup ../clientsMap clientId))}}
                         <a href="/clients/{{clientId}}" data-content="{{lookup (lookup ../clientsMap clientId ) "name" }}" >
-                            <img class="ui small image" src="{{lookup (lookup ../clientsMap clientId) "logoUrl"}}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
+                            <img class="ui small image rounded" src="{{lookup (lookup ../clientsMap clientId) "logoUrl"}}" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
                         </a>
                         {{/unless}}
                     </div>

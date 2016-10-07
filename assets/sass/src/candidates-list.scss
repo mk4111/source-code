@@ -8,6 +8,12 @@ div.candidates-list {
     div.row.candidate {
         margin-bottom: 1rem;
         margin-top: 2rem;
+        .stickers {
+            position: absolute;
+            bottom: 8px;
+            right: 20px;
+            img { width: 25px; }
+        }
         div.column p { margin-bottom: 5px; }
         div.media-links { 
             text-align: center;

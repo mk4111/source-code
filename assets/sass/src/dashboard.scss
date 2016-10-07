@@ -14,6 +14,16 @@ div.dashboard {
         }
     }
     div.list_candidats {
+
+        .stickers {
+            position: absolute;
+            bottom: 19px;
+            right: 31px;
+            img {
+                width: 25px;
+            }
+        }
+
         .candidate-box-wrap.row {
             border-radius: $border_radius;
             margin-bottom: 8px;
@@ -37,12 +47,10 @@ div.dashboard {
                 img {
                     display: inline-block;
                     max-width: 100px;
-                    border-radius: $border_radius;
                 }
             }
             .column.candidate-name { padding-left: 0px; }
             .column.candidate-details { }
-            .column.client img { border-radius: $border_radius; }
             .stage-actions-wrap {
                 width: 100%;
                 .stage-actions.buttons {
