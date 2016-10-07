@@ -16,6 +16,7 @@ $(function() {
     }
   });
   return navbar.find(".dropdown.bars").dropdown({
+    on: 'hover',
     onShow: function() {
       return popup.popup('hide');
     }
