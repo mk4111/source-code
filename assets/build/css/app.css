@@ -101,8 +101,15 @@ div.dashboard div.dashboard_menu {
     padding-left: 0px;
     margin-left: 0px; }
 
+div.dashboard div.list_candidats .stickers {
+  position: absolute;
+  bottom: 19px;
+  right: 31px; }
+  div.dashboard div.list_candidats .stickers img {
+    width: 25px; }
+
 div.dashboard div.list_candidats .candidate-box-wrap.row {
-  border-radius: 10px;
+  border-radius: 0.28571rem;
   margin-bottom: 8px;
   /** This are some Semantic-UI modification - should be rather cusomised in the build */
   padding-top: 0px;
@@ -111,7 +118,7 @@ div.dashboard div.list_candidats .candidate-box-wrap.row {
   div.dashboard div.list_candidats .candidate-box-wrap.row.incomplete {
     opacity: 0.5; }
   div.dashboard div.list_candidats .candidate-box-wrap.row .column {
-    border-radius: 10px;
+    border-radius: 0.28571rem;
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
     margin-top: 0px;
@@ -120,12 +127,9 @@ div.dashboard div.list_candidats .candidate-box-wrap.row {
     margin-bottom: 5px; }
   div.dashboard div.list_candidats .candidate-box-wrap.row .column.candidate-picture img {
     display: inline-block;
-    max-width: 100px;
-    border-radius: 10px; }
+    max-width: 100px; }
   div.dashboard div.list_candidats .candidate-box-wrap.row .column.candidate-name {
     padding-left: 0px; }
-  div.dashboard div.list_candidats .candidate-box-wrap.row .column.client img {
-    border-radius: 10px; }
   div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap {
     width: 100%; }
     div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap .stage-actions.buttons {
@@ -154,6 +158,12 @@ div.home div.row.filters {
 div.candidates-list div.row.candidate {
   margin-bottom: 1rem;
   margin-top: 2rem; }
+  div.candidates-list div.row.candidate .stickers {
+    position: absolute;
+    bottom: 8px;
+    right: 20px; }
+    div.candidates-list div.row.candidate .stickers img {
+      width: 25px; }
   div.candidates-list div.row.candidate div.column p {
     margin-bottom: 5px; }
   div.candidates-list div.row.candidate div.media-links {
@@ -178,7 +188,7 @@ div.candidates-list div.row.skills {
   padding-bottom: 0px;
   padding-top: 0px;
   font-family: 'blenderpro';
-  border-radius: 10px; }
+  border-radius: 0.28571rem; }
   div.candidates-list div.row.skills div.column {
     padding: 6px;
     text-transform: uppercase; }
@@ -187,20 +197,6 @@ div.candidates-list div.row.skills {
 
 div.home {
   padding-bottom: 20px; }
-
-.last-email-30 {
-  color: #d01919; }
-
-.last-email-90 {
-  color: #FBBD08; }
-
-.last-email-regular {
-  color: #21BA45; }
-
-i.send > span {
-  float: right !important;
-  padding-left: 5px;
-  font-size: 0.8em; }
 
 div.container.candidate div.grid.action-buttons {
   margin-top: 20px;
@@ -227,12 +223,11 @@ div.container.candidate .row.skills {
 div.container.candidate .candidates-stages-list .row {
   padding: 5px;
   text-transform: uppercase;
-  border-radius: 10px; }
+  border-radius: 0.28571rem; }
   div.container.candidate .candidates-stages-list .row .column.client {
     text-align: center; }
     div.container.candidate .candidates-stages-list .row .column.client img {
-      max-width: 50px;
-      border-radius: 10%; }
+      max-width: 50px; }
   div.container.candidate .candidates-stages-list .row .column {
     text-align: center; }
     div.container.candidate .candidates-stages-list .row .column a {
@@ -267,9 +262,6 @@ form.sendmail .email-form div.subject {
 
 form.sendmail .email-form div.button-wrap {
   text-align: right; }
-
-#navbar img, #navbar img.ui.image.circular {
-  max-width: 30px; }
 
 #navbar .dropdown.bars img {
   margin-right: 20px; }
