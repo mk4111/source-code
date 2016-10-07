@@ -101,21 +101,15 @@ div.dashboard div.dashboard_menu {
     padding-left: 0px;
     margin-left: 0px; }
 
-div.dashboard div.list_candidats .sticker {
-  background-color: white;
+div.dashboard div.list_candidats .stickers {
   position: absolute;
-  padding: 3px 0;
-  width: 24px;
-  height: 24px;
-  border-radius: 5px;
-  bottom: 20px;
-  right: 31px;
-  text-align: center; }
-  div.dashboard div.list_candidats .sticker img {
-    width: 24px; }
+  bottom: 19px;
+  right: 31px; }
+  div.dashboard div.list_candidats .stickers img {
+    width: 25px; }
 
 div.dashboard div.list_candidats .candidate-box-wrap.row {
-  border-radius: 10px;
+  border-radius: 0.28571rem;
   margin-bottom: 8px;
   /** This are some Semantic-UI modification - should be rather cusomised in the build */
   padding-top: 0px;
@@ -124,7 +118,7 @@ div.dashboard div.list_candidats .candidate-box-wrap.row {
   div.dashboard div.list_candidats .candidate-box-wrap.row.incomplete {
     opacity: 0.5; }
   div.dashboard div.list_candidats .candidate-box-wrap.row .column {
-    border-radius: 10px;
+    border-radius: 0.28571rem;
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
     margin-top: 0px;
@@ -133,12 +127,9 @@ div.dashboard div.list_candidats .candidate-box-wrap.row {
     margin-bottom: 5px; }
   div.dashboard div.list_candidats .candidate-box-wrap.row .column.candidate-picture img {
     display: inline-block;
-    max-width: 100px;
-    border-radius: 10px; }
+    max-width: 100px; }
   div.dashboard div.list_candidats .candidate-box-wrap.row .column.candidate-name {
     padding-left: 0px; }
-  div.dashboard div.list_candidats .candidate-box-wrap.row .column.client img {
-    border-radius: 10px; }
   div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap {
     width: 100%; }
     div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap .stage-actions.buttons {
@@ -191,7 +182,7 @@ div.candidates-list div.row.skills {
   padding-bottom: 0px;
   padding-top: 0px;
   font-family: 'blenderpro';
-  border-radius: 10px; }
+  border-radius: 0.28571rem; }
   div.candidates-list div.row.skills div.column {
     padding: 6px;
     text-transform: uppercase; }
@@ -240,12 +231,11 @@ div.container.candidate .row.skills {
 div.container.candidate .candidates-stages-list .row {
   padding: 5px;
   text-transform: uppercase;
-  border-radius: 10px; }
+  border-radius: 0.28571rem; }
   div.container.candidate .candidates-stages-list .row .column.client {
     text-align: center; }
     div.container.candidate .candidates-stages-list .row .column.client img {
-      max-width: 50px;
-      border-radius: 10%; }
+      max-width: 50px; }
   div.container.candidate .candidates-stages-list .row .column {
     text-align: center; }
     div.container.candidate .candidates-stages-list .row .column a {
@@ -280,9 +270,6 @@ form.sendmail .email-form div.subject {
 
 form.sendmail .email-form div.button-wrap {
   text-align: right; }
-
-#navbar img, #navbar img.ui.image.circular {
-  max-width: 30px; }
 
 #navbar .dropdown.bars img {
   margin-right: 20px; }
