@@ -263,11 +263,11 @@ form.sendmail .email-form div.subject {
 form.sendmail .email-form div.button-wrap {
   text-align: right; }
 
-#navbar .dropdown.bars img {
-  margin-right: 20px; }
+#navbar img {
+  width: 28px; }
 
 #navbar .item {
-  padding: 10px 0; }
+  padding: 0; }
   #navbar .item:before {
     display: none !important; }
 
