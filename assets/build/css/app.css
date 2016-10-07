@@ -101,6 +101,19 @@ div.dashboard div.dashboard_menu {
     padding-left: 0px;
     margin-left: 0px; }
 
+div.dashboard div.list_candidats .sticker {
+  background-color: white;
+  position: absolute;
+  padding: 3px 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  bottom: 20px;
+  right: 31px;
+  text-align: center; }
+  div.dashboard div.list_candidats .sticker img {
+    width: 24px; }
+
 div.dashboard div.list_candidats .candidate-box-wrap.row {
   border-radius: 10px;
   margin-bottom: 8px;
