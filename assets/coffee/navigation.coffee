@@ -1,9 +1,8 @@
 $ ->
 
   navbar = $("#navbar");
-  navbar.find(".dropdown.bars").dropdown();
 
-  navbar.find("a.search").popup({
+  popup = navbar.find("a.search").popup({
     on: 'click',
     closable: false,
     hoverable : false,
@@ -12,17 +11,13 @@ $ ->
     lastResort: true,
     closable: false,
     duration: 200,
+    exclusive: true,
     onVisible: () ->
       $("#search-form input").first().focus()
 
   });
 
-
-  $('.menu .browse').popup({
-    hoverable  : true,
-    position   : 'bottom left',
-    delay: {
-      show: 300,
-      hide: 800
-    }
+  navbar.find(".dropdown.bars").dropdown({
+    onShow: ->
+      popup.popup('hide');
   });

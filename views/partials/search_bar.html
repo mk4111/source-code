@@ -16,7 +16,7 @@
 
 <div class="ui top fixed menu seven item inverted" id="navbar">
 
-  {{#each (navigation request) }}
+  {{#each (nav request) }}
     
     {{#if false}}
       <!-- this one here will be used for single search field -->
@@ -86,15 +86,24 @@
 
     {{#if advance}}
     <div class="ui dropdown item bars">
-    <i class="bars icon"></i>
-    <img src="/assets/img/team/{{../request.auth.credentials.id}}.jpg" class="ui image circular tiny" onerror="this.src='/assets/img/client-logo.png'">
-    <div class="menu">
-      <a class="item" href="/users/list"></i> Users </a>
-      <a class="item" href="/client-users/list"></i> Client Users </a>
-      <a class="item" href="/dashboard"></i> Dashboard </a>
-      <a class="item" href="/dashboard"></i> Dashboards </a>
-      <a class="item disabled"></i> Logout </a>
+      <img src="/assets/img/team/{{../request.auth.credentials.id}}.jpg" class="ui image circular tiny" onerror="this.src='/assets/img/client-logo.png'">
+      <div class="menu">
+        <a class="item" href="/users/list"></i> Users </a>
+        <a class="item" href="/client-users/list"></i> Client Users </a>
+        <a class="item" href="/dashboard"></i> Dashboards </a>
+        <a class="item" href="/dashboard/{{request.user.id}}"></i> Dashboard </a>
+        <a class="item disabled"></i> Logout </a>
+      </div>
     </div>
+    {{/if}}
+
+    {{#if simple}}
+    <div class="ui dropdown item bars">
+      <img src="/assets/img/team/{{../request.auth.credentials.id}}.jpg" class="ui image circular tiny" onerror="this.src='/assets/img/client-logo.png'">
+      <div class="menu">
+        <a class="item" href="/dashboard/{{request.user.id}}"></i> Dashboard </a>
+        <a class="item disabled"></i> Logout </a>
+      </div>
     </div>
     {{/if}}
 

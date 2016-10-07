@@ -1,7 +1,85 @@
-<header>
-  <section class="search">
-    <div class="search-form">
-      {{>search_links}}
+<div class="ui top fixed menu seven item inverted" id="navbar">
+
+  {{#each (navigation request) }}
+    
+    {{#if false}}
+      <!-- this one here will be used for single search field -->
+      <div class="item right">
+      <div class="ui transparent icon input inverted">
+        <input type="text" placeholder="Search...">
+        <i class="search icon"></i>
+      </div>
+      </div>
+    {{/if}}
+
+    {{#if search}}
+    
+    <a class="ui item search">
+      <i class="search icon"></i>
+    </a>
+
+    <div class="ui popup search-form">
+      <form class="ui form" id="search-form" action="/query">
+        <div class="field">
+        <input name="job" placeholder="Job Title" value="{{../headlineValue}}">
+        </div>
+        <div class="field">
+        <input name="fullname" placeholder="Name" value="{{../fullnameValue}}">
+        </div>
+        <div class="field">
+        <input name="location" placeholder="Location" value="{{../locationValue}}">
+        </div>
+        <div class="field">
+        <input name="current" placeholder="Company" value="{{../currentValue}}">
+        </div>
+        <div class="field">
+        <input name="skills" placeholder="Skills" value="{{../skillsValue}}">
+        </div>
+        <button type="submit" class="ui button">Search</button>
+      </form>
     </div>
-  </section>
-</header>
+
+    {{/if}}
+
+
+    {{#if admin}}
+    <div class="ui dropdown item bars">
+      <img src="/assets/img/team/{{../request.auth.credentials.id}}.jpg" class="ui image circular tiny" onerror="this.src='/assets/img/client-logo.png'">
+      <div class="menu">
+        <a class="item" href="/users/list"></i> Users </a>
+        <a class="item" href="/client-users/list"></i> Client Users </a>
+        <a class="item" href="/dashboard"></i> Dashboards </a>
+        <a class="item" href="/dashboard/{{request.user.id}}"></i> Dashboard </a>
+        <a class="item disabled"></i> Logout </a>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if user}}
+    <div class="ui dropdown item bars">
+      <img src="/assets/img/team/{{../request.auth.credentials.id}}.jpg" class="ui image circular tiny" onerror="this.src='/assets/img/client-logo.png'">
+      <div class="menu">
+        <a class="item" href="/dashboard/{{request.user.id}}"></i> Dashboard </a>
+        <a class="item disabled"></i> Logout </a>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#unless search}}
+    {{#unless admin}}
+    {{#unless user}}
+      <a class="item {{css}}" href="{{url}}">
+        {{#if img}}
+          <img src="{{img}}" class="{{img_css}}">
+        {{/if}}
+        {{#if name}}
+          {{name}}
+        {{/if}}
+      </a>
+    {{/unless}}
+    {{/unless}}
+    {{/unless}}
+
+  {{/each}}
+
+</div>
