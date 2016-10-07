@@ -267,3 +267,27 @@ form.sendmail .email-form div.subject {
 
 form.sendmail .email-form div.button-wrap {
   text-align: right; }
+
+#navbar img, #navbar img.ui.image.circular {
+  max-width: 30px; }
+
+#navbar .dropdown.bars img {
+  margin-right: 20px; }
+
+#navbar .item {
+  padding: 10px 0; }
+  #navbar .item:before {
+    display: none !important; }
+
+#navbar a.item {
+  font-family: 'blenderpro'; }
+
+.popup.search-form input {
+  min-width: 60% !important; }
+
+.popup.search-form input, .popup.search-form button {
+  font-family: 'blenderpro' !important; }
+
+.popup.search-form form {
+  min-width: 500px;
+  text-align: left; }
