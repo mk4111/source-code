@@ -158,6 +158,12 @@ div.home div.row.filters {
 div.candidates-list div.row.candidate {
   margin-bottom: 1rem;
   margin-top: 2rem; }
+  div.candidates-list div.row.candidate .stickers {
+    position: absolute;
+    bottom: 8px;
+    right: 20px; }
+    div.candidates-list div.row.candidate .stickers img {
+      width: 25px; }
   div.candidates-list div.row.candidate div.column p {
     margin-bottom: 5px; }
   div.candidates-list div.row.candidate div.media-links {
@@ -191,20 +197,6 @@ div.candidates-list div.row.skills {
 
 div.home {
   padding-bottom: 20px; }
-
-.last-email-30 {
-  color: #d01919; }
-
-.last-email-90 {
-  color: #FBBD08; }
-
-.last-email-regular {
-  color: #21BA45; }
-
-i.send > span {
-  float: right !important;
-  padding-left: 5px;
-  font-size: 0.8em; }
 
 div.container.candidate div.grid.action-buttons {
   margin-top: 20px;
