@@ -21,6 +21,9 @@
                                 {{#if (lookup (lookup ../candidatesMap candidateId) "emails") }}
                                     <img class="ui tiny rounded image" src="/assets/img/icons/sourced.png" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
                                 {{/if}}
+                                {{#if (lookup (lookup ../candidatesMap candidateId) "jobApplications") }}
+                                    <img class="ui tiny rounded image" src="/assets/img/icons/m.png" alt="" onerror="this.src='/assets/img/client-logo.png'"/>
+                                {{/if}}
                             </div>
                         </a>
                     </div>
