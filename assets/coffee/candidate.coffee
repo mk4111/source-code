@@ -10,6 +10,11 @@ $ ->
         modal.modal('show');
         return false;
 
+  if $("form.log-call button").hasClass "positive"
+    setTimeout ->
+      $("form.log-call button").removeClass "positive"
+    , 5000
+
   $(".modal.sendemail").each ->
     modal = $(this)
     initial_message = modal.find("textarea[name='message']").val();
@@ -22,7 +27,6 @@ $ ->
     history: true,
     historyType: 'hash'
     onVisible: (t) ->
-      console.log t
       $("form").each ->
         $(this).find('input[name="redirect_url"]').val window.location.pathname + "#/" + t
   );
