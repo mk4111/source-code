@@ -51,7 +51,8 @@
     "underscore": "^1.8.3",
     "uuid": "^2.0.3",
     "validator": "^6.0.0",
-    "vision": "^4.1.0"
+    "vision": "^4.1.0",
+    "yar": "^7.0.2"
   },
   "devDependencies": {
     "bower": "^1.7.9",

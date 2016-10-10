@@ -144,7 +144,11 @@
             <form method="POST" action="/calls">
                 <input type="hidden" name="id" value="{{candidate.id}}">
                 <input type="hidden" name="redirect_url" value="{{request.url.path}}">
-                <button type="submit" class="ui button"> Log Call </button>
+                <button type="submit" class="ui button
+                {{#if callSaved}}
+                    positive
+                {{/if}}
+                "> Log Call </button>
             </form>
         </div>
         <div class="column">
