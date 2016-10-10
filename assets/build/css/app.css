@@ -91,6 +91,8 @@ div.dashboard div.stages-bar {
   text-align: center; }
   div.dashboard div.stages-bar .button.inactive {
     opacity: .5; }
+  div.dashboard div.stages-bar .calls-counter {
+    margin-left: 20px; }
 
 div.dashboard div.dashboard_menu {
   margin-top: 40px;
