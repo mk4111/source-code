@@ -13,6 +13,11 @@ $(function() {
       });
     }
   });
+  if ($("form.log-call button").hasClass("positive")) {
+    setTimeout(function() {
+      return $("form.log-call button").removeClass("positive");
+    }, 5000);
+  }
   $(".modal.sendemail").each(function() {
     var initial_message, modal;
     modal = $(this);
@@ -27,7 +32,6 @@ $(function() {
     history: true,
     historyType: 'hash',
     onVisible: function(t) {
-      console.log(t);
       return $("form").each(function() {
         return $(this).find('input[name="redirect_url"]').val(window.location.pathname + "#/" + t);
       });
