@@ -211,6 +211,10 @@ div.container.candidate div.grid.action-buttons {
     div.container.candidate div.grid.action-buttons .column .button {
       width: 100%;
       padding: 15px; }
+    div.container.candidate div.grid.action-buttons .column form.log-call button {
+      -webkit-transition: all 2s;
+      /* For Safari 3.1 to 6.0 */
+      transition: all 2s; }
     div.container.candidate div.grid.action-buttons .column:first-child {
       padding-left: 0px; }
     div.container.candidate div.grid.action-buttons .column:last-child {
