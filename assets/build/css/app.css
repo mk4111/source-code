@@ -61,7 +61,9 @@ i.icon.custom {
   background-size: contain !important; }
 
 body {
-  background-color: #f1f1f1; }
+  background-color: #f1f1f1 !important; }
+  body .pusher {
+    background-color: #f1f1f1 !important; }
 
 .stage-actions.buttons {
   margin-top: 6px; }
@@ -82,6 +84,9 @@ body {
       background: url("/assets/img/icons/logo-center-white.png"); }
     .stage-actions.buttons button i.logo-right {
       background: url("/assets/img/icons/logo-right-white.png"); }
+
+div.container {
+  margin-top: 55px; }
 
 div.row.pagination .ui.pagination.menu {
   margin: auto; }
@@ -158,6 +163,8 @@ div.home div.row.filters {
 div.candidates-list div.row.candidate {
   margin-bottom: 1rem;
   margin-top: 2rem; }
+  div.candidates-list div.row.candidate:first-child {
+    margin-top: 1rem; }
   div.candidates-list div.row.candidate .stickers {
     position: absolute;
     bottom: 8px;
@@ -283,3 +290,25 @@ form.sendmail .email-form div.button-wrap {
 .popup.search-form form {
   min-width: 500px;
   text-align: left; }
+
+.ui.sidebar.candidate-search ~ .pusher {
+  -webkit-transition: margin 0.5s;
+  /* For Safari 3.1 to 6.0 */
+  transition: margin 0.5s; }
+
+.ui.sidebar.candidate-search.visible ~ .pusher {
+  width: calc(100% - 260px); }
+
+.ui.sidebar.candidate-search {
+  background-color: #f1f1f1;
+  padding-top: 50px; }
+  .ui.sidebar.candidate-search.visible {
+    z-index: 3; }
+  .ui.sidebar.candidate-search .item.buttons {
+    text-align: center; }
+
+.pusher.search_content div.home div.row.filters {
+  display: none; }
+
+.pusher.search_content div.row.filters {
+  display: none; }
