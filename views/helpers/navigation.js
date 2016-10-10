@@ -23,7 +23,8 @@ module.exports = function (request) {
         }, {
             name: 'Mail'
         }, {
-            search: true // harcoded 'template' name
+            search: true, // harcoded 'template' name
+            url: '/search'
         }
 
     ];
