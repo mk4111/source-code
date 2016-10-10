@@ -17,4 +17,7 @@ i.icon.custom {
     background-size: contain !important;;
 }
 
-body { background-color: $LIGHT_GREY; }
+body { 
+    background-color: $LIGHT_GREY !important;
+    .pusher { background-color: $LIGHT_GREY !important; } // @TODO change it in semantic ui build;
+}
