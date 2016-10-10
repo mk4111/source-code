@@ -1,0 +1,28 @@
+$SIDEBAR_WIDTH: 260px; // defautl semantic-ui value
+
+.ui.sidebar.candidate-search ~ .pusher {
+    @include transition(margin 0.5s);
+}
+
+.ui.sidebar.candidate-search.visible ~ .pusher {
+    width: calc(100% - 260px);
+}
+
+.ui.sidebar.candidate-search {
+    background-color: $LIGHT_GREY;
+    &.visible { z-index: 3; }// I don't think this one should be deinfe explicit
+    padding-top: 50px;
+    .item {
+        &.buttons {
+            text-align: center;
+        }
+    }
+}
+
+.pusher.search_content {
+    div.home {
+        div.row.filters {
+            display: none;
+        }
+    }
+}
