@@ -8,6 +8,7 @@ div.candidates-list {
     div.row.candidate {
         margin-bottom: 1rem;
         margin-top: 2rem;
+        &:first-child { margin-top: 1rem; }
         .stickers {
             position: absolute;
             bottom: 8px;
