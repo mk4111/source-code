@@ -61,7 +61,6 @@ $ ->
     if $(this).val()
       $(".container.candidate .tab.contact_details form.cv-upload button[type='submit']").removeClass "disabled"
       pathSegments = $(this).val().split("\\")
-      console.log pathSegments
       $(".container.candidate .tab.contact_details form.cv-upload button[type='submit'] span.value").html "(" + pathSegments[pathSegments.length-1] + ")"
     else
       $(".container.candidate .tab.contact_details form.cv-upload button[type='submit']").addClass "disabled"

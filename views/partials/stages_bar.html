@@ -6,10 +6,8 @@
     <{{../button_elem}} href="/dashboard/{{../user.idGoogle}}#stage-{{s.id}}" class="ui button {{stageToCss s}} single-stage stage-{{s.id}}" value="stage-{{s.id}}">{{name}} (<span class="stage-counter">{{countStages ../applications s.id}}</span>)</{{../button_elem}}>
   {{/each}}
   </div>
-  {{#if callsNumber}}
   <div class="ui label calls-counter">
-    <i class="icon phone"></i>{{callsNumber}}
+    <i class="icon phone"></i>{{lookup usersCallMap user.idGoogle}}
   </div>
-  {{/if}}
 
 </div>
