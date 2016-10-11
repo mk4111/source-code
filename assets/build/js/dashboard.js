@@ -1,5 +1,5 @@
 $(function() {
-  var candidate_box_display_mode, filter_results, filters;
+  var button, candidate_box_display_mode, filter_results, filters;
   if ($(".stages-bar").length === 0) {
     return;
   }
@@ -114,7 +114,12 @@ $(function() {
     });
   });
   if (window.location.hash && history.replaceState) {
-    $(".stages-bar .single-stage." + window.location.hash.replace('#', '')).click();
+    button = $(".stages-bar .single-stage." + window.location.hash.replace('#', ''));
+    if (button.length) {
+      button.click();
+    } else {
+      $(".list_candidats").addClass("ready");
+    }
   } else {
     $(".list_candidats").addClass("ready");
   }
