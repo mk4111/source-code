@@ -18,12 +18,8 @@ div.dashboard {
         opacity: 0;
         &.ready { opacity: 1; }
         .stickers {
-            position: absolute;
             bottom: 19px;
             right: 31px;
-            img {
-                width: 25px;
-            }
         }
 
         .candidate-box-wrap.row {
