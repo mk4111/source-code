@@ -1,15 +1,40 @@
 <div class="ui left sidebar vertical menu visible candidate-search">
+    <form class="ui form" action="/search" method="GET">
     <div class="item">
-        <form class="ui form" action="/search" method="GET">
-            <div class="ui field">
-            <input type="text" name="q" value="{{q}}">
+        <div class="ui field">
+            <input type="text" name="q" value="{{q}}" placeholder="Serach...">
+        </div>
+    </div>
+    <div class="item">
+        <p> ONLY SHOW WITH</p>
+        <div class="ui fields">
+            <div class="ui checkbox six wide column">
+              <input type="checkbox" name="ow-cv">
+              <label>CV</label>
             </div>
-            <button type="submit" class="ui button">Search</button>
-        </form> 
+            <div class="ui checkbox six wide column">
+              <input type="checkbox" name="ow-email">
+              <label>EMAIL</label>
+            </div>
+        </div>
+        <div class="ui fields">
+            <div class="ui checkbox six wide column">
+              <input type="checkbox" name="ow-phone">
+              <label>PHONE</label>
+            </div>
+            <div class="ui checkbox six wide column">
+              <input type="checkbox" name="ow-salary">
+              <label>SALARY</label>
+            </div>
+        </div>
+
     </div>
-    <div class="item">
-        <p> some filter </p>
+
+    <div class="item buttons">
+    <button type="submit" class="ui button">Search</button>
     </div>
+    </form> 
+    <!--
     <div class="item buttons">
         <div class="ui buttons vertical">
             <button class="ui button">
@@ -20,4 +45,5 @@
             </button>
         </div>
     </div>
+    -->
 </div>
