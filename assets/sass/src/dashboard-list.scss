@@ -7,6 +7,8 @@
         .stages-bar-wrap-inner {
             display: table-cell;
             vertical-align: middle;
+            .buttons { width: 100%; }
+            .calls-counter { margin-top: 10px; }
         }
     }
 }

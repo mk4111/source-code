@@ -4,7 +4,6 @@
         background: transparent;
         color: $WHITE;
         padding: 7px;
-        @include transition(background 0.5);
         i { font-size: 1.25em; }
         &:hover { background: rgba($BLACK, 0.3); }
         i.logo-left { background: url('/assets/img/icons/logo-left-white.png'); }
