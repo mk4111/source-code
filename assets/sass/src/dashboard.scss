@@ -15,7 +15,8 @@ div.dashboard {
         }
     }
     div.list_candidats {
-
+        opacity: 0;
+        &.ready { opacity: 1; }
         .stickers {
             position: absolute;
             bottom: 19px;
