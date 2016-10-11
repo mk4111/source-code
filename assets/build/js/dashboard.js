@@ -66,6 +66,7 @@ $(function() {
         return candidates.push(candidate);
       }
     });
+    $(".list_candidats").addClass("ready");
     $(".stages-bar .all-stages span.stage-counter").html(String(candidates.length));
     i = 1;
     return $(".stages-bar .single-stage").each(function() {
@@ -114,6 +115,8 @@ $(function() {
   });
   if (window.location.hash && history.replaceState) {
     $(".stages-bar .single-stage." + window.location.hash.replace('#', '')).click();
+  } else {
+    $(".list_candidats").addClass("ready");
   }
   $('.ui.dropdown.candidates').dropdown({
     onChange: function(f) {
