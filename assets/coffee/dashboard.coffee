@@ -14,7 +14,6 @@ $ ->
   }
 
   filter_results = () ->
-    
     # iterate through all candidate box and check if has at least one class from selected categories
     $(".candidate-box-wrap").each ->
       candidate = $(this);
@@ -90,7 +89,9 @@ $ ->
 
   # little hack for allowing the cross page navigation
   if window.location.hash && history.replaceState
-    $(".stages-bar .single-stage." + window.location.hash.replace('#','')).click();
+    button = $(".stages-bar .single-stage." + window.location.hash.replace('#',''))
+    if button.length then button.click();
+    else $(".list_candidats").addClass("ready")
   else 
     $(".list_candidats").addClass("ready")
 
