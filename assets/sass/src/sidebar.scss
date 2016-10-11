@@ -13,6 +13,7 @@ $SIDEBAR_WIDTH: 260px; // defautl semantic-ui value
     &.visible { z-index: 3; }// I don't think this one should be deinfe explicit
     padding-top: 50px;
     .item {
+        padding: 10px;
         &.buttons {
             text-align: center;
         }
