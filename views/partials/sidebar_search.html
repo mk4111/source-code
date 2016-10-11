@@ -1,6 +1,11 @@
 <div class="ui left sidebar vertical menu visible candidate-search">
     <div class="item">
-        <p> result </p>
+        <form class="ui form" action="/search" method="GET">
+            <div class="ui field">
+            <input type="text" name="q">
+            </div>
+            <button type="submit" class="ui button">Search</button>
+        </form> 
     </div>
     <div class="item">
         <p> some filter </p>
