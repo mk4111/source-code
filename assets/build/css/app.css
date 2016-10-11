@@ -100,44 +100,46 @@ div.dashboard div.dashboard_menu {
     padding-left: 0px;
     margin-left: 0px; }
 
-div.dashboard div.list_candidats .stickers {
-  position: absolute;
-  bottom: 19px;
-  right: 31px; }
-  div.dashboard div.list_candidats .stickers img {
-    width: 25px; }
-
-div.dashboard div.list_candidats .candidate-box-wrap.row {
-  border-radius: 0.28571rem;
-  margin-bottom: 8px;
-  /** This are some Semantic-UI modification - should be rather cusomised in the build */
-  padding-top: 0px;
-  padding-bottom: 0px;
-  /***********************************************************************************/ }
-  div.dashboard div.list_candidats .candidate-box-wrap.row.incomplete {
-    opacity: 0.5; }
-  div.dashboard div.list_candidats .candidate-box-wrap.row .column {
+div.dashboard div.list_candidats {
+  opacity: 0; }
+  div.dashboard div.list_candidats.ready {
+    opacity: 1; }
+  div.dashboard div.list_candidats .stickers {
+    position: absolute;
+    bottom: 19px;
+    right: 31px; }
+    div.dashboard div.list_candidats .stickers img {
+      width: 25px; }
+  div.dashboard div.list_candidats .candidate-box-wrap.row {
     border-radius: 0.28571rem;
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
-    margin-top: 0px;
-    margin-bottom: 0px; }
-  div.dashboard div.list_candidats .candidate-box-wrap.row .column p {
-    margin-bottom: 5px; }
-  div.dashboard div.list_candidats .candidate-box-wrap.row .column.candidate-picture img {
-    display: inline-block;
-    max-width: 100px; }
-  div.dashboard div.list_candidats .candidate-box-wrap.row .column.candidate-name {
-    padding-left: 0px; }
-  div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap {
-    width: 100%; }
-    div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap .stage-actions.buttons {
-      margin-top: 6px; }
-      div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap .stage-actions.buttons button {
-        padding: 3px; }
-
-div.dashboard div.list_candidats .column a {
-  color: white; }
+    margin-bottom: 8px;
+    /** This are some Semantic-UI modification - should be rather cusomised in the build */
+    padding-top: 0px;
+    padding-bottom: 0px;
+    /***********************************************************************************/ }
+    div.dashboard div.list_candidats .candidate-box-wrap.row.incomplete {
+      opacity: 0.5; }
+    div.dashboard div.list_candidats .candidate-box-wrap.row .column {
+      border-radius: 0.28571rem;
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+      margin-top: 0px;
+      margin-bottom: 0px; }
+    div.dashboard div.list_candidats .candidate-box-wrap.row .column p {
+      margin-bottom: 5px; }
+    div.dashboard div.list_candidats .candidate-box-wrap.row .column.candidate-picture img {
+      display: inline-block;
+      max-width: 100px; }
+    div.dashboard div.list_candidats .candidate-box-wrap.row .column.candidate-name {
+      padding-left: 0px; }
+    div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap {
+      width: 100%; }
+      div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap .stage-actions.buttons {
+        margin-top: 6px; }
+        div.dashboard div.list_candidats .candidate-box-wrap.row .stage-actions-wrap .stage-actions.buttons button {
+          padding: 3px; }
+  div.dashboard div.list_candidats .column a {
+    color: white; }
 
 .dashboards-list {
   margin-top: 60px; }
