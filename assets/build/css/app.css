@@ -68,10 +68,7 @@ body {
   .stage-actions.buttons button {
     background: transparent;
     color: white;
-    padding: 7px;
-    -webkit-transition: background 0.5;
-    /* For Safari 3.1 to 6.0 */
-    transition: background 0.5; }
+    padding: 7px; }
     .stage-actions.buttons button i {
       font-size: 1.25em; }
     .stage-actions.buttons button:hover {
@@ -151,6 +148,10 @@ div.dashboard div.list_candidats .column a {
     .dashboards-list .stages-bar-wrap .stages-bar-wrap-inner {
       display: table-cell;
       vertical-align: middle; }
+      .dashboards-list .stages-bar-wrap .stages-bar-wrap-inner .buttons {
+        width: 100%; }
+      .dashboards-list .stages-bar-wrap .stages-bar-wrap-inner .calls-counter {
+        margin-top: 10px; }
 
 div.home div.row.filters {
   margin-bottom: -2rem; }
@@ -212,9 +213,9 @@ div.container.candidate div.grid.action-buttons {
       width: 100%;
       padding: 15px; }
     div.container.candidate div.grid.action-buttons .column form.log-call button {
-      -webkit-transition: all 2s;
+      -webkit-transition: all 1s;
       /* For Safari 3.1 to 6.0 */
-      transition: all 2s; }
+      transition: all 1s; }
     div.container.candidate div.grid.action-buttons .column:first-child {
       padding-left: 0px; }
     div.container.candidate div.grid.action-buttons .column:last-child {

@@ -84,6 +84,12 @@ $(function() {
   $(".dashboard .stages-bar").find(".button").each(function() {
     return $(this).click(function() {
       var clicked;
+      if (history.replaceState) {
+        history.replaceState(null, null, '#' + $(this).val());
+        $("form").each(function() {
+          return $(this).find('input[name="redirect_url"]').val(window.location.pathname + window.location.hash);
+        });
+      }
       $(this).blur();
       $(this).removeClass("active");
       $(this).removeClass("inverted");
@@ -108,7 +114,6 @@ $(function() {
   });
   if (window.location.hash && history.replaceState) {
     $(".stages-bar .single-stage." + window.location.hash.replace('#', '')).click();
-    history.replaceState(null, null, ' ');
   }
   $('.ui.dropdown.candidates').dropdown({
     onChange: function(f) {
