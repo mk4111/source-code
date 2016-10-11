@@ -63,6 +63,11 @@ $ ->
 
   $(".dashboard .stages-bar").find(".button").each ->
     $(this).click ->
+      # append the hashstate
+      if history.replaceState
+        history.replaceState null, null, '#' + $(this).val()
+        $("form").each ->
+          $(this).find('input[name="redirect_url"]').val window.location.pathname + window.location.hash
       # color ui and trigger filtering
       $(this).blur();
       $(this).removeClass("active");
@@ -84,7 +89,6 @@ $ ->
   # little hack for allowing the cross page navigation
   if window.location.hash && history.replaceState
     $(".stages-bar .single-stage." + window.location.hash.replace('#','')).click();
-    history.replaceState null, null, ' '
 
   $('.ui.dropdown.candidates').dropdown {
     onChange: (f) -> 
@@ -118,5 +122,7 @@ $ ->
       hoverable  : true,
       inline     : true
     });
+
+
 
 
