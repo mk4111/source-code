@@ -5,15 +5,22 @@ div.home {
     }
 }
 
+// @TODO move stickers somewhere else;
+.stickers {
+    position: absolute;
+    img.ui.image { 
+        width: 25px;
+        display: inline-block;
+    }
+}
+
 div.candidates-list {
     div.row.candidate {
         margin-bottom: 1rem;
         margin-top: 2rem;
         .stickers {
-            position: absolute;
             bottom: 8px;
             right: 20px;
-            img { width: 25px; }
         }
         div.column p { margin-bottom: 5px; }
         div.media-links { 
