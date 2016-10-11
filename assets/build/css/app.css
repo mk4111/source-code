@@ -311,11 +311,17 @@ form.sendmail .email-form div.button-wrap {
 .ui.sidebar.candidate-search {
   background-color: #f1f1f1;
   padding-top: 50px; }
+  .ui.sidebar.candidate-search, .ui.sidebar.candidate-search input, .ui.sidebar.candidate-search button {
+    font-family: 'blenderpro' !important; }
   .ui.sidebar.candidate-search.visible {
     z-index: 3; }
   .ui.sidebar.candidate-search .item {
     padding: 10px; }
-    .ui.sidebar.candidate-search .item.buttons {
+    .ui.sidebar.candidate-search .item > p {
+      font-weight: bold; }
+    .ui.sidebar.candidate-search .item .ui.checkbox {
+      min-width: 40%; }
+    .ui.sidebar.candidate-search .item.buttons, .ui.sidebar.candidate-search .item p {
       text-align: center; }
 
 .pusher.search_content div.home div.row.filters {
