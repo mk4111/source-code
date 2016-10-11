@@ -313,11 +313,10 @@ form.sendmail .email-form div.button-wrap {
   padding-top: 50px; }
   .ui.sidebar.candidate-search.visible {
     z-index: 3; }
-  .ui.sidebar.candidate-search .item.buttons {
-    text-align: center; }
+  .ui.sidebar.candidate-search .item {
+    padding: 10px; }
+    .ui.sidebar.candidate-search .item.buttons {
+      text-align: center; }
 
 .pusher.search_content div.home div.row.filters {
-  display: none; }
-
-.pusher.search_content div.row.filters {
   display: none; }
