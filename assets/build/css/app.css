@@ -110,11 +110,8 @@ div.dashboard div.list_candidats {
   div.dashboard div.list_candidats.ready {
     opacity: 1; }
   div.dashboard div.list_candidats .stickers {
-    position: absolute;
     bottom: 19px;
     right: 31px; }
-    div.dashboard div.list_candidats .stickers img {
-      width: 25px; }
   div.dashboard div.list_candidats .candidate-box-wrap.row {
     border-radius: 0.28571rem;
     margin-bottom: 8px;
@@ -165,17 +162,20 @@ div.home div.row.filters {
   div.home div.row.filters div.column.send-email {
     text-align: right; }
 
+.stickers {
+  position: absolute; }
+  .stickers img.ui.image {
+    width: 25px;
+    display: inline-block; }
+
 div.candidates-list div.row.candidate {
   margin-bottom: 1rem;
   margin-top: 2rem; }
   div.candidates-list div.row.candidate:first-child {
     margin-top: 1rem; }
   div.candidates-list div.row.candidate .stickers {
-    position: absolute;
     bottom: 8px;
     right: 20px; }
-    div.candidates-list div.row.candidate .stickers img {
-      width: 25px; }
   div.candidates-list div.row.candidate div.column p {
     margin-bottom: 5px; }
   div.candidates-list div.row.candidate div.media-links {
