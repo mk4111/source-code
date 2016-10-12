@@ -1,5 +1,8 @@
 $(function() {
   var enable_search_option, saerch_form, sidebar;
+  $(".fixed.menu .item.search").click(function() {
+    return $('.ui.sidebar.candidate-search').sidebar('toggle');
+  });
   if (!$('.ui.sidebar.candidate-search')) {
     return;
   }
@@ -10,9 +13,6 @@ $(function() {
   });
   $('.ui.sticky').sticky({
     context: '.pusher'
-  });
-  $(".fixed.menu .item.search").click(function() {
-    return $('.ui.sidebar.candidate-search').sidebar('toggle');
   });
   saerch_form = sidebar.find("form");
   enable_search_option = function() {
