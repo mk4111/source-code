@@ -9,21 +9,37 @@
         <p> ONLY SHOW WITH</p>
         <div class="ui fields">
             <div class="ui checkbox six wide column">
-              <input type="checkbox" name="ow-cv">
+              <input type="checkbox" name="req_cv"
+              {{#if request.query.req_cv}}
+                checked 
+              {{/if}}
+              >
               <label>CV</label>
             </div>
             <div class="ui checkbox six wide column">
-              <input type="checkbox" name="ow-email">
+              <input type="checkbox" name="req_email"
+              {{#if request.query.req_email}}
+                checked 
+              {{/if}}
+              >
               <label>EMAIL</label>
             </div>
         </div>
         <div class="ui fields">
             <div class="ui checkbox six wide column">
-              <input type="checkbox" name="ow-phone">
+              <input type="checkbox" name="req_phone"
+              {{#if request.query.req_phone}}
+                checked 
+              {{/if}}
+              >
               <label>PHONE</label>
             </div>
             <div class="ui checkbox six wide column">
-              <input type="checkbox" name="ow-salary">
+              <input type="checkbox" name="req_salary"
+              {{#if request.query.req_salary}}
+                checked 
+              {{/if}}
+              >
               <label>SALARY</label>
             </div>
         </div>
