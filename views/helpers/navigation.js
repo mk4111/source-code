@@ -37,11 +37,15 @@ module.exports = function (request) {
 
 
     Underscore.each(nav, (v,k) => {
-        if (request.path == v.url) {
-            v.css = (v.css) ? v.css + " active" : "active";
-        }
+        v.dom = "a";
         if(!v.url) {
             v.css = (v.css) ? v.css + " disabled" : "disabled";
+        }
+        if (request.path == v.url) {
+            v.css = (v.css) ? v.css + " active" : "active";
+            v.url = "";
+            v.active = true;
+            v.dom = "div";
         }
     });
 
