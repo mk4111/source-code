@@ -14,30 +14,32 @@
 
     {{#if search}}
     
-    <a class="ui item search {{css}}">
+    <a class="ui item search {{css}}" href="/search">
       <i class="search icon"></i>
     </a>
 
-    <div class="ui popup search-form">
-      <form class="ui form" id="search-form" action="/query">
-        <div class="field">
-        <input name="headline" placeholder="Job Title" value="{{../headlineValue}}">
-        </div>
-        <div class="field">
-        <input name="fullname" placeholder="Name" value="{{../fullnameValue}}">
-        </div>
-        <div class="field">
-        <input name="location" placeholder="Location" value="{{../locationValue}}">
-        </div>
-        <div class="field">
-        <input name="current" placeholder="Company" value="{{../currentValue}}">
-        </div>
-        <div class="field">
-        <input name="skills" placeholder="Skills" value="{{../skillsValue}}">
-        </div>
-        <button type="submit" class="ui button">Search</button>
-      </form>
-    </div>
+    {{#if false}}
+      <div class="ui popup search-form">
+        <form class="ui form" id="search-form" action="/query">
+          <div class="field">
+          <input name="headline" placeholder="Job Title" value="{{../headlineValue}}">
+          </div>
+          <div class="field">
+          <input name="fullname" placeholder="Name" value="{{../fullnameValue}}">
+          </div>
+          <div class="field">
+          <input name="location" placeholder="Location" value="{{../locationValue}}">
+          </div>
+          <div class="field">
+          <input name="current" placeholder="Company" value="{{../currentValue}}">
+          </div>
+          <div class="field">
+          <input name="skills" placeholder="Skills" value="{{../skillsValue}}">
+          </div>
+          <button type="submit" class="ui button">Search</button>
+        </form>
+      </div>
+    {{/if}}
 
     {{/if}}
 
