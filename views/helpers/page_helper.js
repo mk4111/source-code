@@ -1,5 +1,7 @@
 var Handlebars = require('handlebars');
-module.exports = function (page, totalPages, queryString) {
+var Querystring = require('querystring');
+
+module.exports = function (page, totalPages, request) {
 
   // @speedingdeer: have no idea what is this for
   page = Handlebars.Utils.escapeExpression(page);
@@ -7,15 +9,14 @@ module.exports = function (page, totalPages, queryString) {
 
   // @TODO: this is lame, html must be render in template, injecting like here feels weird
 
+  var queryString =  Querystring.stringify(request.url.query);
+  var pagePath = ( request.url.pathname.indexOf("search") != -1 ) ? "search/" : "";
+
+  if (queryString) { queryString = "?" + queryString; }
+
   if(totalPages == 0) { return ""; }
 
   var result = "<div class='ui pagination menu'>";
-
-  var pagePath = "query/"; 
-  if (!queryString) { 
-    pagePath = "";
-    queryString = ""; 
-  }
 
   if (Number(page) > 1) {
     // append the fisrt page
