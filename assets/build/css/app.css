@@ -290,6 +290,9 @@ form.sendmail .email-form div.button-wrap {
 #navbar a.item {
   font-family: 'blenderpro'; }
 
+#navbar div.item.search {
+  cursor: pointer; }
+
 .popup.search-form input {
   min-width: 60% !important; }
 
