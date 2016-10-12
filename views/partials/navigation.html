@@ -14,9 +14,9 @@
 
     {{#if search}}
     
-    <a class="ui item search {{css}}" href="/search">
+    <{{dom}} class="ui item search {{css}}" href="{{url}}">
       <i class="search icon"></i>
-    </a>
+    </{{dom}}>
 
     {{#if false}}
       <div class="ui popup search-form">
@@ -70,14 +70,14 @@
     {{#unless search}}
     {{#unless admin}}
     {{#unless user}}
-      <a class="item {{css}}" href="{{url}}">
+      <{{dom}} class="item {{css}}" href="{{url}}">
         {{#if img}}
           <img src="{{img}}" class="{{img_css}}">
         {{/if}}
         {{#if name}}
           {{name}}
         {{/if}}
-      </a>
+      </{{dom}}>
     {{/unless}}
     {{/unless}}
     {{/unless}}
