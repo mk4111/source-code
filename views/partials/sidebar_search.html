@@ -1,6 +1,6 @@
 <div class="ui left sidebar vertical menu visible candidate-search">
     <form class="ui form" action="/search" method="GET">
-    <div class="item">
+    <div class="item quick_search">
         <div class="ui field">
             <input type="text" name="q" value="{{q}}" placeholder="Serach...">
         </div>
@@ -9,46 +9,69 @@
         <p> ONLY SHOW WITH</p>
         <div class="ui fields">
             <div class="ui checkbox six wide column">
-              <input type="checkbox" name="req_cv"
-              {{#if request.query.req_cv}}
-                checked 
-              {{/if}}
-              >
-              <label>CV</label>
+                <input type="checkbox" name="req_cv"
+                {{#if request.query.req_cv}}
+                    checked 
+                {{/if}}
+                >
+                <label>CV</label>
             </div>
             <div class="ui checkbox six wide column">
-              <input type="checkbox" name="req_email"
-              {{#if request.query.req_email}}
-                checked 
-              {{/if}}
-              >
-              <label>EMAIL</label>
+                <input type="checkbox" name="req_email"
+                {{#if request.query.req_email}}
+                    checked 
+                {{/if}}
+                >
+                <label>EMAIL</label>
             </div>
         </div>
         <div class="ui fields">
             <div class="ui checkbox six wide column">
-              <input type="checkbox" name="req_phone"
-              {{#if request.query.req_phone}}
-                checked 
-              {{/if}}
-              >
-              <label>PHONE</label>
+                <input type="checkbox" name="req_phone"
+                {{#if request.query.req_phone}}
+                    checked 
+                {{/if}}
+                >
+                <label>PHONE</label>
             </div>
             <div class="ui checkbox six wide column">
-              <input type="checkbox" name="req_salary"
-              {{#if request.query.req_salary}}
-                checked 
-              {{/if}}
-              >
-              <label>SALARY</label>
+                <input type="checkbox" name="req_salary"
+                {{#if request.query.req_salary}}
+                    checked 
+                {{/if}}
+                >
+                <label>SALARY</label>
             </div>
         </div>
-
     </div>
+
+    <div class="item advance_search buttons">
+        <p> ADVANCE SEARCH </p>
+        <div class="field">
+            <input name="headline" placeholder="Job Title" value="{{request.query.headline}}">
+        </div>
+        <div class="field">
+            <input name="fullname" placeholder="Name" value="{{request.query.name}}">
+        </div>
+        <div class="field">
+            <input name="location" placeholder="Location" value="{{request.query.location}}">
+        </div>
+        <div class="field">
+            <input name="company" placeholder="Company" value="{{request.query.company}}">
+        </div>
+        <div class="field">
+            <input name="skills" placeholder="Skills" value="{{request.query.skills}}">
+        </div>
+        <div class="field">
+            <button type="button" class="ui button clear">CLEAR</button>
+        </div>
+    </div>
+
 
     <div class="item buttons">
-    <button type="submit" class="ui button">Search</button>
+      <button type="submit" class="ui button">SEARCH</button>
     </div>
+
     </form> 
     <!--
     <div class="item buttons">
