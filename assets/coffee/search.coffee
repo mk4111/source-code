@@ -1,4 +1,8 @@
 $ ->
+
+  $(".fixed.menu .item.search").click ->
+    $('.ui.sidebar.candidate-search').sidebar('toggle');
+
   if ! $('.ui.sidebar.candidate-search') then return;
 
   sidebar = $('.ui.sidebar.candidate-search').sidebar {
@@ -14,9 +18,6 @@ $ ->
       context: '.pusher'
     })
   ;
-
-  $(".fixed.menu .item.search").click ->
-    $('.ui.sidebar.candidate-search').sidebar('toggle');
 
   saerch_form = sidebar.find("form");
 
