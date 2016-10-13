@@ -35,10 +35,22 @@ $ ->
   saerch_form.find(".advance_search input").each ->
     $(this).keyup enable_search_option
 
+  enable_search_option(); # check which for to enable
+
   saerch_form.find(".advance_search button.clear").click ->
     saerch_form.find(".advance_search input").each ->
       $(this).val "";
     enable_search_option()
     return false; # don't propagate
 
-  enable_search_option(); # check which for to enable
+  connected_to_dropdown = $('.ui.dropdown.connectedto').dropdown {
+    onChange: (f) -> 
+      ;
+  };
+
+  uri = URI(window.location)
+  connected_to = uri.search(true).connected_to
+  if connected_to
+    connected_to_dropdown.dropdown('set selected', connected_to.split(","));
+
+
