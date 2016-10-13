@@ -41,7 +41,7 @@ $(function() {
     enable_search_option();
     return false;
   });
-  connected_to_dropdown = $('.ui.dropdown.connectedto').dropdown({
+  connected_to_dropdown = $('.ui.dropdown.connected_to').dropdown({
     onChange: function(f) {}
   });
   uri = URI(window.location);
