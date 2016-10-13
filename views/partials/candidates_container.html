@@ -1,8 +1,5 @@
-  <div class="ui container">
-
     {{#if stats}}
-    <div class="ui segment">
-    <div class="ui five column grid results-grid">
+    <div class="ui segment five column grid results-grid">
       <div class="ui column">
         <p>{{stats.results}} RESULTS</p>
       </div>
@@ -19,8 +16,9 @@
         <p>{{stats.unconntacted}} UNCONTACTED</p>
       </div>
     </div>
-    </div>
     {{/if}}
+
+  <div class="ui container">
 
 
     <form action="/email" id="emial-form" method="POST">
