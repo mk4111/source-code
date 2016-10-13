@@ -76,7 +76,12 @@
         <div class="field">
             <input name="languages" placeholder="Languages" value="{{request.query.languages}}">
         </div>
-        <button type="button" class="ui button clear">CLEAR</button>
+        <button type="button" class="ui animated button clear">
+            <div class="visible content">CLEAR</div>
+            <div class="hidden content">
+                <i class="erase icon"></i>
+            </div>
+        </button>
     </div>
 
     <div class="item buttons">
