@@ -20,6 +20,7 @@
     "reset-css": "^2.0.2011012603",
     "animate.css": "^3.5.2",
     "semantic": "git@github.com:FAC-GM/source-code-Semantic-UI-build.git#^2.2.4",
-    "urijs": "uri.js#^1.18.2"
+    "urijs": "uri.js#^1.18.2",
+    "animsition": "^4.0.2"
   }
 }
