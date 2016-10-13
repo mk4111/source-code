@@ -20,7 +20,10 @@ div.container.candidate {
     }
 
     .menu .item { cursor: pointer; }
+    // clean up
+    .row.candidate { margin-bottom: 0px; }
     .row.skills { margin-bottom: 0px; }
+
     .candidates-stages-list .row {
       padding: 5px;
       text-transform: uppercase;
