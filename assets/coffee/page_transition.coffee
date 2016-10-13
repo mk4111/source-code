@@ -5,8 +5,8 @@ $ ->
     inDuration: 400,
     outDuration: 200,
     #linkElement: '.animsition-link',
-    linkElement: 'a:not([target="_blank"]):not([href^="#"])'
-    loading: false,
+    linkElement: 'a:not([target="_blank"]):not([href^="#"])',
+    loading: true,
     loadingParentElement: 'body', # animsition wrapper element
     loadingClass: 'animsition-loading',
     loadingInner: '', # e.g '<img src="loading.svg" />'
