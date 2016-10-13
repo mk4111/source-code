@@ -1,4 +1,28 @@
   <div class="ui container">
+
+    {{#if stats}}
+    <div class="ui segment">
+    <div class="ui five column grid results-grid">
+      <div class="ui column">
+        <p>{{stats.results}} RESULTS</p>
+      </div>
+      <div class="ui column">
+        <p>{{stats.with_email}} WITH EMAIL</p>
+      </div>
+      <div class="ui column">
+      <p>{{stats.with_phone}} WITH PHONE</p>
+      </div>
+      <div class="ui column">
+      <p>{{stats.with_resume}} WITH CV</p>
+      </div>
+      <div class="ui column">
+        <p>{{stats.unconntacted}} UNCONTACTED</p>
+      </div>
+    </div>
+    </div>
+    {{/if}}
+
+
     <form action="/email" id="emial-form" method="POST">
     <div class="ui grid candidates-list">
 

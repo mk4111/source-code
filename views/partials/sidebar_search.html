@@ -2,37 +2,7 @@
     <form class="ui form" action="/search" method="GET">
     <div class="item quick_search">
         <div class="ui field">
-            <input type="text" name="q" value="{{q}}" placeholder="Serach...">
-        </div>
-    </div>
-
-    <div class="item buttons">
-        <button type="submit" class="ui animated button">
-            <div class="visible content">SEARCH</div>
-            <div class="hidden content">
-                <i class="search icon"></i>
-            </div>
-            </button>
-      </button>
-    </div>
-
-    <div class="item buttons">
-        <div class="ui buttons horizontal">
-
-            <button type="button" class="ui animated button select_all">
-                <div class="visible content">SELECT ALL</div>
-                <div class="hidden content">
-                    <i class="checkmark box icon"></i>
-                </div>
-            </button>
-
-            <button type="button" class="ui animated button send_email">
-                <div class="visible content">EMAIL</div>
-                <div class="hidden content">
-                    <i class="send icon"></i>
-                </div>
-            </button>
-
+            <input type="text" name="q" value="{{q}}" placeholder="Search...">
         </div>
     </div>
 
@@ -81,7 +51,7 @@
                     checked 
                 {{/if}}
                 >
-                <label>SENT APPLICATION</label>
+                <label>WEBSITE APPLICANT</label>
             </div>
         </div>
     </div>
@@ -106,9 +76,36 @@
         <div class="field">
             <input name="languages" placeholder="Languages" value="{{request.query.languages}}">
         </div>
-        <div class="field">
-            <button type="button" class="ui button clear">CLEAR</button>
+        <button type="button" class="ui button clear">CLEAR</button>
+    </div>
+
+    <div class="item buttons">
+        <div class="ui buttons horizontal">
+
+            <button type="button" class="ui animated button select_all">
+                <div class="visible content">SELECT ALL</div>
+                <div class="hidden content">
+                    <i class="checkmark box icon"></i>
+                </div>
+            </button>
+
+            <button type="button" class="ui animated button send_email">
+                <div class="visible content">EMAIL</div>
+                <div class="hidden content">
+                    <i class="send icon"></i>
+                </div>
+            </button>
+
         </div>
+    </div>
+    <div class="item buttons">
+        <button type="submit" class="ui animated button">
+            <div class="visible content">SEARCH</div>
+            <div class="hidden content">
+                <i class="search icon"></i>
+            </div>
+            </button>
+      </button>
     </div>
 
     <div class="item">
