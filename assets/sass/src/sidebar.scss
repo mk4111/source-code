@@ -32,6 +32,16 @@ $SIDEBAR_WIDTH: 260px; // defautl semantic-ui value
 }
 
 .pusher.search_content {
+
+    .results-grid {
+        div.ui.column {
+            text-align: center;
+            p { 
+                font-weight: bold;
+                font-family: 'blenderpro' !important;
+            }
+        }
+    }
     div.home {
         div.row.filters {
             display: none;
