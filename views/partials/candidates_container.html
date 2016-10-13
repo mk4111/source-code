@@ -1,27 +1,5 @@
-
   <div class="ui container">
-    <form action="/email" method="POST">
-    <div class="ui grid">
-      <div class="ui row filters">
-
-        <div class="twelve wide column">
-          <div class="ui checkbox">
-            <input type="checkbox" name="example"  id="select-all">
-            <label>Select All</label>
-          </div>
-        </div>
-
-        <div class="four wide column send-email">
-          <button id="send-email" type="submit" class="ui animated button">
-            <div class="visible content">Send Email</div>
-            <div class="hidden content">
-              <i class="send icon"></i>
-            </div>
-          </button>
-        </div>
-
-      </div>
-    </div>
+    <form action="/email" id="emial-form" method="POST">
     <div class="ui grid candidates-list">
 
       {{#each candidates}}
@@ -33,7 +11,7 @@
       </div>
 
     </div>
-    <input type="hidden" class="pathUrl" name="pathUrl" value="{{pathUrl}}">
+    <input type="hidden" class="pathUrl" name="pathUrl" value="{{request.url.path}}">
     </form>
 
   </div>

@@ -26,4 +26,9 @@ Gulp.task('bower-files', function() {
         './bower_components/reset-css/reset.css',
     ])
     .pipe(Gulp.dest('./assets/vendor/'));
+
+    Gulp.src([
+        './bower_components/urijs/src/URI.min.js',
+    ])
+    .pipe(Gulp.dest('./assets/vendor/'));
 });

@@ -318,14 +318,18 @@ form.sendmail .email-form div.button-wrap {
     font-family: 'blenderpro' !important; }
   .ui.sidebar.candidate-search.visible {
     z-index: 3; }
-  .ui.sidebar.candidate-search .item {
+  .ui.sidebar.candidate-search .ui.form .item {
     padding: 10px; }
-    .ui.sidebar.candidate-search .item > p {
+    .ui.sidebar.candidate-search .ui.form .item.quick_search .field {
+      margin: 0; }
+    .ui.sidebar.candidate-search .ui.form .item > p {
       font-weight: bold; }
-    .ui.sidebar.candidate-search .item .ui.checkbox {
+    .ui.sidebar.candidate-search .ui.form .item .ui.checkbox {
       min-width: 40%; }
-    .ui.sidebar.candidate-search .item.buttons, .ui.sidebar.candidate-search .item p {
+    .ui.sidebar.candidate-search .ui.form .item.buttons, .ui.sidebar.candidate-search .ui.form .item p {
       text-align: center; }
+    .ui.sidebar.candidate-search .ui.form .item .field, .ui.sidebar.candidate-search .ui.form .item .fields {
+      margin: 0 0 0.7em; }
 
 .pusher.search_content div.home div.row.filters {
   display: none; }
