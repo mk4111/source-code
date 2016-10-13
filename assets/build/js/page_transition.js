@@ -2,7 +2,7 @@ $(function() {
   return $(".animsition").animsition({
     inClass: 'fade-in',
     outClass: 'fade-out',
-    inDuration: 500,
+    inDuration: 400,
     outDuration: 200,
     linkElement: 'a:not([target="_blank"]):not([href^="#"])',
     loading: false,
