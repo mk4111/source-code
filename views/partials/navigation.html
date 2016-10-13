@@ -14,30 +14,32 @@
 
     {{#if search}}
     
-    <a class="ui item search">
+    <{{dom}} class="ui item search {{css}}" href="{{url}}">
       <i class="search icon"></i>
-    </a>
+    </{{dom}}>
 
-    <div class="ui popup search-form">
-      <form class="ui form" id="search-form" action="/query">
-        <div class="field">
-        <input name="job" placeholder="Job Title" value="{{../headlineValue}}">
-        </div>
-        <div class="field">
-        <input name="fullname" placeholder="Name" value="{{../fullnameValue}}">
-        </div>
-        <div class="field">
-        <input name="location" placeholder="Location" value="{{../locationValue}}">
-        </div>
-        <div class="field">
-        <input name="current" placeholder="Company" value="{{../currentValue}}">
-        </div>
-        <div class="field">
-        <input name="skills" placeholder="Skills" value="{{../skillsValue}}">
-        </div>
-        <button type="submit" class="ui button">Search</button>
-      </form>
-    </div>
+    {{#if false}}
+      <div class="ui popup search-form">
+        <form class="ui form" id="search-form" action="/query">
+          <div class="field">
+          <input name="headline" placeholder="Job Title" value="{{../headlineValue}}">
+          </div>
+          <div class="field">
+          <input name="fullname" placeholder="Name" value="{{../fullnameValue}}">
+          </div>
+          <div class="field">
+          <input name="location" placeholder="Location" value="{{../locationValue}}">
+          </div>
+          <div class="field">
+          <input name="current" placeholder="Company" value="{{../currentValue}}">
+          </div>
+          <div class="field">
+          <input name="skills" placeholder="Skills" value="{{../skillsValue}}">
+          </div>
+          <button type="submit" class="ui button">Search</button>
+        </form>
+      </div>
+    {{/if}}
 
     {{/if}}
 
@@ -68,14 +70,14 @@
     {{#unless search}}
     {{#unless admin}}
     {{#unless user}}
-      <a class="item {{css}}" href="{{url}}">
+      <{{dom}} class="item {{css}}" href="{{url}}">
         {{#if img}}
           <img src="{{img}}" class="{{img_css}}">
         {{/if}}
         {{#if name}}
           {{name}}
         {{/if}}
-      </a>
+      </{{dom}}>
     {{/unless}}
     {{/unless}}
     {{/unless}}

@@ -1,0 +1,54 @@
+$SIDEBAR_WIDTH: 260px; // defautl semantic-ui value
+
+.ui.sidebar.candidate-search ~ .pusher {
+    @include transition(margin 0.5s);
+}
+
+.ui.sidebar.candidate-search.visible ~ .pusher {
+    width: calc(100% - 260px);
+}
+
+.ui.sidebar.candidate-search {
+    background-color: $LIGHT_GREY;
+    &, & input, & button { font-family: 'blenderpro' !important; }
+    &.visible { z-index: 3; }// I don't think this one should be deinfe explicit
+    padding-top: 50px;
+    .ui.form {
+        .item {
+            &.quick_search {
+                .field { margin: 0; }
+            }
+            padding: 10px;
+            > p { font-weight: bold; }
+            .ui.checkbox { min-width: 40%; }
+            &.buttons, p {
+                text-align: center;
+            }
+            .field, .fields {
+                margin: 0 0 0.7em;
+            }
+        }
+    }
+}
+
+.pusher.search_content {
+    div.ui.container { margin-top: 0px !important; }
+    .results-grid {
+        margin-top: 3rem;
+        div.ui.column {
+            padding-top: .8rem;
+            padding-bottom: .8rem;
+            text-align: center;
+            p { 
+                font-weight: bold;
+                font-family: 'blenderpro' !important;
+            }
+        }
+    }
+    // @TOO: remove it, not needed any mores
+    div.home {
+        div.row.filters {
+            display: none;
+        }
+    }
+}

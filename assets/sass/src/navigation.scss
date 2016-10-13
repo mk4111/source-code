@@ -4,6 +4,7 @@
         &:before { display: none !important; }
     }
     a.item { font-family: 'blenderpro' }
+    div.item.search { cursor: pointer; } // always hoverable
 }
 
 .popup.search-form {

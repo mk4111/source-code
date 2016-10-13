@@ -1,0 +1,39 @@
+    {{#if stats}}
+    <div class="ui segment five column grid results-grid">
+      <div class="ui column">
+        <p>{{stats.results}} RESULTS</p>
+      </div>
+      <div class="ui column">
+        <p>{{stats.with_email}} WITH EMAIL</p>
+      </div>
+      <div class="ui column">
+      <p>{{stats.with_phone}} WITH PHONE</p>
+      </div>
+      <div class="ui column">
+      <p>{{stats.with_resume}} WITH CV</p>
+      </div>
+      <div class="ui column">
+        <p>{{stats.unconntacted}} UNCONTACTED</p>
+      </div>
+    </div>
+    {{/if}}
+
+  <div class="ui container">
+
+
+    <form action="/email" id="emial-form" method="POST">
+    <div class="ui grid candidates-list">
+
+      {{#each candidates}}
+          {{>candidate candidate=this clients=../clients stages=../stages extended=false}}
+      {{/each}}
+
+      <div class="row pagination">
+        {{>pagination}}
+      </div>
+
+    </div>
+    <input type="hidden" class="pathUrl" name="pathUrl" value="{{request.url.path}}">
+    </form>
+
+  </div>
