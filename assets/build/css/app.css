@@ -171,8 +171,6 @@ div.home div.row.filters {
 div.candidates-list div.row.candidate {
   margin-bottom: 1rem;
   margin-top: 2rem; }
-  div.candidates-list div.row.candidate:first-child {
-    margin-top: 0.5rem; }
   div.candidates-list div.row.candidate .stickers {
     bottom: 8px;
     right: 20px; }
@@ -232,6 +230,9 @@ div.container.candidate div.grid.action-buttons {
 
 div.container.candidate .menu .item {
   cursor: pointer; }
+
+div.container.candidate div.row.candidate {
+  margin-top: 0px; }
 
 div.container.candidate .row.skills {
   margin-bottom: 0px; }
@@ -331,11 +332,18 @@ form.sendmail .email-form div.button-wrap {
     .ui.sidebar.candidate-search .ui.form .item .field, .ui.sidebar.candidate-search .ui.form .item .fields {
       margin: 0 0 0.7em; }
 
-.pusher.search_content .results-grid div.ui.column {
-  text-align: center; }
-  .pusher.search_content .results-grid div.ui.column p {
-    font-weight: bold;
-    font-family: 'blenderpro' !important; }
+.pusher.search_content div.ui.container {
+  margin-top: 0px !important; }
+
+.pusher.search_content .results-grid {
+  margin-top: 3rem; }
+  .pusher.search_content .results-grid div.ui.column {
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+    text-align: center; }
+    .pusher.search_content .results-grid div.ui.column p {
+      font-weight: bold;
+      font-family: 'blenderpro' !important; }
 
 .pusher.search_content div.home div.row.filters {
   display: none; }
