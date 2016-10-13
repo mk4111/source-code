@@ -32,9 +32,12 @@ $SIDEBAR_WIDTH: 260px; // defautl semantic-ui value
 }
 
 .pusher.search_content {
-
+    div.ui.container { margin-top: 0px !important; }
     .results-grid {
+        margin-top: 3rem;
         div.ui.column {
+            padding-top: .8rem;
+            padding-bottom: .8rem;
             text-align: center;
             p { 
                 font-weight: bold;
@@ -42,6 +45,7 @@ $SIDEBAR_WIDTH: 260px; // defautl semantic-ui value
             }
         }
     }
+    // @TOO: remove it, not needed any mores
     div.home {
         div.row.filters {
             display: none;
