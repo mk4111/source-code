@@ -171,6 +171,8 @@ div.home div.row.filters {
 div.candidates-list div.row.candidate {
   margin-bottom: 1rem;
   margin-top: 2rem; }
+  div.candidates-list div.row.candidate:first-child {
+    margin-top: 0; }
   div.candidates-list div.row.candidate .stickers {
     bottom: 8px;
     right: 20px; }
@@ -205,9 +207,6 @@ div.candidates-list div.row.skills {
     div.candidates-list div.row.skills div.column.matched {
       color: #21BA45; }
 
-div.home {
-  padding-bottom: 20px; }
-
 div.container.candidate div.grid.action-buttons {
   margin-top: 20px;
   margin-bottom: 10px; }
@@ -230,9 +229,6 @@ div.container.candidate div.grid.action-buttons {
 
 div.container.candidate .menu .item {
   cursor: pointer; }
-
-div.container.candidate div.row.candidate {
-  margin-top: 0px; }
 
 div.container.candidate .row.skills {
   margin-bottom: 0px; }
