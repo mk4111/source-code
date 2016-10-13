@@ -53,4 +53,12 @@ $ ->
   if connected_to
     connected_to_dropdown.dropdown('set selected', connected_to.split(","));
 
+  $("button.select_all").click ->
+    $(".checkbox input[name='email']").prop('checked', true);
+    $(this).focusout();
+    $(this).blur();
+    return false;
 
+  $("button.send_email").click ->
+    $("form#emial-form").submit();
+    return false;
