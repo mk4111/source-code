@@ -43,7 +43,7 @@ $ ->
     enable_search_option()
     return false; # don't propagate
 
-  connected_to_dropdown = $('.ui.dropdown.connectedto').dropdown {
+  connected_to_dropdown = $('.ui.dropdown.connected_to').dropdown {
     onChange: (f) -> 
       ;
   };
