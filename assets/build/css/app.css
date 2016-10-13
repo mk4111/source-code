@@ -169,8 +169,8 @@ div.home div.row.filters {
     display: inline-block; }
 
 div.candidates-list div.row.candidate {
-  margin-bottom: 1rem;
-  margin-top: 2rem; }
+  margin-bottom: .25rem;
+  margin-top: .75rem; }
   div.candidates-list div.row.candidate:first-child {
     margin-top: 0; }
   div.candidates-list div.row.candidate .stickers {
@@ -230,6 +230,9 @@ div.container.candidate div.grid.action-buttons {
 div.container.candidate .menu .item {
   cursor: pointer; }
 
+div.container.candidate .row.candidate {
+  margin-bottom: 0px; }
+
 div.container.candidate .row.skills {
   margin-bottom: 0px; }
 
@@ -276,18 +279,18 @@ form.sendmail .email-form div.subject {
 form.sendmail .email-form div.button-wrap {
   text-align: right; }
 
-#navbar img {
+#navbar.ui.menu.fixed img {
   width: 28px; }
 
-#navbar .item {
+#navbar.ui.menu.fixed .item {
   padding: 0; }
-  #navbar .item:before {
+  #navbar.ui.menu.fixed .item:before {
     display: none !important; }
 
-#navbar a.item {
+#navbar.ui.menu.fixed a.item {
   font-family: 'blenderpro'; }
 
-#navbar div.item.search {
+#navbar.ui.menu.fixed div.item.search {
   cursor: pointer; }
 
 .popup.search-form input {
