@@ -3,37 +3,35 @@
 
 <div class="ui grid email-form">
 
-  <div class="row">
-    <div class="two wide column">
-      <img class="ui small circular image" src="/assets/img/team/{{user.idGoogle}}.jpg" onerror="this.src='/assets/img/client-logo.png'"/>
+    <div class="row">
+        <div class="two wide column">
+            <img class="ui small circular image" src="/assets/img/team/{{request.auth.credentials.user.idGoogle}}.jpg" onerror="this.src='/assets/img/client-logo.png'"/>
+        </div>
+        <div class="four wide column">
+            {{#if false}}
+                <p>{{request.auth.credentials.user.names.firstname}}</p>
+            {{/if}}
+            <ul>
+                {{>email_form_candidate}}
+            </ul>
+        </div>
+        <div class="ten wide column">
+            <div class="ui input subject"> <input type="text" name="subject" placeholder="Subject"/> </div>
+            <textarea name="message" placeholder="Message" cols="10" rows="10">Hi {name},</textarea>
+            <input hidden name="fn" value="{{request.auth.credentials.user.names.fullname}}">
+            <input hidden name="firstname" value="{{request.auth.credentials.user.names.firstname}}">
+            <input hidden name="role" value="{{request.auth.credentials.user.role}}">
+            <input hidden name="office" value="{{request.auth.credentials.user.phones.office}}">
+            <input hidden name="mobile" value="{{request.auth.credentials.user.phones.mobile}}">
+            <input hidden name="linkedin" value="{{request.auth.credentials.user.linkedin}}">
+            <input hidden name="signature" value='{{> email_signature}}'>
+            <div class="signature"> {{> email_signature}} </div>
+            <input type="hidden" name="pathUrl" value="{{pathUrl}}">
+            <div class="button-wrap">
+            <button class="ui button" type="submit">Send</button>
+            </div>
+        </div>
     </div>
-
-      <div class="four wide column">
-        {{#if false}}
-          <p>{{user.names.firstname}}</p>
-        {{/if}}
-        <ul>
-          {{emailsHelper emails}}
-        </ul>
-      </div>
-      <div class="ten wide column">
-          <div class="ui input subject"> <input type="text" name="subject" placeholder="Subject"/> </div>
-          <textarea name="message" placeholder="Message" cols="10" rows="10">Hi {name},</textarea>
-          <input hidden name="fn" value="{{user.names.fullname}}">
-          <input hidden name="firstname" value="{{user.names.firstname}}">
-          <input hidden name="role" value="{{user.role}}">
-          <input hidden name="office" value="{{user.phones.office}}">
-          <input hidden name="mobile" value="{{user.phones.mobile}}">
-          <input hidden name="linkedin" value="{{user.linkedin}}">
-          <input hidden name="signature" value='{{> email_signature}}'>
-          <div class="signature"> {{> email_signature}} </div>
-          <input type="hidden" name="pathUrl" value="{{pathUrl}}">
-          <div class="button-wrap">
-          <button class="ui button" type="submit">Send</button>
-          </div>
-      </div>
-  </div>
-
 
 </div>
 
