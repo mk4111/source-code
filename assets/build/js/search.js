@@ -1,5 +1,5 @@
 $(function() {
-  var button, connected_to_dropdown, enable_email_button, enable_search_option, modal, saerch_form, sidebar;
+  var connected_to_dropdown, email_button, enable_email_button, enable_search_option, modal, saerch_form, select_button, sidebar;
   $(".fixed.menu .item.search").click(function() {
     return $('.ui.sidebar.candidate-search').sidebar('toggle');
   });
@@ -44,38 +44,47 @@ $(function() {
   connected_to_dropdown = $('.ui.dropdown.connected_to').dropdown({
     onChange: function(f) {}
   });
-  button = sidebar.find("button.send_email");
+  email_button = sidebar.find("button.send_email");
+  select_button = sidebar.find("button.select_all");
   enable_email_button = function() {
     if ($(".checkbox input[name='email']:checked").length) {
-      return button.removeClass("disabled");
+      email_button.removeClass("disabled");
+      select_button.find(".positive").hide();
+      return select_button.find(".negative").show();
     } else {
-      return button.addClass("disabled");
+      email_button.addClass("disabled");
+      select_button.find(".positive").show();
+      return select_button.find(".negative").hide();
     }
   };
   enable_email_button();
   $(".checkbox input[name='email']").change(enable_email_button);
-  sidebar.find("button.select_all").click(function() {
-    $(".checkbox input[name='email']").prop('checked', true);
+  select_button.click(function() {
+    if ($(".checkbox input[name='email']:checked").length) {
+      $(".checkbox input[name='email']").prop('checked', false);
+    } else {
+      $(".checkbox input[name='email']").prop('checked', true);
+    }
     enable_email_button();
     $(this).focusout();
     $(this).blur();
     return false;
   });
-  if (button.val()) {
-    modal = sidebar.find(".modal." + button.val());
+  if (email_button.val()) {
+    modal = sidebar.find(".modal." + email_button.val());
     modal.find(".actions button").click(function() {
       return modal.find("form.sendmail").submit();
     });
-    return button.click(function() {
+    return email_button.click(function() {
       var result_list;
-      modal.find("ul").html("");
+      modal.find(".row.emails").html("");
       result_list = "";
       $(".checkbox input[name='email']:checked").each(function() {
         var checkbox;
         checkbox = $(this);
         return result_list += checkbox.parent().find(".email-details").html();
       });
-      modal.find("ul").html(result_list);
+      modal.find(".row.emails").html(result_list);
       modal.modal('show');
       $(this).focusout();
       $(this).blur();
