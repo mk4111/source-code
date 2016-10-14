@@ -2,7 +2,6 @@
 
 {{#unless extended}}
 <div class="one wide column">
-{{#if false}}
 {{#unless candidate.blacklisted}}
     {{#if candidate.email}}
         {{#unless (dateWithin candidate.lastEmail.timestamp 'month' -1) }}
@@ -24,7 +23,6 @@
         {{/unless}}
     {{/if}}
 {{/unless}}
-{{/if}}
 </div>
 {{/unless}}
 
