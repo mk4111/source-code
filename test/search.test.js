@@ -11,13 +11,13 @@ var expect = Code.expect;
 var it = lab.test
 var token =  JWT.sign({ id: 12, "name": "Simon", valid: true}, process.env.JWT_SECRET);
 
-describe('/query', function () {
+describe('/search', function () {
 
   it('attempt to access search page without being authenticated', function (done) {
 
     Server.init(0, function (err, server) {
       expect(err).to.not.exist();
-      server.inject('/query', function (res) {
+      server.inject('/search', function (res) {
         expect(res.statusCode).to.equal(302);
         server.stop(done);
       });
@@ -31,12 +31,12 @@ describe('return a search results, when user is authenticated: Search for Nick a
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
-      server.inject({url: '/query/1?job=&fullname=Nick&location=&current=&skills=', headers: { cookie: "token=" + token }}, function (res) {
+      server.inject({url: '/search/1?headline=&fullname=Nick&location=&company=&skills=', headers: { cookie: "token=" + token }}, function (res) {
         expect(res.statusCode).to.equal(200);
         //we should only have one result
         var $ = cheerio.load(res.payload);
         expect($('.candidates-list').length).to.equal(1);
-        expect($('.pathUrl')['0'].attribs.value).to.equal("/query/1?job=&fullname=Nick&location=&current=&skills=");
+        expect($('.pathUrl')['0'].attribs.value).to.equal("/search/1?headline=&fullname=Nick&location=&company=&skills=");
         server.stop(done);
       });
     });
@@ -49,7 +49,7 @@ describe('return a search results, when user is authenticated: Search for Nick w
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
-      server.inject({url: '/query/1?job=&fullname=Nick&location=&current=&skills=Smart%2C+javascript', headers: { cookie: "token=" + token }}, function (res) {
+      server.inject({url: '/search/1?headline=&fullname=Nick&location=&company=&skills=Smart%2C+javascript', headers: { cookie: "token=" + token }}, function (res) {
         expect(res.statusCode).to.equal(200);
         //we should only have one result
         var $ = cheerio.load(res.payload);
@@ -66,7 +66,7 @@ describe('return a search results, when user is authenticated: Search for Nick w
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
-      server.inject({url: '/query/1?job=&fullname=Nick&location=&current=&skills=smart%2C+wrongskill', headers: { cookie: "token=" + token }}, function (res) {
+      server.inject({url: '/search/1?headline=&fullname=Nick&location=&company=&skills=smart%2C+wrongskill', headers: { cookie: "token=" + token }}, function (res) {
         expect(res.statusCode).to.equal(200);
         //we should only have one result
         var $ = cheerio.load(res.payload);
@@ -83,7 +83,7 @@ describe('Silly search: return 0 results', function () {
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
-      server.inject({url: '/query/1?job=kungfumaster&fullname=chuck&location=heaven&current=&skills=', headers: { cookie: "token=" + token }}, function (res) {
+      server.inject({url: '/search/1?headline=kungfumaster&fullname=chuck&location=heaven&company=&skills=', headers: { cookie: "token=" + token }}, function (res) {
         expect(res.statusCode).to.equal(200);
         //we should only have one result
         var $ = cheerio.load(res.payload);
@@ -100,7 +100,7 @@ describe('return a search results, when user is authenticated and with no precis
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
-      server.inject({url: '/query?job=javascript&fullname=Anita&location=London&current=&skills=', headers: { cookie: "token=" + token }}, function (res) {
+      server.inject({url: '/search?headline=javascript&fullname=Anita&location=London&company=&skills=', headers: { cookie: "token=" + token }}, function (res) {
         expect(res.statusCode).to.equal(200);
         server.stop(done);
       });
@@ -108,33 +108,20 @@ describe('return a search results, when user is authenticated and with no precis
   });
 });
 
-describe('attempt to access a search page with wrong page parameter and return 404', function () {
-  it('returns 404', function (done) {
+describe('attempt to access a search page with wrong page parameter', function () {
+  it('redirects', function (done) {
 
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
-      server.inject({url: '/query/wrongNumber?job=javascript&fullname=Anita&location=London&current=&skills=', headers: { cookie: "token=" + token }}, function (res) {
-        expect(res.statusCode).to.equal(404);
-        server.stop(done);
-      });
-    });
-  });
-});
-
-describe('attempt to access a search page with page number < 1', function () {
-  it('redirect to home page', function (done) {
-
-    Server.init(0, function (err, server) {
-
-      expect(err).to.not.exist();
-      server.inject({url: '/query/-1?job=javascript&fullname=Anita&location=London&current=&skills=', headers: { cookie: "token=" + token }}, function (res) {
+      server.inject({url: '/search/wrongNumber?headline=javascript&fullname=Anita&location=London&company=&skills=', headers: { cookie: "token=" + token }}, function (res) {
         expect(res.statusCode).to.equal(302);
         server.stop(done);
       });
     });
   });
 });
+
 
 describe('search only with specified location', function () {
   it('returns search results', function (done) {
@@ -142,7 +129,7 @@ describe('search only with specified location', function () {
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
-      server.inject({url: '/query/1?job=&fullname=&location=London&current=&skills=', headers: { cookie: "token=" + token }}, function (res) {
+      server.inject({url: '/search/1?headline=&fullname=&location=London&company=&skills=', headers: { cookie: "token=" + token }}, function (res) {
         expect(res.statusCode).to.equal(200);
         server.stop(done);
       });
@@ -150,13 +137,13 @@ describe('search only with specified location', function () {
   });
 });
 
-describe('search with job, fullname, empty location and empty company', function () {
+describe('search with headline, fullname, empty location and empty company', function () {
   it('returns search results', function (done) {
 
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
-      server.inject({url: '/query/1?job=developer&fullname=Anita&location=&current=&skills=', headers: { cookie: "token=" + token }}, function (res) {
+      server.inject({url: '/search/1?headline=developer&fullname=Anita&location=&company=&skills=', headers: { cookie: "token=" + token }}, function (res) {
         expect(res.statusCode).to.equal(200);
         server.stop(done);
       });
@@ -164,20 +151,6 @@ describe('search with job, fullname, empty location and empty company', function
   });
 });
 
-
-describe('attempt to search with empty job, empty fullname and empty location and empty company and redirect to home page', function () {
-  it('redirect  to home page', function (done) {
-
-    Server.init(0, function (err, server) {
-
-      expect(err).to.not.exist();
-      server.inject({url: '/query/1?job=&fullname=&location=&current=&skills=', headers: { cookie: "token=" + token }}, function (res) {
-        expect(res.statusCode).to.equal(302);
-        server.stop(done);
-      });
-    });
-  });
-});
 
 describe('search for candidate who is in my favourite list', function () {
 
@@ -187,7 +160,7 @@ describe('search for candidate who is in my favourite list', function () {
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
-      server.inject({url: '/query/1?job=&fullname=Oba&location=&current=&skills=', headers: { cookie: "token=" + tokenSimon }}, function (res) {
+      server.inject({url: '/search/1?headline=&fullname=Oba&location=&company=&skills=', headers: { cookie: "token=" + tokenSimon }}, function (res) {
         expect(res.statusCode).to.equal(200);
         server.stop(done);
       });
@@ -203,7 +176,7 @@ describe('search for candidate who is NOT in my favourite list', function () {
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
-      server.inject({url: '/query/1?job=&fullname=Manuel&location=&current=&skills=', headers: { cookie: "token=" + tokenSimon }}, function (res) {
+      server.inject({url: '/search/1?headline=&fullname=Manuel&location=&company=&skills=', headers: { cookie: "token=" + tokenSimon }}, function (res) {
         expect(res.statusCode).to.equal(200);
         server.stop(done);
       });
@@ -218,7 +191,7 @@ describe('search for candidate who doesn\'t have fullname' , function () {
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
-      server.inject({url: '/query/1?job=&fullname=&location=Bordeaux&current=&skills=', headers: { cookie: "token=" + token }}, function (res) {
+      server.inject({url: '/search/1?headline=&fullname=&location=Bordeaux&company=&skills=', headers: { cookie: "token=" + token }}, function (res) {
         expect(res.statusCode).to.equal(200);
         server.stop(done);
       });
@@ -233,7 +206,7 @@ describe('search for candidate with specified company name' , function () {
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
-      server.inject({url: '/query/1?job=&fullname=&location=&current=Fawlty Hotel&skills=', headers: { cookie: "token=" + token }}, function (res) {
+      server.inject({url: '/search/1?headline=&fullname=&location=&company=Fawlty Hotel&skills=', headers: { cookie: "token=" + token }}, function (res) {
         expect(res.statusCode).to.equal(200);
         server.stop(done);
       });
@@ -241,20 +214,6 @@ describe('search for candidate with specified company name' , function () {
   });
 });
 
-describe('attempt to access search page when a number page is too big' , function () {
-
-  it('redirect to home page', function (done) {
-
-    Server.init(0, function (err, server) {
-
-      expect(err).to.not.exist();
-      server.inject({url: '/query/790?job=&fullname=&location=Bordeaux&current=&skills=', headers: { cookie: "token=" + token }}, function (res) {
-        expect(res.statusCode).to.equal(302);
-        server.stop(done);
-      });
-    });
-  });
-});
 
 describe('return multiple results' , function () {
 
@@ -264,7 +223,7 @@ describe('return multiple results' , function () {
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
-      server.inject({url: '/query/1?job=&fullname=&location=Barcelona&current=&skills=', headers: { cookie: "token=" + token }}, function (res) {
+      server.inject({url: '/search/1?headline=&fullname=&location=Barcelona&company=&skills=', headers: { cookie: "token=" + token }}, function (res) {
         expect(res.statusCode).to.equal(200);
         process.env.RESULTS_PER_PAGE = numbersPerPage;
         server.stop(done);
@@ -281,7 +240,7 @@ describe('return multiple results on specific page 2' , function () {
     Server.init(0, function (err, server) {
 
       expect(err).to.not.exist();
-      server.inject({url: '/query/2?job=&fullname=&location=Barcelona&current=&skills=', headers: { cookie: "token=" + token }}, function (res) {
+      server.inject({url: '/search/2?headline=&fullname=&location=Barcelona&company=&skills=', headers: { cookie: "token=" + token }}, function (res) {
         expect(res.statusCode).to.equal(200);
         process.env.RESULTS_PER_PAGE = numbersPerPage;
         server.stop(done);
