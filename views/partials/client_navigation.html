@@ -2,7 +2,7 @@
   <section class="cl-nav">
     <a class="cl-image" href="/client-dashboard"><img src="/assets/img/globalM-sm.png" alt="Global-{M}"/></a>
     <p>Client Name - {{client.name}}</p>
-    <p>Client Since - {{#if client.createdAt}}<span>{{timestamp_to_date client.createdAt}}</span>{{/if}}</p>
+    <p>Client Since - {{#if client.createdAt}}<span>{{client.createdAt}}</span>{{/if}}</p>
     <p>Account Manager - <span>{{owner.names.fullname}}</span></p>
     <a href="mailto:{{owner.email}}"><img src="{{owner.image}}" alt="" title="{{owner.email}}" /></a>
   </section>

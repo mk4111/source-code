@@ -25,20 +25,19 @@
     <label>Role:</label>
     <input type="text" name="role" value="{{user.role}}">
     <p class="active-inactive">
-     <label for="active user"></label>
-     {{activeCheckbox user.active}}
+    <label for="active user"></label>
+    <input type="checkbox" name="active" {{#if user.active}} checked {{/if}} > 
+     Active 
+     <br/>
+
     </p>
     <p class="active-inactive">
      <label for="Admin user"></label>
-     {{adminCheckbox user.admin}}
+     <input type="checkbox" name="admin" {{#if user.admin}} checked {{/if}} > Admin <br/>
     </p>
     <p class="active-inactive">
      <label for="recruiter user"></label>
-        {{#if user.recruiter}}
-            <input type="checkbox" name="recruiter" checked="{{user.recruiter}}"> Recruiter <br/>
-       {{else}}
-            <input type="checkbox" name="recruiter" > Recruiter <br/>
-       {{/if}}
+      <input type="checkbox" name="recruiter"  {{#if user.recruiter}} checked {{/if}} > Recruiter <br/>
     </p>
 
     <button type="submit">Save</button>
