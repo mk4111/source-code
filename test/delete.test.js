@@ -36,7 +36,7 @@ describe('delete a user', function () {
     var token =  JWT.sign({ id: 12, "name": "Simon", valid: true}, process.env.JWT_SECRET);
     var options = {
       method: "GET",
-      url: "/query?job=&fullname=manuel&location=&current=&skills=&page=&totalPages=",
+      url: "/search?headline=&fullname=manuel&location=&company=&skills=",
       headers: { cookie: "token=" + token }
     };
     Server.init(0, function (err, server) {
@@ -75,7 +75,7 @@ describe('delete a user', function () {
       var token =  JWT.sign({ id: 12, "name": "Simon", valid: true}, process.env.JWT_SECRET);
       var options = {
         method: "GET",
-        url: "/query?job=&fullname=manuel&location=&current=&skills=&page=&totalPages=",
+        url: "/search?headline=&fullname=manuel&location=&company=&skills=",
         headers: { cookie: "token=" + token }
       };
       Server.init(0, function (err, server) {

@@ -1,8 +1,8 @@
 <div class="ui left sidebar vertical menu visible candidate-search">
     <form class="ui form" action="/search" method="GET">
-    <div class="item quick_search">
+    <div class="item {{q}}uick_search">
         <div class="ui field">
-            <input type="text" name="q" value="{{q}}" placeholder="Search...">
+            <input type="text" name="q" value="{{request.query.q}}" placeholder="Search...">
         </div>
     </div>
 

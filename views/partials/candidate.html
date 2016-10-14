@@ -2,11 +2,6 @@
 
 {{#unless extended}}
 <div class="one wide column">
-{{#unless candidate.blacklisted}}
-    {{#if candidate.email}}
-        {{#unless (dateWithin candidate.lastEmail.timestamp 'month' -1) }}
-            {{#unless (countStages candidate.stages "1,2,3,4,5" )}}
-                {{#unless candidate.clientProfile}}
                     <div class="center-vertical-wrap">
                         <div class="center-vertical">
                             <div class="ui checkbox">
@@ -18,11 +13,6 @@
                             </div>
                         </div>
                     </div>
-                {{/unless}}
-            {{/unless}}
-        {{/unless}}
-    {{/if}}
-{{/unless}}
 </div>
 {{/unless}}
 
@@ -201,7 +191,7 @@
     {{# if candidate.connectedTo.length }}
     {{#each candidate.connectedTo}}
             {{#if this}}
-                <a href="/connected/{{encodeKeywordsHelper this}}"><b>{{initials_of_connected_users this}}</b></a>
+                <span><b>{{initials_of_connected_users this}}</b></span>
             {{/if}}
     {{/each}}
     {{else}}
