@@ -279,6 +279,11 @@ form.sendmail .email-form div.subject {
 form.sendmail .email-form div.button-wrap {
   text-align: right; }
 
+form.sendmail .row.emails {
+  padding: 1rem 1.5rem; }
+  form.sendmail .row.emails .emails-comma:last-child {
+    display: none; }
+
 #navbar.ui.menu.fixed img {
   width: 28px; }
 
