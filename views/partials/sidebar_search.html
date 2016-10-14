@@ -88,19 +88,23 @@
         <div class="ui buttons horizontal">
 
             <button type="button" class="ui animated button select_all">
-                <div class="visible content">SELECT ALL</div>
+                <div class="visible content positive">SELECT ALL</div>
+                <div class="visible content negative" style="display:none;">DESELECT ALL</div>
                 <div class="hidden content">
-                    <i class="checkmark box icon"></i>
+                    <i class="checkmark box icon positive"></i>
+                    <i class="minus square outline icon negative" style="display:none;"></i>
                 </div>
             </button>
-
-            <button type="button" class="ui animated button send_email">
+            <button type="button" class="ui button send_email disabled" value="sendemail">EMAIL</button>
+            <!-- animated doesn't work well with disabled class -->
+            <!--
+            <button type="button" class="ui animated button send_email disabled" value="sendemail">
                 <div class="visible content">EMAIL</div>
                 <div class="hidden content">
                     <i class="send icon"></i>
                 </div>
             </button>
-
+            -->
         </div>
     </div>
     <div class="item buttons">
@@ -134,5 +138,7 @@
       </div>
     </div>
 
-    </form>     
+    </form>
+    <!-- keep it here, can't have the form inside another -->
+    {{>email_modal}}
 </div>
