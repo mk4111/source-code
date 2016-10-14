@@ -281,7 +281,7 @@ form.sendmail .email-form div.button-wrap {
 
 form.sendmail .row.emails {
   padding: 1rem 1.5rem; }
-  form.sendmail .row.emails .emails-comma:last-child {
+  form.sendmail .row.emails p:last-child .emails-comma {
     display: none; }
 
 #navbar.ui.menu.fixed img {
