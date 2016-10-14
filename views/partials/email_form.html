@@ -2,20 +2,16 @@
 <form action="/sendemail" method="POST" class="ui form sendmail">
 
 <div class="ui grid email-form">
-
+    <div class="row emails">
+        <div class="sixteen wide column">
+            {{>email_form_candidate}}
+        </div>
+    </div>
     <div class="row">
         <div class="two wide column">
             <img class="ui small circular image" src="/assets/img/team/{{request.auth.credentials.user.idGoogle}}.jpg" onerror="this.src='/assets/img/client-logo.png'"/>
         </div>
-        <div class="four wide column">
-            {{#if false}}
-                <p>{{request.auth.credentials.user.names.firstname}}</p>
-            {{/if}}
-            <ul>
-                {{>email_form_candidate}}
-            </ul>
-        </div>
-        <div class="ten wide column">
+        <div class="fourteen wide column">
             <div class="ui input subject"> <input type="text" name="subject" placeholder="Subject"/> </div>
             <textarea name="message" placeholder="Message" cols="10" rows="10">Hi {name},</textarea>
             <input hidden name="fn" value="{{request.auth.credentials.user.names.fullname}}">
