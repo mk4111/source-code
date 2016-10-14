@@ -5,6 +5,6 @@ form.sendmail {
     }
     .row.emails {
         padding: 1rem 1.5rem;
-        .emails-comma:last-child { display: none; }
+        p:last-child .emails-comma { display: none; }
     }
 }
