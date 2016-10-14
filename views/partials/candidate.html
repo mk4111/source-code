@@ -191,7 +191,7 @@
     {{# if candidate.connectedTo.length }}
     {{#each candidate.connectedTo}}
             {{#if this}}
-                <span><b>{{initials_of_connected_users this}}</b></span>
+                <span><b>{{userInitials this}}</b></span>
             {{/if}}
     {{/each}}
     {{else}}

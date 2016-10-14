@@ -19,7 +19,11 @@
     <input type="password" name="password" value="" required>
     <p class="authorized">
      <label for="active user"></label>
-      {{authorizedCheckbox clientUser.authorized}}
+      <input type="checkbox" name="authorized"
+      {{#if clientUser.authorized}}
+      checked
+      {{/if}}
+      > Authorized <br/>
     </p>
     <button type="submit">Save</button>
     <a href="/client-users/list">Cancel</a>
