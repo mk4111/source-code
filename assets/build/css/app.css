@@ -157,11 +157,6 @@ div.dashboard div.list_candidats {
       .dashboards-list .stages-bar-wrap .stages-bar-wrap-inner .calls-counter {
         margin-top: 10px; }
 
-div.home div.row.filters {
-  margin-bottom: -2rem; }
-  div.home div.row.filters div.column.send-email {
-    text-align: right; }
-
 .stickers {
   position: absolute; }
   .stickers img.ui.image {
@@ -194,6 +189,8 @@ div.candidates-list div.row.candidate {
     padding-left: 0px; }
   div.candidates-list div.row.candidate p.stages span.comma:last-child {
     display: none; }
+  div.candidates-list div.row.candidate p.connected-to {
+    display: inline-block; }
 
 div.candidates-list div.row.skills {
   text-align: center;
@@ -348,6 +345,3 @@ form.sendmail .row.emails {
     .pusher.search_content .results-grid div.ui.column p {
       font-weight: bold;
       font-family: 'blenderpro' !important; }
-
-.pusher.search_content div.home div.row.filters {
-  display: none; }
