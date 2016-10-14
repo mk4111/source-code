@@ -1,11 +1,12 @@
 $(function() {
+  return;
   return $(".animsition").animsition({
     inClass: 'fade-in',
     outClass: 'fade-out',
     inDuration: 400,
     outDuration: 200,
     linkElement: 'a:not([target="_blank"]):not([href^="#"])',
-    loading: false,
+    loading: true,
     loadingParentElement: 'body',
     loadingClass: 'animsition-loading',
     loadingInner: '',

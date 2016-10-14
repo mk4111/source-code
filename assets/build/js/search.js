@@ -1,5 +1,5 @@
 $(function() {
-  var connected_to, connected_to_dropdown, enable_search_option, saerch_form, sidebar, uri;
+  var button, connected_to_dropdown, enable_email_button, enable_search_option, modal, saerch_form, sidebar;
   $(".fixed.menu .item.search").click(function() {
     return $('.ui.sidebar.candidate-search').sidebar('toggle');
   });
@@ -44,19 +44,42 @@ $(function() {
   connected_to_dropdown = $('.ui.dropdown.connected_to').dropdown({
     onChange: function(f) {}
   });
-  uri = URI(window.location);
-  connected_to = uri.search(true).connected_to;
-  if (connected_to) {
-    connected_to_dropdown.dropdown('set selected', connected_to.split(","));
-  }
-  $("button.select_all").click(function() {
+  button = sidebar.find("button.send_email");
+  enable_email_button = function() {
+    if ($(".checkbox input[name='email']:checked").length) {
+      return button.removeClass("disabled");
+    } else {
+      return button.addClass("disabled");
+    }
+  };
+  enable_email_button();
+  $(".checkbox input[name='email']").change(enable_email_button);
+  sidebar.find("button.select_all").click(function() {
     $(".checkbox input[name='email']").prop('checked', true);
+    enable_email_button();
     $(this).focusout();
     $(this).blur();
     return false;
   });
-  return $("button.send_email").click(function() {
-    $("form#emial-form").submit();
-    return false;
-  });
+  if (button.val()) {
+    modal = sidebar.find(".modal." + button.val());
+    modal.find(".actions button").click(function() {
+      return modal.find("form.sendmail").submit();
+    });
+    return button.click(function() {
+      var result_list;
+      modal.find("ul").html("");
+      result_list = "";
+      $(".checkbox input[name='email']:checked").each(function() {
+        var checkbox;
+        checkbox = $(this);
+        return result_list += checkbox.parent().find(".email-details").html();
+      });
+      modal.find("ul").html(result_list);
+      modal.modal('show');
+      $(this).focusout();
+      $(this).blur();
+      return false;
+    });
+  }
 });
