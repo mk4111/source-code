@@ -93,14 +93,16 @@
                     <i class="checkmark box icon"></i>
                 </div>
             </button>
-
-            <button type="button" class="ui animated button send_email">
+            <button type="button" class="ui button send_email disabled" value="sendemail">EMAIL</button>
+            <!-- animated doesn't work well with disabled class -->
+            <!--
+            <button type="button" class="ui animated button send_email disabled" value="sendemail">
                 <div class="visible content">EMAIL</div>
                 <div class="hidden content">
                     <i class="send icon"></i>
                 </div>
             </button>
-
+            -->
         </div>
     </div>
     <div class="item buttons">
@@ -134,5 +136,7 @@
       </div>
     </div>
 
-    </form>     
+    </form>
+    <!-- keep it here, can't have the form inside another -->
+    {{>email_modal}}
 </div>

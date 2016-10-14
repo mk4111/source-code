@@ -48,17 +48,42 @@ $ ->
       ;
   };
 
-  uri = URI(window.location)
-  connected_to = uri.search(true).connected_to
-  if connected_to
-    connected_to_dropdown.dropdown('set selected', connected_to.split(","));
+  button = sidebar.find("button.send_email");
 
-  $("button.select_all").click ->
+  enable_email_button = () ->
+    if $(".checkbox input[name='email']:checked").length then button.removeClass "disabled"
+    else button.addClass "disabled"
+
+  enable_email_button();
+  $(".checkbox input[name='email']").change enable_email_button
+
+  sidebar.find("button.select_all").click ->
     $(".checkbox input[name='email']").prop('checked', true);
+    enable_email_button();
     $(this).focusout();
     $(this).blur();
     return false;
 
-  $("button.send_email").click ->
-    $("form#emial-form").submit();
-    return false;
+  if button.val()
+    modal = sidebar.find(".modal." + button.val());
+    modal.find(".actions button").click ->
+      modal.find("form.sendmail").submit()
+    button.click -> 
+      modal.find("ul").html("");
+      result_list = "";
+      $(".checkbox input[name='email']:checked").each ->
+        checkbox = $(this);
+        result_list += checkbox.parent().find(".email-details").html();
+      modal.find("ul").html(result_list);
+      modal.modal('show');
+      $(this).focusout();
+      $(this).blur();
+      return false;
+
+  # connected to remain disabled untill we reindex contects collection
+  # uri = URI(window.location)
+  # connected_to = uri.search(true).connected_to
+  # if connected_to
+  #  connected_to_dropdown.dropdown('set selected', connected_to.split(","));
+
+
