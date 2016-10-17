@@ -118,7 +118,9 @@ $(function() {
       email_button.addClass("disabled");
       list_button.addClass("disabled");
       deselect_button.addClass("disabled");
-      return select_button.removeClass("disabled");
+      if ($(".checkbox input[name='email']").length) {
+        return select_button.removeClass("disabled");
+      }
     }
   };
   enable_action_buttons();

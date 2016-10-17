@@ -264,6 +264,12 @@ div.container.candidate form.cv-upload input[type="file"] {
 div.container.candidate form.li-save-form .labeled .label i {
   margin: 0; }
 
+.modal.sendemail p span.fullname {
+  display: none; }
+
+.modal.createlist p span.email {
+  display: none; }
+
 .modal.sendemail form.sendmail .email-form button, .modal.createlist form.sendmail .email-form button {
   display: none; }
 
