@@ -107,7 +107,8 @@ $ ->
       email_button.addClass "disabled" ;
       list_button.addClass "disabled" ;
       deselect_button.addClass "disabled" ;
-      select_button.removeClass "disabled" ;
+      if $(".checkbox input[name='email']").length
+        select_button.removeClass "disabled" ;
 
 
   enable_action_buttons();
