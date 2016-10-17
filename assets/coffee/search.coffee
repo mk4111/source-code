@@ -14,14 +14,26 @@ $ ->
   };
 
   $('.ui.sticky')
-    .sticky({
-      context: '.pusher'
-    })
-  ;
+    .sticky({ context: '.pusher' });
 
   search_form = sidebar.find("form.search");
-
   search_button = search_form.find("button[type='submit']");
+  reset_button = sidebar.find("button.reset");
+  reset_button.click ->
+    if reset_button.hasClass "disabled" then return false;
+    window.location = "/search";
+
+
+  resetable = false;
+  
+  uri = URI(window.location)
+  _.each uri.search(true), (val) ->
+    if val
+      resetable = true;
+      return false; # break
+
+  if resetable then reset_button.removeClass "disabled"
+  else reset_button.addClass "disabled"
 
   enable_search_button = () ->
     disabled = true;
@@ -31,8 +43,14 @@ $ ->
       if $(this).val() && $(this).val().trim()
         disabled = false;
         return false; # break
-    if disabled then search_button.addClass "disabled" ;
-    else search_button.removeClass "disabled" ;
+    if disabled
+      search_button.addClass "disabled" ;
+      if !resetable
+        reset_button.addClass "disabled" ;
+
+    else 
+      search_button.removeClass "disabled" ;
+      reset_button.removeClass "disabled" ;
 
   search_form.find("input").change enable_search_button
   search_form.find("input").keyup enable_search_button
@@ -102,6 +120,23 @@ $ ->
     $(".checkbox input[name='email']").prop('checked', true);
     enable_action_buttons();
 
+  search_form.find("button.modal-list-candiates").each ->
+    modal_button = $(this);
+    if modal_button.val()
+      modal = sidebar.find(".modal." + modal_button.val());
+      modal.find(".actions button").click ->
+        modal.find("form.sendmail").submit()
+      modal_button.click -> 
+        modal.find(".row.emails").html("");
+        result_list = "";
+        $(".checkbox input[name='email']:checked").each ->
+          checkbox = $(this);
+          result_list += checkbox.parent().find(".email-details").html();
+        modal.find(".row.emails").html(result_list);
+        modal.modal('show');
+        return false;
+
+  """
   if email_button.val()
     email_modal = sidebar.find(".modal." + email_button.val());
     email_modal.find(".actions button").click ->
@@ -116,11 +151,13 @@ $ ->
       email_modal.modal('show');
       return false;
 
+
   if list_button.val()
     list_modal = sidebar.find(".modal." + list_button.val());
     list_button.click ->
       list_modal.modal('show');
 
+  """
   # connected to remain disabled untill we reindex contects collection
   # uri = URI(window.location)
   # connected_to = uri.search(true).connected_to
