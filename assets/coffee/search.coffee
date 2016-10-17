@@ -120,6 +120,7 @@ $ ->
     list_modal = sidebar.find(".modal." + list_button.val());
     list_button.click ->
       list_modal.modal('show');
+
   # connected to remain disabled untill we reindex contects collection
   # uri = URI(window.location)
   # connected_to = uri.search(true).connected_to
