@@ -264,22 +264,24 @@ div.container.candidate form.cv-upload input[type="file"] {
 div.container.candidate form.li-save-form .labeled .label i {
   margin: 0; }
 
-.modal.sendemail form.sendmail .email-form button {
+.modal.sendemail form.sendmail .email-form button, .modal.createlist form.sendmail .email-form button {
   display: none; }
 
-.modal.sendemail .actions {
+.modal.sendemail .actions, .modal.createlist .actions {
   text-align: right; }
 
-form.sendmail .email-form div.subject {
+form.sendmail .email-form div.subject, form.createlist .email-form div.subject {
   width: 100%; }
 
-form.sendmail .email-form div.button-wrap {
+form.sendmail .email-form div.button-wrap, form.createlist .email-form div.button-wrap {
   text-align: right; }
 
-form.sendmail .row.emails {
+form.sendmail .row.emails, form.createlist .row.emails {
   padding: 1rem 1.5rem; }
-  form.sendmail .row.emails p:last-child .emails-comma {
+  form.sendmail .row.emails p:last-child .emails-comma, form.createlist .row.emails p:last-child .emails-comma {
     display: none; }
+  form.sendmail .row.emails p, form.createlist .row.emails p {
+    margin: 0; }
 
 #navbar.ui.menu.fixed img {
   width: 28px; }
@@ -331,7 +333,9 @@ form.sendmail .row.emails {
     .ui.sidebar.candidate-search .ui.form .item.buttons, .ui.sidebar.candidate-search .ui.form .item p {
       text-align: center; }
     .ui.sidebar.candidate-search .ui.form .item .field, .ui.sidebar.candidate-search .ui.form .item .fields {
-      margin: 0 0 0.7em; }
+      margin: 0 0 8px; }
+      .ui.sidebar.candidate-search .ui.form .item .field:last-child, .ui.sidebar.candidate-search .ui.form .item .fields:last-child {
+        margin: 0px; }
 
 .pusher.search_content div.ui.container {
   margin-top: 0px !important; }
