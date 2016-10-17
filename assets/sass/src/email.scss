@@ -6,5 +6,6 @@ form.sendmail {
     .row.emails {
         padding: 1rem 1.5rem;
         p:last-child .emails-comma { display: none; }
+        p { margin: 0; }
     }
 }
