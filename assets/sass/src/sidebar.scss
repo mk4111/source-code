@@ -25,7 +25,10 @@ $SIDEBAR_WIDTH: 260px; // defautl semantic-ui value
                 text-align: center;
             }
             .field, .fields {
-                margin: 0 0 0.7em;
+                margin: 0 0 8px;
+                &:last-child {
+                    margin: 0px;
+                }
             }
         }
     }

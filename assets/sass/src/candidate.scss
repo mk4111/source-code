@@ -53,7 +53,8 @@ div.container.candidate {
     form.li-save-form { .labeled .label i { margin: 0; } }
 }
 
-.modal.sendemail {
+//@TODO: not a great place for that but it works
+.modal.sendemail, .modal.createlist {
   form.sendmail { .email-form { button { display: none; } } }
   .actions { text-align: right; }
 }

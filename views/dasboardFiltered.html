@@ -8,7 +8,7 @@
     <form action="/dashboard/user" method="post">
       <select class="users" name="user">
         {{#each users}}
-          {{createOptionUser this ../userIdGoogle}}
+          <option value="{{idGoogle}}">{{names.firstname}}</option>;
         {{/each}}
       </select>
       <button type="submit">Load dashboard</button>
