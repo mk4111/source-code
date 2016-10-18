@@ -157,11 +157,6 @@ div.dashboard div.list_candidats {
       .dashboards-list .stages-bar-wrap .stages-bar-wrap-inner .calls-counter {
         margin-top: 10px; }
 
-div.home div.row.filters {
-  margin-bottom: -2rem; }
-  div.home div.row.filters div.column.send-email {
-    text-align: right; }
-
 .stickers {
   position: absolute; }
   .stickers img.ui.image {
@@ -194,6 +189,8 @@ div.candidates-list div.row.candidate {
     padding-left: 0px; }
   div.candidates-list div.row.candidate p.stages span.comma:last-child {
     display: none; }
+  div.candidates-list div.row.candidate p.connected-to {
+    display: inline-block; }
 
 div.candidates-list div.row.skills {
   text-align: center;
@@ -267,22 +264,30 @@ div.container.candidate form.cv-upload input[type="file"] {
 div.container.candidate form.li-save-form .labeled .label i {
   margin: 0; }
 
-.modal.sendemail form.sendmail .email-form button {
+.modal.sendemail p span.fullname {
   display: none; }
 
-.modal.sendemail .actions {
+.modal.createlist p span.email {
+  display: none; }
+
+.modal.sendemail form.sendmail .email-form button, .modal.createlist form.sendmail .email-form button {
+  display: none; }
+
+.modal.sendemail .actions, .modal.createlist .actions {
   text-align: right; }
 
-form.sendmail .email-form div.subject {
+form.sendmail .email-form div.subject, form.createlist .email-form div.subject {
   width: 100%; }
 
-form.sendmail .email-form div.button-wrap {
+form.sendmail .email-form div.button-wrap, form.createlist .email-form div.button-wrap {
   text-align: right; }
 
-form.sendmail .row.emails {
+form.sendmail .row.emails, form.createlist .row.emails {
   padding: 1rem 1.5rem; }
-  form.sendmail .row.emails p:last-child .emails-comma {
+  form.sendmail .row.emails p:last-child .emails-comma, form.createlist .row.emails p:last-child .emails-comma {
     display: none; }
+  form.sendmail .row.emails p, form.createlist .row.emails p {
+    margin: 0; }
 
 #navbar.ui.menu.fixed img {
   width: 28px; }
@@ -323,6 +328,8 @@ form.sendmail .row.emails {
     font-family: 'blenderpro' !important; }
   .ui.sidebar.candidate-search.visible {
     z-index: 3; }
+  .ui.sidebar.candidate-search .ui.form .icon .flag {
+    margin: 0; }
   .ui.sidebar.candidate-search .ui.form .item {
     padding: 10px; }
     .ui.sidebar.candidate-search .ui.form .item.quick_search .field {
@@ -334,7 +341,9 @@ form.sendmail .row.emails {
     .ui.sidebar.candidate-search .ui.form .item.buttons, .ui.sidebar.candidate-search .ui.form .item p {
       text-align: center; }
     .ui.sidebar.candidate-search .ui.form .item .field, .ui.sidebar.candidate-search .ui.form .item .fields {
-      margin: 0 0 0.7em; }
+      margin: 0 0 8px; }
+      .ui.sidebar.candidate-search .ui.form .item .field:last-child, .ui.sidebar.candidate-search .ui.form .item .fields:last-child {
+        margin: 0px; }
 
 .pusher.search_content div.ui.container {
   margin-top: 0px !important; }
@@ -348,6 +357,3 @@ form.sendmail .row.emails {
     .pusher.search_content .results-grid div.ui.column p {
       font-weight: bold;
       font-family: 'blenderpro' !important; }
-
-.pusher.search_content div.home div.row.filters {
-  display: none; }
