@@ -62,6 +62,7 @@ $ ->
   search_form.find(".advance_search .button.eu").click ->
     search_form.find(".advance_search input[name='location']").val "Austria, Belgium, Bulgaria, Croatia, Republic of Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, United Kingdom" ;
     enable_search_option();
+    enable_search_button();
 
   enable_search_option = () ->
     quick_search = true;
