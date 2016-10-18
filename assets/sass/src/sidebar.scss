@@ -25,7 +25,10 @@ $SIDEBAR_WIDTH: 260px; // defautl semantic-ui value
                 text-align: center;
             }
             .field, .fields {
-                margin: 0 0 0.7em;
+                margin: 0 0 8px;
+                &:last-child {
+                    margin: 0px;
+                }
             }
         }
     }
@@ -43,12 +46,6 @@ $SIDEBAR_WIDTH: 260px; // defautl semantic-ui value
                 font-weight: bold;
                 font-family: 'blenderpro' !important;
             }
-        }
-    }
-    // @TOO: remove it, not needed any mores
-    div.home {
-        div.row.filters {
-            display: none;
         }
     }
 }

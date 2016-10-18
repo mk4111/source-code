@@ -21,6 +21,7 @@
     "animate.css": "^3.5.2",
     "semantic": "git@github.com:FAC-GM/source-code-Semantic-UI-build.git#^2.2.4",
     "urijs": "uri.js#^1.18.2",
-    "animsition": "^4.0.2"
+    "animsition": "^4.0.2",
+    "underscore": "^1.8.3"
   }
 }

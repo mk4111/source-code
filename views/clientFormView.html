@@ -25,8 +25,7 @@
 
         <label>Terms: </label>
         <input type="text" name="terms" value="{{client.terms}}">
-
-        {{activeCheckbox client.active}}
+           <input type="checkbox" name="active" {{#if client.active}} checked {{/if}} > Active <br/>
 
          <button class="submit-client" type="submit">Save</button>
       </div>

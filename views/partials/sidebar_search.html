@@ -1,8 +1,8 @@
 <div class="ui left sidebar vertical menu visible candidate-search">
-    <form class="ui form" action="/search" method="GET">
+    <form class="ui form search" action="/search" method="GET">
     <div class="item quick_search">
         <div class="ui field">
-            <input type="text" name="q" value="{{q}}" placeholder="Search...">
+            <input type="text" name="q" value="{{request.query.q}}" placeholder="Search...">
         </div>
     </div>
 
@@ -59,61 +59,48 @@
     <div class="item advance_search buttons">
         <p> ADVANCE SEARCH </p>
         <div class="field">
-            <input name="headline" placeholder="Job Title" value="{{request.query.headline}}">
+            <input type="text" name="headline" placeholder="Job Title" value="{{request.query.headline}}">
         </div>
         <div class="field">
-            <input name="fullname" placeholder="Name" value="{{request.query.fullname}}">
+            <input type="text" name="fullname" placeholder="Name" value="{{request.query.fullname}}">
         </div>
         <div class="field">
-            <input name="location" placeholder="Location" value="{{request.query.location}}">
+            <input type="text" name="location" placeholder="Location" value="{{request.query.location}}">
         </div>
         <div class="field">
-            <input name="company" placeholder="Company" value="{{request.query.company}}">
+            <input type="text" name="company" placeholder="Company" value="{{request.query.company}}">
         </div>
         <div class="field">
-            <input name="skills" placeholder="Skills" value="{{request.query.skills}}">
+            <input type="text" name="skills" placeholder="Skills" value="{{request.query.skills}}">
         </div>
         <div class="field">
-            <input name="languages" placeholder="Languages" value="{{request.query.languages}}">
+            <input type="text" name="languages" placeholder="Languages" value="{{request.query.languages}}">
         </div>
-        <button type="button" class="ui animated button clear">
-            <div class="visible content">CLEAR</div>
-            <div class="hidden content">
-                <i class="erase icon"></i>
-            </div>
-        </button>
+        <div class="field">
+            <button type="button" class="ui button clear disabled">CLEAR</button>
+        </div>
     </div>
 
+    <div class="item action_buttons buttons">
+        <div class="field">
+        <div class="ui buttons horizontal">
+            <button type="button" class="ui button select_all disabled" value="sendemail">SELECT</button>
+            <button type="button" class="ui button deselect_all disabled" value="createlist">DESELECT</button>
+
+        </div>
+        </div>
+        <div class="field">
+        <div class="ui buttons horizontal">
+            <button type="button" class="ui button send_email disabled modal-list-candiates" value="sendemail">EMAIL</button>
+            <button type="button" class="ui button create_list disabled modal-list-candiates" value="createlist">LIST</button>
+        </div>
+        </div>
+    </div>
     <div class="item buttons">
         <div class="ui buttons horizontal">
-
-            <button type="button" class="ui animated button select_all">
-                <div class="visible content positive">SELECT ALL</div>
-                <div class="visible content negative" style="display:none;">DESELECT ALL</div>
-                <div class="hidden content">
-                    <i class="checkmark box icon positive"></i>
-                    <i class="minus square outline icon negative" style="display:none;"></i>
-                </div>
-            </button>
-            <button type="button" class="ui button send_email disabled" value="sendemail">EMAIL</button>
-            <!-- animated doesn't work well with disabled class -->
-            <!--
-            <button type="button" class="ui animated button send_email disabled" value="sendemail">
-                <div class="visible content">EMAIL</div>
-                <div class="hidden content">
-                    <i class="send icon"></i>
-                </div>
-            </button>
-            -->
+        <button type="button" class="ui button reset disabled">RESET</button>
+        <button type="submit" class="ui button disabled">SEARCH</button>
         </div>
-    </div>
-    <div class="item buttons">
-        <button type="submit" class="ui animated button">
-            <div class="visible content">SEARCH</div>
-            <div class="hidden content">
-                <i class="search icon"></i>
-            </div>
-            </button>
       </button>
     </div>
 
@@ -141,4 +128,5 @@
     </form>
     <!-- keep it here, can't have the form inside another -->
     {{>email_modal}}
+    {{>create_list_modal}}
 </div>
