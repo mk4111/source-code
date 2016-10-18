@@ -64,7 +64,8 @@ $(function() {
   clear_button = search_form.find(".advance_search button.clear");
   search_form.find(".advance_search .button.eu").click(function() {
     search_form.find(".advance_search input[name='location']").val("Austria, Belgium, Bulgaria, Croatia, Republic of Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, United Kingdom");
-    return enable_search_option();
+    enable_search_option();
+    return enable_search_button();
   });
   enable_search_option = function() {
     var clear_enabled, quick_search;
