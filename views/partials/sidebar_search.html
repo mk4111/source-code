@@ -65,7 +65,12 @@
             <input type="text" name="fullname" placeholder="Name" value="{{request.query.fullname}}">
         </div>
         <div class="field">
+            <div class="ui action input">
             <input type="text" name="location" placeholder="Location" value="{{request.query.location}}">
+              <button type="button" class="ui icon button eu">
+                <i class="eu flag"></i>
+              </button>
+            </div>
         </div>
         <div class="field">
             <input type="text" name="company" placeholder="Company" value="{{request.query.company}}">

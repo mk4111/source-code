@@ -14,6 +14,7 @@ $SIDEBAR_WIDTH: 260px; // defautl semantic-ui value
     &.visible { z-index: 3; }// I don't think this one should be deinfe explicit
     padding-top: 50px;
     .ui.form {
+        .icon .flag { margin: 0; }
         .item {
             &.quick_search {
                 .field { margin: 0; }
