@@ -133,7 +133,7 @@ $(function() {
     $(".checkbox input[name='email']").prop('checked', true);
     return enable_action_buttons();
   });
-  search_form.find("button.modal-list-candiates").each(function() {
+  return search_form.find("button.modal-list-candiates").each(function() {
     var modal, modal_button;
     modal_button = $(this);
     if (modal_button.val()) {
@@ -156,5 +156,4 @@ $(function() {
       });
     }
   });
-  return "if email_button.val()\n  email_modal = sidebar.find(\".modal.\" + email_button.val());\n  email_modal.find(\".actions button\").click ->\n    email_modal.find(\"form.sendmail\").submit()\n  email_button.click -> \n    email_modal.find(\".row.emails\").html(\"\");\n    result_list = \"\";\n    $(\".checkbox input[name='email']:checked\").each ->\n      checkbox = $(this);\n      result_list += checkbox.parent().find(\".email-details\").html();\n    email_modal.find(\".row.emails\").html(result_list);\n    email_modal.modal('show');\n    return false;\n\n\nif list_button.val()\n  list_modal = sidebar.find(\".modal.\" + list_button.val());\n  list_button.click ->\n    list_modal.modal('show');\n";
 });
