@@ -19,7 +19,7 @@
 
           <p class="active-inactive">
            <label for="activeJobs"></label>
-           {{activeCheckbox job.active}}
+           <input type="checkbox" name="active" {{#if job.active}} checked {{/if}} > Active <br/>
           </p>
 
           <hr/>

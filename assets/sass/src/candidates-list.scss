@@ -1,10 +1,3 @@
-div.home {
-    div.row.filters {
-        div.column.send-email { text-align: right; }
-        margin-bottom: -2rem;
-    }
-}
-
 // @TODO move stickers somewhere else;
 .stickers {
     position: absolute;
@@ -40,6 +33,7 @@ div.candidates-list {
         p.stages {
             span.comma:last-child { display: none; }
         }
+        p.connected-to { display: inline-block }
     }
     div.row.skills {
         text-align: center;

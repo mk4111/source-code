@@ -41,4 +41,9 @@ Gulp.task('bower-files', function() {
         './bower_components/animsition/dist/css/animsition.min.css',
     ])
     .pipe(Gulp.dest('./assets/vendor/'));
+
+    Gulp.src([
+        './bower_components/underscore/underscore-min.js',
+    ])
+    .pipe(Gulp.dest('./assets/vendor/'));
 });
