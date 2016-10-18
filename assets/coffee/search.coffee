@@ -110,7 +110,6 @@ $ ->
       if $(".checkbox input[name='email']").length
         select_button.removeClass "disabled" ;
 
-
   enable_action_buttons();
   $(".checkbox input[name='email']").change enable_action_buttons
 
@@ -137,28 +136,6 @@ $ ->
         modal.modal('show');
         return false;
 
-  """
-  if email_button.val()
-    email_modal = sidebar.find(".modal." + email_button.val());
-    email_modal.find(".actions button").click ->
-      email_modal.find("form.sendmail").submit()
-    email_button.click -> 
-      email_modal.find(".row.emails").html("");
-      result_list = "";
-      $(".checkbox input[name='email']:checked").each ->
-        checkbox = $(this);
-        result_list += checkbox.parent().find(".email-details").html();
-      email_modal.find(".row.emails").html(result_list);
-      email_modal.modal('show');
-      return false;
-
-
-  if list_button.val()
-    list_modal = sidebar.find(".modal." + list_button.val());
-    list_button.click ->
-      list_modal.modal('show');
-
-  """
   # connected to remain disabled untill we reindex contects collection
   # uri = URI(window.location)
   # connected_to = uri.search(true).connected_to
