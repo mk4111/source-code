@@ -1,6 +1,6 @@
 $(function() {
   var clear_button, connected_to_dropdown, deselect_button, email_button, enable_action_buttons, enable_search_button, enable_search_option, list_button, reset_button, resetable, search_button, search_form, select_button, sidebar, uri;
-  $(".fixed.menu .item.search").click(function() {
+  $(".fixed.menu div.item.search").click(function() {
     return $('.ui.sidebar.candidate-search').sidebar('toggle');
   });
   if (!$('.ui.sidebar.candidate-search')) {
@@ -62,6 +62,10 @@ $(function() {
   search_form.find("input").keyup(enable_search_button);
   enable_search_button();
   clear_button = search_form.find(".advance_search button.clear");
+  search_form.find(".advance_search .button.eu").click(function() {
+    search_form.find(".advance_search input[name='location']").val("Austria, Belgium, Bulgaria, Croatia, Republic of Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, United Kingdom");
+    return enable_search_option();
+  });
   enable_search_option = function() {
     var clear_enabled, quick_search;
     quick_search = true;

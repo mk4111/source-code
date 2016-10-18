@@ -328,6 +328,8 @@ form.sendmail .row.emails, form.createlist .row.emails {
     font-family: 'blenderpro' !important; }
   .ui.sidebar.candidate-search.visible {
     z-index: 3; }
+  .ui.sidebar.candidate-search .ui.form .icon .flag {
+    margin: 0; }
   .ui.sidebar.candidate-search .ui.form .item {
     padding: 10px; }
     .ui.sidebar.candidate-search .ui.form .item.quick_search .field {
