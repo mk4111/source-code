@@ -41,12 +41,12 @@ describe('api /profile', function () {
 
         var redisClient = require('redis-connection')();
         redisClient.set(13, JSON.stringify({ id: 13, "name": "Simon", valid: true}), function (err, res) {
-          setTimeout(server.inject(optionsCandidate , function (res) {
+          setTimeout(function () { server.inject(optionsCandidate , function (res) {
 
           expect(res.statusCode).to.equal(200);
           server.stop(done);
 
-        }), 2000);
+        })}, 2000);
 
         });
       });
@@ -81,16 +81,15 @@ describe('api /profile', function () {
 
         var redisClient = require('redis-connection')();
         redisClient.set(13, JSON.stringify({ id: 13, "name": "Simon", valid: true}), function (err, res) {
-          setTimeout(server.inject(optionsCandidate , function (res) {
+          setTimeout(function () { server.inject(optionsCandidate , function (res) {
 
           expect(res.statusCode).to.equal(200);
 
           var $ = cheerio.load(res.payload);
-
-          expect($('.fullname').text()).to.equal("David Dupont");
+          expect($('p.fullname').text()).to.equal("David Dupont");
           server.stop(done);
 
-          }), 3000);
+          })}, 3000);
 
         });
       });
@@ -125,16 +124,16 @@ describe('api /profile', function () {
 
           var redisClient = require('redis-connection')();
           redisClient.set(12, JSON.stringify({ id: 12, "name": "Simon", valid: true}), function (err, res) {
-            setTimeout(server.inject(optionsCandidate , function (res) {
+            setTimeout(function () { server.inject(optionsCandidate , function (res) {
 
             expect(res.statusCode).to.equal(200);
 
             var $ = cheerio.load(res.payload);
 
-            expect($('.fullname').text()).to.equal("David Dupont");
+            expect($('p.fullname').text()).to.equal("David Dupont");
             server.stop(done);
 
-            }), 3000);
+            })}, 3000);
 
           });
         });
@@ -170,16 +169,16 @@ describe('api /profile', function () {
 
         var redisClient = require('redis-connection')();
         redisClient.set(12, JSON.stringify({ id: 12, "name": "Simon", valid: true}), function (err, res) {
-          setTimeout(server.inject(optionsCandidate , function (res) {
+          setTimeout(function () { server.inject(optionsCandidate , function (res) {
 
           expect(res.statusCode).to.equal(200);
 
           var $ = cheerio.load(res.payload);
 
-          expect($('.fullname').text()).to.equal("Manuel");
+          expect($('p.fullname').text()).to.equal("Manuel");
           server.stop(done);
 
-          }), 3000);
+          })}, 3000);
 
         });
       });
@@ -202,7 +201,7 @@ describe('api /profile', function () {
 
       server.inject(options, function (res) {
         expect(res.statusCode).to.equal(200);
-        setTimeout(function (){server.stop(done)},2000);
+        setTimeout(function () { server.stop(done) } ,2000);
       });
 
     });
@@ -315,17 +314,17 @@ describe('api /profile', function () {
 
         var redisClient = require('redis-connection')();
         redisClient.set(12, JSON.stringify({ id: 12, "name": "Simon", valid: true}), function (err, res) {
-          setTimeout(server.inject(optionsCandidate, function (res) {
+          setTimeout(function () { server.inject(optionsCandidate, function (res) {
 
           expect(res.statusCode).to.equal(200);
 
           var $ = cheerio.load(res.payload);
 
-          expect($('.fullname').text()).to.equal("Maria Dolores");
+          expect($('p.fullname').text()).to.equal("Maria Dolores");
 
           server.stop(done);
 
-          }), 3000);
+          })}, 3000);
 
         });
       });
