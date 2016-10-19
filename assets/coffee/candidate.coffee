@@ -52,7 +52,7 @@ $ ->
       stageId: 'empty',
       jobId: 'empty'
     }
-  })
+  });
 
   $('.modal.addsubmission button[type="submit"]').click ->
     $('.modal.addsubmission form').submit();
