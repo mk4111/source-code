@@ -59,27 +59,6 @@ $ ->
 
   clear_button = search_form.find(".advance_search button.clear");
 
-  modal_countries = sidebar.find(".modal.countries").modal({
-    onApprove: ->
-      ;
-    ,
-    onHidden: ->
-      ;
-    })
-
-  modal_countries.find("form").submit ->
-    search_form.find(".advance_search input[name='location']").val modal_countries.find("input[type='radio']:checked").val()
-    modal_countries.modal('hide');
-    return false;
-
-  modal_countries.find(".actions .button").click ->
-    search_form.find(".advance_search input[name='location']").val modal_countries.find("input[type='radio']:checked").val()
-    modal_countries.modal('hide');
-
-  search_form.find(".advance_search button.location").click ->
-    modal_countries.modal('show');
-
-
   enable_search_option = () ->
     quick_search = true;
     clear_enabled = false;
@@ -163,6 +142,21 @@ $ ->
       name: 'empty',
     }
   });
+
+  modal_countries = sidebar.find(".modal.countries").modal()
+  modal_countries.find("form").submit ->
+    search_form.find(".advance_search input[name='location']").val modal_countries.find("input[type='radio']:checked").val()
+    modal_countries.modal('hide');
+    enable_search_button();
+    enable_search_option();
+    return false;
+
+  modal_countries.find(".actions .button").click ->
+    search_form.find(".advance_search input[name='location']").val modal_countries.find("input[type='radio']:checked").val()
+    modal_countries.modal('hide');
+
+  search_form.find(".advance_search button.location").click ->
+    modal_countries.modal('show');
 
   # connected to remain disabled untill we reindex contects collection
   # uri = URI(window.location)
