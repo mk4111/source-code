@@ -62,22 +62,6 @@ $(function() {
   search_form.find("input").keyup(enable_search_button);
   enable_search_button();
   clear_button = search_form.find(".advance_search button.clear");
-  modal_countries = sidebar.find(".modal.countries").modal({
-    onApprove: function() {},
-    onHidden: function() {}
-  });
-  modal_countries.find("form").submit(function() {
-    search_form.find(".advance_search input[name='location']").val(modal_countries.find("input[type='radio']:checked").val());
-    modal_countries.modal('hide');
-    return false;
-  });
-  modal_countries.find(".actions .button").click(function() {
-    search_form.find(".advance_search input[name='location']").val(modal_countries.find("input[type='radio']:checked").val());
-    return modal_countries.modal('hide');
-  });
-  search_form.find(".advance_search button.location").click(function() {
-    return modal_countries.modal('show');
-  });
   enable_search_option = function() {
     var clear_enabled, quick_search;
     quick_search = true;
@@ -170,9 +154,24 @@ $(function() {
       });
     }
   });
-  return sidebar.find('.modal.createlist form').form({
+  sidebar.find('.modal.createlist form').form({
     fields: {
       name: 'empty'
     }
+  });
+  modal_countries = sidebar.find(".modal.countries").modal();
+  modal_countries.find("form").submit(function() {
+    search_form.find(".advance_search input[name='location']").val(modal_countries.find("input[type='radio']:checked").val());
+    modal_countries.modal('hide');
+    enable_search_button();
+    enable_search_option();
+    return false;
+  });
+  modal_countries.find(".actions .button").click(function() {
+    search_form.find(".advance_search input[name='location']").val(modal_countries.find("input[type='radio']:checked").val());
+    return modal_countries.modal('hide');
+  });
+  return search_form.find(".advance_search button.location").click(function() {
+    return modal_countries.modal('show');
   });
 });
