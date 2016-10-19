@@ -1,5 +1,5 @@
 $(function() {
-  var clear_button, connected_to_dropdown, deselect_button, email_button, enable_action_buttons, enable_search_button, enable_search_option, list_button, reset_button, resetable, search_button, search_form, select_button, sidebar, uri;
+  var clear_button, connected_to_dropdown, deselect_button, email_button, enable_action_buttons, enable_search_button, enable_search_option, reset_button, resetable, search_button, search_form, select_button, sidebar, uri;
   $(".fixed.menu div.item.search").click(function() {
     return $('.ui.sidebar.candidate-search').sidebar('toggle');
   });
@@ -63,7 +63,7 @@ $(function() {
   enable_search_button();
   clear_button = search_form.find(".advance_search button.clear");
   search_form.find(".advance_search .button.eu").click(function() {
-    search_form.find(".advance_search input[name='location']").val("Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, United Kingdom");
+    search_form.find(".advance_search input[name='location']").val("Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden");
     enable_search_option();
     return enable_search_button();
   });
@@ -108,11 +108,9 @@ $(function() {
   select_button = sidebar.find("button.select_all");
   deselect_button = sidebar.find("button.deselect_all");
   email_button = sidebar.find("button.send_email");
-  list_button = sidebar.find("button.create_list");
   enable_action_buttons = function() {
     if ($(".checkbox input[name='email']:checked").length) {
       email_button.removeClass("disabled");
-      list_button.removeClass("disabled");
       deselect_button.removeClass("disabled");
       if ($(".checkbox input[name='email']:not(:checked)").length) {
         return select_button.removeClass("disabled");
@@ -121,7 +119,6 @@ $(function() {
       }
     } else {
       email_button.addClass("disabled");
-      list_button.addClass("disabled");
       deselect_button.addClass("disabled");
       if ($(".checkbox input[name='email']").length) {
         return select_button.removeClass("disabled");
