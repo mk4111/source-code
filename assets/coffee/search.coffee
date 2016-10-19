@@ -62,6 +62,9 @@ $ ->
   modal_countries = sidebar.find(".modal.countries").modal({
     onApprove: ->
       ;
+    ,
+    onHidden: ->
+      ;
     })
 
   modal_countries.find("form").submit ->
