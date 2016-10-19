@@ -59,10 +59,23 @@ $ ->
 
   clear_button = search_form.find(".advance_search button.clear");
 
-  search_form.find(".advance_search .button.eu").click ->
-    search_form.find(".advance_search input[name='location']").val "Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden" ;
-    enable_search_option();
-    enable_search_button();
+  modal_countries = sidebar.find(".modal.countries").modal({
+    onApprove: ->
+      ;
+    })
+
+  modal_countries.find("form").submit ->
+    search_form.find(".advance_search input[name='location']").val modal_countries.find("input[type='radio']:checked").val()
+    modal_countries.modal('hide');
+    return false;
+
+  modal_countries.find(".actions .button").click ->
+    search_form.find(".advance_search input[name='location']").val modal_countries.find("input[type='radio']:checked").val()
+    modal_countries.modal('hide');
+
+  search_form.find(".advance_search button.location").click ->
+    modal_countries.modal('show');
+
 
   enable_search_option = () ->
     quick_search = true;

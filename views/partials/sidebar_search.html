@@ -67,8 +67,8 @@
         <div class="field">
             <div class="ui action input">
             <input type="text" name="location" placeholder="Location" value="{{request.query.location}}">
-              <button type="button" class="ui icon button eu">
-                <i class="eu flag"></i>
+              <button type="button" class="ui icon button location" val="countries">
+                <i class="icon flag"></i>
               </button>
             </div>
         </div>
@@ -97,7 +97,7 @@
         <div class="field">
         <div class="ui buttons horizontal">
             <button type="button" class="ui button send_email disabled modal-list-candiates" value="sendemail">EMAIL</button>
-            <button type="button" class="ui button create_list modal-list-candiates" value="createlist">LIST</button>
+            <button type="button" class="ui button create_list modal-list-candiates disabled" value="createlist">LIST</button>
         </div>
         </div>
     </div>
@@ -133,4 +133,33 @@
     <!-- keep it here, can't have the form inside another -->
     {{>email_modal}}
     {{>create_list_modal}}
+
+    <!-- here comes the temporary popup to select the countries group -->
+    <div class="ui modal countries">
+        <i class="close icon"></i>
+        <div class="header"> Select Countries </div>
+        <div class="content">
+            <form class="ui form">
+              <div class="grouped fields">
+                <label>Predefined Contries Group</label>
+                <div class="field">
+                  <div class="ui slider checkbox">
+                    <input type="radio" name="country" checked="checked" value="Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, United Kingdom">
+                    <label>EU (Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, United Kingdom)</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui slider checkbox">
+                    <input type="radio" name="country" value="Russian Federation, Ukraine, Egypt, Georgia, Serbia, Iran, Israel, Belaraus, Cosovo, Kyrgyzstan, Lebanon, Macedonia, Moldova, Turkey">
+                    <label>Preferred (Russian Federation, Ukraine, Egypt, Georgia, Serbia, Iran, Israel, Belaraus, Cosovo, Kyrgyzstan, Lebanon, Macedonia, Moldova, Turkey)</label>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" style="display:none;"></button>
+            </form>
+        </div>
+        <div class="actions"><button class="ui button ok approve">Select</button></div>
+    </div>
+
+
 </div>
