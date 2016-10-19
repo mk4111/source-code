@@ -59,10 +59,26 @@ $ ->
 
   clear_button = search_form.find(".advance_search button.clear");
 
-  search_form.find(".advance_search .button.eu").click ->
-    search_form.find(".advance_search input[name='location']").val "Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden" ;
-    enable_search_option();
-    enable_search_button();
+  modal_countries = sidebar.find(".modal.countries").modal({
+    onApprove: ->
+      ;
+    ,
+    onHidden: ->
+      ;
+    })
+
+  modal_countries.find("form").submit ->
+    search_form.find(".advance_search input[name='location']").val modal_countries.find("input[type='radio']:checked").val()
+    modal_countries.modal('hide');
+    return false;
+
+  modal_countries.find(".actions .button").click ->
+    search_form.find(".advance_search input[name='location']").val modal_countries.find("input[type='radio']:checked").val()
+    modal_countries.modal('hide');
+
+  search_form.find(".advance_search button.location").click ->
+    modal_countries.modal('show');
+
 
   enable_search_option = () ->
     quick_search = true;
@@ -130,7 +146,8 @@ $ ->
     if modal_button.val()
       modal = sidebar.find(".modal." + modal_button.val());
       modal.find(".actions button").click ->
-        modal.find("form.sendmail").submit()
+        modal.find("form").submit()
+        return false;
       modal_button.click -> 
         modal.find(".row.emails").html("");
         result_list = "";
@@ -141,10 +158,15 @@ $ ->
         modal.modal('show');
         return false;
 
+  sidebar.find('.modal.createlist form').form({
+    fields: {
+      name: 'empty',
+    }
+  });
+
   # connected to remain disabled untill we reindex contects collection
   # uri = URI(window.location)
   # connected_to = uri.search(true).connected_to
   # if connected_to
   #  connected_to_dropdown.dropdown('set selected', connected_to.split(","));
-
 
