@@ -130,7 +130,8 @@ $ ->
     if modal_button.val()
       modal = sidebar.find(".modal." + modal_button.val());
       modal.find(".actions button").click ->
-        modal.find("form.sendmail").submit()
+        modal.find("form").submit()
+        return false;
       modal_button.click -> 
         modal.find(".row.emails").html("");
         result_list = "";
@@ -141,10 +142,15 @@ $ ->
         modal.modal('show');
         return false;
 
+  sidebar.find('.modal.createlist form').form({
+    fields: {
+      name: 'empty',
+    }
+  });
+
   # connected to remain disabled untill we reindex contects collection
   # uri = URI(window.location)
   # connected_to = uri.search(true).connected_to
   # if connected_to
   #  connected_to_dropdown.dropdown('set selected', connected_to.split(","));
-
 

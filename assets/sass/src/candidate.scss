@@ -58,6 +58,9 @@ div.container.candidate {
 .modal.createlist { p span.email { display: none; } }
 
 .modal.sendemail, .modal.createlist {
-  form.sendmail { .email-form { button { display: none; } } }
+  form { 
+    &.createlist .email-form { margin-bottom: 5px; }
+    button[type="submit"] { display: none; }
+  }
   .actions { text-align: right; }
 }
