@@ -270,7 +270,10 @@ div.container.candidate form.li-save-form .labeled .label i {
 .modal.createlist p span.email {
   display: none; }
 
-.modal.sendemail form.sendmail .email-form button, .modal.createlist form.sendmail .email-form button {
+.modal.sendemail form.createlist .email-form, .modal.createlist form.createlist .email-form {
+  margin-bottom: 5px; }
+
+.modal.sendemail form button[type="submit"], .modal.createlist form button[type="submit"] {
   display: none; }
 
 .modal.sendemail .actions, .modal.createlist .actions {

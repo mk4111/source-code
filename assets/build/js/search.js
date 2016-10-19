@@ -1,5 +1,5 @@
 $(function() {
-  var clear_button, connected_to_dropdown, deselect_button, email_button, enable_action_buttons, enable_search_button, enable_search_option, reset_button, resetable, search_button, search_form, select_button, sidebar, uri;
+  var clear_button, connected_to_dropdown, deselect_button, email_button, enable_action_buttons, enable_search_button, enable_search_option, modal_countries, reset_button, resetable, search_button, search_form, select_button, sidebar, uri;
   $(".fixed.menu div.item.search").click(function() {
     return $('.ui.sidebar.candidate-search').sidebar('toggle');
   });
@@ -62,10 +62,21 @@ $(function() {
   search_form.find("input").keyup(enable_search_button);
   enable_search_button();
   clear_button = search_form.find(".advance_search button.clear");
-  search_form.find(".advance_search .button.eu").click(function() {
-    search_form.find(".advance_search input[name='location']").val("Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden");
-    enable_search_option();
-    return enable_search_button();
+  modal_countries = sidebar.find(".modal.countries").modal({
+    onApprove: function() {},
+    onHidden: function() {}
+  });
+  modal_countries.find("form").submit(function() {
+    search_form.find(".advance_search input[name='location']").val(modal_countries.find("input[type='radio']:checked").val());
+    modal_countries.modal('hide');
+    return false;
+  });
+  modal_countries.find(".actions .button").click(function() {
+    search_form.find(".advance_search input[name='location']").val(modal_countries.find("input[type='radio']:checked").val());
+    return modal_countries.modal('hide');
+  });
+  search_form.find(".advance_search button.location").click(function() {
+    return modal_countries.modal('show');
   });
   enable_search_option = function() {
     var clear_enabled, quick_search;
@@ -135,13 +146,14 @@ $(function() {
     $(".checkbox input[name='email']").prop('checked', true);
     return enable_action_buttons();
   });
-  return search_form.find("button.modal-list-candiates").each(function() {
+  search_form.find("button.modal-list-candiates").each(function() {
     var modal, modal_button;
     modal_button = $(this);
     if (modal_button.val()) {
       modal = sidebar.find(".modal." + modal_button.val());
       modal.find(".actions button").click(function() {
-        return modal.find("form.sendmail").submit();
+        modal.find("form").submit();
+        return false;
       });
       return modal_button.click(function() {
         var result_list;
@@ -156,6 +168,11 @@ $(function() {
         modal.modal('show');
         return false;
       });
+    }
+  });
+  return sidebar.find('.modal.createlist form').form({
+    fields: {
+      name: 'empty'
     }
   });
 });
