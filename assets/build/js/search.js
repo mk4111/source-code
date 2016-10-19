@@ -63,7 +63,8 @@ $(function() {
   enable_search_button();
   clear_button = search_form.find(".advance_search button.clear");
   modal_countries = sidebar.find(".modal.countries").modal({
-    onApprove: function() {}
+    onApprove: function() {},
+    onHidden: function() {}
   });
   modal_countries.find("form").submit(function() {
     search_form.find(".advance_search input[name='location']").val(modal_countries.find("input[type='radio']:checked").val());
