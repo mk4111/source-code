@@ -1,5 +1,5 @@
 $(function() {
-  var clear_button, connected_to_dropdown, deselect_button, email_button, enable_action_buttons, enable_search_button, enable_search_option, modal_countries, reset_button, resetable, search_button, search_form, select_button, sidebar, uri;
+  var clear_button, connected_to_dropdown, deselect_button, email_button, enable_action_buttons, enable_search_button, enable_search_option, list_button, modal_countries, reset_button, resetable, search_button, search_form, select_button, sidebar, uri;
   $(".fixed.menu div.item.search").click(function() {
     return $('.ui.sidebar.candidate-search').sidebar('toggle');
   });
@@ -103,9 +103,11 @@ $(function() {
   select_button = sidebar.find("button.select_all");
   deselect_button = sidebar.find("button.deselect_all");
   email_button = sidebar.find("button.send_email");
+  list_button = sidebar.find("button.create_list");
   enable_action_buttons = function() {
     if ($(".checkbox input[name='email']:checked").length) {
       email_button.removeClass("disabled");
+      list_button.removeClass("disabled");
       deselect_button.removeClass("disabled");
       if ($(".checkbox input[name='email']:not(:checked)").length) {
         return select_button.removeClass("disabled");
@@ -114,6 +116,7 @@ $(function() {
       }
     } else {
       email_button.addClass("disabled");
+      list_button.addClass("disabled");
       deselect_button.addClass("disabled");
       if ($(".checkbox input[name='email']").length) {
         return select_button.removeClass("disabled");
