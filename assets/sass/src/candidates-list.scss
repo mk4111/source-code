@@ -34,6 +34,17 @@ div.candidates-list {
             span.comma:last-child { display: none; }
         }
         p.connected-to { display: inline-block }
+        div.column.email-checbox:not(.not-blacklisted) {
+
+            .ui.checkbox input~.box:before,
+            .ui.checkbox input~label:before {
+                background-color: $RED;
+            }
+            .ui.checkbox input~.box:after,
+            .ui.checkbox input~label:after {
+                color: $WHITE;
+            }
+        }
     }
     div.row.skills {
         text-align: center;
