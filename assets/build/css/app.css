@@ -191,6 +191,12 @@ div.candidates-list div.row.candidate {
     display: none; }
   div.candidates-list div.row.candidate p.connected-to {
     display: inline-block; }
+  div.candidates-list div.row.candidate div.column.email-checbox:not(.not-blacklisted) .ui.checkbox input ~ .box:before,
+  div.candidates-list div.row.candidate div.column.email-checbox:not(.not-blacklisted) .ui.checkbox input ~ label:before {
+    background-color: #d01919; }
+  div.candidates-list div.row.candidate div.column.email-checbox:not(.not-blacklisted) .ui.checkbox input ~ .box:after,
+  div.candidates-list div.row.candidate div.column.email-checbox:not(.not-blacklisted) .ui.checkbox input ~ label:after {
+    color: white; }
 
 div.candidates-list div.row.skills {
   text-align: center;
