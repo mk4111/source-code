@@ -92,12 +92,12 @@ $ ->
   select_button = sidebar.find("button.select_all");
   deselect_button = sidebar.find("button.deselect_all");
   email_button = sidebar.find("button.send_email");
-  # list_button = sidebar.find("button.create_list");
+  list_button = sidebar.find("button.create_list");
 
   enable_action_buttons = () ->
     if $(".checkbox input[name='email']:checked").length
       email_button.removeClass "disabled" ;
-      # list_button.removeClass "disabled" ;
+      list_button.removeClass "disabled" ;
       deselect_button.removeClass "disabled" ;
       if $(".checkbox input[name='email']:not(:checked)").length
         select_button.removeClass "disabled" ;
@@ -105,7 +105,7 @@ $ ->
         select_button.addClass "disabled" ;
     else
       email_button.addClass "disabled" ;
-      # list_button.addClass "disabled" ;
+      list_button.addClass "disabled" ;
       deselect_button.addClass "disabled" ;
       if $(".checkbox input[name='email']").length
         select_button.removeClass "disabled" ;
