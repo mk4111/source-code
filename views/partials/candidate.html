@@ -3,20 +3,19 @@
 
 {{#unless extended}}
 
-    <div class="one wide column
+    <div class="one wide column email-checbox
     {{#unless candidate.blacklisted}}
         {{#if candidate.email}}
             {{#unless (dateWithin candidate.lastEmail.timestamp 'month' -1) }}
                 {{#unless (countStages candidate.stages "1,2,3,4,5" )}}
                     {{#unless candidate.clientProfile}}
-                        blacklisted
+                        not-blacklisted
                     {{/unless}}
                 {{/unless}}
             {{/unless}}
         {{/if}}
     {{/unless}}
     ">
-
         <div class="center-vertical-wrap">
             <div class="center-vertical">
                 <div class="ui checkbox">
