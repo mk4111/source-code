@@ -23,9 +23,7 @@ $(function() {
     modal = $(this);
     initial_message = modal.find("textarea[name='message']").val();
     return modal.find(".actions button").click(function() {
-      modal.find("form.sendmail").submit();
-      modal.find("form.sendmail input[name='subject']").val("");
-      return modal.find("form.sendmail input[name='message']").val(initial_message);
+      return modal.find("form.sendmail").submit();
     });
   });
   $('.container.candidate .top-row-tabs .menu .item').tab({
