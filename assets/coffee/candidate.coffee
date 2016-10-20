@@ -19,9 +19,7 @@ $ ->
     modal = $(this)
     initial_message = modal.find("textarea[name='message']").val();
     modal.find(".actions button").click ->
-      modal.find("form.sendmail").submit()
-      modal.find("form.sendmail input[name='subject']").val("");
-      modal.find("form.sendmail input[name='message']").val(initial_message);
+      modal.find("form.sendmail").submit();
 
   $('.container.candidate .top-row-tabs .menu .item').tab(
     history: true,
