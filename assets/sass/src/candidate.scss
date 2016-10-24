@@ -55,11 +55,13 @@ div.container.candidate {
 
 //@TODO: not a great place for that but it works
 .modal.sendemail { p span.fullname { display: none; } }
-.modal.createlist { p span.email { display: none; } }
+.modal.createlist, .modal.removeselected { p span.email { display: none; } }
 
-.modal.sendemail, .modal.createlist {
+.modal.sendemail, .modal.createlist, .modal.removeselected {
   form { 
-    &.createlist .email-form { margin-bottom: 5px; }
+    &.appendtolist, &.createlist, &.removeselected {
+      .email-form { margin-bottom: 5px; }
+    }
     button[type="submit"] { display: none; }
   }
   .actions { text-align: right; }

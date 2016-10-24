@@ -1,37 +1,79 @@
-<div class="ui left sidebar vertical menu visible candidate-search">
+<div class="ui left sidebar vertical menu visible candidate-search source-list">
 
-<form class="ui form search">
+    <form class="ui form search">
 
-<div class="item list_name">
-        <p>{{list.name}}</p>
-    </div>
-    <div class="item action_buttons buttons">
-        <div class="field">
-            <div class="ui buttons horizontal">
-            <button type="button" class="ui button select_all disabled" value="sendemail">SELECT</button>
-            <button type="button" class="ui button deselect_all disabled" value="createlist">DESELECT</button>
+        <div class="item list_name">
+            <p>{{list.name}}</p>
+        </div>
+        <div class="item action_buttons buttons">
+            <div class="field">
+                <div class="ui buttons horizontal">
+                <button type="button" class="ui button select_all disabled" value="sendemail">SELECT</button>
+                <button type="button" class="ui button deselect_all disabled" value="createlist">DESELECT</button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="item buttons">
-        <div class="field">
-            <button type="button" class="ui button send_email disabled modal-list-candiates" value="sendemail">EMAIL</button>
+        <div class="item buttons">
+            <div class="field">
+                <button type="button" class="ui button send_email disabled modal-list-candiates" value="sendemail">EMAIL</button>
+            </div>
         </div>
-    </div>
-    <div class="item buttons">
-        <div class="field">
-            <button type="button" class="ui button send_email disabled modal-list-candiates">REMOVE SELECTED</button>
+        <div class="item buttons">
+            <div class="field">
+                <button type="button" class="ui button send_email disabled modal-list-candiates" value="removeselected">REMOVE SELECTED</button>
+            </div>
         </div>
-    </div>
-    <div class="item buttons">
-        <div class="field">
-            <button type="button" class="ui button">DELETE LIST</button>
+        <div class="item buttons">
+            <div class="field">
+                <button type="button" class="ui button modal-list-candiates" value="deletelist">DELETE LIST</button>
+            </div>
         </div>
-    </div>
 
-</form>
+    </form>
 
 
     <!-- keep it here, can't have the form inside another -->
     {{>email_modal}}
+    <!-- remove selected from list -->
+    <div class="ui modal removeselected">
+        <i class="close icon"></i>
+        <div class="header"> Remove Selected </div>
+        <div class="content">
+
+            <form action="/source/edit" method="POST" class="ui form removeselected">
+                <input type="hidden" name="remove" value="true">
+                <input type="hidden" name="id" value="{{list._id}}">
+                <div class="ui grid email-form candidates_form">
+                    <div class="row emails">
+                        <div class="sixteen wide column"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="ui button" type="submit" style="display:none;">Delete</button>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="actions">
+            <button type="button" class="ui button cancel">Cancel</button>
+            <button type="button" class="ui button deletselected negative" value="removeselected">Delete</button>
+        </div>
+    </div>
+    <!-- delete the whole list -->
+    <div class="ui modal deletelist">
+        <i class="close icon"></i>
+        <div class="header"> Delete list </div>
+        <div class="content">
+            <p> Are you sure you want to delete "{{list.name}}" list? </p>
+            <form action="/source/delete/{{list._id}}" method="POST" class="ui form deletelist">
+            <button class="ui button" type="submit" style="display:none;">Delete</button>
+            </form>
+        </div>
+        <div class="actions">
+            <button type="button" class="ui button cancel">Cancel</button>
+            <button type="button" class="ui button deletselected negative" value="deletelist">Delete</button>
+        </div>
+    </div>
+
 </div>
