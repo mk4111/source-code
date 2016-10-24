@@ -96,7 +96,6 @@ $ ->
 
   enable_action_buttons = () ->
     if $(".checkbox input[name='email']:checked").length
-      email_button.removeClass "disabled" ;
       list_button.removeClass "disabled" ;
       deselect_button.removeClass "disabled" ;
       if $(".checkbox input[name='email']:not(:checked)").length
@@ -104,11 +103,15 @@ $ ->
       else
         select_button.addClass "disabled" ;
     else
-      email_button.addClass "disabled" ;
       list_button.addClass "disabled" ;
       deselect_button.addClass "disabled" ;
       if $(".checkbox input[name='email']").length
         select_button.removeClass "disabled" ;
+
+    if $(".not-blacklisted.email-checkbox .checkbox input[name='email']:checked").length
+      email_button.removeClass "disabled" ;
+    else
+      email_button.addClass "disabled" ;
 
   enable_action_buttons();
   $(".checkbox input[name='email']").change enable_action_buttons
@@ -130,10 +133,30 @@ $ ->
       modal_button.click -> 
         modal.find(".row.emails").html("");
         result_list = "";
-        $(".checkbox input[name='email']:checked").each ->
+        checkbox_selector = ".email-checkbox .checkbox input[name='email']:checked";
+        blacklist_selector = ":not(.not-blacklisted)" + checkbox_selector;
+        if modal_button.val() && modal_button.val() == "sendemail"
+          checkbox_selector = ".not-blacklisted" + checkbox_selector;
+          blacklisted_lenght = $(blacklist_selector).length;
+          if blacklisted_lenght
+            modal.find(".segment.removed-emails .counter").html(blacklisted_lenght);
+            modal.find(".segment.removed-emails").show();
+            if blacklisted_lenght > 1
+              modal.find(".segment.removed-emails .were").show()
+              modal.find(".segment.removed-emails .was").hide()
+            else
+              modal.find(".segment.removed-emails .was").show()
+              modal.find(".segment.removed-emails .were").hide()
+          else
+            modal.find(".segment.removed-emails").hide();
+
+        # move all checkbox to modal now / not great but it's working
+        $(checkbox_selector).each ->
           checkbox = $(this);
           result_list += checkbox.parent().find(".email-details").html();
         modal.find(".row.emails").html(result_list);
+        
+
         modal.modal('show');
         return false;
 
