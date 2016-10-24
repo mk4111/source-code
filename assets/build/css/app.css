@@ -325,36 +325,39 @@ form.sendmail .row.emails, form.createlist .row.emails, form.appendtolist .row.e
   min-width: 500px;
   text-align: left; }
 
-.ui.sidebar.candidate-search ~ .pusher {
+.ui.sidebar.visiable ~ .pusher {
   -webkit-transition: margin 0.5s;
   /* For Safari 3.1 to 6.0 */
   transition: margin 0.5s; }
 
-.ui.sidebar.candidate-search.visible ~ .pusher {
+.ui.sidebar.visible ~ .pusher {
   width: calc(100% - 260px); }
 
-.ui.sidebar.candidate-search {
+.ui.sidebar.visible {
   background-color: #f1f1f1;
   padding-top: 50px; }
-  .ui.sidebar.candidate-search, .ui.sidebar.candidate-search input, .ui.sidebar.candidate-search button {
+  .ui.sidebar.visible, .ui.sidebar.visible input, .ui.sidebar.visible button {
     font-family: 'blenderpro' !important; }
-  .ui.sidebar.candidate-search.visible {
+  .ui.sidebar.visible.visible {
     z-index: 3; }
-  .ui.sidebar.candidate-search .ui.form .icon .flag {
+  .ui.sidebar.visible .ui.form .file-upload-label {
+    font-weight: normal;
+    font-size: .85em; }
+  .ui.sidebar.visible .ui.form .icon .flag {
     margin: 0; }
-  .ui.sidebar.candidate-search .ui.form .item {
+  .ui.sidebar.visible .ui.form .item {
     padding: 10px; }
-    .ui.sidebar.candidate-search .ui.form .item.quick_search .field {
+    .ui.sidebar.visible .ui.form .item.quick_search .field {
       margin: 0; }
-    .ui.sidebar.candidate-search .ui.form .item > p {
+    .ui.sidebar.visible .ui.form .item > p {
       font-weight: bold; }
-    .ui.sidebar.candidate-search .ui.form .item .ui.checkbox {
+    .ui.sidebar.visible .ui.form .item .ui.checkbox {
       min-width: 40%; }
-    .ui.sidebar.candidate-search .ui.form .item.buttons, .ui.sidebar.candidate-search .ui.form .item p {
+    .ui.sidebar.visible .ui.form .item.buttons, .ui.sidebar.visible .ui.form .item p {
       text-align: center; }
-    .ui.sidebar.candidate-search .ui.form .item .field, .ui.sidebar.candidate-search .ui.form .item .fields {
+    .ui.sidebar.visible .ui.form .item .field, .ui.sidebar.visible .ui.form .item .fields {
       margin: 0 0 8px; }
-      .ui.sidebar.candidate-search .ui.form .item .field:last-child, .ui.sidebar.candidate-search .ui.form .item .fields:last-child {
+      .ui.sidebar.visible .ui.form .item .field:last-child, .ui.sidebar.visible .ui.form .item .fields:last-child {
         margin: 0px; }
 
 .pusher.search_content div.ui.container {
