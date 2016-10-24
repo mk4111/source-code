@@ -1,12 +1,12 @@
 <div class="ui modal createlist">
     <i class="close icon"></i>
-    <div class="header"> Create List </div>
+    <div class="header"> Create </div>
     <div class="content">
 
         <div class="selectmode">
             <form class="ui form selectmode">
               <div class="grouped fields">
-                <label>Predefined Contries Group</label>
+                <label>Select Action</label>
                 <div class="field">
                   <div class="ui slider checkbox">
                     <input type="radio" name="country" checked="checked" value="createlist">
@@ -26,6 +26,7 @@
 
         <div class="appendtolist" style="display: none;">
             <form action="/source/edit" method="POST" class="ui form appendtolist">
+                <input type="hidden" name="append" value="true">
                 <div class="ui error message"></div>
                 <div class="ui grid email-form candidates_form">
                     <div class="row emails">
@@ -56,9 +57,9 @@
     </div>
 
     <div class="actions"> 
-        <button type="button" class="ui button cancel selectmode" value="selectmode">Next</button>
-        <button type="button" class="ui button cancel appendtolist" value="appendtolist">Append</button>
-        <button type="button" class="ui button cancel createlist" value="createlist">Create</button>
+        <button type="button" class="ui button selectmode" value="selectmode">Next</button>
+        <button type="button" class="ui button appendtolist" value="appendtolist">Append</button>
+        <button type="button" class="ui button createlist" value="createlist">Create</button>
     </div>
 
 </div>
