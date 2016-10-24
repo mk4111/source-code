@@ -127,9 +127,20 @@ $ ->
     modal_button = $(this);
     if modal_button.val()
       modal = sidebar.find(".modal." + modal_button.val());
-      modal.find(".actions button").click ->
-        modal.find("form").submit()
+      # extra select mode option
+      selectmode_form = modal.find("form.selectmode").submit (v) ->
+        selected = selectmode_form.find("input[type='radio']:checked").val()
+        modal.find(".appendtolist").hide(); 
+        modal.find(".createlist").hide();
+        modal.find(".selectmode").hide();
+        modal.find("." + selected).show();
         return false;
+
+      modal.find(".actions button").each ->
+        $(this).click ->
+          if $(this).val()
+            modal.find("form." + $(this).val()).submit()
+            return false;
       modal_button.click -> 
         modal.find(".row.emails").html("");
         result_list = "";
@@ -154,17 +165,24 @@ $ ->
         $(checkbox_selector).each ->
           checkbox = $(this);
           result_list += checkbox.parent().find(".email-details").html();
-        modal.find(".row.emails").html(result_list);
-        
+        modal.find(".row.emails").each ->
+          $(this).html(result_list);
 
+        if modal_button.val() && modal_button.val() == "createlist"
+          # prepare the wizzard path to go through
+          modal.find(".selectmode").show();
+          modal.find(".appendtolist").hide(); 
+          modal.find(".createlist").hide();
         modal.modal('show');
         return false;
 
-  sidebar.find('.modal.createlist form').form({
+  sidebar.find('.modal.createlist form.createlist').form({
     fields: {
       name: 'empty',
     }
   });
+
+  sidebar.find('.modal.createlist form.appendtolist .list-selection').dropdown();
 
   modal_countries = sidebar.find(".modal.countries").modal()
   modal_countries.find("form").submit ->
