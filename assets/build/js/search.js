@@ -1,8 +1,5 @@
 $(function() {
   var clear_button, connected_to_dropdown, deselect_button, email_button, enable_action_buttons, enable_search_button, enable_search_option, list_button, modal_countries, reset_button, resetable, search_button, search_form, select_button, sidebar, uri;
-  $(".fixed.menu div.item.search").click(function() {
-    return $('.ui.sidebar.candidate-search').sidebar('toggle');
-  });
   if (!$('.ui.sidebar.candidate-search')) {
     return;
   }
@@ -137,13 +134,26 @@ $(function() {
     return enable_action_buttons();
   });
   search_form.find("button.modal-list-candiates").each(function() {
-    var modal, modal_button;
+    var modal, modal_button, selectmode_form;
     modal_button = $(this);
     if (modal_button.val()) {
       modal = sidebar.find(".modal." + modal_button.val());
-      modal.find(".actions button").click(function() {
-        modal.find("form").submit();
+      selectmode_form = modal.find("form.selectmode").submit(function(v) {
+        var selected;
+        selected = selectmode_form.find("input[type='radio']:checked").val();
+        modal.find(".appendtolist").hide();
+        modal.find(".createlist").hide();
+        modal.find(".selectmode").hide();
+        modal.find("." + selected).show();
         return false;
+      });
+      modal.find(".actions button").each(function() {
+        return $(this).click(function() {
+          if ($(this).val()) {
+            modal.find("form." + $(this).val()).submit();
+            return false;
+          }
+        });
       });
       return modal_button.click(function() {
         var blacklist_selector, blacklisted_lenght, checkbox_selector, result_list;
@@ -173,17 +183,25 @@ $(function() {
           checkbox = $(this);
           return result_list += checkbox.parent().find(".email-details").html();
         });
-        modal.find(".row.emails").html(result_list);
+        modal.find(".row.emails").each(function() {
+          return $(this).html(result_list);
+        });
+        if (modal_button.val() && modal_button.val() === "createlist") {
+          modal.find(".selectmode").show();
+          modal.find(".appendtolist").hide();
+          modal.find(".createlist").hide();
+        }
         modal.modal('show');
         return false;
       });
     }
   });
-  sidebar.find('.modal.createlist form').form({
+  sidebar.find('.modal.createlist form.createlist').form({
     fields: {
       name: 'empty'
     }
   });
+  sidebar.find('.modal.createlist form.appendtolist .list-selection').dropdown();
   modal_countries = sidebar.find(".modal.countries").modal();
   modal_countries.find("form").submit(function() {
     search_form.find(".advance_search input[name='location']").val(modal_countries.find("input[type='radio']:checked").val());

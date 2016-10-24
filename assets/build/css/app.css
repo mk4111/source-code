@@ -273,32 +273,32 @@ div.container.candidate form.li-save-form .labeled .label i {
 .modal.sendemail p span.fullname {
   display: none; }
 
-.modal.createlist p span.email {
+.modal.createlist p span.email, .modal.removeselected p span.email {
   display: none; }
 
-.modal.sendemail form.createlist .email-form, .modal.createlist form.createlist .email-form {
+.modal.sendemail form.appendtolist .email-form, .modal.sendemail form.createlist .email-form, .modal.sendemail form.removeselected .email-form, .modal.createlist form.appendtolist .email-form, .modal.createlist form.createlist .email-form, .modal.createlist form.removeselected .email-form, .modal.removeselected form.appendtolist .email-form, .modal.removeselected form.createlist .email-form, .modal.removeselected form.removeselected .email-form {
   margin-bottom: 5px; }
 
-.modal.sendemail form button[type="submit"], .modal.createlist form button[type="submit"] {
+.modal.sendemail form button[type="submit"], .modal.createlist form button[type="submit"], .modal.removeselected form button[type="submit"] {
   display: none; }
 
-.modal.sendemail .actions, .modal.createlist .actions {
+.modal.sendemail .actions, .modal.createlist .actions, .modal.removeselected .actions {
   text-align: right; }
 
-form.sendmail .email-form div.subject, form.createlist .email-form div.subject {
+form.sendmail .email-form div.subject, form.createlist .email-form div.subject, form.appendtolist .email-form div.subject, form.removeselected .email-form div.subject {
   width: 100%; }
 
-form.sendmail .email-form div.button-wrap, form.createlist .email-form div.button-wrap {
+form.sendmail .email-form div.button-wrap, form.createlist .email-form div.button-wrap, form.appendtolist .email-form div.button-wrap, form.removeselected .email-form div.button-wrap {
   text-align: right; }
 
-form.sendmail .email-form .segment.removed-emails, form.createlist .email-form .segment.removed-emails {
+form.sendmail .email-form .segment.removed-emails, form.createlist .email-form .segment.removed-emails, form.appendtolist .email-form .segment.removed-emails, form.removeselected .email-form .segment.removed-emails {
   width: 100%; }
 
-form.sendmail .row.emails, form.createlist .row.emails {
+form.sendmail .row.emails, form.createlist .row.emails, form.appendtolist .row.emails, form.removeselected .row.emails {
   padding: 1rem 1.5rem; }
-  form.sendmail .row.emails p:last-child .emails-comma, form.createlist .row.emails p:last-child .emails-comma {
+  form.sendmail .row.emails p:last-child .emails-comma, form.createlist .row.emails p:last-child .emails-comma, form.appendtolist .row.emails p:last-child .emails-comma, form.removeselected .row.emails p:last-child .emails-comma {
     display: none; }
-  form.sendmail .row.emails p, form.createlist .row.emails p {
+  form.sendmail .row.emails p, form.createlist .row.emails p, form.appendtolist .row.emails p, form.removeselected .row.emails p {
     margin: 0; }
 
 #navbar.ui.menu.fixed img {
