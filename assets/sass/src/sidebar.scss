@@ -14,7 +14,10 @@ $SIDEBAR_WIDTH: 260px; // defautl semantic-ui value
     &.visible { z-index: 3; }// I don't think this one should be deinfe explicit
     padding-top: 50px;
     .ui.form {
-        .file-upload-label { font-size: .85em; }
+        .file-upload-label { 
+            font-weight: normal;
+            font-size: .85em;
+        }
         .icon .flag { margin: 0; }
         .item {
             &.quick_search {
