@@ -1,7 +1,7 @@
 $ ->
 
-  $(".fixed.menu div.item.search").click ->
-    $('.ui.sidebar.candidate-search').sidebar('toggle');
+  #$(".fixed.menu div.item.search").click ->
+  #  $('.ui.sidebar.candidate-search').sidebar('toggle');
 
   if ! $('.ui.sidebar.candidate-search') then return;
 
