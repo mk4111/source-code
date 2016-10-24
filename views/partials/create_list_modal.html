@@ -2,7 +2,63 @@
     <i class="close icon"></i>
     <div class="header"> Create List </div>
     <div class="content">
-        {{>create_list_form}}
+
+        <div class="selectmode">
+            <form class="ui form selectmode">
+              <div class="grouped fields">
+                <label>Predefined Contries Group</label>
+                <div class="field">
+                  <div class="ui slider checkbox">
+                    <input type="radio" name="country" checked="checked" value="createlist">
+                    <label>Create new list</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui slider checkbox">
+                    <input type="radio" name="country" value="appendtolist">
+                    <label>Append to existing list</label>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" style="display:none;"></button>
+            </form>
+        </div>
+
+        <div class="appendtolist" style="display: none;">
+            <form action="/source/edit" method="POST" class="ui form appendtolist">
+                <div class="ui error message"></div>
+                <div class="ui grid email-form candidates_form">
+                    <div class="row emails">
+                        <div class="sixteen wide column">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="ui fluid search selection dropdown list-selection">
+                    <input type="hidden" name="id">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Select List</div>
+                        <div class="menu">
+                            {{#each lists}}
+                            <div class="item" data-value="{{_id}}">{{name}}</div>
+                            {{/each}}
+                        </div>
+                    </div>
+                    <button class="ui button" type="submit" style="display:none;">Send</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="createlist" style="display: none;">
+            {{>create_list_form}}
+        </div>
+
     </div>
-    <div class="actions"> <button type="button" class="ui button cancel">Create</button> </div>
+
+    <div class="actions"> 
+        <button type="button" class="ui button cancel selectmode" value="selectmode">Next</button>
+        <button type="button" class="ui button cancel appendtolist" value="appendtolist">Append</button>
+        <button type="button" class="ui button cancel createlist" value="createlist">Create</button>
+    </div>
+
 </div>
