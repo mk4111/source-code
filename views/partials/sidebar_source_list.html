@@ -1,0 +1,30 @@
+<div class="ui left sidebar vertical menu visible source-list crate-from-csv">
+
+    <form class="ui form search" method="POST" action="/source/csv">
+
+        <div class="item buttons">
+            <p> UPLOAD FROM CSV </p>
+            <div class="ui error message"></div>
+            <div class="field">
+                <div class="ui input">
+                    <input type="text" placeholder="Name" name="name">
+                </div>
+            </div>
+            <div class="field">
+                <textarea name="description" placeholder="Description" cols="10" rows="5"></textarea>
+            </div>
+            
+            <div class="field">
+                <label for="input-list-csv" class="ui icon button file-upload-label">
+                    <i class="file text icon"></i> 
+                    <span class="select"> SELECT CSV </span>
+                    <span class="upload"> </span>
+                </label>
+                <input type="file" id="input-list-csv" name="csv" accept=".csv" style="visibility: hidden; width: 0px    height: 0px; position: absolute; left: -1000px;">
+            </div>
+
+            <button type="submit" class="ui button" value="removeselected">UPLOAD</button>
+        </div>
+    </form>
+
+</div>
