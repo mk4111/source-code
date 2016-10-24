@@ -2,6 +2,9 @@
 <form action="/email" method="POST" class="ui form sendmail">
 
 <div class="ui grid email-form">
+    <div class="ui segment color red removed-emails" style="display: none;">
+        <p> <span class="counter"> </span> <span class="were" style="display:none;"> candidates were</span><span class="was" style="display:none;">candidate was</span> automatically filtered by blacklist filter.</p>
+    </div>
     <div class="row emails">
         <div class="sixteen wide column">
             {{>form_candidate}}

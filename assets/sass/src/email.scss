@@ -2,6 +2,7 @@ form.sendmail, form.createlist {
     .email-form {
         div.subject { width: 100%; }
         div.button-wrap { text-align: right; }
+        .segment.removed-emails { width: 100%; }
     }
     .row.emails {
         padding: 1rem 1.5rem;
