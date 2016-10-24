@@ -106,21 +106,24 @@ $(function() {
   list_button = sidebar.find("button.create_list");
   enable_action_buttons = function() {
     if ($(".checkbox input[name='email']:checked").length) {
-      email_button.removeClass("disabled");
       list_button.removeClass("disabled");
       deselect_button.removeClass("disabled");
       if ($(".checkbox input[name='email']:not(:checked)").length) {
-        return select_button.removeClass("disabled");
+        select_button.removeClass("disabled");
       } else {
-        return select_button.addClass("disabled");
+        select_button.addClass("disabled");
       }
     } else {
-      email_button.addClass("disabled");
       list_button.addClass("disabled");
       deselect_button.addClass("disabled");
       if ($(".checkbox input[name='email']").length) {
-        return select_button.removeClass("disabled");
+        select_button.removeClass("disabled");
       }
+    }
+    if ($(".not-blacklisted.email-checkbox .checkbox input[name='email']:checked").length) {
+      return email_button.removeClass("disabled");
+    } else {
+      return email_button.addClass("disabled");
     }
   };
   enable_action_buttons();
@@ -143,10 +146,29 @@ $(function() {
         return false;
       });
       return modal_button.click(function() {
-        var result_list;
+        var blacklist_selector, blacklisted_lenght, checkbox_selector, result_list;
         modal.find(".row.emails").html("");
         result_list = "";
-        $(".checkbox input[name='email']:checked").each(function() {
+        checkbox_selector = ".email-checkbox .checkbox input[name='email']:checked";
+        blacklist_selector = ":not(.not-blacklisted)" + checkbox_selector;
+        if (modal_button.val() && modal_button.val() === "sendemail") {
+          checkbox_selector = ".not-blacklisted" + checkbox_selector;
+          blacklisted_lenght = $(blacklist_selector).length;
+          if (blacklisted_lenght) {
+            modal.find(".segment.removed-emails .counter").html(blacklisted_lenght);
+            modal.find(".segment.removed-emails").show();
+            if (blacklisted_lenght > 1) {
+              modal.find(".segment.removed-emails .were").show();
+              modal.find(".segment.removed-emails .was").hide();
+            } else {
+              modal.find(".segment.removed-emails .was").show();
+              modal.find(".segment.removed-emails .were").hide();
+            }
+          } else {
+            modal.find(".segment.removed-emails").hide();
+          }
+        }
+        $(checkbox_selector).each(function() {
           var checkbox;
           checkbox = $(this);
           return result_list += checkbox.parent().find(".email-details").html();

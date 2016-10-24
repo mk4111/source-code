@@ -191,11 +191,11 @@ div.candidates-list div.row.candidate {
     display: none; }
   div.candidates-list div.row.candidate p.connected-to {
     display: inline-block; }
-  div.candidates-list div.row.candidate div.column.email-checbox:not(.not-blacklisted) .ui.checkbox input ~ .box:before,
-  div.candidates-list div.row.candidate div.column.email-checbox:not(.not-blacklisted) .ui.checkbox input ~ label:before {
+  div.candidates-list div.row.candidate div.column.email-checkbox:not(.not-blacklisted) .ui.checkbox input ~ .box:before,
+  div.candidates-list div.row.candidate div.column.email-checkbox:not(.not-blacklisted) .ui.checkbox input ~ label:before {
     background-color: #d01919; }
-  div.candidates-list div.row.candidate div.column.email-checbox:not(.not-blacklisted) .ui.checkbox input ~ .box:after,
-  div.candidates-list div.row.candidate div.column.email-checbox:not(.not-blacklisted) .ui.checkbox input ~ label:after {
+  div.candidates-list div.row.candidate div.column.email-checkbox:not(.not-blacklisted) .ui.checkbox input ~ .box:after,
+  div.candidates-list div.row.candidate div.column.email-checkbox:not(.not-blacklisted) .ui.checkbox input ~ label:after {
     color: white; }
 
 div.candidates-list div.row.skills {
@@ -290,6 +290,9 @@ form.sendmail .email-form div.subject, form.createlist .email-form div.subject {
 
 form.sendmail .email-form div.button-wrap, form.createlist .email-form div.button-wrap {
   text-align: right; }
+
+form.sendmail .email-form .segment.removed-emails, form.createlist .email-form .segment.removed-emails {
+  width: 100%; }
 
 form.sendmail .row.emails, form.createlist .row.emails {
   padding: 1rem 1.5rem; }
