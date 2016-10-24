@@ -182,6 +182,12 @@ $ ->
     }
   });
 
+  sidebar.find('.modal.createlist form.appendtolist').form({
+      fields: {
+        id: 'empty',
+      }
+    })
+
   sidebar.find('.modal.createlist form.appendtolist .list-selection').dropdown();
 
   modal_countries = sidebar.find(".modal.countries").modal()
