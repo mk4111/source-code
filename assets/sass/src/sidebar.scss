@@ -1,19 +1,20 @@
 $SIDEBAR_WIDTH: 260px; // defautl semantic-ui value
 
-.ui.sidebar.candidate-search ~ .pusher {
+.ui.sidebar.visiable ~ .pusher {
     @include transition(margin 0.5s);
 }
 
-.ui.sidebar.candidate-search.visible ~ .pusher {
+.ui.sidebar.visible ~ .pusher {
     width: calc(100% - 260px);
 }
 
-.ui.sidebar.candidate-search {
+.ui.sidebar.visible {
     background-color: $LIGHT_GREY;
     &, & input, & button { font-family: 'blenderpro' !important; }
     &.visible { z-index: 3; }// I don't think this one should be deinfe explicit
     padding-top: 50px;
     .ui.form {
+        .file-upload-label { font-size: .85em; }
         .icon .flag { margin: 0; }
         .item {
             &.quick_search {
