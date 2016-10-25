@@ -4,25 +4,31 @@
 
 <div class="pusher">
     <div class="ui container source-list">
-
-        <div class="ui top attached tabular menu">
-          <a class="active item" data-tab="first">First</a>
-          <a class="item" data-tab="second">Second</a>
-          <a class="item" data-tab="third">Third</a>
+    
+        <div class="ui top attached tabular menu folders">
+            {{#each folders}}
+                <a class="item
+                    {{#if @first}}
+                        active
+                    {{/if}}
+                " data-tab="{{_id}}">{{name}}</a>
+            {{/each}}
         </div>
-        <div class="ui bottom attached active tab segment" data-tab="first">
-            First
-        </div>
-        <div class="ui bottom attached tab segment" data-tab="second">
-            Second
-        </div>
-        <div class="ui bottom attached tab segment" data-tab="third">
-            Third
-        </div>
+    
+        {{#each folders}}
+            <div class="ui bottom attached tab segment
+                {{#if @first}}
+                    active
+                {{/if}}
+            " data-tab="{{_id}}">
+                <!-- content -->
+                <!-- -->
+            </div>
+        {{/each}}
 
 
 
-        {{#each lists}}
+    {{#each lists}}
         <div class="ui relaxed divided list">
             <div class="item">
                 <i class="large unordered list icon middle aligned icon"></i>
@@ -35,6 +41,6 @@
                 </div>
             </div>
         </div>
-        {{/each}}
+    {{/each}}
     </div>
 </div>
