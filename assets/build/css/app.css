@@ -340,24 +340,24 @@ form.sendmail .row.emails, form.createlist .row.emails, form.appendtolist .row.e
     font-family: 'blenderpro' !important; }
   .ui.sidebar.visible.visible {
     z-index: 3; }
-  .ui.sidebar.visible .ui.form .file-upload-label {
+  .ui.sidebar.visible .file-upload-label {
     font-weight: normal;
     font-size: .85em; }
-  .ui.sidebar.visible .ui.form .icon .flag {
+  .ui.sidebar.visible .icon .flag {
     margin: 0; }
-  .ui.sidebar.visible .ui.form .item {
+  .ui.sidebar.visible .item {
     padding: 10px; }
-    .ui.sidebar.visible .ui.form .item.quick_search .field {
+    .ui.sidebar.visible .item.quick_search .field {
       margin: 0; }
-    .ui.sidebar.visible .ui.form .item > p {
+    .ui.sidebar.visible .item > p {
       font-weight: bold; }
-    .ui.sidebar.visible .ui.form .item .ui.checkbox {
+    .ui.sidebar.visible .item .ui.checkbox {
       min-width: 40%; }
-    .ui.sidebar.visible .ui.form .item.buttons, .ui.sidebar.visible .ui.form .item p {
+    .ui.sidebar.visible .item.buttons, .ui.sidebar.visible .item p {
       text-align: center; }
-    .ui.sidebar.visible .ui.form .item .field, .ui.sidebar.visible .ui.form .item .fields {
+    .ui.sidebar.visible .item .field, .ui.sidebar.visible .item .fields {
       margin: 0 0 8px; }
-      .ui.sidebar.visible .ui.form .item .field:last-child, .ui.sidebar.visible .ui.form .item .fields:last-child {
+      .ui.sidebar.visible .item .field:last-child, .ui.sidebar.visible .item .fields:last-child {
         margin: 0px; }
 
 .pusher.search_content div.ui.container {
