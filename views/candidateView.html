@@ -156,11 +156,32 @@
             {{#unless candidate.contacts.email}}
                 disabled
             {{/unless}}
+            {{#if emailSent}}
+                positive
+            {{/if}}
             " value="sendemail"> Send Email </button>
             {{>email_modal}}
         </div>
         <div class="column">
-            <button class="ui button disabled"> Add to List </button>
+            <button class="ui button
+            {{#unless lists.length}}
+                disabled
+            {{/unless}}
+            {{#if listSaved}}
+                positive
+            {{/if}}
+            " value="appendtolist"> Add to List </button>
+            <div class="ui modal appendtolist">
+                <i class="close icon"></i>
+                <div class="header"> Add to List </div>
+                <div class="content">
+                    {{>append_to_list_form}}
+                </div>
+                <div class="actions"> 
+                    <button type="button" class="ui button appendtolist" value="appendtolist">Append</button>
+                </div>
+
+            </div>
         </div>
         <div class="column">
             <form action="/blacklist" method="POST">

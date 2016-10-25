@@ -183,10 +183,8 @@ $ ->
   });
 
   sidebar.find('.modal.createlist form.appendtolist').form({
-      fields: {
-        id: 'empty',
-      }
-    })
+    fields: { id: 'empty', }
+  });
 
   sidebar.find('.modal.createlist form.appendtolist .list-selection').dropdown();
 
