@@ -10,10 +10,12 @@ $ ->
         modal.modal('show');
         return false;
 
-  if $("form.log-call button").hasClass "positive"
-    setTimeout ->
-      $("form.log-call button").removeClass "positive"
-    , 5000
+  $(".container.candidate .action-buttons  button").each ->
+    actionButtton = $(this)
+    if actionButtton.hasClass "positive"
+      setTimeout ->
+        actionButtton.removeClass "positive"
+      , 5000
 
   $(".modal.sendemail").each ->
     modal = $(this)
@@ -51,6 +53,13 @@ $ ->
       jobId: 'empty'
     }
   });
+
+  # append to list
+  $('.modal.appendtolist form');
+  $('.modal.appendtolist form .list-selection').dropdown();
+  $('.modal.appendtolist .actions button.appendtolist').click ->
+    $('.modal.appendtolist form').submit();
+
 
   $('.modal.addsubmission button[type="submit"]').click ->
     $('.modal.addsubmission form').submit();

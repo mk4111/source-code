@@ -1,0 +1,26 @@
+<form action="/source/edit" method="POST" class="ui form appendtolist">
+    <input type="hidden" name="append" value="true">
+    <input type="hidden" name="candidate_id" value="{{candidate.id}}">
+    {{>form_candidate}}
+    <div class="ui grid email-form candidates_form">
+        <div class="row emails">
+            <div class="sixteen wide column"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="ui error message"></div>
+
+        <div class="ui fluid search selection dropdown list-selection">
+            <input type="hidden" name="id" >
+            <i class="dropdown icon"></i>
+            <div class="default text">Select List</div>
+                <div class="menu">
+                {{#each lists}}
+                    <div class="item" data-value="{{_id}}">{{name}}</div>
+                {{/each}}
+            </div>
+        </div>
+
+        <button class="ui button" type="submit" style="display:none;">Send</button>
+    </div>
+</form>
