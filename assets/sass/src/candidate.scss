@@ -11,9 +11,7 @@ div.container.candidate {
           }
           padding-left: 5px;
           padding-right: 5px;
-          form.log-call {
-            button { @include transition(all 1s); }
-          }
+          button { @include transition(all 1s); }
           &:first-child { padding-left: 0px; }
           &:last-child { padding-right: 0px; }
         }
