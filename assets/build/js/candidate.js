@@ -13,11 +13,15 @@ $(function() {
       });
     }
   });
-  if ($("form.log-call button").hasClass("positive")) {
-    setTimeout(function() {
-      return $("form.log-call button").removeClass("positive");
-    }, 5000);
-  }
+  $(".container.candidate .action-buttons  button").each(function() {
+    var actionButtton;
+    actionButtton = $(this);
+    if (actionButtton.hasClass("positive")) {
+      return setTimeout(function() {
+        return actionButtton.removeClass("positive");
+      }, 5000);
+    }
+  });
   $(".modal.sendemail").each(function() {
     var initial_message, modal;
     modal = $(this);
@@ -54,6 +58,11 @@ $(function() {
       stageId: 'empty',
       jobId: 'empty'
     }
+  });
+  $('.modal.appendtolist form');
+  $('.modal.appendtolist form .list-selection').dropdown();
+  $('.modal.appendtolist .actions button.appendtolist').click(function() {
+    return $('.modal.appendtolist form').submit();
   });
   $('.modal.addsubmission button[type="submit"]').click(function() {
     return $('.modal.addsubmission form').submit();

@@ -221,7 +221,7 @@ div.container.candidate div.grid.action-buttons {
     div.container.candidate div.grid.action-buttons .column .button {
       width: 100%;
       padding: 15px; }
-    div.container.candidate div.grid.action-buttons .column form.log-call button {
+    div.container.candidate div.grid.action-buttons .column button {
       -webkit-transition: all 1s;
       /* For Safari 3.1 to 6.0 */
       transition: all 1s; }
