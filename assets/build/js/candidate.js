@@ -61,6 +61,11 @@ $(function() {
   });
   $('.modal.appendtolist form');
   $('.modal.appendtolist form .list-selection').dropdown();
+  $('.modal.appendtolist form').form({
+    fields: {
+      id: 'empty'
+    }
+  });
   $('.modal.appendtolist .actions button.appendtolist').click(function() {
     return $('.modal.appendtolist form').submit();
   });
