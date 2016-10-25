@@ -57,6 +57,9 @@ $ ->
   # append to list
   $('.modal.appendtolist form');
   $('.modal.appendtolist form .list-selection').dropdown();
+  $('.modal.appendtolist form').form({
+      fields: { id: 'empty', }
+    });
   $('.modal.appendtolist .actions button.appendtolist').click ->
     $('.modal.appendtolist form').submit();
 
