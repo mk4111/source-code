@@ -13,27 +13,25 @@ $SIDEBAR_WIDTH: 260px; // defautl semantic-ui value
     &, & input, & button { font-family: 'blenderpro' !important; }
     &.visible { z-index: 3; }// I don't think this one should be deinfe explicit
     padding-top: 50px;
-    .ui.form {
         .file-upload-label { 
             font-weight: normal;
             font-size: .85em;
         }
         .icon .flag { margin: 0; }
         .item {
-            &.quick_search {
-                .field { margin: 0; }
-            }
-            padding: 10px;
-            > p { font-weight: bold; }
-            .ui.checkbox { min-width: 40%; }
-            &.buttons, p {
-                text-align: center;
-            }
-            .field, .fields {
-                margin: 0 0 8px;
-                &:last-child {
-                    margin: 0px;
-                }
+        &.quick_search {
+            .field { margin: 0; }
+        }
+        padding: 10px;
+        > p { font-weight: bold; }
+        .ui.checkbox { min-width: 40%; }
+        &.buttons, p {
+            text-align: center;
+        }
+        .field, .fields {
+            margin: 0 0 8px;
+            &:last-child {
+                margin: 0px;
             }
         }
     }
