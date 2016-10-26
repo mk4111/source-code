@@ -291,6 +291,14 @@ div.container.source-list .ui.bottom.attached.tab.segment {
     margin: 0 0 .5rem 0; }
     div.container.source-list .ui.bottom.attached.tab.segment .ui.segment form .fields {
       margin-bottom: 0; }
+    div.container.source-list .ui.bottom.attached.tab.segment .ui.segment.head {
+      text-align: center; }
+      div.container.source-list .ui.bottom.attached.tab.segment .ui.segment.head span {
+        opacity: 0.8; }
+      div.container.source-list .ui.bottom.attached.tab.segment .ui.segment.head i {
+        float: right;
+        padding: 0;
+        cursor: pointer; }
 
 form.sendmail .email-form div.subject, form.createlist .email-form div.subject, form.appendtolist .email-form div.subject, form.removeselected .email-form div.subject {
   width: 100%; }
