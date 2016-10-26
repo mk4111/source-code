@@ -287,6 +287,10 @@ div.container.candidate form.li-save-form .labeled .label i {
 
 div.container.source-list .ui.bottom.attached.tab.segment {
   margin-bottom: 1rem; }
+  div.container.source-list .ui.bottom.attached.tab.segment .ui.segment {
+    margin: 0 0 .5rem 0; }
+    div.container.source-list .ui.bottom.attached.tab.segment .ui.segment form .fields {
+      margin-bottom: 0; }
 
 form.sendmail .email-form div.subject, form.createlist .email-form div.subject, form.appendtolist .email-form div.subject, form.removeselected .email-form div.subject {
   width: 100%; }
