@@ -8,7 +8,6 @@
             </div>
         </div>
     </div>
-
     <div class="field">
         <label>Name</label>
         <input name="name" class="ui input" placeholder="Name">
@@ -17,6 +16,11 @@
         <label>Description</label>
         <textarea name="description" placeholder="Description" cols="10" rows="10"></textarea>
     </div>
+    <div class="field">
+        <label>Folder</label>
+        {{>folders_dropdown}}
+    </div>
+
     <div class="row">
         <button class="ui button" type="submit">Send</button>
     </div>
