@@ -52,11 +52,3 @@ $SIDEBAR_WIDTH: 260px; // defautl semantic-ui value
         }
     }
 }
-
-.ui.sidebar.visible.source-list.crate-from-csv {
-    .dropdown.folder-selection .search { padding-left: 74px; }
-}
-
-.modal.createlist {
-    .dropdown.folder-selection label { display: none; }
-}
