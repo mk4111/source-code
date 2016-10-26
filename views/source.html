@@ -26,6 +26,24 @@
                     active
                 {{/if}}
             " data-tab="{{_id}}">
+                {{#unless (equal _id "none")}}
+                <div class="ui segment">
+                    <form class="ui form" method="POST" action="/folders/{{_id}}">
+                      <div class="three fields">
+                        <div class="field">
+                          <input type="text" name="name" placeholder="Name" value="{{name}}">
+                        </div>
+                        <div class="field">
+                          <textarea rows="2" name="description" placeholder="Description">{{description}}</textarea>
+                        </div>
+                        <div class="field">
+                          <button class="ui button" type="submit">UPDATE</button>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+                {{/unless}}
+                <div class="ui segment">
                 {{#each lists}}
                     <div class="ui relaxed divided list">
                         <div class="item">
@@ -42,6 +60,7 @@
                         </div>
                     </div>
                 {{/each}}
+                </div>
             </div>
         {{/each}}
 
