@@ -4,7 +4,6 @@
 
 <div class="pusher">
     <div class="ui container source-list">
-    
 
     {{#each (foldersGrid folders) as |row|}}
         <div class="row-grids">
@@ -27,22 +26,34 @@
                 {{/if}}
             " data-tab="{{_id}}">
                 {{#unless (equal _id "none")}}
-                <div class="ui segment">
-                    <form class="ui form" method="POST" action="/folders/{{_id}}">
-                      <div class="three fields">
-                        <div class="field">
-                          <input type="text" name="name" placeholder="Name" value="{{name}}">
+                <div class="ui segment head">
+                    <span>{{description}}</span>
+                    <i class="ui icon edit middle aligned icon attached right"></i>
+
+                    <div class="ui modal edit-folder">
+                        <i class="close icon"></i>
+                        <div class="header"> Edit Folder </div>
+                        <div class="content">
+                        <form class="ui form" method="POST" action="/folders/{{_id}}">
+                            <div class="ui error message"></div>
+                            <div class="field">
+                                <label>Name:</label>
+                                <input type="text" name="name" placeholder="Name" value="{{name}}">
+                            </div>
+                            <div class="field">
+                                <label>Description:</label>
+                                <textarea rows="5" name="description" placeholder="Description">{{description}}</textarea>
+                            </div>
+                            <button class="ui button" type="submit" style="display: none;">UPDATE</button>
+                        </form>
                         </div>
-                        <div class="field">
-                          <textarea rows="2" name="description" placeholder="Description">{{description}}</textarea>
-                        </div>
-                        <div class="field">
-                          <button class="ui button" type="submit">UPDATE</button>
-                        </div>
-                      </div>
-                    </form>
+                        <div class="actions"><button class="ui button update">Update</button></div>
+                    </div>
+
+
                 </div>
                 {{/unless}}
+                {{#if lists.length}}
                 <div class="ui segment">
                 {{#each lists}}
                     <div class="ui relaxed divided list">
@@ -61,6 +72,7 @@
                     </div>
                 {{/each}}
                 </div>
+                {{/if}}
             </div>
         {{/each}}
 
