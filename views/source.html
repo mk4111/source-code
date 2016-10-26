@@ -1,13 +1,30 @@
 {{>navigation}}
 
-{{>sidebar_source_list}}
+
 
 <div class="pusher">
     <div class="ui container source-list">
 
+    <div class="ui segment actions">
+        <div class="ui form">
+        <div class="three fields">
+            <div class="ui field">
+                <button class="ui button disabled">CREATE LIST</button>
+            </div>
+            <div class="ui field">
+                <button class="ui button uploadlist">UPLOAD LIST</button>
+                {{>csv_modal}}
+            </div>
+            <div class="ui field">
+                <button class="ui button createfolder">CREATE FOLDER</button>
+                {{>folder_modal folder=this}}
+            </div>
+        </div>
+        </div>
+    </div>
+
     {{#each (foldersGrid folders) as |row|}}
         <div class="row-grids">
-
 
         <div class="ui top attached tabular menu folders">
             {{#each row}}
@@ -29,28 +46,7 @@
                 <div class="ui segment head">
                     <span>{{description}}</span>
                     <i class="ui icon edit middle aligned icon attached right"></i>
-
-                    <div class="ui modal edit-folder">
-                        <i class="close icon"></i>
-                        <div class="header"> Edit Folder </div>
-                        <div class="content">
-                        <form class="ui form" method="POST" action="/folders/{{_id}}">
-                            <div class="ui error message"></div>
-                            <div class="field">
-                                <label>Name:</label>
-                                <input type="text" name="name" placeholder="Name" value="{{name}}">
-                            </div>
-                            <div class="field">
-                                <label>Description:</label>
-                                <textarea rows="5" name="description" placeholder="Description">{{description}}</textarea>
-                            </div>
-                            <button class="ui button" type="submit" style="display: none;">UPDATE</button>
-                        </form>
-                        </div>
-                        <div class="actions"><button class="ui button update">Update</button></div>
-                    </div>
-
-
+                    {{>folder_modal folder=this}}
                 </div>
                 {{/unless}}
                 {{#if lists.length}}

@@ -1,0 +1,25 @@
+<div class="ui modal edit-folder">
+    <i class="close icon"></i>
+    <div class="header"> 
+    {{#if folder._id}}
+        Edit Folder
+    {{else}}
+        Create Folder
+    {{/if}}
+    </div>
+    <div class="content">
+    <form class="ui form" method="POST" action="/folders/{{folder._id}}">
+    <div class="ui error message"></div>
+    <div class="field">
+        <label>Name:</label>
+        <input type="text" name="name" placeholder="Name" value="{{folder.name}}">
+    </div>
+    <div class="field">
+        <label>Description:</label>
+        <textarea rows="5" name="description" placeholder="Description">{{folder.description}}</textarea>
+    </div>
+    <button class="ui button" type="submit" style="display: none;">UPDATE</button>
+    </form>
+    </div>
+    <div class="actions"><button class="ui button update">Update</button></div>
+</div>
