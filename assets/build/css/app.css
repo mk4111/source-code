@@ -285,6 +285,9 @@ div.container.candidate form.li-save-form .labeled .label i {
 .modal.sendemail .actions, .modal.createlist .actions, .modal.removeselected .actions {
   text-align: right; }
 
+div.container.source-list .ui.bottom.attached.tab.segment {
+  margin-bottom: 1rem; }
+
 form.sendmail .email-form div.subject, form.createlist .email-form div.subject, form.appendtolist .email-form div.subject, form.removeselected .email-form div.subject {
   width: 100%; }
 
