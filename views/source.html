@@ -13,6 +13,7 @@
                     {{/if}}
                 " data-tab="{{_id}}">{{name}}</a>
             {{/each}}
+            <a class="item" data-tab="none">None</a>
         </div>
     
         {{#each folders}}
@@ -21,26 +22,29 @@
                     active
                 {{/if}}
             " data-tab="{{_id}}">
-                <!-- content -->
-                <!-- -->
+                {{#each lists}}
+                    <div class="ui relaxed divided list">
+                        <div class="item">
+                            <!--
+                            <i class="large unordered list icon middle aligned icon"></i>
+                            -->
+                            <div class="content">
+                                <div class="header">
+                                <a class="" href="/source/{{_id}}">{{name}} ({{candidates.length}})</a>
+                                <a class="downlaod" href="/source/csv/{{_id}}"> <i class="large download icon middle aligned icon"></i> </a>
+                                </div>
+                                <div class="description">{{description}}</div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
             </div>
         {{/each}}
-
-
-
-    {{#each lists}}
-        <div class="ui relaxed divided list">
-            <div class="item">
-                <i class="large unordered list icon middle aligned icon"></i>
-                <div class="content">
-                    <div class="header">
-                    <a class="" href="/source/{{_id}}">{{name}} ({{candidates.length}})</a>
-                    <a class="downlaod" href="/source/csv/{{_id}}"> <i class="large download icon middle aligned icon"></i> </a>
-                    </div>
-                    <div class="description">{{description}}</div>
-                </div>
-            </div>
+        <div class="ui bottom attached tab segment" data-tab="none">
+            {{#each no_folder_lists}}
+                {{name}}
+            {{/each}}
         </div>
-    {{/each}}
+
     </div>
 </div>

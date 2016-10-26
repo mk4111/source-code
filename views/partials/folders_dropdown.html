@@ -1,0 +1,12 @@
+<div class="ui fluid search selection dropdown folder-selection">
+<input type="hidden" name="_folder" >
+    <label>Folder:</label>
+    <i class="dropdown icon"></i>
+    <div class="default text">Select Folder</div>
+    <div class="menu">
+        <div class="item" data-value="">None</div>
+        {{#each folders}}
+            <div class="item" data-value="{{_id}}">{{name}}</div>
+        {{/each}}
+    </div>
+</div>
