@@ -44,7 +44,11 @@
             " data-tab="{{_id}}">
                 {{#unless (equal _id "none")}}
                 <div class="ui segment head">
+                    {{#if description}}
                     <span>{{description}}</span>
+                    {{else}}
+                    <span style="opacity:0">empty</span>
+                    {{/if}}
                     <i class="ui icon edit middle aligned icon attached right"></i>
                     {{>folder_modal folder=this}}
                 </div>
