@@ -285,6 +285,10 @@ div.container.candidate form.li-save-form .labeled .label i {
 .modal.sendemail .actions, .modal.createlist .actions, .modal.removeselected .actions {
   text-align: right; }
 
+div.container.source-list .ui.segment.actions .fields {
+  margin-bottom: 0;
+  text-align: center; }
+
 div.container.source-list .ui.bottom.attached.tab.segment {
   margin-bottom: 1rem; }
   div.container.source-list .ui.bottom.attached.tab.segment .ui.segment {
