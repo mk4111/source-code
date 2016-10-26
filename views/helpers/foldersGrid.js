@@ -9,7 +9,7 @@ module.exports = function (folders) {
     var counter = 0;
     Underscore.each(folders, (f) => {
         row.push(f);
-        if(++counter == 8) {
+        if(++counter == 6) {
             counter = 0;
             grid.push(row);
             row = [];
