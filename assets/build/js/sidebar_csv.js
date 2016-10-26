@@ -8,6 +8,7 @@ $(function() {
   list_submit_button = csv_form.find("button[type='submit']");
   list_name_input = csv_form.find("input[name='name']");
   file_upload_label = csv_form.find(".file-upload-label");
+  csv_form.find(".dropdown.folder-selection").dropdown();
   csv_form.form({
     fields: {
       name: 'empty',

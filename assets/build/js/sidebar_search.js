@@ -145,6 +145,7 @@ $(function() {
         modal.find(".createlist").hide();
         modal.find(".selectmode").hide();
         modal.find("." + selected).show();
+        modal.modal('refresh');
         return false;
       });
       modal.find(".actions button").each(function() {
@@ -201,6 +202,7 @@ $(function() {
       name: 'empty'
     }
   });
+  sidebar.find(".modal.createlist form.createlist .dropdown.folder-selection").dropdown();
   sidebar.find('.modal.createlist form.appendtolist').form({
     fields: {
       id: 'empty'
