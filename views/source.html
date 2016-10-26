@@ -5,8 +5,13 @@
 <div class="pusher">
     <div class="ui container source-list">
     
+
+    {{#each (foldersGrid folders) as |row|}}
+        <div class="row-grids">
+
+
         <div class="ui top attached tabular menu folders">
-            {{#each folders}}
+            {{#each row}}
                 <a class="item
                     {{#if @first}}
                         active
@@ -15,7 +20,7 @@
             {{/each}}
         </div>
     
-        {{#each folders}}
+        {{#each row}}
             <div class="ui bottom attached tab segment
                 {{#if @first}}
                     active
@@ -39,5 +44,10 @@
                 {{/each}}
             </div>
         {{/each}}
+
+        </div>
+
+    {{/each}}
+
     </div>
 </div>
