@@ -4,6 +4,15 @@ div.container.source-list {
         .ui.segment { 
             margin: 0 0 .5rem 0;
             form .fields { margin-bottom: 0; }
+            &.head {
+                text-align: center;
+                span { opacity: 0.8; }
+                i {
+                    float: right;
+                    padding: 0;
+                    cursor: pointer;
+                }
+            }
         }
     }
 }
