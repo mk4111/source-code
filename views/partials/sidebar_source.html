@@ -1,31 +1,36 @@
 <div class="ui left sidebar vertical menu visible candidate-search source-list">
-        <div class="item list_name buttons">
-            <form class="ui form" action="/source/edit" method="POST">
-                <input type="hidden" name="id" value="{{list._id}}">
-                <input type="hidden" name="edit" value="true">
-                <div class="field">
-                    <div class="ui input">
-                        <input type="text" placeholder="Name" name="name" value="{{list.name}}">
-                    </div>
-                </div>
-                <div class="field">
-                    <textarea name="description" placeholder="Description" cols="10" rows="5">{{list.description}}</textarea>
-                </div>
-                <div class="field">
-                    <button type="submit" class="ui button">UPDATE</button>
-                </div>
-            </form>
-        </div>
-
-        <div class="item action_buttons buttons">
+    <div class="item list_name buttons">
+        <form class="ui form list-edit" action="/source/edit" method="POST">
+            <input type="hidden" name="id" value="{{list._id}}">
+            <input type="hidden" name="edit" value="true">
             <div class="field">
-                <div class="ui buttons horizontal">
-                <button type="button" class="ui button select_all disabled" value="sendemail">SELECT</button>
-                <button type="button" class="ui button deselect_all disabled" value="createlist">DESELECT</button>
+                <div class="ui input">
+                    <input type="text" placeholder="Name" name="name" value="{{list.name}}">
                 </div>
             </div>
+            <div class="field">
+                <textarea name="description" placeholder="Description" cols="10" rows="5">{{list.description}}</textarea>
+            </div>
+            <div class="field">
+                {{>folders_dropdown}}
+                <input type="hidden" name="current_folder" value="{{list._folder}}">
+            </div>
+            <div class="field">
+                <button type="submit" class="ui button">UPDATE</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="item action_buttons buttons">
+        <div class="field">
+            <div class="ui buttons horizontal">
+                <button type="button" class="ui button select_all disabled" value="sendemail">SELECT</button>
+                <button type="button" class="ui button deselect_all disabled" value="createlist">DESELECT</button>
+            </div>
         </div>
-        <form class="ui form search">
+    </div>
+
+    <form class="ui form search">
         <div class="item buttons">
             <div class="field">
                 <button type="button" class="ui button send_email disabled modal-list-candiates" value="sendemail">EMAIL</button>
@@ -41,7 +46,7 @@
                 <button type="button" class="ui button modal-list-candiates" value="deletelist">DELETE LIST</button>
             </div>
         </div>
-        </form>
+    </form>
 
 
     <!-- keep it here, can't have the form inside another -->

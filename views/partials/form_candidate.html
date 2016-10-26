@@ -1,4 +1,6 @@
+{{#if candidate}}
 <input name='to' type='hidden' value="{{candidate.contacts.email}}">
 <input name='candidateID' type='hidden' value="{{candidate.id}}">
 <input name='candidateFN' type='hidden' value="{{candidate.firstName}}">
 <p><span class="email">{{candidate.email}}</span><span class="fullname">{{candidate.fullname}}</span><span class="emails-comma">,&nbsp;</span></p>
+{{/if}}
