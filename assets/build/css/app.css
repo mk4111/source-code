@@ -304,17 +304,19 @@ div.container.source-list .ui.bottom.attached.tab.segment {
         padding: 0;
         cursor: pointer; }
 
-form.sendmail .email-form div.subject, form.createlist .email-form div.subject, form.appendtolist .email-form div.subject, form.removeselected .email-form div.subject {
-  width: 100%; }
+.modal.sendemail .available_variables {
+  width: 100%;
+  text-align: left; }
 
-form.sendmail .email-form div.button-wrap, form.createlist .email-form div.button-wrap, form.appendtolist .email-form div.button-wrap, form.removeselected .email-form div.button-wrap {
-  text-align: right; }
+form.sendmail .segment span.counter, form.createlist .segment span.counter, form.appendtolist .segment span.counter, form.removeselected .segment span.counter {
+  text-transform: capitalize; }
 
-form.sendmail .email-form .segment.removed-emails, form.createlist .email-form .segment.removed-emails, form.appendtolist .email-form .segment.removed-emails, form.removeselected .email-form .segment.removed-emails {
-  width: 100%; }
+form.sendmail .ui.grid.selected-stats .segment, form.createlist .ui.grid.selected-stats .segment, form.appendtolist .ui.grid.selected-stats .segment, form.removeselected .ui.grid.selected-stats .segment {
+  height: 100%; }
 
 form.sendmail .row.emails, form.createlist .row.emails, form.appendtolist .row.emails, form.removeselected .row.emails {
-  padding: 1rem 1.5rem; }
+  padding: 1rem 1.5rem;
+  display: none; }
   form.sendmail .row.emails p:last-child .emails-comma, form.createlist .row.emails p:last-child .emails-comma, form.appendtolist .row.emails p:last-child .emails-comma, form.removeselected .row.emails p:last-child .emails-comma {
     display: none; }
   form.sendmail .row.emails p, form.createlist .row.emails p, form.appendtolist .row.emails p, form.removeselected .row.emails p {

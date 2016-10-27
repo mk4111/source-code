@@ -8,6 +8,12 @@ $(function() {
     if (button.val()) {
       modal = button.parent().find(".modal." + button.val());
       return button.click(function() {
+        console.log(button.val());
+        if (button.val() === "sendemail") {
+          modal.modal({
+            autofocus: false
+          });
+        }
         modal.modal('show');
         return false;
       });
@@ -44,14 +50,6 @@ $(function() {
     historyType: 'hash'
   });
   $('.modal.addsubmission .dropdown.stage').dropdown();
-  $('.modal.addsubmission .dropdown.job').dropdown();
-  $('.modal.addsubmission .dropdown.client').dropdown({
-    'onChange': function(v) {
-      $('.modal.addsubmission .dropdown.job div.item').hide();
-      $('.modal.addsubmission .dropdown.job div.item.client-id-' + v).show();
-      return $('.modal.addsubmission .dropdown.job').dropdown('clear');
-    }
-  });
   $('.modal.addsubmission form').form({
     fields: {
       clientId: 'empty',

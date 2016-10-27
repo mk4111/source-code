@@ -163,21 +163,34 @@ $(function() {
         checkbox_selector = ".email-checkbox .checkbox input[name='email']:checked";
         blacklist_selector = ":not(.not-blacklisted)" + checkbox_selector;
         if (modal_button.val() && modal_button.val() === "sendemail") {
+          modal.modal({
+            autofocus: false
+          });
           checkbox_selector = ".not-blacklisted" + checkbox_selector;
           blacklisted_lenght = $(blacklist_selector).length;
           if (blacklisted_lenght) {
-            modal.find(".segment.removed-emails .counter").html(blacklisted_lenght);
-            modal.find(".segment.removed-emails").show();
+            modal.find("div.removed-emails .counter").html(blacklisted_lenght);
+            modal.find("div.removed-emails").show();
             if (blacklisted_lenght > 1) {
-              modal.find(".segment.removed-emails .were").show();
-              modal.find(".segment.removed-emails .was").hide();
+              modal.find("div.removed-emails .were").show();
+              modal.find("div.removed-emails .was").hide();
             } else {
-              modal.find(".segment.removed-emails .was").show();
-              modal.find(".segment.removed-emails .were").hide();
+              modal.find("div.removed-emails .was").show();
+              modal.find("div.removed-emails .were").hide();
             }
           } else {
-            modal.find(".segment.removed-emails").hide();
+            modal.find("div.removed-emails").hide();
           }
+        }
+        modal.find("div.accepted-emails");
+        modal.find("div.accepted-emails .counter").html($(checkbox_selector).length);
+        modal.find("div.accepted-emails").show();
+        if ($(checkbox_selector).length > 1) {
+          modal.find("div.accepted-emails .were").show();
+          modal.find("div.accepted-emails .was").hide();
+        } else {
+          modal.find("div.accepted-emails .was").show();
+          modal.find("div.accepted-emails .were").hide();
         }
         $(checkbox_selector).each(function() {
           var checkbox;

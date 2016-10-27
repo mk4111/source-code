@@ -2,6 +2,11 @@ $(function() {
   return $(".modal.sendemail").each(function() {
     var modal;
     modal = $(this);
+    modal.find(".ui.accordion").accordion({
+      'onOpen': function() {
+        return create_email_template_modal.modal('refresh');
+      }
+    });
     return modal.find("form.sendmail").each(function() {
       $(this).form({
         fields: {
