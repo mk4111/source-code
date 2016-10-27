@@ -1,0 +1,26 @@
+<div class="field">
+    <label>Client</label>
+    <div class="ui fluid search selection dropdown client">
+        <input type="hidden" name="clientId">
+        <i class="dropdown icon"></i>
+        <div class="default text">Client</div>
+        <div class="menu">
+            {{#each clientsWithJobs as |c id|}}
+                <div class="item" data-value="{{id}}">{{c.name}}</div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+<div class="field">
+    <label>Job</label>
+        <div class="ui fluid search selection dropdown job">
+        <input type="hidden" name="jobId">
+        <i class="dropdown icon"></i>
+        <div class="default text">Job</div>
+        <div class="menu">
+            {{#each activeJobs as |j id|}}
+                <div class="item client-id-{{j.client}}" data-value="{{id}}">{{j.title}}</div>
+            {{/each}}
+        </div>
+    </div>
+</div>
