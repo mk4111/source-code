@@ -1,3 +1,10 @@
+.modal.sendemail {
+    .available_variables {
+        width: 100%;
+        text-align: left;
+    }
+}
+
 form.sendmail, form.createlist, form.appendtolist, form.removeselected {
     .segment span.counter { text-transform: capitalize; }
     .ui.grid.selected-stats .segment { height: 100%; }
