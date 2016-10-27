@@ -1,8 +1,8 @@
 $ ->
-  sidebar = $('.ui.sidebar.emails');
-  if sidebar.length == 0 then return; # nth to do here
+  container = $('.container.emails-list');
+  if container.length == 0 then return; # nth to do here
 
-  $("a.create_email_template, button.create_email_template").each ->
+  container.find("a.create_email_template, button.create_email_template").each ->
     button = $(this);
     container = button.parent();
     create_email_template_modal = container.find('.modal.create_email_template')
