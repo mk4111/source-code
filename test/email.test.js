@@ -23,7 +23,7 @@ describe('Attempt to send email without being authenticated', function () {
 
       const options = {
         method: "POST",
-        url: "/email"
+        url: "/emails"
       }
 
       server.inject(options, function (res) {
@@ -68,7 +68,7 @@ describe('Attempt to send email without being authenticated', function () {
       }
       const options = {
         method: "POST",
-        url: "/email",
+        url: "/emails",
         headers: { cookie: "token=" + accessToken },
         credentials: { id: "12", "name": "Simon", valid: true, "firstname": "Simon", emails: [{value: "dolores.maria9810@gmail.com"}], tokens: tokens},
         payload: payload
@@ -125,7 +125,7 @@ describe('Attempt to send email without being authenticated', function () {
 
       const options = {
         method: "POST",
-        url: "/email",
+        url: "/emails",
         headers: { cookie: "token=" + accessToken },
         credentials: { id: "12", "name": "Simon", valid: true, "firstname": "Simon", emails: [{value: "dolores.maria9810@gmail.com"}], tokens: tokens},
         payload: payload
@@ -184,7 +184,7 @@ describe('Attempt to send email without being authenticated', function () {
       }
       const options = {
         method: "POST",
-        url: "/email",
+        url: "/emails",
         headers: { cookie: "token=" + accessToken },
         credentials: { id: "12", "name": "Simon", valid: true, "firstname": "Simon", emails: [{value: "dolores.maria9810@gmail.com"}], tokens: tokens},
         payload: payload
