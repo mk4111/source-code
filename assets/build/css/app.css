@@ -391,3 +391,6 @@ form.sendmail .row.emails, form.createlist .row.emails, form.appendtolist .row.e
     .pusher.search_content .results-grid div.ui.column p {
       font-weight: bold;
       font-family: 'blenderpro' !important; }
+
+.container.emails-list .ui.segment.actions {
+  text-align: center; }
