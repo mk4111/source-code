@@ -391,9 +391,3 @@ form.sendmail .row.emails, form.createlist .row.emails, form.appendtolist .row.e
     .pusher.search_content .results-grid div.ui.column p {
       font-weight: bold;
       font-family: 'blenderpro' !important; }
-
-.ui.sidebar.visible.source-list.crate-from-csv .dropdown.folder-selection .search {
-  padding-left: 74px; }
-
-.modal.createlist .dropdown.folder-selection label {
-  display: none; }
