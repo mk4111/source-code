@@ -20,7 +20,11 @@
             </div>
             <div class="field">
                 <label>Content:</label>
-                <textarea name="content" placeholder="Description" cols="10" rows="10" >{{email_template.content}}</textarea>
+
+<!-- break the fold otherwise it doesn't display the email's content correctly -->
+<textarea name="content" placeholder="Description" cols="10" rows="10">
+{{email_template.content}}
+</textarea>
             </div>
             <button type="submit" style="display:none;"></button>
         </form>
