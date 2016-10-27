@@ -1,0 +1,18 @@
+{{>navigation}}
+
+{{>sidebar_emails}}
+
+<div class="pusher">
+    <div class="ui container emails-list">
+    <div class="ui segments">
+        {{#each email_templates as | email_template |}}
+        <div class="ui segment">
+            <a href="" class="create_email_template">
+            <p class="title">{{email_template.name}} ({{email_template.subject}})</p>
+            </a>
+            {{>emails_template_modal email_template=email_template}}
+        </div>
+        {{/each}}
+    </div>
+    </div>
+</div>
