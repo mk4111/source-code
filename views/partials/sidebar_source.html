@@ -1,6 +1,7 @@
 <div class="ui left sidebar vertical menu visible candidate-search source-list">
     <div class="item list_name buttons">
         <form class="ui form list-edit" action="/source/edit" method="POST">
+            <div class="ui error message"></div>
             <input type="hidden" name="id" value="{{list._id}}">
             <input type="hidden" name="edit" value="true">
             <div class="field">
@@ -56,14 +57,12 @@
         <i class="close icon"></i>
         <div class="header"> Remove Selected </div>
         <div class="content">
-
+            Are you sure you want to remove selected from "{{list.name}}" list?
             <form action="/source/edit" method="POST" class="ui form removeselected">
                 <input type="hidden" name="remove" value="true">
                 <input type="hidden" name="id" value="{{list._id}}">
-                <div class="ui grid email-form candidates_form">
-                    <div class="row emails">
-                        <div class="sixteen wide column"></div>
-                    </div>
+                <div class="row emails">
+                    <div class="sixteen wide column"></div>
                 </div>
                 <div class="row">
                     <button class="ui button" type="submit" style="display:none;">Delete</button>
@@ -82,7 +81,7 @@
         <i class="close icon"></i>
         <div class="header"> Delete list </div>
         <div class="content">
-            <p> Are you sure you want to delete "{{list.name}}" list? </p>
+            Are you sure you want to delete "{{list.name}}" list?
             <form action="/source/delete/{{list._id}}" method="POST" class="ui form deletelist">
             <button class="ui button" type="submit" style="display:none;">Delete</button>
             </form>

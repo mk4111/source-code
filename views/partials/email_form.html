@@ -1,37 +1,65 @@
 
-<form action="/emails" method="POST" class="ui form sendmail">
+<form action="/emails" method="POST" class="ui form sendmail clients_jobs_dropdowns">
+    <div class="ui error message"></div>
+    <!-- some lagacy, but it's OK until it's display:none; -->
+    <div class="row emails"> {{>form_candidate}} </div>
+    {{# unless candidate}}
+    <div class="ui field">
+        <div class="ui grid selected-stats">
 
-<div class="ui grid email-form">
-    <div class="ui segment color red removed-emails" style="display: none;">
-        <p> <span class="counter"> </span> <span class="were" style="display:none;"> candidates were</span><span class="was" style="display:none;">candidate was</span> automatically filtered by blacklist filter.</p>
-    </div>
-    <div class="row emails">
-        <div class="sixteen wide column">
-            {{>form_candidate}}
-        </div>
-    </div>
-    <div class="row">
-        <div class="two wide column">
-            <img class="ui small circular image" src="/assets/img/team/{{request.auth.credentials.user.idGoogle}}.jpg" onerror="this.src='/assets/img/client-logo.png'"/>
-        </div>
-        <div class="fourteen wide column">
-            <div class="ui input subject"> <input type="text" name="subject" placeholder="Subject"/> </div>
-            <textarea name="message" placeholder="Message" cols="10" rows="10">Hi {name},</textarea>
-            <input hidden name="fn" value="{{request.auth.credentials.user.names.fullname}}">
-            <input hidden name="firstname" value="{{request.auth.credentials.user.names.firstname}}">
-            <input hidden name="role" value="{{request.auth.credentials.user.role}}">
-            <input hidden name="office" value="{{request.auth.credentials.user.phones.office}}">
-            <input hidden name="mobile" value="{{request.auth.credentials.user.phones.mobile}}">
-            <input hidden name="linkedin" value="{{request.auth.credentials.user.linkedin}}">
-            <input hidden name="signature" value='{{> email_signature}}'>
-            <div class="signature"> {{> email_signature}} </div>
-            <input type="hidden" name="pathUrl" value="{{pathUrl}}">
-            <div class="button-wrap">
-            <button class="ui button" type="submit">Send</button>
+            <div class="eight wide column">
+                <div class="ui inverted segment color green accepted-emails field" style="display: none;">
+                    <span class="counter"> </span> <span class="were" style="display:none;"> candidates</span><span class="was" style="display:none;">candidate</span> will be emailed.
+                </div>
+            </div>
+
+            <div class="eight wide column">
+                <div class="ui segment color red inverted removed-emails field" style="display: none;">
+                    <span class="counter"> </span> blacklisted <span class="were" style="display:none;"> candidates were</span><span class="was" style="display:none;">candidate was</span> automatically removed.
+                </div>
             </div>
         </div>
     </div>
+    {{/unless}}
 
+    <div class="field">
+        <label>Template:</label>
+        <div class="ui fluid search selection dropdown template-selection">
+        <input type="hidden" name="template" >
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Folder</div>
+        <div class="menu">
+            <div class="item" data-value="">None</div>
+            {{#each email_templates}}
+                <div class="item" data-value="{{_id}}">{{name}} ({{subject}})</div>
+            {{/each}}
+        </div>
 </div>
+    </div>
+
+    <div class="two fields">
+    {{>clients_jobs_dropdowns}}
+    </div>
+
+    <div class="field">
+        <label>Subject:</label>
+        <input  class="ui input" type="text" name="subject" placeholder="Subject"/>
+    </div>
+    <div class="field">
+        <label>Message:</label>
+<textarea name="message" placeholder="Message" cols="10" rows="10">Hi {name},</textarea>
+    </div>
+    <input hidden name="fn" value="{{request.auth.credentials.user.names.fullname}}">
+    <input hidden name="firstname" value="{{request.auth.credentials.user.names.firstname}}">
+    <input hidden name="role" value="{{request.auth.credentials.user.role}}">
+    <input hidden name="office" value="{{request.auth.credentials.user.phones.office}}">
+    <input hidden name="mobile" value="{{request.auth.credentials.user.phones.mobile}}">
+    <input hidden name="linkedin" value="{{request.auth.credentials.user.linkedin}}">
+    <input hidden name="signature" value='{{> email_signature}}'>
+    <!---
+    <div class="signature"> {{> email_signature}} </div>
+    -->
+    <input type="hidden" name="pathUrl" value="{{pathUrl}}">
+    <button class="ui button" type="submit" style="display:none;">Send</button>
 
 </form>

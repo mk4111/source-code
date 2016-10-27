@@ -7,6 +7,9 @@ $ ->
     if button.val()
       modal = button.parent().find(".modal." + button.val())
       button.click ->
+        console.log button.val()
+        if button.val() == "sendemail"
+          modal.modal({autofocus: false}); # don't open anything by default here. too many options.
         modal.modal('show');
         return false;
 
@@ -37,13 +40,6 @@ $ ->
 
   # add submission dropdown
   $('.modal.addsubmission .dropdown.stage').dropdown();
-  $('.modal.addsubmission .dropdown.job').dropdown();
-  $('.modal.addsubmission .dropdown.client').dropdown({
-    'onChange': (v) ->
-      $('.modal.addsubmission .dropdown.job div.item').hide();
-      $('.modal.addsubmission .dropdown.job div.item.client-id-' + v).show();
-      $('.modal.addsubmission .dropdown.job').dropdown('clear');
-    });
 
   # add form and validation
   $('.modal.addsubmission form').form({
