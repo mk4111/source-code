@@ -8,6 +8,8 @@ $(function() {
       }
     });
     return modal.find("form.sendmail").each(function() {
+      var form;
+      form = $(this);
       $(this).form({
         fields: {
           subject: 'empty',
@@ -19,7 +21,12 @@ $(function() {
       });
       return $(this).find(".dropdown.template-selection").dropdown({
         onChange: function(f) {
-          return console.log(f);
+          var html;
+          html = "";
+          if (f) {
+            html = form.find(".template_content." + f).html();
+          }
+          return form.find("textarea").html(html);
         }
       });
     });

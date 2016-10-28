@@ -8,7 +8,6 @@ $(function() {
     if (button.val()) {
       modal = button.parent().find(".modal." + button.val());
       return button.click(function() {
-        console.log(button.val());
         if (button.val() === "sendemail") {
           modal.modal({
             autofocus: false
