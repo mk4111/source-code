@@ -311,7 +311,21 @@ div.container.source-list .ui.bottom.attached.tab.segment {
 form.sendmail .segment span.counter, form.createlist .segment span.counter, form.appendtolist .segment span.counter, form.removeselected .segment span.counter {
   text-transform: capitalize; }
 
-form.sendmail .ui.grid.selected-stats .segment, form.createlist .ui.grid.selected-stats .segment, form.appendtolist .ui.grid.selected-stats .segment, form.removeselected .ui.grid.selected-stats .segment {
+form.sendmail .ui.grid.selected-stats
+.column:first-child, form.createlist .ui.grid.selected-stats
+.column:first-child, form.appendtolist .ui.grid.selected-stats
+.column:first-child, form.removeselected .ui.grid.selected-stats
+.column:first-child {
+  padding-right: 10px; }
+
+form.sendmail .ui.grid.selected-stats
+.column:last-child, form.createlist .ui.grid.selected-stats
+.column:last-child, form.appendtolist .ui.grid.selected-stats
+.column:last-child, form.removeselected .ui.grid.selected-stats
+.column:last-child {
+  padding-left: 10px; }
+
+form.sendmail .segment, form.createlist .segment, form.appendtolist .segment, form.removeselected .segment {
   height: 100%; }
 
 form.sendmail .row.emails, form.createlist .row.emails, form.appendtolist .row.emails, form.removeselected .row.emails {
