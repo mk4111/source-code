@@ -7,7 +7,14 @@
 
 form.sendmail, form.createlist, form.appendtolist, form.removeselected {
     .segment span.counter { text-transform: capitalize; }
-    .ui.grid.selected-stats .segment { height: 100%; }
+    .ui.grid.selected-stats
+    .column {
+            &:first-child { padding-right: 10px; }
+            &:last-child { padding-left: 10px; }
+        }
+    .segment { 
+        height: 100%;
+    }
     .row.emails {
         padding: 1rem 1.5rem;
         p:last-child .emails-comma { display: none; }
