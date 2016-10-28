@@ -7,8 +7,7 @@
             <div class="content">
                 <div class="ui bulleted list">
                     <div class="item">\{{candidate.firstname}} - Candidate's firstname eg. "Jon".</div>
-                    <div class="item">\{{candidate.lastname}} - Candidate's lastname eg. "Smith."</div>
-                    <div class="item">\{{candidate.name}} - Candidate's fullname eg. "Smith".</div>
+                    <div class="item">\{{candidate.fullname}} - Candidate's fullname eg. "Smith".</div>
                 </div>
             </div>
             <div class="title">
@@ -18,9 +17,6 @@
             <div class="content">
                 <div class="ui bulleted list">
                     <div class="item">\{{client.name}} - Client's name eg. "Global {M}".</div>
-                    <div class="item">\{{client.country}} - Client's head office country eg. "England / UK".</div>
-                    <div class="item">\{{client.city}} - Client's head office city eg. "London".</div>
-                    <div class="item">\{{client.address}} - Client's head office full address eg. "89 Worship street, London, UK".</div>
                 </div>
             </div>
             <div class="title">
@@ -30,10 +26,9 @@
             <div class="content">
                     <div class="ui bulleted list">
                     <div class="item">\{{job.title}} - Job's tile eg. "Fullstack Developer".</div>
-                    <div class="item">\{{job.country}} - Office's Country eg. "England / UK".</div>
-                    <div class="item">\{{job.city}} - Office's city eg. "London".</div>
-                    <div class="item">\{{job.address}} - Office full address eg. "89 Worship street, London, UK".</div>
-                    <div class="item">\{{job.contract}} - Job's contract type eg. "Permanent", "Contract" etc.</div>
+                    <div class="item">\{{job.address.country}} - Office's Country eg. "England / UK".</div>
+                    <div class="item">\{{job.address.city}} - Office's city eg. "London".</div>
+                    <div class="item">\{{job.employmenttype}} - Job's contract type eg. "Permanent", "Contract" etc.</div>
                 </div>
             </div>
         </div>
