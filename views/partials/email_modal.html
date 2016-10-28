@@ -8,10 +8,13 @@
             <a class="item" data-tab="preview">Preview</a>
         </div>
         <div class="ui bottom attached active tab segment" data-tab="editor">
-            {{>email_form pathUrl=request.url.path}}
+{{>email_form pathUrl=request.url.path}}
         </div>
-        <div class="ui bottom attached tab segment" data-tab="preview">
-          
+        <div class="ui bottom attached tab segment email_preview" data-tab="preview">
+<pre class="email_content"></pre>
+<div class="email_signature">
+{{> email_signature}}
+</div>
         </div>
 
     </div>
