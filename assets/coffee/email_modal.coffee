@@ -8,6 +8,7 @@ $ ->
       });
     
     modal.find("form.sendmail").each ->
+      form = $(this);
       $(this).form({
         fields: {
           subject: 'empty',
@@ -19,6 +20,8 @@ $ ->
         modal.modal('refresh');
 
       $(this).find(".dropdown.template-selection").dropdown {
-        onChange: (f) -> 
-          console.log(f);
+        onChange: (f) ->
+          html = "";
+          if f then html = form.find(".template_content." + f).html();
+          form.find("textarea").html html ;
       };
