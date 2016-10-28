@@ -22,6 +22,29 @@
     </div>
     {{/unless}}
 
+
+    <!-- countries -->
+    {{#each countries }}
+    <div class="template_content country {{_id}}" style="display:none;">{{label}}</div>
+    {{/each}}
+
+    <!-- candidate -->
+    <div class="template_content candidatefullname" style="display:none;">{{candidate.fullname}}</div>
+    <div class="template_content candidatefirstname" style="display:none;">{{candidate.firstName}}</div>
+    <!-- countries -->
+
+    <!-- clients -->
+    {{#each clientsWithJobs as |c id|}}
+    <div class="template_content clientname {{id}}" style="display:none;">{{c.name}}</div>
+    {{/each}}
+    <!-- jobs -->
+    {{#each activeJobs as |j id|}}
+    <div class="template_content title {{id}}" style="display:none;">{{j.title}}</div>
+    <div class="template_content contracttype {{id}}" style="display:none;">{{j.contractType}}</div>
+    <div class="template_content addresscountry {{id}}" style="display:none;">{{j.address.contry}}</div>
+    <div class="template_content addresscity {{id}}" style="display:none;">{{j.address.city}}</div>
+    {{/each}}
+
     <div class="field">
         <label>Template:</label>
         <div class="ui fluid search selection dropdown template-selection">
@@ -30,14 +53,16 @@
         <div class="default text">Select Folder</div>
         <div class="menu">
             <div class="item" data-value="">None</div>
-            {{#each email_templates}}
-<div class="template_content {{_id}}"  cols="10" rows="10" style="display:none;">{{content}}</div>
-                <div class="item" data-value="{{_id}}">{{name}} ({{subject}})</div>
-            {{/each}}
+<!-- templates -->
+{{#each email_templates}}
+<div class="template_content subject {{_id}}"  cols="10" rows="10" style="display:none;">{{subject}}</div>
+<div class="template_content content {{_id}}"  cols="10" rows="10" style="display:none;">{{content}}</div>
+<div class="item" data-value="{{_id}}">{{name}} ({{subject}})</div>
+{{/each}}
+
         </div>
 </div>
     </div>
-
     <div class="two fields">
     {{>clients_jobs_dropdowns}}
     </div>

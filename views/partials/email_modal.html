@@ -2,7 +2,18 @@
     <i class="close icon"></i>
     <div class="header"> Send Email </div>
     <div class="content">
-{{>email_form pathUrl=request.url.path}}
+
+        <div class="ui top attached tabular menu">
+            <a class="active item" data-tab="editor">Editor</a>
+            <a class="item" data-tab="preview">Preview</a>
+        </div>
+        <div class="ui bottom attached active tab segment" data-tab="editor">
+            {{>email_form pathUrl=request.url.path}}
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="preview">
+          
+        </div>
+
     </div>
     <div class="actions"> 
     <button type="button" class="ui button" value="sendmail">Send</button> 
