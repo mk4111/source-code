@@ -31,6 +31,7 @@
         <div class="menu">
             <div class="item" data-value="">None</div>
             {{#each email_templates}}
+<div class="template_content {{_id}}"  cols="10" rows="10" style="display:none;">{{content}}</div>
                 <div class="item" data-value="{{_id}}">{{name}} ({{subject}})</div>
             {{/each}}
         </div>
