@@ -3,6 +3,15 @@
         width: 100%;
         text-align: left;
     }
+    .email_preview .email_signature {
+        width: 100%;
+        margin-top: 2rem;
+        text-align: right;
+        table {
+            display: inline-block;
+            text-align: left;
+        }
+    }
 }
 
 form.sendmail, form.createlist, form.appendtolist, form.removeselected {
