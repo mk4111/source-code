@@ -308,6 +308,14 @@ div.container.source-list .ui.bottom.attached.tab.segment {
   width: 100%;
   text-align: left; }
 
+.modal.sendemail .email_preview .email_signature {
+  width: 100%;
+  margin-top: 2rem;
+  text-align: right; }
+  .modal.sendemail .email_preview .email_signature table {
+    display: inline-block;
+    text-align: left; }
+
 form.sendmail .segment span.counter, form.createlist .segment span.counter, form.appendtolist .segment span.counter, form.removeselected .segment span.counter {
   text-transform: capitalize; }
 
