@@ -21,7 +21,13 @@ $ ->
 
       $(this).find(".dropdown.template-selection").dropdown {
         onChange: (f) ->
-          html = "";
-          if f then html = form.find(".template_content." + f).html();
-          form.find("textarea").html html ;
+          content = "";
+          subject = "";
+          if f then content = form.find(".template_content.content." + f).html();
+          if f then subject = form.find(".template_content.subject." + f).html();
+          form.find("textarea").html content ;
+          form.find("input[name='subject']").val subject ;
       };
+
+    ## preview mode
+    modal.find(".menu .item").tab();
