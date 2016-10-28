@@ -7,7 +7,6 @@ $ ->
     if button.val()
       modal = button.parent().find(".modal." + button.val())
       button.click ->
-        console.log button.val()
         if button.val() == "sendemail"
           modal.modal({autofocus: false}); # don't open anything by default here. too many options.
         modal.modal('show');
