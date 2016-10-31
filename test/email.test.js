@@ -172,6 +172,7 @@ describe('Attempt to send email without being authenticated', function () {
         to: ["test@gmail.com","test2@gmail.com"],
         candidateID: ["12", "123"],
         candidateFN: ["maria", "maria2"],
+        candidateFULLN: ["maria any", "maria2 any2"],
         fn: "Simon",
         role: "dev",
         office: "007",
