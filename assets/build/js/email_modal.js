@@ -30,6 +30,7 @@ $(function() {
         content = content.replace('{{candidate.fullname}}', candidate_fullname);
       }
       if (candidate_firstname) {
+        candidate_firstname = candidate_firstname.charAt(0).toUpperCase() + candidate_firstname.slice(1).toLowerCase();
         content = content.replace('{{candidate.firstname}}', candidate_firstname);
       } else {
         content = content.replace('{{candidate.firstname}}', "[FULL NAME]");
@@ -41,8 +42,6 @@ $(function() {
     return function(value) {
       var content;
       content = email_content();
-      console.log(content);
-      console.log(content.match(/{{.*}}/));
       return !content.match(/{{.*}}/);
     };
   })(this);
@@ -63,7 +62,7 @@ $(function() {
             type: 'empty'
           }, {
             type: 'variables_defined[form]',
-            prompt: 'Some template\'s variables don\'t have defined values. Check preview to identify them'
+            prompt: 'Mesage: Some template\'s variables don\'t have defined values. Check preview to identify them'
           }
         ]
       }
