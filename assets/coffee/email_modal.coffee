@@ -26,15 +26,16 @@ $ ->
       content = content.replace('{{job.employmenttype}}', form.find(".template_content.jobemploymenttype." + jobId).html());
     if candidate_fullname then content = content.replace('{{candidate.fullname}}', candidate_fullname);
     else content = content.replace('{{candidate.fullname}}', candidate_fullname);
-    if candidate_firstname then content = content.replace('{{candidate.firstname}}', candidate_firstname);
-    else content = content.replace('{{candidate.firstname}}', "[FULL NAME]");
+    if candidate_firstname
+      candidate_firstname = candidate_firstname.charAt(0).toUpperCase() + candidate_firstname.slice(1).toLowerCase(); # copied from backend
+      content = content.replace('{{candidate.firstname}}', candidate_firstname);
+    else
+      content = content.replace('{{candidate.firstname}}', "[FULL NAME]");
 
     return content;
 
   $.fn.form.settings.rules.variables_defined = (value) =>
     content = email_content();
-    console.log(content)
-    console.log(content.match(/{{.*}}/))
     return !content.match(/{{.*}}/)
 
   form.form({
@@ -55,7 +56,7 @@ $ ->
           },
           {
             type: 'variables_defined[form]',
-            prompt: 'Some template\'s variables don\'t have defined values. Check preview to identify them'
+            prompt: 'Mesage: Some template\'s variables don\'t have defined values. Check preview to identify them'
           }
         ]
       },
