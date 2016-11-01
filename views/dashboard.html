@@ -5,6 +5,11 @@
   <div class="dashboards-list">
     <div class="ui container">
       <div class="ui grid">
+        <div class="row buttons-actions-top">
+          <div class="ui column right aligned">
+          {{>date_picker_modal}}
+          </div>
+        </div>
         {{#each userStages as |u|}}
           <div class="row">
           <div class="two wide ui column">
@@ -15,7 +20,7 @@
           <div class="fourteen wide ui column">
             <div class="stages-bar-wrap">
               <div class="stages-bar-wrap-inner">
-              {{>stages_bar applications=u.stages stages=../stages user=u.user see_all="All" button_elem="a" usersCallMap=../usersCallMap}}
+              {{>stages_bar applications=u.stages stages=../stages user=u.user see_all="All" button_elem="a" usersCallMap=../usersCallMap request=../request}}
               </div>
             </div>
           </div>
@@ -30,6 +35,11 @@
   <div class="dashboard">
     <section class="navigation">
       <div class="ui container">
+        <div class="ui grid buttons-actions-top">
+          <div class="ui column right aligned">
+          {{>date_picker_modal}}
+          </div>
+        </div>
         {{>stages_bar applications=userStages user=me see_all="See All" button_elem="button"}}
         {{>dashboard_menu}}
         {{>list_candidates jobs=allJobs}}
