@@ -143,8 +143,19 @@ div.dashboard div.list_candidats {
   div.dashboard div.list_candidats .column a {
     color: white; }
 
+.dashboard .buttons-actions-top, .dashboards-list .buttons-actions-top {
+  padding-bottom: 0;
+  margin-bottom: 0; }
+  .dashboard .buttons-actions-top button i, .dashboards-list .buttons-actions-top button i {
+    margin: 0 !important; }
+
 .dashboards-list {
   margin-top: 60px; }
+  .dashboards-list .row.buttons {
+    padding-bottom: 0;
+    margin-bottom: 0; }
+    .dashboards-list .row.buttons button i {
+      margin: 0 !important; }
   .dashboards-list .stages-bar-wrap {
     width: 100%;
     height: 100%;
