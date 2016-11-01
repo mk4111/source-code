@@ -13,6 +13,11 @@ Gulp.task('bower-files', function() {
     .pipe(Gulp.dest('./assets/vendor/semantic-ui'));
 
     Gulp.src([
+        './bower_components/semantic-ui-calendar/dist/calendar.min.*',
+    ])
+    .pipe(Gulp.dest('./assets/vendor/'));
+
+    Gulp.src([
         './bower_components/jquery/dist/jquery.min.js',
     ])
     .pipe(Gulp.dest('./assets/vendor/'));
@@ -33,17 +38,18 @@ Gulp.task('bower-files', function() {
     .pipe(Gulp.dest('./assets/vendor/'));
 
     Gulp.src([
-        './bower_components/animsition/dist/js/animsition.min.js',
-    ])
-    .pipe(Gulp.dest('./assets/vendor/'));
-
-    Gulp.src([
-        './bower_components/animsition/dist/css/animsition.min.css',
+        './bower_components/animsition/dist/js/animsition.min.*',
     ])
     .pipe(Gulp.dest('./assets/vendor/'));
 
     Gulp.src([
         './bower_components/underscore/underscore-min.js',
+    ])
+    .pipe(Gulp.dest('./assets/vendor/'));
+
+
+    Gulp.src([
+        './bower_components/numbers2words/build/numbers2words.min.js',
     ])
     .pipe(Gulp.dest('./assets/vendor/'));
 
