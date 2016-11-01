@@ -47,15 +47,9 @@ Gulp.task('bower-files', function() {
     ])
     .pipe(Gulp.dest('./assets/vendor/'));
 
-
     Gulp.src([
         './bower_components/numbers2words/build/numbers2words.min.js',
     ])
     .pipe(Gulp.dest('./assets/vendor/'));
 
-
-    Gulp.src([
-        './bower_components/numbers2words/build/numbers2words.min.js',
-    ])
-    .pipe(Gulp.dest('./assets/vendor/'));
 });
