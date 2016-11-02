@@ -21,7 +21,8 @@ module.exports = function (request) {
             css: 'source',
             url: '/csv-list/list'
         }, {
-            name: 'Mail'
+            name: 'Mail',
+            url: '/emails'
         }, {
             search: true, // harcoded 'template' name
             url: '/search'

@@ -2,6 +2,14 @@
 
 <div class="pusher">
     <div class="ui container emails_job">
+        <div class="ui gird">
+            <div class="row buttons">
+                {{#if request.query.back}}
+                <a class="ui button" href="{{request.query.back}}">BACK</a>
+                {{/if}}
+                <a class="ui button" href="/emails_jobs">ALL JOBS</a>
+            </div>
+        </div>
         {{#each job.emails}}
             <a href="/candidate/{{indexId}}"><i class="icon bug color red"></i></a>
         {{/each}}
