@@ -430,5 +430,11 @@ form.sendmail .row.emails, form.createlist .row.emails, form.appendtolist .row.e
 .container.emails-list .ui.segment.actions {
   text-align: center; }
 
+div.ui.container.emails_job .row.buttons {
+  margin-bottom: 10px;
+  text-align: center; }
+  div.ui.container.emails_job .row.buttons a {
+    display: inline-block; }
+
 div.ui.container.emails_job .emails_job_progress {
   margin-bottom: 40px; }
