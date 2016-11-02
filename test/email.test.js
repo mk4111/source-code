@@ -69,7 +69,7 @@ describe('Attempt to send email without being authenticated', function () {
         method: "POST",
         url: "/emails",
         headers: { cookie: "token=" + accessToken },
-        credentials: { id: "12", "name": "Simon", valid: true, "firstname": "Simon", emails: [{value: "dolores.maria9810@gmail.com"}], tokens: tokens},
+        credentials: { id: "12", "name": "Simon", valid: true, "firstname": "Simon", emails: [{value: "dolores.maria9810@gmail.com"}], tokens: tokens,  user: {idGoogle: "0001"} },
         payload: payload
       };
 
@@ -127,7 +127,7 @@ describe('Attempt to send email without being authenticated', function () {
         method: "POST",
         url: "/emails",
         headers: { cookie: "token=" + accessToken },
-        credentials: { id: "12", "name": "Simon", valid: true, "firstname": "Simon", emails: [{value: "dolores.maria9810@gmail.com"}], tokens: tokens},
+        credentials: { id: "12", "name": "Simon", valid: true, "firstname": "Simon", emails: [{value: "dolores.maria9810@gmail.com"}], tokens: tokens,  user: {idGoogle: "0001"} },
         payload: payload
       };
 
@@ -187,7 +187,7 @@ describe('Attempt to send email without being authenticated', function () {
         method: "POST",
         url: "/emails",
         headers: { cookie: "token=" + accessToken },
-        credentials: { id: "12", "name": "Simon", valid: true, "firstname": "Simon", emails: [{value: "dolores.maria9810@gmail.com"}], tokens: tokens},
+        credentials: { id: "12", "name": "Simon", valid: true, "firstname": "Simon", emails: [{value: "dolores.maria9810@gmail.com"}], tokens: tokens, user: {idGoogle: "0001"} },
         payload: payload
       };
 
