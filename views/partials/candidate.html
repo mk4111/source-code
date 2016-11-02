@@ -3,7 +3,7 @@
 
 {{#unless extended}}
 
-    <div class="one wide column email-checkbox
+    <div class="one wide column email-checkbox not-blacklisted
     {{#unless candidate.blacklisted}}
         {{#if candidate.email}}
             {{#unless (dateWithin candidate.lastEmail.timestamp 'month' -1) }}
