@@ -56,6 +56,7 @@ describe('Attempt to send email without being authenticated', function () {
         to: "test@gmail.com",
         candidateID: "12",
         candidateFN: "maria",
+        candidateFULLN: "mariaa",
         fn: "Simon",
         role: "dev",
         office: "007",
@@ -63,8 +64,6 @@ describe('Attempt to send email without being authenticated', function () {
         linkedin: "/in/simon",
         subject: "subject of the messsage test",
         message: "Hello {name}",
-
-
       }
       const options = {
         method: "POST",
@@ -113,6 +112,7 @@ describe('Attempt to send email without being authenticated', function () {
         to: "test@gmail.com",
         candidateID: "12",
         candidateFN: "maria",
+        candidateFULLN: "mariaa",
         fn: "Simon",
         role: "dev",
         office: "007",
