@@ -1,10 +1,12 @@
 <div class="emails_job_progress">
   <p class="job_status" style="display:none;">{{job.status}}</p>
   <p class="job_subject" style="display:none;">{{job.subject}}</p>
+  <a href="/emails_jobs/{{job._id}}">
   <div class="ui indicating progress" data-value="{{job.progress}}" data-total="{{job.schedulled_emails}}">
     <div class="bar">
       <div class="progress"></div>
     </div>
     <div class="label">"{{job.subject}}", Status: {{job.status}} ({job.progress}/{job.schedulled_emails})'</div>
   </div>
+  </a>
 </div>
