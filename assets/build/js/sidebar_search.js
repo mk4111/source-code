@@ -1,5 +1,5 @@
 $(function() {
-  var clear_button, connected_to_dropdown, deselect_button, email_button, enable_action_buttons, enable_search_button, enable_search_option, list_button, modal_countries, reset_button, resetable, search_button, search_form, select_button, sidebar, uri;
+  var clear_button, connected_to_dropdown, deselect_button, email_button, enable_action_buttons, enable_search_button, enable_search_option, list_button, reset_button, resetable, search_button, search_form, select_button, sidebar, uri;
   if (!$('.ui.sidebar.candidate-search')) {
     return;
   }
@@ -221,20 +221,5 @@ $(function() {
       id: 'empty'
     }
   });
-  sidebar.find('.modal.createlist form.appendtolist .list-selection').dropdown();
-  modal_countries = sidebar.find(".modal.countries").modal();
-  modal_countries.find("form").submit(function() {
-    search_form.find(".advance_search input[name='location']").val(modal_countries.find("input[type='radio']:checked").val());
-    modal_countries.modal('hide');
-    enable_search_button();
-    enable_search_option();
-    return false;
-  });
-  modal_countries.find(".actions .button").click(function() {
-    search_form.find(".advance_search input[name='location']").val(modal_countries.find("input[type='radio']:checked").val());
-    return modal_countries.modal('hide');
-  });
-  return search_form.find(".advance_search button.location").click(function() {
-    return modal_countries.modal('show');
-  });
+  return sidebar.find('.modal.createlist form.appendtolist .list-selection').dropdown();
 });
