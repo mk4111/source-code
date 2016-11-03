@@ -1,7 +1,33 @@
 {{>navigation}}
 
+{{#if result_job}}
+
+<div class="pusher">
+<div class="ui container list_progress">
+
+<div class="lists_progress">
+  <p class="job_status" style="display:none;">{{result_job.status}}</p>
+  <p class="job_subject" style="display:none;">{{list.name}}</p>
+  <p class="job_id" style="display:none;">{{result_job._id}}</p>
+  
+  <div class="ui indicating progress" data-value="{{result_job.progress}}" data-total="{{result_job.candidates_number}}">
+    <div class="bar">
+      <div class="progress"></div>
+    </div>
+    <div class="label">"{{list.name}}", Status: {{result_job.status}} ({{result_job.progress}}/{{result_job.candidates_number}})</div>
+  </div>
+  
+</div>
+
+</div>
+</div>
+
+{{else}}
+
 {{>sidebar_source}}
 
 <div class="pusher">
   {{>candidates_container}}
 </div>
+
+{{/if}}
