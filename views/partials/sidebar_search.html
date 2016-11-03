@@ -97,6 +97,13 @@
         </div>
     </div>
     <div class="item buttons">
+        <button type="button" class="ui button saveaslist modal-list-candiates
+        {{#if ( empty request.query) }}
+            disabled
+        {{/if}}
+        " value="createlist">SAVE RESULTS AS LIST</button>
+    </div>
+    <div class="item buttons">
         <div class="ui buttons horizontal">
         <button type="button" class="ui button reset disabled">RESET</button>
         <button type="submit" class="ui button disabled search">SEARCH</button>
