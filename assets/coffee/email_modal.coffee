@@ -24,13 +24,18 @@ $ ->
       content = content.replace('{{job.address.country}}', form.find(".template_content.jobaddresscountry." + jobId).html());
       content = content.replace('{{job.address.city}}', form.find(".template_content.jobaddresscity." + jobId).html());
       content = content.replace('{{job.employmenttype}}', form.find(".template_content.jobemploymenttype." + jobId).html());
-    if candidate_fullname then content = content.replace('{{candidate.fullname}}', candidate_fullname);
-    else content = content.replace('{{candidate.fullname}}', candidate_fullname);
+
     if candidate_firstname
       candidate_firstname = candidate_firstname.charAt(0).toUpperCase() + candidate_firstname.slice(1).toLowerCase(); # copied from backend
       content = content.replace('{{candidate.firstname}}', candidate_firstname);
     else
+      content = content.replace('{{candidate.firstname}}', "[FIRST NAME]");
+
+    if candidate_fullname
+      content = content.replace('{{candidate.firstname}}', candidate_fullname);
+    else
       content = content.replace('{{candidate.firstname}}', "[FULL NAME]");
+
 
     return content;
 
