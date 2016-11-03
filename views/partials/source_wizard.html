@@ -1,0 +1,28 @@
+<div class="ui modal sourcewizard">
+    <i class="close icon"></i>
+    <div class="header"> Source </div>
+    <div class="content">
+
+    <form class="ui form source" action="/search">
+        <div class="ui error message"></div>
+        <p> <b>Q1 -</b> Which client / role are you sourcing for? </p>
+        <div class="two fields clients_jobs_dropdowns">
+            {{>clients_jobs_dropdowns}}
+        </div>
+        <p> <b>Q2 -</b> Which country would you like your candidates from? </p>
+        <div class="ui field">
+            {{>location_input}}
+        </div>
+        <p> <b>Q3 -</b> Which skills do they need? </p>
+        <div class="field">
+            <div class="ui input">
+                <input type="text" name="skills" placeholder="Skills">
+            </div>
+        </div>
+    </form>
+    </div>
+    <div class="actions"> 
+        <button type="button" class="ui button source">Source</button> 
+    </div>
+    {{>location_modal}}
+</div>
