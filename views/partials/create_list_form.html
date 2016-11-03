@@ -9,7 +9,7 @@
 
     <div class="field">
         <label>Name</label>
-        <input name="name" class="ui input" placeholder="Name">
+        <input name="name" class="ui input" placeholder="Name" value="{{lookup (lookup clientsWithJobs request.query.clientId) 'name'}} - {{lookup (lookup activeJobs request.query.jobId) 'title'}}">
     </div>
     <div class="field">
         <label>Description</label>
